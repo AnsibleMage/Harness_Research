@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>새로e아름 — 우정인재개발원</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.min.css">
+  <style>
+    /*
+    FRAMEWORK: v3.1
+    OL: 10
+    WORLD: "측량소 — 좌표와 등고선으로 학습의 지형을 그리는 탐험 제어실"
+    GI: O9 C9 P9 S9 / A1 B2
+    CC: f(교육포털→지도제작실) = "학습과정=탐험경로, 진행률=등고선높이, 카테고리=지도범례, 수강=정상도달"
+    SLOTS: 메타포=지도제작실 | 색온도=대지 | 구조=대시보드 | 타이포=모노스페이스 | 악센트=보더전용
+    PREV: 표본진열장|광물|섹션스택|기하학적산세리프|텍스트전용 → 5/5 변경
+    PR: T(180°)x3 [히어로제거, 탑내비→사이드바, 풀섹션→패널] + M(+2)x2 [지도제작, 계기판]
+    */
+
+    :root {
+      --parchment: #f9f6f1;
+      --vellum: #f0ebe3;
+      --ink: #1a1612;
+      --sepia: #6b5c4d;
+      --dust: #a39585;
+      --terracotta: #c45d3e;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Pretendard', -apple-system, sans-serif;
+      background: var(--parchment);
+      color: var(--ink);
+      line-height: 1.6;
+      word-break: keep-all;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Sidebar: 지도제작실 서랍장 (T(180°) — 탑내비→사이드바) ── */
+    .sidebar {
+      position: fixed;
+      top: 0; left: 0; bottom: 0;
+      width: 240px;
+      background-color: var(--ink);
+      background-image: repeating-linear-gradient(
+        160deg,
+        transparent, transparent 24px,
+        rgba(255,255,255,0.015) 24px, rgba(255,255,255,0.015) 25px
+      );
+      color: var(--dust);
+      padding: 28px 0;
+      display: flex; flex-direction: column;
+      overflow-y: auto;
+      border-right: 1px solid rgba(255,255,255,0.06);
+      z-index: 100;
+    }
+
+    .sb-logo {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 18px; font-weight: 700;
+      color: var(--parchment);
+      padding: 0 24px; margin-bottom: 32px;
+    }
+
+    .sb-group {
+      padding-bottom: 16px; margin-bottom: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .sb-group:last-of-type { border-bottom: none; }
+
+    .sb-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px; font-weight: 600;
+      color: rgba(255,255,255,0.25);
+      padding: 0 24px; margin-bottom: 8px;
+      letter-spacing: 1px; text-transform: uppercase;
+    }
+
+    .sb-link {
+      display: block; padding: 10px 24px;
+      font-size: 15px; font-weight: 500;
+      color: var(--dust); text-decoration: none;
+      border-left: 3px solid transparent;
+      transition: all 0.2s;
+    }
+    .sb-link:hover,
+    .sb-link.active {
+      color: var(--parchment);
+      border-left-color: var(--terracotta);
+    }
+
+    .sb-ch {
+      display: flex; align-items: center; gap: 12px;
+      padding: 8px 24px; text-decoration: none;
+      transition: background 0.2s;
+    }
+    .sb-ch:hover { background: rgba(255,255,255,0.04); }
+    .sb-ch-dot {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: var(--sepia);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 700; color: var(--parchment);
+      flex-shrink: 0;
+    }
+    .sb-ch-name { font-size: 14px; color: var(--dust); }
+    .sb-ch-count { font-size: 14px; color: rgba(255,255,255,0.2); }
+
+    .sb-footer {
+      margin-top: auto;
+      padding: 16px 24px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .sb-user { font-size: 15px; color: var(--parchment); font-weight: 600; }
+    .sb-platform {
+      font-size: 14px; color: var(--dust); text-decoration: none;
+      border-bottom: 1px solid var(--terracotta);
+    }
+
+    /* ── Main: 제어실 메인 패널 ── */
+    .main {
+      margin-left: 240px;
+      min-height: 100dvh;
+    }
+
+    /* ── Topbar: T(180°) — 히어로 제거 → 인라인 검색+현황 ── */
+    .topbar {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      padding: 32px 40px;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .search-area { flex: 1; max-width: 600px; }
+    .search-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px; font-weight: 600;
+      color: var(--dust);
+      letter-spacing: 1px; text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .search-heading {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 28px; font-weight: 700;
+      letter-spacing: -0.5px; margin-bottom: 4px;
+    }
+    .search-sub {
+      font-size: 15px; color: var(--sepia);
+      margin-bottom: 16px;
+    }
+    .search-box {
+      display: flex;
+      border: 1px solid rgba(0,0,0,0.1);
+      border-radius: 4px; overflow: hidden;
+    }
+    .search-box:focus-within {
+      border-color: var(--terracotta);
+    }
+    .search-box input {
+      flex: 1; padding: 14px 18px; border: none;
+      background: var(--vellum);
+      font-family: inherit; font-size: 15px;
+      color: var(--ink); outline: none;
+    }
+    .search-box input::placeholder { color: var(--dust); }
+    .search-box input:focus { background: var(--parchment); }
+    .search-box button {
+      padding: 14px 24px; background: var(--ink);
+      border: none; color: var(--parchment);
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600; font-size: 14px;
+      cursor: pointer; transition: opacity 0.2s;
+    }
+    .search-box button:hover { opacity: 0.85; }
+    .search-hints { display: flex; gap: 8px; margin-top: 12px; }
+    .search-hints span {
+      font-size: 14px; color: var(--dust);
+      padding: 4px 12px;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 4px; cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .search-hints span:hover {
+      border-color: var(--terracotta);
+    }
+
+    .topbar-stat {
+      background: var(--vellum);
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 6px;
+      padding: 20px 28px; text-align: center;
+      flex-shrink: 0; margin-left: 32px;
+    }
+    .topbar-stat-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 44px; font-weight: 700;
+      line-height: 1;
+    }
+    .topbar-stat-label {
+      font-size: 14px; color: var(--dust);
+      font-weight: 500; margin-top: 4px;
+    }
+    .topbar-stat-detail {
+      font-size: 14px; color: var(--dust);
+      margin-top: 12px; line-height: 1.8; opacity: 0.6;
+    }
+
+    /* ── Section ── */
+    .section { padding: 40px 0 8px; }
+    .section-head {
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding: 0 40px; margin-bottom: 20px;
+    }
+    .section-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px; font-weight: 700;
+    }
+    .section-more {
+      font-size: 14px; color: var(--sepia);
+      text-decoration: none; font-weight: 500;
+      border-bottom: 1px solid var(--terracotta);
+      padding-bottom: 2px;
+    }
+    .section-more:hover { color: var(--ink); }
+
+    /* ── Scroll track ── */
+    .track {
+      display: flex; gap: 20px; overflow-x: auto;
+      padding: 0 40px 32px;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+    }
+    .track::-webkit-scrollbar { display: none; }
+
+    /* ── Video card ── */
+    .card {
+      flex: 0 0 320px; scroll-snap-align: start;
+      cursor: pointer;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      transition: border-color 0.25s;
+    }
+    .card:hover {
+      border-color: var(--terracotta);
+    }
+    .card-thumb {
+      width: 100%; aspect-ratio: 16/9;
+      background: var(--vellum);
+      border-radius: 4px 4px 0 0;
+      position: relative; overflow: hidden;
+    }
+    .card-play {
+      position: absolute; inset: 0;
+      background: rgba(26,22,18,0.3);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity 0.25s;
+    }
+    .card:hover .card-play { opacity: 1; }
+    .play-icon {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: rgba(249,246,241,0.95);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .play-icon::after {
+      content: ''; width: 0; height: 0;
+      border-style: solid; border-width: 8px 0 8px 14px;
+      border-color: transparent transparent transparent var(--ink);
+      margin-left: 2px;
+    }
+
+    .card-badges { position: absolute; top: 10px; left: 10px; display: flex; gap: 6px; }
+    .badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px; font-weight: 600;
+      padding: 3px 8px;
+      background: rgba(26,22,18,0.65); color: var(--parchment);
+      border-radius: 4px;
+    }
+    .card-heart {
+      position: absolute; top: 10px; right: 10px;
+      font-size: 14px; color: var(--parchment);
+      background: rgba(26,22,18,0.4);
+      padding: 3px 8px; border-radius: 4px;
+    }
+    .card-dur {
+      position: absolute; bottom: 8px; right: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px; font-weight: 600;
+      color: var(--parchment); background: rgba(0,0,0,0.55);
+      padding: 2px 8px; border-radius: 4px;
+    }
+
+    .card-inner { padding: 14px 12px 12px; }
+    .card-title {
+      font-size: 16px; font-weight: 700;
+      line-height: 1.4; margin-bottom: 4px;
+    }
+    .card-desc {
+      font-size: 14px; color: var(--sepia);
+      line-height: 1.5; margin-bottom: 4px;
+    }
+    .card-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px; color: var(--dust);
+    }
+
+    /* ── Continue watching ── */
+    .card-progress {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 3px; background: rgba(0,0,0,0.1);
+    }
+    .card-progress-fill {
+      height: 100%;
+      background: var(--ink);
+    }
+    .card-pct {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 15px; font-weight: 700;
+      margin-top: 4px;
+    }
+
+    /* ── CLASSROOM tabs ── */
+    .classroom { padding: 40px 0 8px; }
+    .tabs {
+      display: flex; gap: 0; padding: 0 40px;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+    .tab {
+      padding: 12px 24px; font-size: 15px; font-weight: 600;
+      color: var(--dust);
+      background: none; border: none;
+      border-bottom: 2px solid transparent;
+      cursor: pointer; transition: all 0.2s;
+      font-family: 'Pretendard', sans-serif;
+    }
+    .tab.active {
+      color: var(--ink);
+      border-bottom-color: var(--terracotta);
+    }
+    .tab:hover { color: var(--ink); }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ── 교육현황 ── */
+    .status-band {
+      margin: 8px 40px 32px;
+      padding: 32px 36px;
+      background-color: var(--ink);
+      background-image: repeating-linear-gradient(
+        160deg,
+        transparent, transparent 20px,
+        rgba(255,255,255,0.02) 20px, rgba(255,255,255,0.02) 21px
+      );
+      border-radius: 6px;
+      color: var(--parchment);
+      display: flex; gap: 40px;
+    }
+    .status-group { flex: 1; }
+    .status-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px; font-weight: 600;
+      margin-bottom: 12px;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.5px;
+    }
+    .status-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .status-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px; padding: 6px 14px;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.55);
+      font-weight: 500; border-radius: 4px;
+      transition: border-color 0.2s;
+    }
+    .status-pill:hover {
+      border-color: var(--terracotta);
+      color: rgba(255,255,255,0.85);
+    }
+
+    /* ── 전자도서관 ── */
+    .library {
+      margin: 0 40px 32px;
+      padding: 36px 40px;
+      background: var(--vellum);
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 6px;
+      display: flex; justify-content: space-between; align-items: center;
+      position: relative; overflow: hidden;
+    }
+    .library-text h3 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 24px; font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .library-text p { font-size: 15px; color: var(--sepia); }
+    .library-cta {
+      padding: 12px 28px; background: var(--ink);
+      color: var(--parchment); font-weight: 700;
+      font-size: 14px; border: none; border-radius: 4px;
+      cursor: pointer; text-decoration: none;
+      flex-shrink: 0; transition: opacity 0.2s;
+    }
+    .library-cta:hover { opacity: 0.85; }
+    .library-deco {
+      position: absolute; right: 180px; top: -8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 100px; font-weight: 700;
+      color: rgba(0,0,0,0.02); letter-spacing: 4px;
+    }
+
+    /* ── 도서 ── */
+    .book {
+      flex: 0 0 130px; scroll-snap-align: start;
+      text-align: center;
+    }
+    .book-cover {
+      width: 100%; aspect-ratio: 3/4;
+      background: var(--vellum);
+      border-radius: 4px; margin-bottom: 10px;
+      border: 1px solid rgba(0,0,0,0.06);
+      transition: border-color 0.25s;
+    }
+    .book:hover .book-cover {
+      border-color: var(--terracotta);
+    }
+    .book-title { font-size: 14px; font-weight: 600; line-height: 1.3; }
+    .book-author { font-size: 14px; color: var(--sepia); }
+
+    /* ── 연락처 ── */
+    .contact {
+      padding: 32px 40px;
+      border-top: 1px solid rgba(0,0,0,0.06);
+    }
+    .contact-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px; font-weight: 600;
+      letter-spacing: 1px; text-transform: uppercase;
+      margin-bottom: 20px; color: var(--dust);
+    }
+    .contact-grid { display: flex; gap: 32px; flex-wrap: wrap; }
+    .contact-item strong {
+      display: block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 16px; font-weight: 700;
+      margin-bottom: 2px;
+    }
+    .contact-item span { font-size: 14px; color: var(--sepia); }
+
+    /* ── Footer ── */
+    footer {
+      padding: 24px 40px 16px;
+      border-top: 1px solid rgba(0,0,0,0.06);
+    }
+    .footer-top {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 12px; padding-bottom: 10px;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+    .footer-logo {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px; font-weight: 600;
+      color: var(--sepia);
+    }
+    .footer-links { display: flex; gap: 14px; flex-wrap: wrap; }
+    .footer-links a { font-size: 14px; color: var(--dust); text-decoration: none; }
+    .footer-links a:first-child { font-weight: 700; color: var(--ink); }
+    .footer-links a:hover { border-bottom: 1px solid var(--terracotta); }
+    .footer-info {
+      font-size: 14px; color: rgba(0,0,0,0.2);
+      line-height: 1.8; margin-bottom: 6px;
+    }
+    .footer-copy { font-size: 14px; color: rgba(0,0,0,0.12); }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .sidebar {
+        position: static; width: 100%;
+        flex-direction: row; align-items: center;
+        padding: 12px 20px; overflow-x: auto;
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+        background-image: none;
+      }
+      .sb-logo { margin-bottom: 0; margin-right: 20px; white-space: nowrap; }
+      .sb-group {
+        display: flex; gap: 4px; border-bottom: none;
+        padding: 0; margin: 0;
+      }
+      .sb-link {
+        padding: 8px 12px; border-left: none;
+        white-space: nowrap; font-size: 14px;
+      }
+      .sb-link:hover { border-left-color: transparent; }
+      .sb-channels, .sb-footer, .sb-label { display: none; }
+
+      .main { margin-left: 0; }
+      .topbar { padding: 24px 20px; flex-direction: column; gap: 16px; }
+      .topbar-stat { margin-left: 0; }
+      .search-area { max-width: 100%; }
+      .search-heading { font-size: 22px; }
+      .section-head, .tabs { padding-left: 20px; padding-right: 20px; }
+      .track { padding: 0 20px 24px; }
+      .card { flex: 0 0 280px; }
+      .status-band {
+        margin: 8px 20px 24px; flex-direction: column;
+        gap: 20px; padding: 24px 20px;
+      }
+      .library {
+        margin: 0 20px 24px; padding: 28px 20px;
+        flex-direction: column; gap: 12px;
+      }
+      .contact { padding: 24px 20px; }
+      .contact-grid { gap: 16px; }
+      footer { padding: 16px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar: T(180deg) — 수평 탑내비를 수직 사이드바로 전복 -->
+  <aside class="sidebar">
+    <div class="sb-logo">새로e아름</div>
+    <div class="sb-group">
+      <a href="#" class="sb-link active">나의공간</a>
+      <a href="#" class="sb-link">콘텐츠</a>
+      <a href="#" class="sb-link">채널</a>
+      <a href="#" class="sb-link">직무인증</a>
+    </div>
+    <div class="sb-group sb-channels">
+      <div class="sb-label">Channels</div>
+      <a href="#" class="sb-ch">
+        <span class="sb-ch-dot">우정</span>
+        <div><div class="sb-ch-name">우정인재개발원</div><div class="sb-ch-count">50,032명</div></div>
+      </a>
+      <a href="#" class="sb-ch">
+        <span class="sb-ch-dot">교육</span>
+        <div><div class="sb-ch-name">교육큐레이션</div><div class="sb-ch-count">52,149명</div></div>
+      </a>
+      <a href="#" class="sb-ch">
+        <span class="sb-ch-dot">보이</span>
+        <div><div class="sb-ch-name">보이스피싱 예방</div><div class="sb-ch-count">49,533명</div></div>
+      </a>
+    </div>
+    <div class="sb-group">
+      <a href="#" class="sb-link">고객지원센터</a>
+    </div>
+    <div class="sb-footer">
+      <div class="sb-user">홍길동님</div>
+      <a href="#" class="sb-platform">플랫폼</a>
+    </div>
+  </aside>
+
+  <!-- Main content panel -->
+  <main class="main">
+
+    <!-- Topbar: T(180deg) — 히어로 배너 제거, 인라인 검색+현황 -->
+    <div class="topbar">
+      <div class="search-area">
+        <div class="search-label">AX Education Curator</div>
+        <h1 class="search-heading">무엇이든 물어보세요</h1>
+        <p class="search-sub">구체적으로 질문하시면 더 정확한 답변이 나옵니다</p>
+        <div class="search-box">
+          <input type="text" placeholder="교육 과정, 수료증, 수강 방법...">
+          <button>검색</button>
+        </div>
+        <div class="search-hints">
+          <span>교육 신청은 어떻게 해?</span>
+          <span>수료증은 어디서 받아?</span>
+          <span>온라인 수강 방법은?</span>
+        </div>
+      </div>
+      <div class="topbar-stat">
+        <div class="topbar-stat-num">5</div>
+        <div class="topbar-stat-label">아름포인트</div>
+        <div class="topbar-stat-detail">필수 6과정<br>법정 6과정</div>
+      </div>
+    </div>
+
+    <!-- 이어서 학습하기 -->
+    <section class="section continue">
+      <div class="section-head">
+        <h2 class="section-title">이어서 학습하기</h2>
+        <a href="#" class="section-more">전체보기</a>
+      </div>
+      <div class="track">
+        <div class="card">
+          <div class="card-thumb">
+            <div class="card-play"><div class="play-icon"></div></div>
+            <div class="card-badges"><span class="badge">진행중</span></div>
+            <div class="card-dur">12:34</div>
+            <div class="card-progress"><div class="card-progress-fill" style="width:30%"></div></div>
+          </div>
+          <div class="card-inner">
+            <div class="card-title">우편취급 위반관련 법규</div>
+            <div class="card-pct">30%</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-thumb">
+            <div class="card-play"><div class="play-icon"></div></div>
+            <div class="card-badges"><span class="badge">진행중</span></div>
+            <div class="card-dur">08:15</div>
+            <div class="card-progress"><div class="card-progress-fill" style="width:65%"></div></div>
+          </div>
+          <div class="card-inner">
+            <div class="card-title">도전! 나의 손해 2</div>
+            <div class="card-pct">65%</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-thumb">
+            <div class="card-play"><div class="play-icon"></div></div>
+            <div class="card-badges"><span class="badge">진행중</span></div>
+            <div class="card-dur">22:10</div>
+            <div class="card-progress"><div class="card-progress-fill" style="width:10%"></div></div>
+          </div>
+          <div class="card-inner">
+            <div class="card-title">청렴판단력 키우기</div>
+            <div class="card-pct">10%</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLASSROOM -->
+    <section class="classroom">
+      <div class="section-head">
+        <h2 class="section-title">CLASSROOM</h2>
+        <a href="#" class="section-more">전체보기</a>
+      </div>
+      <div class="tabs">
+        <button class="tab active" onclick="switchTab('required',this)">이것이 필수다</button>
+        <button class="tab" onclick="switchTab('foryou',this)">당신에게 딱이다</button>
+      </div>
+
+      <div class="tab-panel active" id="panel-required">
+        <div class="track" style="padding-top:20px">
+          <div class="card">
+            <div class="card-thumb">
+              <div class="card-play"><div class="play-icon"></div></div>
+              <div class="card-badges"><span class="badge">60분</span><span class="badge">국정철학</span></div>
+              <span class="card-heart">♡ 42</span>
+            </div>
+            <div class="card-inner">
+              <div class="card-title">개인정보 보호교육</div>
+              <div class="card-desc">우정사업본부 직원이 알아야할 개인정보 보호의 핵심</div>
+              <div class="card-meta">수강 1,234 · 댓글 56</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-thumb">
+              <div class="card-play"><div class="play-icon"></div></div>
+              <div class="card-badges"><span class="badge">60분</span><span class="badge">직무공통</span></div>
+              <span class="card-heart">♡ 55</span>
+            </div>
+            <div class="card-inner">
+              <div class="card-title">정보보안기본교육</div>
+              <div class="card-desc">우정사업본부 직원이 알아야 할 정보보안 기초</div>
+              <div class="card-meta">수강 2,100 · 댓글 89</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-thumb">
+              <div class="card-play"><div class="play-icon"></div></div>
+              <div class="card-badges"><span class="badge">60분</span><span class="badge">국정철학</span></div>
+              <span class="card-heart">♡ 27</span>
+            </div>
+            <div class="card-inner">
+              <div class="card-title">이해충돌방지법</div>
+              <div class="card-desc">알기 쉬운 이해충돌방지법</div>
+              <div class="card-meta">수강 756 · 댓글 12</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="panel-foryou">
+        <div class="track" style="padding-top:20px">
+          <div class="card">
+            <div class="card-thumb">
+              <div class="card-play"><div class="play-icon"></div></div>
+              <div class="card-badges"><span class="badge">60분</span><span class="badge">직무공통</span></div>
+              <span class="card-heart">♡ 38</span>
+            </div>
+            <div class="card-inner">
+              <div class="card-title">개인정보보호교육(이용자)</div>
+              <div class="card-meta">수강 987 · 댓글 23</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-thumb">
+              <div class="card-play"><div class="play-icon"></div></div>
+              <div class="card-badges"><span class="badge">60분</span><span class="badge">직무공통</span></div>
+              <span class="card-heart">♡ 91</span>
+            </div>
+            <div class="card-inner">
+              <div class="card-title">엑셀실무테크닉</div>
+              <div class="card-desc">엑셀 실무 테크닉 일잘러의 보고서</div>
+              <div class="card-meta">수강 3,456 · 댓글 201</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 교육현황 -->
+    <div class="status-band">
+      <div class="status-group">
+        <div class="status-label">필수교육 이수현황</div>
+        <div class="status-pills">
+          <span class="status-pill">공직가치 5/10</span><span class="status-pill">적극행정 5/10</span><span class="status-pill">성인지 5/10</span>
+          <span class="status-pill">정보화 5/10</span><span class="status-pill">정보보안 5/10</span><span class="status-pill">개인정보 5/10</span>
+        </div>
+      </div>
+      <div class="status-group">
+        <div class="status-label">법정교육 이수현황</div>
+        <div class="status-pills">
+          <span class="status-pill">성폭력예방 5/10</span><span class="status-pill">감염병예방 5/10</span><span class="status-pill">자살예방 5/10</span>
+          <span class="status-pill">안보 5/10</span><span class="status-pill">장애인식개선 5/10</span><span class="status-pill">아동학대예방 5/10</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 전자도서관 -->
+    <div class="library">
+      <div class="library-text">
+        <h3>전자도서관</h3>
+        <p>슬기로운 독서생활! 전자도서관에 접속해 보세요</p>
+      </div>
+      <a href="#" class="library-cta">사람은 책을 만들고 책은 사람을 만든다</a>
+      <div class="library-deco">BOOK</div>
+    </div>
+
+    <!-- 도서 -->
+    <section class="section">
+      <div class="section-head">
+        <h2 class="section-title">지금, 이 책!</h2>
+        <a href="#" class="section-more">전체보기</a>
+      </div>
+      <div class="track">
+        <div class="book"><div class="book-cover"></div><div class="book-title">가짜 노동</div><div class="book-author">데니스 뇌르마르크</div></div>
+        <div class="book"><div class="book-cover"></div><div class="book-title">공부하고 있다는 착각</div><div class="book-author">대니얼 T. 윌링햄</div></div>
+        <div class="book"><div class="book-cover"></div><div class="book-title">기본의 디자인</div><div class="book-author">아키타 미치오</div></div>
+        <div class="book"><div class="book-cover"></div><div class="book-title">도파민네이션</div><div class="book-author">애나 렘키</div></div>
+        <div class="book"><div class="book-cover"></div><div class="book-title">쇼펜하우어</div><div class="book-author">강용수</div></div>
+        <div class="book"><div class="book-cover"></div><div class="book-title">마흔에 읽는 쇼펜하우어</div><div class="book-author">강용수</div></div>
+      </div>
+    </section>
+
+    <!-- 연락처 -->
+    <section class="contact">
+      <div class="contact-label">Contact</div>
+      <div class="contact-grid">
+        <div class="contact-item"><strong>041-560-5350</strong><span>이러닝 문의</span></div>
+        <div class="contact-item"><strong>041-560-5264</strong><span>집합교육(선발)</span></div>
+        <div class="contact-item"><strong>041-560-5311</strong><span>집합교육(계획)</span></div>
+        <div class="contact-item"><strong>041-560-5312</strong><span>직무인증평가</span></div>
+        <div class="contact-item"><strong>041-560-5151</strong><span>지금, 이 책!</span></div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-top">
+        <div class="footer-logo">우정인재개발원</div>
+        <div class="footer-links">
+          <a href="#">개인정보처리 방침</a><a href="#">영상정보처리기기 운영관리 방침</a><a href="#">이메일주소 무단수집거부</a><a href="#">이용약관</a><a href="#">찾아오시는길</a><a href="#">고객지원센터</a>
+        </div>
+      </div>
+      <div class="footer-info">(31068) 충청남도 천안시 동남구 양지말1길 (유량동) 우정인재개발원 | 041-560-5350 | cyber123@korea.kr</div>
+      <div class="footer-copy">COPYRIGHT(C) 2016 KOREA POST. ALL RIGHTS RESERVED.</div>
+    </footer>
+  </main>
+
+  <script>
+  function switchTab(id, btn) {
+    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+    document.querySelectorAll('.tab').forEach(function(b) { b.classList.remove('active'); });
+    document.getElementById('panel-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+  </script>
+</body>
+</html>

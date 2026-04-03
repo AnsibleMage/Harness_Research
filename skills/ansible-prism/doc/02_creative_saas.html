@@ -1,0 +1,1817 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>새로e아름 — 우정인재개발원</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /*
+     * ============================================================
+     *  CSS METADATA
+     * ============================================================
+     *  Project      : 새로e아름 — 우정인재개발원 메인 페이지
+     *  Framework    : Creative Generation Framework v3.2
+     *  OL           : 10 (Genius Originality)
+     *  SLOT_1       : 재봉공방 (Sewing Workshop Metaphor)
+     *  SLOT_2       : 온난 (Warm Palette)
+     *  SLOT_3       : 모자이크캔버스 (Mosaic Canvas Grid)
+     *  SLOT_4       : 클래식세리프 (Instrument Serif + Pretendard)
+     *  SLOT_5       : 듀얼교차 (Dual Accent Alternation)
+     *  WORLD        : 자수공방 — 천 위에 한 땀 한 땀 학습의 실을 엮어가는 따뜻한 수공예 공간
+     *  PR T(180°)   : 경계 없는 모자이크 / 패치워크 크기 차등 / 카드별 배경색 변주
+     *  css_vars     : --fabric, --thread, --needle, --patch, --spool
+     *  border       : 1px dashed (바느질 선)
+     *  texture      : repeating-linear-gradient 45deg (직물 직조)
+     *  Generated    : 2026-03-22
+     * ============================================================
+     */
+
+    /* ── CUSTOM PROPERTIES ── */
+    :root {
+      /* SLOT_1: Sewing Workshop tokens */
+      --fabric: #f5f0e8;
+      --thread: #c05621;
+      --needle: #b45309;
+      --patch: #fffcf7;
+      --spool: #a8a29e;
+
+      /* SLOT_2: Warm palette */
+      --base-bg: #f5f0e8;
+      --base-bg-alt: #faf7f2;
+      --card-bg: #fffcf7;
+      --dark-bg: #1c1917;
+      --heading-color: #1c1917;
+      --body-color: #78716c;
+      --muted-color: #a8a29e;
+      --accent-a: #c05621;
+      --accent-b: #b45309;
+
+      /* SLOT_4: Typography */
+      --font-serif: 'Instrument Serif', serif;
+      --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+      --display-size: 48px;
+      --heading-ls: -0.5px;
+
+      /* SLOT_3: Grid */
+      --grid-gap: 2px;
+      --card-radius: 6px;
+
+      /* Stitching pattern */
+      --stitch-color: #d4c8b8;
+      --stitch-accent: #c05621;
+    }
+
+    /* ── RESET & BASE ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 14px;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--body-color);
+      background: var(--base-bg);
+      line-height: 1.6;
+      min-height: 100vh;
+      /* SLOT_1 texture: 직물 직조 패턴 */
+      background-image:
+        repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 10px,
+          rgba(168, 162, 158, 0.03) 10px,
+          rgba(168, 162, 158, 0.03) 11px
+        ),
+        repeating-linear-gradient(
+          -45deg,
+          transparent,
+          transparent 10px,
+          rgba(168, 162, 158, 0.03) 10px,
+          rgba(168, 162, 158, 0.03) 11px
+        );
+    }
+
+    a { color: inherit; text-decoration: none; transition: color 0.25s; }
+    a:hover { color: var(--accent-a); }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-serif);
+      color: var(--heading-color);
+      letter-spacing: var(--heading-ls);
+      font-weight: 400;
+    }
+
+    /* ── STITCH DECORATIONS ── */
+    .stitch-line {
+      border: none;
+      border-top: 1px dashed var(--stitch-color);
+      margin: 0;
+    }
+
+    .stitch-line--accent {
+      border-top-color: var(--stitch-accent);
+    }
+
+    /* Wavy stitching separator via SVG background */
+    .stitch-wavy {
+      height: 8px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='8'%3E%3Cpath d='M0 4 Q5 0 10 4 T20 4 T30 4 T40 4' fill='none' stroke='%23d4c8b8' stroke-width='1' stroke-dasharray='3 2'/%3E%3C/svg%3E") repeat-x center;
+    }
+
+    /* ── NAV (outside grid) ── */
+    .nav-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--card-bg);
+      border-bottom: 1px dashed var(--stitch-color);
+      backdrop-filter: blur(8px);
+    }
+
+    .nav-util {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 6px 24px;
+      font-size: 14px;
+      color: var(--muted-color);
+      border-bottom: 1px dashed var(--stitch-color);
+    }
+
+    .nav-util a {
+      color: var(--muted-color);
+      margin-left: 12px;
+      font-size: 14px;
+    }
+
+    .nav-util .dark-toggle {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nav-main {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 12px 24px;
+    }
+
+    .nav-logo {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      color: var(--heading-color);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-logo .logo-mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      background: var(--accent-a);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 14px;
+    }
+
+    .nav-user {
+      font-size: 14px;
+      color: var(--body-color);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-user a { color: var(--accent-a); font-size: 14px; }
+
+    .nav-gnb {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px 10px;
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .nav-gnb a {
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--heading-color);
+      border: 1px dashed var(--stitch-color);
+      transition: all 0.25s;
+      background: transparent;
+    }
+
+    .nav-gnb a:hover {
+      background: var(--accent-a);
+      color: #fff;
+      border-color: var(--accent-a);
+      border-style: solid;
+    }
+
+    /* ── MOSAIC CANVAS GRID (SLOT_3) ── */
+    .mosaic {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: var(--grid-gap);
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2px 24px;
+    }
+
+    /* ── CARD BASE (Patchwork) ── */
+    .patch {
+      border-radius: var(--card-radius);
+      border: 1px dashed var(--stitch-color);
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .patch:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(28, 25, 23, 0.06);
+    }
+
+    /* Stitching corner decoration */
+    .patch::before {
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      right: 4px;
+      bottom: 4px;
+      border: 1px dashed transparent;
+      border-radius: 4px;
+      pointer-events: none;
+      transition: border-color 0.3s;
+    }
+
+    .patch:hover::before {
+      border-color: var(--stitch-color);
+    }
+
+    /* ── PATCHWORK BACKGROUND COLORS (PR T180° #3) ── */
+    .patch--cream { background: #fffcf7; }
+    .patch--ivory { background: #faf7f2; }
+    .patch--linen { background: #f5f0e8; }
+    .patch--pearl { background: #fefdfb; }
+    .patch--wheat { background: #f8f3ec; }
+    .patch--snow  { background: #fffefa; }
+    .patch--eggshell { background: #fdf8f0; }
+    .patch--bisque { background: #fcf5eb; }
+    .patch--cotton { background: #faf6f0; }
+    .patch--muslin { background: #f7f2ea; }
+
+    /* ── SLOT_5: Dual Accent Alternation ── */
+    .accent-a { color: var(--accent-a); }
+    .accent-b { color: var(--accent-b); }
+    .accent-a-border { border-color: var(--accent-a) !important; }
+    .accent-b-border { border-color: var(--accent-b) !important; }
+
+    .patch--accent-a {
+      border-color: var(--accent-a);
+    }
+
+    .patch--accent-b {
+      border-color: var(--accent-b);
+    }
+
+    /* ── S02: AI SEARCH (big patch) ── */
+    .patch-search {
+      grid-column: span 5;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      padding: 28px 24px;
+    }
+
+    .patch-search .ai-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--accent-a);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 700;
+      font-family: var(--font-serif);
+    }
+
+    .patch-search h2 {
+      font-size: 24px;
+      line-height: 1.3;
+    }
+
+    .search-input {
+      display: flex;
+      align-items: center;
+      background: var(--base-bg);
+      border: 1px dashed var(--stitch-color);
+      border-radius: 20px;
+      padding: 10px 16px;
+      font-size: 14px;
+      color: var(--muted-color);
+      font-family: var(--font-sans);
+    }
+
+    .search-input .search-icon {
+      margin-right: 8px;
+      color: var(--accent-a);
+    }
+
+    .search-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .search-tags span {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 14px;
+      background: var(--base-bg);
+      color: var(--body-color);
+      border: 1px dashed var(--stitch-color);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .search-tags span:hover {
+      border-color: var(--accent-a);
+      color: var(--accent-a);
+    }
+
+    /* ── S02: LIBRARY (banner patch) ── */
+    .patch-library {
+      grid-column: span 7;
+      background: var(--dark-bg) !important;
+      color: #faf7f2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 12px;
+      padding: 32px 28px;
+      position: relative;
+    }
+
+    .patch-library small {
+      font-size: 14px;
+      color: var(--spool);
+    }
+
+    .patch-library h2 {
+      color: #faf7f2;
+      font-size: 36px;
+      line-height: 1.2;
+    }
+
+    .patch-library p {
+      color: var(--spool);
+      font-size: 15px;
+    }
+
+    .patch-library .lib-btn {
+      display: inline-block;
+      padding: 8px 20px;
+      border-radius: 20px;
+      border: 1px dashed rgba(250, 247, 242, 0.4);
+      color: #faf7f2;
+      font-size: 14px;
+      width: fit-content;
+      transition: all 0.25s;
+    }
+
+    .patch-library .lib-btn:hover {
+      background: var(--accent-a);
+      border-color: var(--accent-a);
+      border-style: solid;
+    }
+
+    .patch-library .lib-deco {
+      position: absolute;
+      bottom: 16px;
+      right: 24px;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 20px;
+      color: rgba(250, 247, 242, 0.15);
+    }
+
+    .patch-library .lib-marker {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      width: 24px;
+      height: 24px;
+      background: var(--accent-a);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    /* ── Stitching row divider between major sections ── */
+    .stitch-row {
+      grid-column: span 12;
+      height: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .stitch-row::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      border-top: 1px dashed var(--stitch-color);
+    }
+
+    .stitch-row .stitch-knot {
+      position: relative;
+      z-index: 1;
+      width: 8px;
+      height: 8px;
+      background: var(--stitch-color);
+      border-radius: 50%;
+    }
+
+    /* ── S03: LEARNING STATUS ── */
+    .patch-status-title {
+      grid-column: span 12;
+      padding: 16px 20px 8px;
+      background: transparent;
+      border: none;
+    }
+
+    .patch-status-title:hover {
+      transform: none;
+      box-shadow: none;
+    }
+
+    .patch-status-title::before { display: none; }
+
+    .patch-status-title h2 {
+      font-size: 28px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .patch-status-title h2 .marker {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      background: var(--accent-b);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 14px;
+      font-family: var(--font-sans);
+      font-weight: 600;
+    }
+
+    .patch-donut {
+      grid-column: span 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 24px 16px;
+    }
+
+    .donut-ring {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 6px dashed var(--accent-a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .donut-ring .donut-num {
+      font-family: var(--font-serif);
+      font-size: 36px;
+      color: var(--accent-a);
+    }
+
+    .donut-label {
+      font-size: 14px;
+      color: var(--body-color);
+    }
+
+    .patch-courses {
+      grid-column: span 9;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      padding: 20px;
+    }
+
+    .course-group-title {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--heading-color);
+      margin-bottom: 4px;
+    }
+
+    .course-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 14px;
+      border: 1px dashed var(--stitch-color);
+      background: var(--base-bg-alt);
+      color: var(--body-color);
+      white-space: nowrap;
+    }
+
+    .pill--a { border-color: var(--accent-a); color: var(--accent-a); }
+    .pill--b { border-color: var(--accent-b); color: var(--accent-b); }
+
+    .pill-arrow {
+      font-size: 14px;
+      color: var(--muted-color);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    /* ── S04: CLASSROOM ── */
+    .patch-classroom-header {
+      grid-column: span 12;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 20px 24px 12px;
+      border: none;
+      background: transparent;
+    }
+
+    .patch-classroom-header:hover { transform: none; box-shadow: none; }
+    .patch-classroom-header::before { display: none; }
+
+    .classroom-heading {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .classroom-heading h2 {
+      font-size: var(--display-size);
+      line-height: 1;
+    }
+
+    .slogans {
+      display: flex;
+      gap: 4px;
+    }
+
+    .slogan-tab {
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 500;
+      border: 1px dashed var(--stitch-color);
+      background: transparent;
+      color: var(--body-color);
+      cursor: pointer;
+      transition: all 0.25s;
+      font-family: var(--font-sans);
+    }
+
+    .slogan-tab.active {
+      background: var(--accent-a);
+      color: #fff;
+      border-color: var(--accent-a);
+      border-style: solid;
+    }
+
+    .slogan-tab:hover:not(.active) {
+      border-color: var(--accent-a);
+      color: var(--accent-a);
+    }
+
+    .view-all {
+      font-size: 14px;
+      color: var(--accent-a);
+      font-weight: 500;
+    }
+
+    .patch-classroom-tabs {
+      grid-column: span 12;
+      padding: 0 24px 8px;
+      display: flex;
+      gap: 8px;
+      border: none;
+      background: transparent;
+    }
+
+    .patch-classroom-tabs:hover { transform: none; box-shadow: none; }
+    .patch-classroom-tabs::before { display: none; }
+
+    .cat-tab {
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 14px;
+      border: 1px dashed var(--stitch-color);
+      background: transparent;
+      color: var(--body-color);
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: var(--font-sans);
+    }
+
+    .cat-tab.active {
+      background: var(--heading-color);
+      color: #fff;
+      border-color: var(--heading-color);
+      border-style: solid;
+    }
+
+    .cat-tab:hover:not(.active) {
+      border-color: var(--accent-b);
+      color: var(--accent-b);
+    }
+
+    /* Course cards in grid — SLOT_5 dual accent alternation per cell */
+    .patch-course {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .patch-course .course-thumb {
+      width: 100%;
+      aspect-ratio: 16/10;
+      background: var(--base-bg);
+      border-radius: var(--card-radius) var(--card-radius) 0 0;
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 8px;
+      /* Fabric texture overlay */
+      background-image:
+        repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 6px,
+          rgba(168, 162, 158, 0.06) 6px,
+          rgba(168, 162, 158, 0.06) 7px
+        );
+    }
+
+    .course-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .course-badge--time {
+      background: rgba(28, 25, 23, 0.7);
+      color: #fff;
+    }
+
+    .course-badge--cat-a {
+      background: var(--accent-a);
+      color: #fff;
+    }
+
+    .course-badge--cat-b {
+      background: var(--accent-b);
+      color: #fff;
+    }
+
+    .course-badge--heart {
+      background: rgba(255, 255, 255, 0.85);
+      color: var(--accent-a);
+    }
+
+    .course-info {
+      padding: 4px 14px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .course-info strong {
+      font-family: var(--font-sans);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--heading-color);
+      line-height: 1.3;
+    }
+
+    .course-info small {
+      font-size: 14px;
+      color: var(--muted-color);
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .course-meta {
+      font-size: 14px;
+      color: var(--muted-color);
+      display: flex;
+      gap: 12px;
+    }
+
+    .course-nav-arrows {
+      grid-column: span 12;
+      text-align: center;
+      padding: 4px;
+      border: none;
+      background: transparent;
+    }
+
+    .course-nav-arrows:hover { transform: none; box-shadow: none; }
+    .course-nav-arrows::before { display: none; }
+
+    .course-nav-arrows span {
+      display: inline-flex;
+      width: 32px;
+      height: 32px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: 1px dashed var(--stitch-color);
+      color: var(--muted-color);
+      cursor: pointer;
+      margin: 0 4px;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+
+    .course-nav-arrows span:hover {
+      border-color: var(--accent-a);
+      color: var(--accent-a);
+    }
+
+    /* ── S05: CONTINUE LEARNING ── */
+    .patch-continue-title {
+      grid-column: span 12;
+      padding: 16px 24px 8px;
+      background: transparent;
+      border: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .patch-continue-title:hover { transform: none; box-shadow: none; }
+    .patch-continue-title::before { display: none; }
+
+    .patch-continue-title h2 { font-size: 28px; }
+
+    .patch-learn {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .patch-learn .learn-thumb {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: var(--base-bg);
+      border-radius: var(--card-radius) var(--card-radius) 0 0;
+      background-image:
+        repeating-linear-gradient(
+          -45deg,
+          transparent,
+          transparent 8px,
+          rgba(168, 162, 158, 0.05) 8px,
+          rgba(168, 162, 158, 0.05) 9px
+        );
+    }
+
+    .learn-body {
+      padding: 4px 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .learn-body strong {
+      font-family: var(--font-sans);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--heading-color);
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 6px;
+      background: var(--base-bg);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      border-radius: 3px;
+      transition: width 0.5s;
+    }
+
+    .progress-fill--a { background: var(--accent-a); }
+    .progress-fill--b { background: var(--accent-b); }
+
+    .learn-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .learn-footer small {
+      font-size: 14px;
+      color: var(--muted-color);
+    }
+
+    .btn-continue {
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 14px;
+      border: 1px dashed var(--accent-a);
+      background: transparent;
+      color: var(--accent-a);
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: var(--font-sans);
+    }
+
+    .btn-continue:hover {
+      background: var(--accent-a);
+      color: #fff;
+      border-style: solid;
+    }
+
+    /* ── S06: CHANNELS ── */
+    .patch-channels-header {
+      grid-column: span 4;
+      padding: 20px;
+      border: none;
+      background: transparent;
+    }
+
+    .patch-channels-header:hover { transform: none; box-shadow: none; }
+    .patch-channels-header::before { display: none; }
+
+    .patch-channels-header h2 { font-size: 24px; margin-bottom: 2px; }
+    .patch-channels-header small { font-size: 14px; color: var(--muted-color); }
+
+    .patch-channel {
+      grid-column: span 4;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 18px;
+    }
+
+    .ch-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .ch-badge--a { background: var(--accent-a); }
+    .ch-badge--b { background: var(--accent-b); }
+
+    .ch-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ch-info strong {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--heading-color);
+    }
+
+    .ch-info small { font-size: 14px; color: var(--muted-color); }
+
+    .btn-sub {
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 14px;
+      border: 1px dashed var(--accent-b);
+      background: transparent;
+      color: var(--accent-b);
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: var(--font-sans);
+      flex-shrink: 0;
+    }
+
+    .btn-sub:hover {
+      background: var(--accent-b);
+      color: #fff;
+      border-style: solid;
+    }
+
+    /* ── S06: BOOKS ── */
+    .patch-books-header {
+      grid-column: span 8;
+      padding: 20px;
+      border: none;
+      background: transparent;
+    }
+
+    .patch-books-header:hover { transform: none; box-shadow: none; }
+    .patch-books-header::before { display: none; }
+
+    .patch-books-header h2 { font-size: 24px; margin-bottom: 2px; }
+    .patch-books-header small { font-size: 14px; color: var(--muted-color); }
+
+    .patch-book {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .book-cover {
+      width: 80px;
+      height: 110px;
+      background: var(--base-bg);
+      border: 1px dashed var(--stitch-color);
+      border-radius: 2px;
+      background-image:
+        repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 4px,
+          rgba(168, 162, 158, 0.08) 4px,
+          rgba(168, 162, 158, 0.08) 5px
+        );
+    }
+
+    .patch-book strong {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--heading-color);
+      line-height: 1.3;
+    }
+
+    .patch-book small {
+      font-size: 14px;
+      color: var(--muted-color);
+    }
+
+    /* ── S07: CONTACT ── */
+    .patch-contact-title {
+      grid-column: span 12;
+      text-align: center;
+      padding: 20px 24px 8px;
+      background: transparent;
+      border: none;
+    }
+
+    .patch-contact-title:hover { transform: none; box-shadow: none; }
+    .patch-contact-title::before { display: none; }
+
+    .patch-contact-title h2 { font-size: 28px; }
+
+    .patch-contact {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 20px 14px;
+      text-align: center;
+    }
+
+    .contact-icon {
+      font-size: 24px;
+      margin-bottom: 2px;
+    }
+
+    .patch-contact strong {
+      font-family: var(--font-sans);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--heading-color);
+    }
+
+    .patch-contact span {
+      font-size: 14px;
+      color: var(--accent-a);
+      font-weight: 500;
+    }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      max-width: 1200px;
+      margin: 8px auto 0;
+      padding: 0 24px;
+    }
+
+    .footer-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 20px 0;
+      border-top: 1px dashed var(--stitch-color);
+    }
+
+    .footer-logo {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      color: var(--heading-color);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 14px;
+    }
+
+    .footer-links a {
+      color: var(--body-color);
+      padding: 2px 0;
+    }
+
+    .footer-links a:first-child {
+      font-weight: 700;
+      color: var(--heading-color);
+    }
+
+    .footer-links a + a::before {
+      content: '|';
+      margin-right: 8px;
+      color: var(--stitch-color);
+    }
+
+    .footer-related {
+      font-size: 14px;
+      color: var(--muted-color);
+    }
+
+    .footer-info {
+      padding: 12px 0;
+      border-top: 1px dashed var(--stitch-color);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .footer-info small {
+      font-size: 14px;
+      color: var(--muted-color);
+    }
+
+    .footer-copy {
+      padding: 12px 0 24px;
+      border-top: 1px dashed var(--stitch-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      color: var(--muted-color);
+    }
+
+    .scroll-top {
+      display: inline-flex;
+      width: 32px;
+      height: 32px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: 1px dashed var(--stitch-color);
+      cursor: pointer;
+      color: var(--muted-color);
+      font-size: 16px;
+      transition: all 0.2s;
+    }
+
+    .scroll-top:hover {
+      border-color: var(--accent-a);
+      color: var(--accent-a);
+    }
+
+    /* ── CLASSROOM tab content visibility ── */
+    .classroom-panel { display: none; }
+    .classroom-panel.active { display: contents; }
+
+    /* ── RESPONSIVE (mobile: 1~2 columns) ── */
+    @media (max-width: 768px) {
+      .mosaic {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 2px 12px;
+      }
+
+      .patch-search,
+      .patch-library,
+      .patch-status-title,
+      .patch-donut,
+      .patch-courses,
+      .patch-classroom-header,
+      .patch-classroom-tabs,
+      .patch-course,
+      .course-nav-arrows,
+      .patch-continue-title,
+      .patch-learn,
+      .patch-channels-header,
+      .patch-channel,
+      .patch-books-header,
+      .patch-book,
+      .patch-contact-title,
+      .patch-contact,
+      .stitch-row {
+        grid-column: span 2 !important;
+      }
+
+      .nav-util { padding: 6px 12px; flex-wrap: wrap; }
+      .nav-main { padding: 10px 12px; }
+      .nav-gnb { padding: 0 12px 10px; }
+      .site-footer { padding: 0 12px; }
+
+      .patch-library h2 { font-size: 24px; }
+      .classroom-heading h2 { font-size: 32px; }
+
+      .footer-top { flex-direction: column; align-items: flex-start; }
+      .footer-links { flex-direction: column; gap: 4px; }
+      .footer-links a + a::before { display: none; }
+    }
+
+    @media (max-width: 480px) {
+      .mosaic {
+        grid-template-columns: 1fr;
+      }
+
+      .patch-search,
+      .patch-library,
+      .patch-status-title,
+      .patch-donut,
+      .patch-courses,
+      .patch-classroom-header,
+      .patch-classroom-tabs,
+      .patch-course,
+      .course-nav-arrows,
+      .patch-continue-title,
+      .patch-learn,
+      .patch-channels-header,
+      .patch-channel,
+      .patch-books-header,
+      .patch-book,
+      .patch-contact-title,
+      .patch-contact,
+      .stitch-row {
+        grid-column: span 1 !important;
+      }
+
+      .search-tags { flex-direction: column; }
+      .course-pills { flex-direction: column; align-items: flex-start; }
+      .classroom-heading { flex-direction: column; align-items: flex-start; }
+      .slogans { flex-wrap: wrap; }
+    }
+
+    /* ── Dark Mode toggle class ── */
+    body.dark-mode {
+      --base-bg: #1c1917;
+      --base-bg-alt: #231f1c;
+      --card-bg: #292524;
+      --heading-color: #faf7f2;
+      --body-color: #a8a29e;
+      --muted-color: #78716c;
+      --stitch-color: #44403c;
+      background-color: var(--base-bg);
+    }
+
+    body.dark-mode .nav-bar {
+      background: var(--card-bg);
+    }
+
+    body.dark-mode .patch-library {
+      background: #0c0a09 !important;
+    }
+
+    body.dark-mode .nav-gnb a {
+      color: var(--heading-color);
+      border-color: var(--stitch-color);
+    }
+
+    body.dark-mode .pill {
+      background: var(--base-bg-alt);
+      border-color: var(--stitch-color);
+      color: var(--body-color);
+    }
+
+    body.dark-mode .cat-tab.active {
+      background: var(--heading-color);
+      color: var(--base-bg);
+    }
+
+    body.dark-mode .search-input {
+      background: var(--base-bg-alt);
+      border-color: var(--stitch-color);
+    }
+
+    body.dark-mode .search-tags span {
+      background: var(--base-bg-alt);
+      border-color: var(--stitch-color);
+    }
+
+    body.dark-mode .book-cover {
+      background: var(--base-bg-alt);
+      border-color: var(--stitch-color);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════════════
+     NAV BAR (outside mosaic grid)
+     ════════════════════════════════════════════════════════════════ -->
+<nav class="nav-bar">
+  <!-- Utility row -->
+  <div class="nav-util">
+    <span class="dark-toggle" id="darkToggle">&#9790; 다크 모드로 보기</span>
+    <span>
+      <a href="#">플랫폼(관리자)</a>
+      <a href="#">학사행정시스템</a>
+    </span>
+  </div>
+  <!-- Logo + User -->
+  <div class="nav-main">
+    <div class="nav-logo">
+      <span class="logo-mark">&#10022;</span>
+      우정인재개발원 새로e아름
+    </div>
+    <div class="nav-user">
+      홍길동님 환영합니다.
+      <a href="#">로그아웃</a> |
+      <a href="#">회원정보수정</a>
+    </div>
+  </div>
+  <!-- GNB — rounded pill-like nav buttons -->
+  <div class="nav-gnb">
+    <a href="#">나의공간</a>
+    <a href="#">콘텐츠</a>
+    <a href="#">채널</a>
+    <a href="#">직무인증</a>
+    <a href="#">고객지원센터</a>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════════════════════
+     MOSAIC CANVAS — single <main> CSS Grid (SLOT_3)
+     All sections live as patches (cells) on one continuous grid.
+     No section boundaries. PR T(180°) #1.
+     ════════════════════════════════════════════════════════════════ -->
+<main class="mosaic">
+
+  <!-- ── S02: AI Search Patch (span 5) ── -->
+  <div class="patch patch--cream patch-search patch--accent-a" style="grid-column: span 5;">
+    <div class="ai-icon">AI</div>
+    <h2>AX 교육 큐레이터에게<br>물어보세요</h2>
+    <div class="search-input">
+      <span class="search-icon">&#9906;</span>
+      구체적으로 질문하시면 더 정확한 답변이 나옵니다
+    </div>
+    <div class="search-tags">
+      <span>교육 신청은 어떻게 해?</span>
+      <span>수료증은 어디서 받는지 알 수 있어?</span>
+      <span>온라인 교육 수강 방법은?</span>
+    </div>
+  </div>
+
+  <!-- ── S02: Library Banner Patch (span 7) ── -->
+  <div class="patch patch-library patch--accent-b" style="grid-column: span 7;">
+    <small>새로e아름 &gt; 콘텐츠 &gt; 전자도서관(e-book)</small>
+    <h2>우정인재개발원<br>전자도서관</h2>
+    <p>슬기로운 독서생활! 전자도서관에 접속해 보세요</p>
+    <a href="#" class="lib-btn">사람은 책을 만들고 책은 사람을 만든다</a>
+    <span class="lib-deco">I love book</span>
+    <span class="lib-marker">&#9312;</span>
+  </div>
+
+  <!-- ── Stitch divider ── -->
+  <div class="stitch-row" style="grid-column: span 12;">
+    <span class="stitch-knot"></span>
+  </div>
+
+  <!-- ── S03: Learning Status Title ── -->
+  <div class="patch patch-status-title" style="grid-column: span 12;">
+    <h2>학습 현황 <span class="marker">&#9313;</span></h2>
+  </div>
+
+  <!-- ── S03: Donut (span 3) ── -->
+  <div class="patch patch--ivory patch-donut patch--accent-a" style="grid-column: span 3;">
+    <div class="donut-ring">
+      <span class="donut-num">5</span>
+    </div>
+    <span class="donut-label">아름포인트</span>
+  </div>
+
+  <!-- ── S03: Course status (span 9) ── -->
+  <div class="patch patch--wheat patch-courses patch--accent-b" style="grid-column: span 9;">
+    <div>
+      <div class="course-group-title">필수교육 이수현황</div>
+      <div class="course-pills">
+        <span class="pill pill--a">공직가치 5/10</span>
+        <span class="pill pill--a">적극행정 5/10</span>
+        <span class="pill pill--a">성인지 5/10</span>
+        <span class="pill pill--a">정보화 5/10</span>
+        <span class="pill pill--a">정보보안 5/10</span>
+        <span class="pill pill--a">개인정보 5/10</span>
+        <span class="pill-arrow">&lsaquo; &rsaquo;</span>
+      </div>
+    </div>
+    <div>
+      <div class="course-group-title">법정교육 이수현황</div>
+      <div class="course-pills">
+        <span class="pill pill--b">성폭력예방 5/10</span>
+        <span class="pill pill--b">감염병예방 5/10</span>
+        <span class="pill pill--b">자살예방 5/10</span>
+        <span class="pill pill--b">안보 5/10</span>
+        <span class="pill pill--b">장애인식개선 5/10</span>
+        <span class="pill pill--b">아동학대예방 5/10</span>
+        <span class="pill-arrow">&lsaquo; &rsaquo;</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Stitch divider ── -->
+  <div class="stitch-row" style="grid-column: span 12;">
+    <span class="stitch-knot"></span>
+  </div>
+
+  <!-- ── S04: CLASSROOM Header ── -->
+  <div class="patch patch-classroom-header" style="grid-column: span 12;">
+    <div class="classroom-heading">
+      <h2>CLASSROOM</h2>
+      <div class="slogans">
+        <button class="slogan-tab active" data-panel="panel-essential">이것이 필수다.</button>
+        <button class="slogan-tab" data-panel="panel-recommend">당신에게 딱이다.</button>
+      </div>
+    </div>
+    <a href="#" class="view-all">전체보기 &gt;</a>
+  </div>
+
+  <!-- ── S04: Category Tabs ── -->
+  <div class="patch patch-classroom-tabs" style="grid-column: span 12;">
+    <button class="cat-tab active">전체</button>
+    <button class="cat-tab">국정철학</button>
+    <button class="cat-tab">직무공통</button>
+  </div>
+
+  <!-- ── S04: CLASSROOM Panel 1 — "이것이 필수다" ── -->
+  <div class="classroom-panel active" id="panel-essential">
+
+    <!-- Course 1 (span 4) — accent A (even cell) -->
+    <div class="patch patch--pearl patch-course patch--accent-a" style="grid-column: span 4;">
+      <div class="course-thumb">
+        <span class="course-badge course-badge--time">60분</span>
+        <span class="course-badge course-badge--cat-a">국정철학</span>
+        <span class="course-badge course-badge--heart">&hearts; 42</span>
+      </div>
+      <div class="course-info">
+        <strong>개인정보 보호교육</strong>
+        <small>우정사업본부 직원이 알아야할 개인...</small>
+        <div class="course-meta"><span>&#128100; 1,234</span><span>&#128172; 56</span></div>
+      </div>
+    </div>
+
+    <!-- Course 2 (span 3) — accent B (odd cell) -->
+    <div class="patch patch--cotton patch-course patch--accent-b" style="grid-column: span 3;">
+      <div class="course-thumb">
+        <span class="course-badge course-badge--time">60분</span>
+        <span class="course-badge course-badge--cat-b">직무공통</span>
+        <span class="course-badge course-badge--heart">&hearts; 38</span>
+      </div>
+      <div class="course-info">
+        <strong>개인정보보호교육(이용자)</strong>
+        <small>개인정보보호교육(이용자)</small>
+        <div class="course-meta"><span>&#128100; 987</span><span>&#128172; 23</span></div>
+      </div>
+    </div>
+
+    <!-- Course 3 (span 2) — accent A (even cell) -->
+    <div class="patch patch--eggshell patch-course patch--accent-a" style="grid-column: span 2;">
+      <div class="course-thumb">
+        <span class="course-badge course-badge--time">60분</span>
+        <span class="course-badge course-badge--cat-b">직무공통</span>
+        <span class="course-badge course-badge--heart">&hearts; 55</span>
+      </div>
+      <div class="course-info">
+        <strong>정보보안기본교육</strong>
+        <small>우정사업본부 직원이 알아야 할 정보</small>
+        <div class="course-meta"><span>&#128100; 2,100</span><span>&#128172; 89</span></div>
+      </div>
+    </div>
+
+    <!-- Course 4 (span 3) — accent B (odd cell) -->
+    <div class="patch patch--bisque patch-course patch--accent-b" style="grid-column: span 3;">
+      <div class="course-thumb">
+        <span class="course-badge course-badge--time">60분</span>
+        <span class="course-badge course-badge--cat-a">국정철학</span>
+        <span class="course-badge course-badge--heart">&hearts; 27</span>
+      </div>
+      <div class="course-info">
+        <strong>이해충돌방지법</strong>
+        <small>알기 쉬운 이해충돌방지법</small>
+        <div class="course-meta"><span>&#128100; 756</span><span>&#128172; 12</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── S04: CLASSROOM Panel 2 — "당신에게 딱이다" ── -->
+  <div class="classroom-panel" id="panel-recommend">
+
+    <!-- Course 5 (span 5) — accent A -->
+    <div class="patch patch--snow patch-course patch--accent-a" style="grid-column: span 5;">
+      <div class="course-thumb">
+        <span class="course-badge course-badge--time">60분</span>
+        <span class="course-badge course-badge--cat-b">직무공통</span>
+        <span class="course-badge course-badge--heart">&hearts; 91</span>
+      </div>
+      <div class="course-info">
+        <strong>엑셀실무테크닉</strong>
+        <small>엑셀 실무 테크닉 일잘러의 보고서...</small>
+        <div class="course-meta"><span>&#128100; 3,456</span><span>&#128172; 201</span></div>
+      </div>
+    </div>
+
+    <!-- Course 1 again (span 3) — accent B -->
+    <div class="patch patch--pearl patch-course patch--accent-b" style="grid-column: span 3;">
+      <div class="course-thumb">
+        <span class="course-badge course-badge--time">60분</span>
+        <span class="course-badge course-badge--cat-a">국정철학</span>
+        <span class="course-badge course-badge--heart">&hearts; 42</span>
+      </div>
+      <div class="course-info">
+        <strong>개인정보 보호교육</strong>
+        <small>우정사업본부 직원이 알아야할 개인...</small>
+        <div class="course-meta"><span>&#128100; 1,234</span><span>&#128172; 56</span></div>
+      </div>
+    </div>
+
+    <!-- Course 3 again (span 4) — accent A -->
+    <div class="patch patch--ivory patch-course patch--accent-a" style="grid-column: span 4;">
+      <div class="course-thumb">
+        <span class="course-badge course-badge--time">60분</span>
+        <span class="course-badge course-badge--cat-b">직무공통</span>
+        <span class="course-badge course-badge--heart">&hearts; 55</span>
+      </div>
+      <div class="course-info">
+        <strong>정보보안기본교육</strong>
+        <small>우정사업본부 직원이 알아야 할 정보</small>
+        <div class="course-meta"><span>&#128100; 2,100</span><span>&#128172; 89</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── S04: Carousel arrows ── -->
+  <div class="patch course-nav-arrows" style="grid-column: span 12;">
+    <span>&lsaquo;</span>
+    <span>&rsaquo;</span>
+  </div>
+
+  <!-- ── Stitch divider ── -->
+  <div class="stitch-row" style="grid-column: span 12;">
+    <span class="stitch-knot"></span>
+  </div>
+
+  <!-- ── S05: Continue Learning Title ── -->
+  <div class="patch patch-continue-title" style="grid-column: span 12;">
+    <h2>이어서 학습하기</h2>
+    <a href="#" class="view-all">전체보기 &gt;</a>
+  </div>
+
+  <!-- Continue Card 1 (span 4) — accent A -->
+  <div class="patch patch--ivory patch-learn patch--accent-a" style="grid-column: span 4;">
+    <div class="learn-thumb"></div>
+    <div class="learn-body">
+      <strong>우편취급 위반관련 법규</strong>
+      <div class="progress-bar"><div class="progress-fill progress-fill--a" style="width:30%"></div></div>
+      <div class="learn-footer">
+        <small>30%</small>
+        <button class="btn-continue">이어보기</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Continue Card 2 (span 5) — accent B -->
+  <div class="patch patch--muslin patch-learn patch--accent-b" style="grid-column: span 5;">
+    <div class="learn-thumb"></div>
+    <div class="learn-body">
+      <strong>도전! 나의 손해 2</strong>
+      <div class="progress-bar"><div class="progress-fill progress-fill--b" style="width:65%"></div></div>
+      <div class="learn-footer">
+        <small>65%</small>
+        <button class="btn-continue" style="border-color: var(--accent-b); color: var(--accent-b);">이어보기</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Continue Card 3 (span 3) — accent A -->
+  <div class="patch patch--linen patch-learn patch--accent-a" style="grid-column: span 3;">
+    <div class="learn-thumb"></div>
+    <div class="learn-body">
+      <strong>청렴판단력 키우기</strong>
+      <div class="progress-bar"><div class="progress-fill progress-fill--a" style="width:10%"></div></div>
+      <div class="learn-footer">
+        <small>10%</small>
+        <button class="btn-continue">이어보기</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Stitch divider ── -->
+  <div class="stitch-row" style="grid-column: span 12;">
+    <span class="stitch-knot"></span>
+  </div>
+
+  <!-- ── S06: Channels Header ── -->
+  <div class="patch patch-channels-header" style="grid-column: span 4;">
+    <h2>구독중인 채널</h2>
+    <small>내가 팔로우하는 학습 채널</small>
+    <a href="#" class="view-all" style="margin-top:4px;">전체보기 &gt;</a>
+  </div>
+
+  <!-- ── S06: Books Header ── -->
+  <div class="patch patch-books-header" style="grid-column: span 8;">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <div>
+        <h2>지금, 이 책!</h2>
+        <small>이달의 추천 도서</small>
+      </div>
+      <a href="#" class="view-all">전체보기 &gt;</a>
+    </div>
+  </div>
+
+  <!-- Channel 1 (span 4) — accent A -->
+  <div class="patch patch--cream patch-channel patch--accent-a" style="grid-column: span 4;">
+    <span class="ch-badge ch-badge--a">우정</span>
+    <div class="ch-info">
+      <strong>우정인재개발원</strong>
+      <small>50,032명</small>
+    </div>
+    <button class="btn-sub">구독중</button>
+  </div>
+
+  <!-- Book 1 (span 2) — accent B -->
+  <div class="patch patch--pearl patch-book patch--accent-b" style="grid-column: span 2;">
+    <div class="book-cover"></div>
+    <strong>가짜 노동</strong>
+    <small>데니스 뇌르마르크</small>
+  </div>
+
+  <!-- Book 2 (span 2) — accent A -->
+  <div class="patch patch--ivory patch-book patch--accent-a" style="grid-column: span 2;">
+    <div class="book-cover"></div>
+    <strong>공부하고 있다는 착각</strong>
+    <small>대니얼 T. 윌링햄</small>
+  </div>
+
+  <!-- Book 3 (span 2) — accent B -->
+  <div class="patch patch--cotton patch-book patch--accent-b" style="grid-column: span 2;">
+    <div class="book-cover"></div>
+    <strong>기본의 디자인</strong>
+    <small>아키타 미치오</small>
+  </div>
+
+  <!-- Book 4 (span 2) — accent A -->
+  <div class="patch patch--eggshell patch-book patch--accent-a" style="grid-column: span 2;">
+    <div class="book-cover"></div>
+    <strong>도파민네이션</strong>
+    <small>애나 렘키</small>
+  </div>
+
+  <!-- Channel 2 (span 4) — accent B -->
+  <div class="patch patch--wheat patch-channel patch--accent-b" style="grid-column: span 4;">
+    <span class="ch-badge ch-badge--b">교육</span>
+    <div class="ch-info">
+      <strong>교육큐레이션</strong>
+      <small>52,149명</small>
+    </div>
+    <button class="btn-sub">구독중</button>
+  </div>
+
+  <!-- Book 5 (span 4) — accent B -->
+  <div class="patch patch--bisque patch-book patch--accent-b" style="grid-column: span 4;">
+    <div class="book-cover"></div>
+    <strong>쇼펜하우어</strong>
+    <small>강용수</small>
+  </div>
+
+  <!-- Book 6 (span 4) — accent A -->
+  <div class="patch patch--muslin patch-book patch--accent-a" style="grid-column: span 4;">
+    <div class="book-cover"></div>
+    <strong>마흔에 읽는 쇼펜하우어</strong>
+    <small>강용수</small>
+  </div>
+
+  <!-- Channel 3 (span 4) — accent A -->
+  <div class="patch patch--snow patch-channel patch--accent-a" style="grid-column: span 4;">
+    <span class="ch-badge ch-badge--a">보이</span>
+    <div class="ch-info">
+      <strong>보이스피싱 예방</strong>
+      <small>49,533명</small>
+    </div>
+    <button class="btn-sub">구독중</button>
+  </div>
+
+  <!-- Remaining 8 cols filled by books already placed above -->
+
+  <!-- ── Stitch divider ── -->
+  <div class="stitch-row" style="grid-column: span 12;">
+    <span class="stitch-knot"></span>
+  </div>
+
+  <!-- ── S07: Contact Title ── -->
+  <div class="patch patch-contact-title" style="grid-column: span 12;">
+    <h2>교육관련 안내</h2>
+  </div>
+
+  <!-- Contact 1 (span 3) — accent A -->
+  <div class="patch patch--cream patch-contact patch--accent-a" style="grid-column: span 3;">
+    <span class="contact-icon">&#128222;</span>
+    <strong>이러닝 문의</strong>
+    <span>041-560-5350</span>
+  </div>
+
+  <!-- Contact 2 (span 2) — accent B -->
+  <div class="patch patch--ivory patch-contact patch--accent-b" style="grid-column: span 2;">
+    <span class="contact-icon">&#128421;</span>
+    <strong>집합교육(선발)</strong>
+    <span>041-560-5264</span>
+  </div>
+
+  <!-- Contact 3 (span 3) — accent A -->
+  <div class="patch patch--wheat patch-contact patch--accent-a" style="grid-column: span 3;">
+    <span class="contact-icon">&#128203;</span>
+    <strong>집합교육(계획)</strong>
+    <span>041-560-5311</span>
+  </div>
+
+  <!-- Contact 4 (span 2) — accent B -->
+  <div class="patch patch--pearl patch-contact patch--accent-b" style="grid-column: span 2;">
+    <span class="contact-icon">&#128196;</span>
+    <strong>직무인증평가</strong>
+    <span>041-560-5312</span>
+  </div>
+
+  <!-- Contact 5 (span 2) — accent A -->
+  <div class="patch patch--eggshell patch-contact patch--accent-a" style="grid-column: span 2;">
+    <span class="contact-icon">&#128218;</span>
+    <strong>지금, 이 책!</strong>
+    <span>041-560-5151</span>
+  </div>
+
+</main>
+
+<!-- ════════════════════════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="footer-top">
+    <span class="footer-logo"><span style="color:var(--accent-a);">&#10022;</span> 우정인재개발원</span>
+    <div class="footer-links">
+      <a href="#"><strong>개인정보처리 방침</strong></a>
+      <a href="#">영상정보처리기기 운영관리 방침</a>
+      <a href="#">이메일주소 무단수집거부</a>
+      <a href="#">이용약관</a>
+      <a href="#">찾아오시는길</a>
+      <a href="#">고객지원센터</a>
+    </div>
+    <a href="#" class="footer-related">관련사이트 바로가기 &#9662;</a>
+  </div>
+  <div class="footer-info">
+    <small>(31068) 충청남도 천안시 동남구 양지말1길 (유량동) 우정인재개발원</small>
+    <small>전화번호: 041-560-5350 | 팩스번호: 0505-005-1062 | 이메일: cyber123@korea.kr</small>
+  </div>
+  <div class="footer-copy">
+    <span>COPYRIGHT(C) 2016 KOREA POST(OFFICE OF POSTAL SERVICE). ALL RIGHTS RESERVED.</span>
+    <span class="scroll-top" id="scrollTop">&uarr;</span>
+  </div>
+</footer>
+
+<!-- ════════════════════════════════════════════════════════════════
+     JAVASCRIPT
+     ════════════════════════════════════════════════════════════════ -->
+<script>
+(function() {
+  'use strict';
+
+  /* ── CLASSROOM Tab Switching (이것이 필수다 / 당신에게 딱이다) ── */
+  var sloganTabs = document.querySelectorAll('.slogan-tab');
+  var panels = document.querySelectorAll('.classroom-panel');
+
+  sloganTabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      // Deactivate all slogan tabs
+      sloganTabs.forEach(function(t) { t.classList.remove('active'); });
+      // Activate clicked
+      tab.classList.add('active');
+      // Show corresponding panel
+      var targetId = tab.getAttribute('data-panel');
+      panels.forEach(function(p) {
+        p.classList.toggle('active', p.id === targetId);
+      });
+    });
+  });
+
+  /* ── Category Tabs (전체 / 국정철학 / 직무공통) ── */
+  var catTabs = document.querySelectorAll('.cat-tab');
+  catTabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      catTabs.forEach(function(t) { t.classList.remove('active'); });
+      tab.classList.add('active');
+    });
+  });
+
+  /* ── Dark Mode Toggle ── */
+  var darkToggle = document.getElementById('darkToggle');
+  if (darkToggle) {
+    darkToggle.addEventListener('click', function() {
+      document.body.classList.toggle('dark-mode');
+      var isDark = document.body.classList.contains('dark-mode');
+      darkToggle.innerHTML = isDark
+        ? '&#9788; 라이트 모드로 보기'
+        : '&#9790; 다크 모드로 보기';
+    });
+  }
+
+  /* ── Scroll to Top ── */
+  var scrollTop = document.getElementById('scrollTop');
+  if (scrollTop) {
+    scrollTop.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+})();
+</script>
+
+</body>
+</html>

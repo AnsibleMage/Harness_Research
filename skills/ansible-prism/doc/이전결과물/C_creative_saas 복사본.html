@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>새로e아름 — 우정인재개발원</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter+Tight:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.min.css">
+  <style>
+    /*
+    FRAMEWORK: v3.0 | OL: 8 | WORLD: "레터프레스 — 활판인쇄소의 잉크와 종이"
+    GI: O8 C9 P8 S8 / A2 B2 = 4608/4 = 1152
+    CC: f(교육포털 → 활판인쇄소) = "학습 콘텐츠 = 활자 블록, 배치 = 조판"
+    STRUCTURE: 히어로 없음. 전체가 하나의 모자이크 캔버스.
+    BAN: 좌우 분할 히어로 (6회 연속 사용 → 영구 금지)
+    */
+
+    :root {
+      --press: #3a1a2e;
+      --paper: #f2ece4;
+      --ink: #1a1a1e;
+      --stamp: #8b2252;
+      --graphite: #6b6570;
+      --cotton: #faf7f2;
+      --rule: rgba(26,26,30,0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Pretendard', -apple-system, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.7;
+      word-break: keep-all;
+    }
+
+    /* ── Nav: 인쇄소의 상단 라벨 ── */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 5vw;
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .nav-logo {
+      font-family: 'Instrument Serif', serif;
+      font-size: 22px;
+      color: var(--ink);
+    }
+
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a { text-decoration: none; color: var(--graphite); font-size: 14px; font-weight: 500; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-right { font-size: 14px; color: var(--graphite); }
+    .nav-right a { color: var(--stamp); text-decoration: none; font-weight: 600; }
+
+    /* ── 검색: 전폭 단일 밴드 (히어로 아님) ── */
+    .search-band {
+      padding: 48px 5vw;
+      border-bottom: 1px solid var(--rule);
+      text-align: center;
+    }
+
+    .search-band h1 {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+
+    .search-band h1 em { font-style: italic; color: var(--stamp); }
+
+    .search-band p { font-size: 15px; color: var(--graphite); margin-bottom: 28px; }
+
+    .search-wrap {
+      display: inline-flex;
+      border: 2px solid var(--ink);
+      max-width: 520px;
+      width: 100%;
+    }
+
+    .search-wrap input {
+      flex: 1; padding: 14px 20px; border: none; background: transparent;
+      font-family: 'Pretendard', sans-serif; font-size: 15px; color: var(--ink); outline: none;
+    }
+
+    .search-wrap input::placeholder { color: var(--graphite); }
+
+    .search-wrap button {
+      padding: 14px 28px; background: var(--ink); border: none;
+      color: var(--paper); font-family: 'Pretendard', sans-serif;
+      font-weight: 700; font-size: 15px; cursor: pointer; transition: background 0.2s;
+    }
+
+    .search-wrap button:hover { background: var(--stamp); }
+
+    .search-hints {
+      display: flex; justify-content: center; flex-wrap: wrap;
+      gap: 8px; margin-top: 16px;
+    }
+
+    .search-hints span {
+      font-size: 14px; color: var(--graphite);
+      padding: 4px 14px; border: 1px solid var(--rule); cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .search-hints span:hover { border-color: var(--stamp); color: var(--stamp); }
+
+    /* ══ MOSAIC: 전체가 하나의 그리드 캔버스 ══ */
+    .mosaic {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1px;
+      padding: 1px 5vw;
+      background: var(--rule);
+    }
+
+    .m-card {
+      background: var(--cotton);
+      padding: 28px;
+      position: relative;
+      transition: background 0.3s;
+    }
+
+    .m-card:hover { background: var(--paper); }
+
+    /* 카드 크기 — 모자이크의 핵심: 모두 다른 크기 */
+    .m-status   { grid-column: span 4; grid-row: span 2; background: var(--press); color: var(--paper); }
+    .m-learn-1  { grid-column: span 4; }
+    .m-learn-2  { grid-column: span 4; }
+    .m-learn-3  { grid-column: span 4; background: var(--ink); color: var(--paper); }
+    .m-required { grid-column: span 8; }
+    .m-library  { grid-column: span 4; grid-row: span 2; background: var(--stamp); color: var(--paper); }
+    .m-legal    { grid-column: span 8; }
+    .m-class-header { grid-column: span 12; background: var(--paper); padding: 40px 28px 16px; }
+    .m-course-big { grid-column: span 4; grid-row: span 2; }
+    .m-course   { grid-column: span 4; }
+    .m-channels { grid-column: span 4; }
+    .m-books    { grid-column: span 8; }
+    .m-contact  { grid-column: span 12; background: var(--ink); color: var(--paper); }
+
+    /* ── 상태 카드 (press 배경) ── */
+    .status-num {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 72px;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--paper);
+      margin-bottom: 4px;
+    }
+
+    .status-sub { font-size: 15px; color: rgba(242,236,228,0.6); margin-bottom: 20px; }
+    .status-detail { font-size: 14px; color: rgba(242,236,228,0.5); line-height: 2; }
+
+    /* ── 학습 카드 ── */
+    .learn-title { font-size: 15px; font-weight: 700; margin-bottom: 12px; line-height: 1.4; }
+
+    .learn-bar { height: 3px; background: var(--rule); margin-bottom: 8px; border-radius: 1px; }
+    .learn-bar-fill { height: 100%; background: var(--ink); border-radius: 1px; }
+
+    .m-learn-3 .learn-bar-fill { background: var(--paper); }
+    .m-learn-3 .learn-bar { background: rgba(255,255,255,0.1); }
+
+    .learn-footer { display: flex; justify-content: space-between; align-items: center; }
+
+    .learn-pct {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 20px; font-weight: 800;
+    }
+
+    .learn-btn {
+      font-size: 14px; font-weight: 600; color: var(--stamp);
+      text-decoration: none; border-bottom: 1px solid var(--stamp);
+      padding-bottom: 1px;
+    }
+
+    .m-learn-3 .learn-btn { color: var(--paper); border-color: var(--paper); }
+
+    /* ── 교육현황 ── */
+    .group-label {
+      font-size: 14px; font-weight: 700; color: var(--ink);
+      margin-bottom: 10px; display: flex; align-items: center; gap: 8px;
+    }
+
+    .group-label::before { content: ''; width: 3px; height: 14px; background: var(--stamp); }
+
+    .pills { display: flex; flex-wrap: wrap; gap: 6px; }
+
+    .pill {
+      font-size: 14px; padding: 6px 14px;
+      border: 1px solid var(--rule); color: var(--ink); font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .pill:hover { border-color: var(--stamp); color: var(--stamp); }
+
+    /* ── 도서관 카드 (stamp 배경) ── */
+    .lib-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: 28px; color: var(--paper);
+      margin-bottom: 8px;
+    }
+
+    .lib-desc { font-size: 15px; color: rgba(242,236,228,0.8); margin-bottom: 24px; line-height: 1.6; }
+
+    .btn-paper {
+      display: inline-block; padding: 12px 24px;
+      background: var(--paper); color: var(--stamp);
+      font-weight: 700; font-size: 14px; text-decoration: none;
+      border: none; cursor: pointer; transition: all 0.2s;
+    }
+
+    .btn-paper:hover { background: var(--cotton); }
+
+    .lib-deco {
+      font-family: 'Instrument Serif', serif;
+      font-size: 64px; color: rgba(242,236,228,0.06);
+      position: absolute; bottom: 16px; right: 20px;
+    }
+
+    /* ── CLASSROOM 헤더 ── */
+    .class-header-title {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 28px; font-weight: 800;
+      letter-spacing: -1px; margin-bottom: 4px;
+    }
+
+    .class-slogans { font-size: 15px; color: var(--graphite); }
+    .class-link { font-size: 14px; color: var(--stamp); text-decoration: none; font-weight: 600; float: right; }
+
+    /* ── 코스 카드 ── */
+    .course-thumb {
+      height: 100px; background: rgba(26,26,30,0.04);
+      margin: -28px -28px 16px -28px; position: relative;
+    }
+
+    .m-course-big .course-thumb { height: 180px; }
+
+    .course-badges { position: absolute; top: 10px; left: 10px; display: flex; gap: 4px; }
+    .c-badge { font-size: 14px; font-weight: 600; padding: 3px 10px; background: var(--cotton); color: var(--ink); }
+    .c-heart { position: absolute; top: 10px; right: 10px; font-size: 14px; color: var(--graphite); }
+
+    .course-title { font-size: 15px; font-weight: 700; margin-bottom: 4px; line-height: 1.4; }
+    .course-meta { font-size: 14px; color: var(--graphite); }
+
+    /* ── 채널 ── */
+    .ch-title { font-size: 16px; font-weight: 700; margin-bottom: 16px; }
+
+    .ch-row {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 0; border-bottom: 1px solid var(--rule);
+    }
+
+    .ch-dot {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: var(--ink); color: var(--paper);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 700; flex-shrink: 0;
+    }
+
+    .ch-name { font-size: 14px; font-weight: 600; }
+    .ch-count { font-size: 14px; color: var(--graphite); }
+
+    /* ── 도서 ── */
+    .books-head {
+      display: flex; justify-content: space-between; align-items: baseline;
+      margin-bottom: 16px;
+    }
+
+    .books-title { font-size: 16px; font-weight: 700; }
+    .books-sub { font-size: 14px; color: var(--graphite); }
+
+    .book-row { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; }
+
+    .book-cover {
+      width: 100%; aspect-ratio: 3/4;
+      background: rgba(26,26,30,0.04); border: 1px solid var(--rule);
+      margin-bottom: 6px;
+    }
+
+    .book-name { font-size: 14px; font-weight: 600; line-height: 1.3; text-align: center; }
+    .book-author { font-size: 14px; color: var(--graphite); text-align: center; }
+
+    /* ── 연락처 (ink 배경 전폭) ── */
+    .contact-inner {
+      display: flex; justify-content: center; gap: 48px;
+      padding: 12px 0;
+    }
+
+    .contact-item { text-align: center; }
+    .contact-item strong {
+      display: block;
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 17px; font-weight: 800; color: var(--paper);
+      margin-bottom: 2px;
+    }
+    .contact-item span { font-size: 14px; color: var(--graphite); }
+
+    /* ── Footer ── */
+    footer {
+      padding: 32px 5vw 20px;
+      border-top: 2px solid var(--ink);
+    }
+
+    .footer-top {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--rule);
+    }
+
+    .footer-logo { font-family: 'Instrument Serif', serif; font-size: 16px; color: var(--ink); }
+    .footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
+    .footer-links a { font-size: 14px; color: var(--graphite); text-decoration: none; }
+    .footer-links a:first-child { font-weight: 700; color: var(--ink); }
+    .footer-links a:hover { color: var(--stamp); }
+    .footer-info { font-size: 14px; color: var(--graphite); line-height: 1.8; margin-bottom: 8px; }
+    .footer-copy { font-size: 14px; color: rgba(26,26,30,0.3); }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .mosaic { grid-template-columns: repeat(4, 1fr); }
+      .m-status, .m-required, .m-legal, .m-library,
+      .m-class-header, .m-course-big, .m-course,
+      .m-channels, .m-books, .m-contact,
+      .m-learn-1, .m-learn-2, .m-learn-3 { grid-column: span 4; grid-row: span 1; }
+      .book-row { grid-template-columns: repeat(3, 1fr); }
+      .contact-inner { flex-wrap: wrap; gap: 20px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-logo">새로e아름</div>
+    <div class="nav-links"><a href="#">나의공간</a><a href="#">콘텐츠</a><a href="#">채널</a><a href="#">직무인증</a><a href="#">고객지원센터</a></div>
+    <div class="nav-right">홍길동님 <a href="#">플랫폼</a></div>
+  </nav>
+
+  <!-- 검색: 전폭 밴드, 중앙 정렬 — 히어로가 아닌 도구 -->
+  <div class="search-band">
+    <h1>AX 교육 큐레이터에게 <em>물어보세요</em></h1>
+    <p>구체적으로 질문하시면 더 정확한 답변이 나옵니다</p>
+    <div class="search-wrap">
+      <input type="text" placeholder="교육 과정, 수료증, 수강 방법...">
+      <button>검색</button>
+    </div>
+    <div class="search-hints">
+      <span>교육 신청은 어떻게 해?</span>
+      <span>수료증은 어디서 받는지 알 수 있어?</span>
+      <span>온라인 교육 수강 방법은?</span>
+    </div>
+  </div>
+
+  <!-- ══ MOSAIC: 하나의 캔버스에 모든 카드 ══ -->
+  <div class="mosaic">
+
+    <!-- Row: Status + 이어학습 3개 -->
+    <div class="m-card m-status">
+      <div class="status-num">5</div>
+      <div class="status-sub">아름포인트</div>
+      <div class="status-detail">필수교육 6과정<br>법정교육 6과정</div>
+    </div>
+    <div class="m-card m-learn-1">
+      <div class="learn-title">우편취급 위반관련 법규</div>
+      <div class="learn-bar"><div class="learn-bar-fill" style="width:30%"></div></div>
+      <div class="learn-footer"><span class="learn-pct">30%</span><a href="#" class="learn-btn">이어보기</a></div>
+    </div>
+    <div class="m-card m-learn-2">
+      <div class="learn-title">도전! 나의 손해 2</div>
+      <div class="learn-bar"><div class="learn-bar-fill" style="width:65%"></div></div>
+      <div class="learn-footer"><span class="learn-pct">65%</span><a href="#" class="learn-btn">이어보기</a></div>
+    </div>
+    <div class="m-card m-learn-3">
+      <div class="learn-title">청렴판단력 키우기</div>
+      <div class="learn-bar"><div class="learn-bar-fill" style="width:10%"></div></div>
+      <div class="learn-footer"><span class="learn-pct">10%</span><a href="#" class="learn-btn">이어보기</a></div>
+    </div>
+
+    <!-- Row: 필수교육 + 도서관 -->
+    <div class="m-card m-required">
+      <div class="group-label">필수교육 이수현황</div>
+      <div class="pills">
+        <span class="pill">공직가치 5/10</span><span class="pill">적극행정 5/10</span><span class="pill">성인지 5/10</span>
+        <span class="pill">정보화 5/10</span><span class="pill">정보보안 5/10</span><span class="pill">개인정보 5/10</span>
+      </div>
+    </div>
+    <div class="m-card m-library">
+      <div class="lib-title">전자도서관</div>
+      <div class="lib-desc">슬기로운 독서생활!<br>전자도서관에 접속해 보세요</div>
+      <a href="#" class="btn-paper">사람은 책을 만들고 책은 사람을 만든다</a>
+      <div class="lib-deco">BOOK</div>
+    </div>
+
+    <!-- Row: 법정교육 (도서관은 위에서 span 2) -->
+    <div class="m-card m-legal">
+      <div class="group-label">법정교육 이수현황</div>
+      <div class="pills">
+        <span class="pill">성폭력예방 5/10</span><span class="pill">감염병예방 5/10</span><span class="pill">자살예방 5/10</span>
+        <span class="pill">안보 5/10</span><span class="pill">장애인식개선 5/10</span><span class="pill">아동학대예방 5/10</span>
+      </div>
+    </div>
+
+    <!-- CLASSROOM 헤더 -->
+    <div class="m-card m-class-header">
+      <a href="#" class="class-link">전체보기 →</a>
+      <div class="class-header-title">CLASSROOM</div>
+      <div class="class-slogans">이것이 필수다. 당신에게 딱이다.</div>
+    </div>
+
+    <!-- 코스 카드 5개 (1개 크게 + 4개 보통) -->
+    <div class="m-card m-course-big">
+      <div class="course-thumb"><div class="course-badges"><span class="c-badge">60분</span><span class="c-badge">국정철학</span></div><span class="c-heart">♡ 42</span></div>
+      <div class="course-title">개인정보 보호교육</div>
+      <div class="course-meta">수강 1,234명 · 댓글 56</div>
+    </div>
+    <div class="m-card m-course">
+      <div class="course-thumb"><div class="course-badges"><span class="c-badge">60분</span><span class="c-badge">직무공통</span></div><span class="c-heart">♡ 38</span></div>
+      <div class="course-title">개인정보보호교육(이용자)</div>
+      <div class="course-meta">수강 987명 · 댓글 23</div>
+    </div>
+    <div class="m-card m-course">
+      <div class="course-thumb"><div class="course-badges"><span class="c-badge">60분</span><span class="c-badge">직무공통</span></div><span class="c-heart">♡ 55</span></div>
+      <div class="course-title">정보보안기본교육</div>
+      <div class="course-meta">수강 2,100명 · 댓글 89</div>
+    </div>
+    <div class="m-card m-course">
+      <div class="course-thumb"><div class="course-badges"><span class="c-badge">60분</span><span class="c-badge">국정철학</span></div><span class="c-heart">♡ 27</span></div>
+      <div class="course-title">이해충돌방지법</div>
+      <div class="course-meta">수강 756명 · 댓글 12</div>
+    </div>
+    <div class="m-card m-course">
+      <div class="course-thumb"><div class="course-badges"><span class="c-badge">60분</span><span class="c-badge">직무공통</span></div><span class="c-heart">♡ 91</span></div>
+      <div class="course-title">엑셀실무테크닉</div>
+      <div class="course-meta">수강 3,456명 · 댓글 201</div>
+    </div>
+
+    <!-- 채널 + 도서 -->
+    <div class="m-card m-channels">
+      <div class="ch-title">구독중인 채널</div>
+      <div class="ch-row"><div class="ch-dot">우정</div><div><div class="ch-name">우정인재개발원</div><div class="ch-count">50,032명</div></div></div>
+      <div class="ch-row"><div class="ch-dot" style="background:var(--graphite)">교육</div><div><div class="ch-name">교육큐레이션</div><div class="ch-count">52,149명</div></div></div>
+      <div class="ch-row"><div class="ch-dot" style="background:var(--stamp)">보이</div><div><div class="ch-name">보이스피싱 예방</div><div class="ch-count">49,533명</div></div></div>
+    </div>
+    <div class="m-card m-books">
+      <div class="books-head">
+        <div><div class="books-title">지금, 이 책!</div><div class="books-sub">이달의 추천 도서</div></div>
+        <a href="#" class="class-link">전체보기 →</a>
+      </div>
+      <div class="book-row">
+        <div><div class="book-cover"></div><div class="book-name">가짜 노동</div><div class="book-author">데니스 뇌르마르크</div></div>
+        <div><div class="book-cover"></div><div class="book-name">공부하고 있다는 착각</div><div class="book-author">대니얼 T. 윌링햄</div></div>
+        <div><div class="book-cover"></div><div class="book-name">기본의 디자인</div><div class="book-author">아키타 미치오</div></div>
+        <div><div class="book-cover"></div><div class="book-name">도파민네이션</div><div class="book-author">애나 렘키</div></div>
+        <div><div class="book-cover"></div><div class="book-name">쇼펜하우어</div><div class="book-author">강용수</div></div>
+        <div><div class="book-cover"></div><div class="book-name">마흔에 읽는 쇼펜하우어</div><div class="book-author">강용수</div></div>
+      </div>
+    </div>
+
+    <!-- 연락처 -->
+    <div class="m-card m-contact">
+      <div class="contact-inner">
+        <div class="contact-item"><strong>041-560-5350</strong><span>이러닝 문의</span></div>
+        <div class="contact-item"><strong>041-560-5264</strong><span>집합교육(선발)</span></div>
+        <div class="contact-item"><strong>041-560-5311</strong><span>집합교육(계획)</span></div>
+        <div class="contact-item"><strong>041-560-5312</strong><span>직무인증평가</span></div>
+        <div class="contact-item"><strong>041-560-5151</strong><span>지금, 이 책!</span></div>
+      </div>
+    </div>
+
+  </div><!-- /mosaic -->
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-logo">우정인재개발원</div>
+      <div class="footer-links">
+        <a href="#">개인정보처리 방침</a><a href="#">영상정보처리기기 운영관리 방침</a><a href="#">이메일주소 무단수집거부</a><a href="#">이용약관</a><a href="#">찾아오시는길</a><a href="#">고객지원센터</a>
+      </div>
+    </div>
+    <div class="footer-info">(31068) 충청남도 천안시 동남구 양지말1길 (유량동) 우정인재개발원 | 041-560-5350 | cyber123@korea.kr</div>
+    <div class="footer-copy">COPYRIGHT(C) 2016 KOREA POST. ALL RIGHTS RESERVED.</div>
+  </footer>
+
+</body>
+</html>

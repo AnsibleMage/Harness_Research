@@ -1,0 +1,46 @@
+{
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
+  "claude": {
+    "maxTokens": 100000,
+    "teamMode": "in-process",
+    "displayMode": "in-process"
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "command": "powershell -NoProfile -ExecutionPolicy Bypass -File .claude/hooks/pre-tool-use.ps1",
+        "timeout": 5
+      }
+    ],
+    "PostToolUse": [
+      {
+        "command": "powershell -NoProfile -ExecutionPolicy Bypass -File .claude/hooks/post-tool-use.ps1",
+        "timeout": 10
+      }
+    ],
+    "TaskCompleted": [
+      {
+        "command": "powershell -NoProfile -ExecutionPolicy Bypass -File .claude/hooks/verify-task.ps1",
+        "timeout": 30
+      }
+    ],
+    "TeammateIdle": [
+      {
+        "command": "powershell -NoProfile -ExecutionPolicy Bypass -File .claude/hooks/check-idle-reason.ps1",
+        "timeout": 5
+      }
+    ]
+  },
+  "teams": {
+    "maxTeammates": 5,
+    "defaultSize": 3,
+    "autoCleanupTimeout": 3600
+  },
+  "agents": {
+    "defaultPlanAgent": "planner",
+    "defaultExecuteAgent": "executor",
+    "defaultVerifyAgent": "verifier"
+  }
+}

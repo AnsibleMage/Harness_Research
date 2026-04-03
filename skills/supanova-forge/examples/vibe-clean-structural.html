@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>새로e아름 — 우정인재개발원 교육 포털</title>
+  <meta name="description" content="우정인재개발원 온라인 교육 플랫폼. 필수교육, 법정교육, 전자도서관, AI 큐레이터.">
+  <meta property="og:title" content="새로e아름 — 우정인재개발원">
+  <meta property="og:description" content="우정인재개발원 온라인 교육 포털">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.min.css">
+  <script src="https://code.iconify.design/iconify-icon/2.3.0/iconify-icon.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Pretendard', 'system-ui', 'sans-serif'] },
+          colors: {
+            primary: { DEFAULT: '#066bfd', deep: '#0553c7', soft: '#e8f1ff', muted: '#b3d4ff' },
+            slate: { 50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 300: '#cbd5e1', 400: '#94a3b8', 500: '#64748b', 600: '#475569', 700: '#334155', 800: '#1e293b', 900: '#0f172a' },
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    .break-keep { word-break: keep-all; overflow-wrap: break-word; }
+    .accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.16,1,0.3,1), padding 0.5s cubic-bezier(0.16,1,0.3,1); padding: 0 24px; }
+    .accordion.open .accordion-body { max-height: 2000px; padding: 20px 24px 24px; }
+    .accordion-toggle { transition: transform 0.4s cubic-bezier(0.16,1,0.3,1); }
+    .accordion.open .accordion-toggle { transform: rotate(180deg); }
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .lift { transition: all 0.4s cubic-bezier(0.16,1,0.3,1); }
+    .lift:hover { transform: translateY(-3px); box-shadow: 0 20px 60px -15px rgba(0,0,0,0.08); }
+    .scroll-row { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+    .scroll-row::-webkit-scrollbar { display: none; }
+    .scroll-row > * { scroll-snap-align: start; flex-shrink: 0; }
+    @media (prefers-reduced-motion: reduce) {
+      .fade-up { opacity: 1; transform: none; transition: none; }
+      .lift:hover { transform: none; box-shadow: none; }
+      .accordion-body { transition: none; }
+      .accordion-toggle { transition: none; }
+    }
+  </style>
+</head>
+<body class="bg-white font-sans text-slate-700 antialiased">
+
+<!-- ============================================ -->
+<!-- HEADER -->
+<!-- ============================================ -->
+<header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+    <a href="#" class="flex items-center gap-2" aria-label="새로e아름 홈">
+      <div class="w-8 h-8 bg-primary rounded flex items-center justify-center">
+        <iconify-icon icon="solar:letter-linear" width="16" class="text-white"></iconify-icon>
+      </div>
+      <span class="text-lg font-bold text-slate-900 tracking-tight">새로<span class="text-primary">e</span>아름</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-8" aria-label="주 메뉴">
+      <a href="#" class="text-sm font-medium text-slate-500 hover:text-primary transition-colors duration-300">나의공간</a>
+      <a href="#" class="text-sm font-medium text-slate-500 hover:text-primary transition-colors duration-300">콘텐츠</a>
+      <a href="#" class="text-sm font-medium text-slate-500 hover:text-primary transition-colors duration-300">채널</a>
+      <a href="#" class="text-sm font-medium text-slate-500 hover:text-primary transition-colors duration-300">직무인증</a>
+      <a href="#" class="text-sm font-medium text-slate-500 hover:text-primary transition-colors duration-300">고객지원센터</a>
+    </nav>
+    <div class="flex items-center gap-4 text-sm">
+      <span class="text-slate-400 hidden lg:inline"><strong class="text-slate-700">홍길동</strong>님</span>
+      <button class="text-slate-400 hover:text-primary transition-colors duration-300" aria-label="다크 모드"><iconify-icon icon="solar:moon-linear" width="18"></iconify-icon></button>
+      <button class="md:hidden text-slate-500" aria-label="메뉴"><iconify-icon icon="solar:hamburger-menu-linear" width="22"></iconify-icon></button>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-14">
+
+<!-- ============================================ -->
+<!-- ACCORDION: AI CURATOR (open) -->
+<!-- ============================================ -->
+<div class="accordion open border border-slate-200 rounded-lg mb-4 fade-up" data-accordion>
+  <button class="w-full flex items-center justify-between px-6 py-5 text-left" onclick="this.parentElement.classList.toggle('open')" aria-expanded="true">
+    <div class="flex items-center gap-3">
+      <iconify-icon icon="solar:chat-round-dots-linear" width="22" class="text-primary"></iconify-icon>
+      <h2 class="text-lg font-bold text-slate-900">AX 교육 큐레이터</h2>
+    </div>
+    <iconify-icon icon="solar:alt-arrow-down-linear" width="20" class="text-slate-400 accordion-toggle"></iconify-icon>
+  </button>
+  <div class="accordion-body">
+    <div class="relative mb-5">
+      <input type="text" placeholder="구체적으로 질문하시면 더 정확한 답변이 나옵니다" class="w-full border border-slate-200 rounded-lg py-3.5 pl-4 pr-12 text-base text-slate-700 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-300" aria-label="교육 검색">
+      <button class="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 bg-primary rounded-lg flex items-center justify-center hover:bg-primary-deep transition-colors duration-300" aria-label="검색">
+        <iconify-icon icon="solar:magnifer-linear" width="16" class="text-white"></iconify-icon>
+      </button>
+    </div>
+    <div class="flex flex-wrap gap-2">
+      <span class="text-sm text-slate-500 bg-slate-50 border border-slate-100 rounded-full px-4 py-1.5 cursor-pointer hover:bg-primary-soft hover:text-primary hover:border-primary/20 transition-all duration-300">교육 신청은 어떻게 해?</span>
+      <span class="text-sm text-slate-500 bg-slate-50 border border-slate-100 rounded-full px-4 py-1.5 cursor-pointer hover:bg-primary-soft hover:text-primary hover:border-primary/20 transition-all duration-300">수료증은 어디서 받는지 알 수 있어?</span>
+      <span class="text-sm text-slate-500 bg-slate-50 border border-slate-100 rounded-full px-4 py-1.5 cursor-pointer hover:bg-primary-soft hover:text-primary hover:border-primary/20 transition-all duration-300">온라인 교육 수강 방법은?</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- ACCORDION: LEARNING STATUS (open) -->
+<!-- ============================================ -->
+<div class="accordion open border border-slate-200 rounded-lg mb-4 fade-up" data-accordion>
+  <button class="w-full flex items-center justify-between px-6 py-5 text-left" onclick="this.parentElement.classList.toggle('open')">
+    <div class="flex items-center gap-3">
+      <iconify-icon icon="solar:chart-square-linear" width="22" class="text-primary"></iconify-icon>
+      <h2 class="text-lg font-bold text-slate-900">학습 현황</h2>
+    </div>
+    <iconify-icon icon="solar:alt-arrow-down-linear" width="20" class="text-slate-400 accordion-toggle"></iconify-icon>
+  </button>
+  <div class="accordion-body">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <div class="lg:col-span-3 flex flex-col items-center">
+        <div class="relative w-24 h-24">
+          <svg viewBox="0 0 100 100" class="w-full h-full -rotate-90">
+            <circle cx="50" cy="50" r="40" fill="none" stroke="#e2e8f0" stroke-width="6"/>
+            <circle cx="50" cy="50" r="40" fill="none" stroke="#066bfd" stroke-width="6" stroke-dasharray="126 252" stroke-linecap="round"/>
+          </svg>
+          <div class="absolute inset-0 flex items-center justify-center"><span class="text-3xl font-bold text-slate-900">5</span></div>
+        </div>
+        <span class="mt-2 text-sm text-slate-400">아름포인트</span>
+      </div>
+      <div class="lg:col-span-9 space-y-5">
+        <div>
+          <h3 class="text-sm font-semibold text-slate-700 mb-3">필수교육 이수현황</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="text-sm bg-primary-soft text-primary border border-primary/10 rounded px-3 py-1.5">공직가치 <strong>5/10</strong></span>
+            <span class="text-sm bg-primary-soft text-primary border border-primary/10 rounded px-3 py-1.5">적극행정 <strong>5/10</strong></span>
+            <span class="text-sm bg-primary-soft text-primary border border-primary/10 rounded px-3 py-1.5">성인지 <strong>5/10</strong></span>
+            <span class="text-sm bg-primary-soft text-primary border border-primary/10 rounded px-3 py-1.5">정보화 <strong>5/10</strong></span>
+            <span class="text-sm bg-primary-soft text-primary border border-primary/10 rounded px-3 py-1.5">정보보안 <strong>5/10</strong></span>
+            <span class="text-sm bg-primary-soft text-primary border border-primary/10 rounded px-3 py-1.5">개인정보 <strong>5/10</strong></span>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-sm font-semibold text-slate-700 mb-3">법정교육 이수현황</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="text-sm bg-slate-50 text-slate-600 border border-slate-100 rounded px-3 py-1.5">성폭력예방 <strong>5/10</strong></span>
+            <span class="text-sm bg-slate-50 text-slate-600 border border-slate-100 rounded px-3 py-1.5">감염병예방 <strong>5/10</strong></span>
+            <span class="text-sm bg-slate-50 text-slate-600 border border-slate-100 rounded px-3 py-1.5">자살예방 <strong>5/10</strong></span>
+            <span class="text-sm bg-slate-50 text-slate-600 border border-slate-100 rounded px-3 py-1.5">안보 <strong>5/10</strong></span>
+            <span class="text-sm bg-slate-50 text-slate-600 border border-slate-100 rounded px-3 py-1.5">장애인식개선 <strong>5/10</strong></span>
+            <span class="text-sm bg-slate-50 text-slate-600 border border-slate-100 rounded px-3 py-1.5">아동학대예방 <strong>5/10</strong></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- ACCORDION: CONTINUE LEARNING (collapsed) -->
+<!-- ============================================ -->
+<div class="accordion border border-slate-200 rounded-lg mb-4 fade-up" data-accordion>
+  <button class="w-full flex items-center justify-between px-6 py-5 text-left" onclick="this.parentElement.classList.toggle('open')">
+    <div class="flex items-center gap-3">
+      <iconify-icon icon="solar:play-circle-linear" width="22" class="text-primary"></iconify-icon>
+      <h2 class="text-lg font-bold text-slate-900">이어서 학습하기</h2>
+      <span class="text-xs bg-primary text-white rounded-full px-2.5 py-0.5 font-semibold">3 과정</span>
+    </div>
+    <iconify-icon icon="solar:alt-arrow-down-linear" width="20" class="text-slate-400 accordion-toggle"></iconify-icon>
+  </button>
+  <div class="accordion-body">
+    <div class="space-y-3">
+      <div class="flex items-center gap-4 p-4 bg-slate-50 rounded-lg lift">
+        <div class="flex-1"><span class="text-base font-medium text-slate-800 block break-keep">우편취급 위반관련 법규</span><div class="flex items-center gap-3 mt-2"><div class="flex-1 h-1.5 bg-slate-200 rounded-full overflow-hidden"><div class="h-full bg-primary rounded-full" style="width:30%"></div></div><span class="text-sm font-semibold text-primary">30%</span></div></div>
+        <a href="#" class="bg-primary text-white text-sm font-semibold px-4 py-2 rounded hover:bg-primary-deep active:scale-95 transition-all duration-300 flex items-center gap-1.5"><iconify-icon icon="solar:play-linear" width="14"></iconify-icon> 이어보기</a>
+      </div>
+      <div class="flex items-center gap-4 p-4 bg-slate-50 rounded-lg lift">
+        <div class="flex-1"><span class="text-base font-medium text-slate-800 block break-keep">도전! 나의 손해 2</span><div class="flex items-center gap-3 mt-2"><div class="flex-1 h-1.5 bg-slate-200 rounded-full overflow-hidden"><div class="h-full bg-primary rounded-full" style="width:65%"></div></div><span class="text-sm font-semibold text-primary">65%</span></div></div>
+        <a href="#" class="bg-primary text-white text-sm font-semibold px-4 py-2 rounded hover:bg-primary-deep active:scale-95 transition-all duration-300 flex items-center gap-1.5"><iconify-icon icon="solar:play-linear" width="14"></iconify-icon> 이어보기</a>
+      </div>
+      <div class="flex items-center gap-4 p-4 bg-slate-50 rounded-lg lift">
+        <div class="flex-1"><span class="text-base font-medium text-slate-800 block break-keep">청렴판단력 키우기</span><div class="flex items-center gap-3 mt-2"><div class="flex-1 h-1.5 bg-slate-200 rounded-full overflow-hidden"><div class="h-full bg-primary rounded-full" style="width:10%"></div></div><span class="text-sm font-semibold text-primary">10%</span></div></div>
+        <a href="#" class="bg-primary text-white text-sm font-semibold px-4 py-2 rounded hover:bg-primary-deep active:scale-95 transition-all duration-300 flex items-center gap-1.5"><iconify-icon icon="solar:play-linear" width="14"></iconify-icon> 이어보기</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- ACCORDION: CLASSROOM (open) -->
+<!-- ============================================ -->
+<div class="accordion open border border-slate-200 rounded-lg mb-4 fade-up" data-accordion>
+  <button class="w-full flex items-center justify-between px-6 py-5 text-left" onclick="this.parentElement.classList.toggle('open')">
+    <div class="flex items-center gap-3">
+      <iconify-icon icon="solar:notebook-linear" width="22" class="text-primary"></iconify-icon>
+      <h2 class="text-lg font-bold text-slate-900">CLASSROOM</h2>
+      <span class="text-sm text-slate-400 font-normal">이것이 필수다. 당신에게 딱이다.</span>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="#" class="text-sm text-primary font-medium hover:underline" onclick="event.stopPropagation()">전체보기</a>
+      <iconify-icon icon="solar:alt-arrow-down-linear" width="20" class="text-slate-400 accordion-toggle"></iconify-icon>
+    </div>
+  </button>
+  <div class="accordion-body">
+    <div class="scroll-row pb-2">
+      <div class="w-[220px] border border-slate-100 rounded-lg overflow-hidden lift group">
+        <div class="relative h-[130px] bg-slate-100 overflow-hidden"><img src="https://picsum.photos/seed/privacy-clean/440/260" alt="개인정보 보호교육" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async"><span class="absolute bottom-2 right-2 bg-slate-800/70 text-white text-xs px-2 py-0.5 rounded">60분</span><span class="absolute bottom-2 left-2 bg-primary text-white text-xs font-semibold px-2 py-0.5 rounded">국정철학</span></div>
+        <div class="p-3.5"><h4 class="text-base font-semibold text-slate-800 mb-1 break-keep leading-snug">개인정보 보호교육</h4><p class="text-sm text-slate-400 break-keep mb-2">우정사업본부 직원이 알아야할 개인...</p><div class="flex items-center gap-3 text-sm text-slate-400"><span><iconify-icon icon="solar:users-group-rounded-linear" width="14" class="align-middle"></iconify-icon> 1,234</span><span><iconify-icon icon="solar:heart-linear" width="14" class="align-middle"></iconify-icon> 42</span></div></div>
+      </div>
+      <div class="w-[220px] border border-slate-100 rounded-lg overflow-hidden lift group">
+        <div class="relative h-[130px] bg-slate-100 overflow-hidden"><img src="https://picsum.photos/seed/privacy-user-clean/440/260" alt="개인정보보호교육(이용자)" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async"><span class="absolute bottom-2 right-2 bg-slate-800/70 text-white text-xs px-2 py-0.5 rounded">60분</span><span class="absolute bottom-2 left-2 bg-slate-600 text-white text-xs font-semibold px-2 py-0.5 rounded">직무공통</span></div>
+        <div class="p-3.5"><h4 class="text-base font-semibold text-slate-800 mb-1 break-keep leading-snug">개인정보보호교육(이용자)</h4><p class="text-sm text-slate-400 break-keep mb-2">개인정보보호교육(이용자)</p><div class="flex items-center gap-3 text-sm text-slate-400"><span><iconify-icon icon="solar:users-group-rounded-linear" width="14" class="align-middle"></iconify-icon> 987</span><span><iconify-icon icon="solar:heart-linear" width="14" class="align-middle"></iconify-icon> 38</span></div></div>
+      </div>
+      <div class="w-[220px] border border-slate-100 rounded-lg overflow-hidden lift group">
+        <div class="relative h-[130px] bg-slate-100 overflow-hidden"><img src="https://picsum.photos/seed/infosec-clean/440/260" alt="정보보안기본교육" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async"><span class="absolute bottom-2 right-2 bg-slate-800/70 text-white text-xs px-2 py-0.5 rounded">60분</span><span class="absolute bottom-2 left-2 bg-slate-600 text-white text-xs font-semibold px-2 py-0.5 rounded">직무공통</span></div>
+        <div class="p-3.5"><h4 class="text-base font-semibold text-slate-800 mb-1 break-keep leading-snug">정보보안기본교육</h4><p class="text-sm text-slate-400 break-keep mb-2">우정사업본부 직원이 알아야 할 정보</p><div class="flex items-center gap-3 text-sm text-slate-400"><span><iconify-icon icon="solar:users-group-rounded-linear" width="14" class="align-middle"></iconify-icon> 2,100</span><span><iconify-icon icon="solar:heart-linear" width="14" class="align-middle"></iconify-icon> 55</span></div></div>
+      </div>
+      <div class="w-[220px] border border-slate-100 rounded-lg overflow-hidden lift group">
+        <div class="relative h-[130px] bg-slate-100 overflow-hidden"><img src="https://picsum.photos/seed/conflict-clean/440/260" alt="이해충돌방지법" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async"><span class="absolute bottom-2 right-2 bg-slate-800/70 text-white text-xs px-2 py-0.5 rounded">60분</span><span class="absolute bottom-2 left-2 bg-primary text-white text-xs font-semibold px-2 py-0.5 rounded">국정철학</span></div>
+        <div class="p-3.5"><h4 class="text-base font-semibold text-slate-800 mb-1 break-keep leading-snug">이해충돌방지법</h4><p class="text-sm text-slate-400 break-keep mb-2">알기 쉬운 이해충돌방지법</p><div class="flex items-center gap-3 text-sm text-slate-400"><span><iconify-icon icon="solar:users-group-rounded-linear" width="14" class="align-middle"></iconify-icon> 756</span><span><iconify-icon icon="solar:heart-linear" width="14" class="align-middle"></iconify-icon> 27</span></div></div>
+      </div>
+      <div class="w-[220px] border border-slate-100 rounded-lg overflow-hidden lift group">
+        <div class="relative h-[130px] bg-slate-100 overflow-hidden"><img src="https://picsum.photos/seed/excel-clean/440/260" alt="엑셀실무테크닉" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async"><span class="absolute bottom-2 right-2 bg-slate-800/70 text-white text-xs px-2 py-0.5 rounded">60분</span><span class="absolute bottom-2 left-2 bg-slate-600 text-white text-xs font-semibold px-2 py-0.5 rounded">직무공통</span></div>
+        <div class="p-3.5"><h4 class="text-base font-semibold text-slate-800 mb-1 break-keep leading-snug">엑셀실무테크닉</h4><p class="text-sm text-slate-400 break-keep mb-2">엑셀 실무 테크닉 일잘러의 보고서...</p><div class="flex items-center gap-3 text-sm text-slate-400"><span><iconify-icon icon="solar:users-group-rounded-linear" width="14" class="align-middle"></iconify-icon> 3,456</span><span><iconify-icon icon="solar:heart-linear" width="14" class="align-middle"></iconify-icon> 91</span></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- ACCORDION: CHANNELS (collapsed) -->
+<!-- ============================================ -->
+<div class="accordion border border-slate-200 rounded-lg mb-4 fade-up" data-accordion>
+  <button class="w-full flex items-center justify-between px-6 py-5 text-left" onclick="this.parentElement.classList.toggle('open')">
+    <div class="flex items-center gap-3">
+      <iconify-icon icon="solar:tv-linear" width="22" class="text-primary"></iconify-icon>
+      <h2 class="text-lg font-bold text-slate-900">구독중인 채널</h2>
+      <span class="text-xs bg-slate-100 text-slate-500 rounded-full px-2.5 py-0.5 font-medium">3 채널</span>
+    </div>
+    <iconify-icon icon="solar:alt-arrow-down-linear" width="20" class="text-slate-400 accordion-toggle"></iconify-icon>
+  </button>
+  <div class="accordion-body">
+    <div class="space-y-3">
+      <div class="flex items-center gap-4 p-4 border border-slate-100 rounded-lg lift">
+        <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white text-xs font-bold shrink-0">우정</div>
+        <div class="flex-1"><span class="text-base font-medium text-slate-800 block">우정인재개발원</span><span class="text-sm text-slate-400">50,032명</span></div>
+        <span class="text-sm text-primary border border-primary/20 rounded-full px-3 py-1 font-medium">구독중</span>
+      </div>
+      <div class="flex items-center gap-4 p-4 border border-slate-100 rounded-lg lift">
+        <div class="w-10 h-10 bg-primary-deep rounded-lg flex items-center justify-center text-white text-xs font-bold shrink-0">교육</div>
+        <div class="flex-1"><span class="text-base font-medium text-slate-800 block">교육큐레이션</span><span class="text-sm text-slate-400">52,149명</span></div>
+        <span class="text-sm text-primary border border-primary/20 rounded-full px-3 py-1 font-medium">구독중</span>
+      </div>
+      <div class="flex items-center gap-4 p-4 border border-slate-100 rounded-lg lift">
+        <div class="w-10 h-10 bg-slate-600 rounded-lg flex items-center justify-center text-white text-xs font-bold shrink-0">보이</div>
+        <div class="flex-1"><span class="text-base font-medium text-slate-800 block">보이스피싱 예방</span><span class="text-sm text-slate-400">49,533명</span></div>
+        <span class="text-sm text-primary border border-primary/20 rounded-full px-3 py-1 font-medium">구독중</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- ACCORDION: BOOKS (collapsed) -->
+<!-- ============================================ -->
+<div class="accordion border border-slate-200 rounded-lg mb-4 fade-up" data-accordion>
+  <button class="w-full flex items-center justify-between px-6 py-5 text-left" onclick="this.parentElement.classList.toggle('open')">
+    <div class="flex items-center gap-3">
+      <iconify-icon icon="solar:book-2-linear" width="22" class="text-primary"></iconify-icon>
+      <h2 class="text-lg font-bold text-slate-900">지금, 이 책!</h2>
+      <span class="text-xs bg-slate-100 text-slate-500 rounded-full px-2.5 py-0.5 font-medium">6 도서</span>
+    </div>
+    <iconify-icon icon="solar:alt-arrow-down-linear" width="20" class="text-slate-400 accordion-toggle"></iconify-icon>
+  </button>
+  <div class="accordion-body">
+    <p class="text-sm text-slate-400 mb-4">이달의 추천 도서</p>
+    <div class="grid grid-cols-3 md:grid-cols-6 gap-4">
+      <div class="group cursor-pointer"><div class="aspect-[3/4] bg-slate-100 rounded overflow-hidden mb-2 group-hover:shadow-md transition-shadow duration-300"><img src="https://picsum.photos/seed/fake-labor-c/180/240" alt="가짜 노동" class="w-full h-full object-cover" loading="lazy"></div><span class="text-sm font-medium text-slate-700 block leading-snug break-keep">가짜 노동</span><span class="text-xs text-slate-400">데니스 뇌르마르크</span></div>
+      <div class="group cursor-pointer"><div class="aspect-[3/4] bg-slate-100 rounded overflow-hidden mb-2 group-hover:shadow-md transition-shadow duration-300"><img src="https://picsum.photos/seed/study-ill-c/180/240" alt="공부하고 있다는 착각" class="w-full h-full object-cover" loading="lazy"></div><span class="text-sm font-medium text-slate-700 block leading-snug break-keep">공부하고 있다는 착각</span><span class="text-xs text-slate-400">대니얼 T. 윌링햄</span></div>
+      <div class="group cursor-pointer"><div class="aspect-[3/4] bg-slate-100 rounded overflow-hidden mb-2 group-hover:shadow-md transition-shadow duration-300"><img src="https://picsum.photos/seed/basic-design-c/180/240" alt="기본의 디자인" class="w-full h-full object-cover" loading="lazy"></div><span class="text-sm font-medium text-slate-700 block leading-snug break-keep">기본의 디자인</span><span class="text-xs text-slate-400">아키타 미치오</span></div>
+      <div class="group cursor-pointer"><div class="aspect-[3/4] bg-slate-100 rounded overflow-hidden mb-2 group-hover:shadow-md transition-shadow duration-300"><img src="https://picsum.photos/seed/dopamine-c/180/240" alt="도파민네이션" class="w-full h-full object-cover" loading="lazy"></div><span class="text-sm font-medium text-slate-700 block leading-snug break-keep">도파민네이션</span><span class="text-xs text-slate-400">애나 렘키</span></div>
+      <div class="group cursor-pointer"><div class="aspect-[3/4] bg-slate-100 rounded overflow-hidden mb-2 group-hover:shadow-md transition-shadow duration-300"><img src="https://picsum.photos/seed/schopen-c/180/240" alt="쇼펜하우어" class="w-full h-full object-cover" loading="lazy"></div><span class="text-sm font-medium text-slate-700 block leading-snug break-keep">쇼펜하우어</span><span class="text-xs text-slate-400">강용수</span></div>
+      <div class="group cursor-pointer"><div class="aspect-[3/4] bg-slate-100 rounded overflow-hidden mb-2 group-hover:shadow-md transition-shadow duration-300"><img src="https://picsum.photos/seed/forty-sch-c/180/240" alt="마흔에 읽는 쇼펜하우어" class="w-full h-full object-cover" loading="lazy"></div><span class="text-sm font-medium text-slate-700 block leading-snug break-keep">마흔에 읽는 쇼펜하우어</span><span class="text-xs text-slate-400">강용수</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- ACCORDION: DIGITAL LIBRARY (collapsed) -->
+<!-- ============================================ -->
+<div class="accordion border border-slate-200 rounded-lg mb-4 fade-up" data-accordion>
+  <button class="w-full flex items-center justify-between px-6 py-5 text-left" onclick="this.parentElement.classList.toggle('open')">
+    <div class="flex items-center gap-3">
+      <iconify-icon icon="solar:library-linear" width="22" class="text-primary"></iconify-icon>
+      <h2 class="text-lg font-bold text-slate-900">전자도서관</h2>
+    </div>
+    <iconify-icon icon="solar:alt-arrow-down-linear" width="20" class="text-slate-400 accordion-toggle"></iconify-icon>
+  </button>
+  <div class="accordion-body">
+    <div class="bg-primary-soft rounded-lg p-8 text-center">
+      <h3 class="text-xl font-bold text-slate-900 mb-2 break-keep">우정인재개발원 전자도서관</h3>
+      <p class="text-base text-slate-500 mb-6 break-keep">슬기로운 독서생활! 전자도서관에 접속해 보세요</p>
+      <a href="#" class="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-lg text-base font-semibold hover:bg-primary-deep active:scale-95 transition-all duration-300">
+        전자도서관 접속
+        <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- ACCORDION: CONTACT (collapsed) -->
+<!-- ============================================ -->
+<div class="accordion border border-slate-200 rounded-lg mb-4 fade-up" data-accordion>
+  <button class="w-full flex items-center justify-between px-6 py-5 text-left" onclick="this.parentElement.classList.toggle('open')">
+    <div class="flex items-center gap-3">
+      <iconify-icon icon="solar:phone-calling-linear" width="22" class="text-primary"></iconify-icon>
+      <h2 class="text-lg font-bold text-slate-900">교육관련 안내</h2>
+    </div>
+    <iconify-icon icon="solar:alt-arrow-down-linear" width="20" class="text-slate-400 accordion-toggle"></iconify-icon>
+  </button>
+  <div class="accordion-body">
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+      <div class="bg-slate-50 rounded-lg p-4 text-center lift">
+        <iconify-icon icon="solar:phone-calling-linear" width="24" class="text-primary mb-2 block mx-auto"></iconify-icon>
+        <span class="text-sm font-semibold text-slate-800 block mb-1">이러닝 문의</span>
+        <span class="text-sm text-slate-400">041-560-5350</span>
+      </div>
+      <div class="bg-slate-50 rounded-lg p-4 text-center lift">
+        <iconify-icon icon="solar:monitor-linear" width="24" class="text-primary mb-2 block mx-auto"></iconify-icon>
+        <span class="text-sm font-semibold text-slate-800 block mb-1">집합교육(선발)</span>
+        <span class="text-sm text-slate-400">041-560-5264</span>
+      </div>
+      <div class="bg-slate-50 rounded-lg p-4 text-center lift">
+        <iconify-icon icon="solar:clipboard-list-linear" width="24" class="text-primary mb-2 block mx-auto"></iconify-icon>
+        <span class="text-sm font-semibold text-slate-800 block mb-1">집합교육(계획)</span>
+        <span class="text-sm text-slate-400">041-560-5311</span>
+      </div>
+      <div class="bg-slate-50 rounded-lg p-4 text-center lift">
+        <iconify-icon icon="solar:diploma-verified-linear" width="24" class="text-primary mb-2 block mx-auto"></iconify-icon>
+        <span class="text-sm font-semibold text-slate-800 block mb-1">직무인증평가</span>
+        <span class="text-sm text-slate-400">041-560-5312</span>
+      </div>
+      <div class="bg-slate-50 rounded-lg p-4 text-center lift col-span-2 md:col-span-1">
+        <iconify-icon icon="solar:book-2-linear" width="24" class="text-primary mb-2 block mx-auto"></iconify-icon>
+        <span class="text-sm font-semibold text-slate-800 block mb-1">지금, 이 책!</span>
+        <span class="text-sm text-slate-400">041-560-5151</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<!-- ============================================ -->
+<!-- FOOTER -->
+<!-- ============================================ -->
+<footer class="bg-slate-50 border-t border-slate-100 py-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col lg:flex-row justify-between gap-8 mb-8">
+      <div class="flex-1">
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-6 h-6 bg-primary rounded flex items-center justify-center"><iconify-icon icon="solar:letter-linear" width="12" class="text-white"></iconify-icon></div>
+          <span class="text-sm font-bold text-slate-800">우정인재개발원</span>
+        </div>
+        <div class="text-xs text-slate-400 space-y-1 leading-relaxed">
+          <p>(31068) 충청남도 천안시 동남구 양지말1길 (유량동) 우정인재개발원</p>
+          <p>전화번호: 041-560-5350 | 팩스번호: 0505-005-1062 | 이메일: cyber123@korea.kr</p>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-x-5 gap-y-1.5 text-xs">
+        <a href="#" class="text-slate-700 font-semibold hover:text-primary transition-colors duration-300">개인정보처리 방침</a>
+        <a href="#" class="text-slate-400 hover:text-slate-700 transition-colors duration-300">영상정보처리기기 운영관리 방침</a>
+        <a href="#" class="text-slate-400 hover:text-slate-700 transition-colors duration-300">이메일주소 무단수집거부</a>
+        <a href="#" class="text-slate-400 hover:text-slate-700 transition-colors duration-300">이용약관</a>
+        <a href="#" class="text-slate-400 hover:text-slate-700 transition-colors duration-300">찾아오시는길</a>
+        <a href="#" class="text-slate-400 hover:text-slate-700 transition-colors duration-300">고객지원센터</a>
+      </div>
+      <div><select class="bg-white border border-slate-200 text-slate-500 text-xs rounded-lg px-3 py-2 focus:border-primary focus:outline-none" aria-label="관련사이트"><option>관련사이트 바로가기</option></select></div>
+    </div>
+    <div class="border-t border-slate-100 pt-5 flex items-center justify-between">
+      <span class="text-xs text-slate-300">COPYRIGHT(C) 2016 KOREA POST(OFFICE OF POSTAL SERVICE). ALL RIGHTS RESERVED.</span>
+      <button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="w-9 h-9 bg-white border border-slate-200 rounded-lg flex items-center justify-center text-slate-400 hover:text-primary hover:border-primary/30 transition-all duration-300" aria-label="상단으로">
+        <iconify-icon icon="solar:alt-arrow-up-linear" width="16"></iconify-icon>
+      </button>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+})();
+</script>
+
+</body>
+</html>

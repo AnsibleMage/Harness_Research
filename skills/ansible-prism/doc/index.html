@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Main Page — DDMM Wireframes</title>
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles-opt1.css">
+  <link rel="stylesheet" href="styles-opt2.css">
+  <link rel="stylesheet" href="styles-opt3.css">
+  <link rel="stylesheet" href="styles-opt4.css">
+  <link rel="stylesheet" href="styles-opt5.css">
+</head>
+<body>
+
+<div class="completion-banner" id="completion-banner" style="display:none;">
+  ✦ Visual designs complete — all options now have Clean + Polished variants
+  <button onclick="this.parentElement.style.display='none'" style="float:right;background:none;border:none;cursor:pointer;font-size:16px;">×</button>
+</div>
+
+<div class="page-wrapper">
+
+  <div class="title-bar">
+    <span><span id="feature-name">Main Page</span> — <span id="project-name">SaeroEArum</span></span>
+    <span class="rec">★ Recommended: Option <span id="rec-number">4</span></span>
+  </div>
+
+  <nav class="main-tabs">
+    <button class="tab-btn active" data-tab="option-1">1: Classic Stack</button>
+    <button class="tab-btn" data-tab="option-2">2: Dashboard Hub</button>
+    <button class="tab-btn" data-tab="option-3">3: Progressive Reveal</button>
+    <button class="tab-btn" data-tab="option-4">4: Card Mosaic</button>
+    <button class="tab-btn" data-tab="option-5">5: Search Portal</button>
+    <button class="tab-btn" data-tab="summary">Summary</button>
+  </nav>
+
+  <!-- ===== OPTION 1 ===== -->
+  <div class="option-panel active" id="option-1">
+    <h2>Option 1: <span class="opt-name">Classic Stack</span></h2>
+    <p class="option-description">Safe baseline replicating the existing 3-tier header, vertical sections, and horizontal carousel patterns.</p>
+    <div class="sub-tab-bar" id="frame-opt1-tabs">
+      <button class="sub-tab-btn active" data-variant="wireframe" data-frame="frame-opt1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48"><defs><mask id="ipTsketch1"><g fill="#555" stroke="#fff" stroke-linejoin="round" stroke-width="4"><rect width="36" height="36" x="6" y="6" rx="3"/><path stroke-linecap="round" d="M18.6 16h10.8l3.6 4.706L24 32l-9-11.294z"/></g></mask></defs><path fill="currentColor" d="M0 0h48v48H0z" mask="url(#ipTsketch1)"/></svg>
+        <span class="sub-tab-label">Wireframe</span>
+      </button>
+      <button class="sub-tab-btn" data-variant="clean" data-frame="frame-opt1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48"><defs><mask id="ipTpaint1"><g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"><path d="m15.536 22.898l9.899 9.9m-9.899-9.9L7.05 31.383a7 7 0 1 0 9.9 9.9l8.485-8.486m-9.899 0l-4.243 4.243"/><path fill="#555" d="m25.435 32.797l14.907-6.432c2.688-1.16 3.809-4.379 2.086-6.745C38.264 13.903 32.65 8.89 28.51 5.823c-2.29-1.696-5.33-.64-6.46 1.975l-6.514 15.1z"/></g></mask></defs><path fill="currentColor" d="M0 0h48v48H0z" mask="url(#ipTpaint1)"/></svg>
+        <span class="sub-tab-label">Clean</span>
+        <span class="sub-tab-badge">generating...</span>
+      </button>
+      <button class="sub-tab-btn" data-variant="polished" data-frame="frame-opt1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48"><defs><mask id="ipTdiamond1"><path fill="#555" stroke="#fff" stroke-width="4" d="M5.939 13.934L23.036 4.53a2 2 0 0 1 1.928 0l17.097 9.404a2 2 0 0 1 .683 2.888l-17.098 24.79a2 2 0 0 1-3.292 0L5.256 16.823a2 2 0 0 1 .683-2.888Z"/></mask></defs><path fill="currentColor" d="M0 0h48v48H0z" mask="url(#ipTdiamond1)"/></svg>
+        <span class="sub-tab-label">Polished</span>
+        <span class="sub-tab-badge">generating...</span>
+      </button>
+    </div>
+    <div class="browser-frame wireframe" id="frame-opt1">
+      <div class="browser-chrome">
+        <div class="browser-dots"><span></span><span></span><span></span></div>
+        <div class="browser-url">yourapp.com/main</div>
+        <div class="browser-controls">─ □ ✕</div>
+      </div>
+      <div class="browser-content">
+        <!-- S01: Header -->
+        <div class="wf-section wf-header">
+          <div class="wf-util-bar"><span>🌙 다크 모드로 보기</span><span class="wf-right"><a href="#">플랫폼(관리자)</a> <a href="#">학사행정시스템</a></span></div>
+          <div class="wf-logo-bar"><span class="wf-logo">✦ 우정인재개발원 새로e아름</span><span class="wf-right">홍길동님 환영합니다. <a href="#">로그아웃</a> | <a href="#">회원정보수정</a> ≡</span></div>
+          <div class="wf-gnb"><a href="#">나의공간</a><a href="#">콘텐츠</a><a href="#">채널</a><a href="#">직무인증</a><a href="#">고객지원센터</a></div>
+        </div>
+        <!-- S02: Banner + Library -->
+        <div class="wf-section wf-two-col">
+          <div class="wf-col-narrow">
+            <div class="wf-card"><div class="wf-placeholder-img">AI</div><strong>AX 교육 큐레이터에게 물어보세요</strong><div class="wf-search-bar">구체적으로 질문하시면 더 정확한 답변이 나옵니다</div><div class="wf-tags"><span>교육 신청은 어떻게 해?</span><span>수료증은 어디서 받는지 알 수 있어?</span><span>온라인 교육 수강 방법은?</span></div></div>
+          </div>
+          <div class="wf-col-wide">
+            <div class="wf-card wf-card-accent"><small>새로e아름 > 콘텐츠 > 전자도서관(e-book)</small><h3>우정인재개발원 전자도서관</h3><p>슬기로운 독서생활! 전자도서관에 접속해 보세요</p><a href="#" class="wf-btn">사람은 책을 만들고 책은 사람을 만든다</a><span class="wf-deco">I love book</span><span class="wf-marker">①</span></div>
+          </div>
+        </div>
+        <!-- S03: Learning Status -->
+        <div class="wf-section">
+          <h3 class="wf-section-title">학습 현황<span class="wf-marker">②</span></h3>
+          <div class="wf-two-col">
+            <div class="wf-col-narrow wf-center"><div class="wf-donut"><span class="wf-donut-num">5</span></div><small>아름포인트</small></div>
+            <div class="wf-col-wide">
+              <div class="wf-course-group"><strong>필수교육 이수현황</strong><div class="wf-course-row"><span class="wf-pill">공직가치 5/10</span><span class="wf-pill">적극행정 5/10</span><span class="wf-pill">성인지 5/10</span><span class="wf-pill">정보화 5/10</span><span class="wf-pill">정보보안 5/10</span><span class="wf-pill">개인정보 5/10</span><span class="wf-arrow">◀ ▶</span></div></div>
+              <div class="wf-course-group"><strong>법정교육 이수현황</strong><div class="wf-course-row"><span class="wf-pill">성폭력예방 5/10</span><span class="wf-pill">감염병예방 5/10</span><span class="wf-pill">자살예방 5/10</span><span class="wf-pill">안보 5/10</span><span class="wf-pill">장애인식개선 5/10</span><span class="wf-pill">아동학대예방 5/10</span><span class="wf-arrow">◀ ▶</span></div></div>
+            </div>
+          </div>
+        </div>
+        <!-- S04: CLASSROOM -->
+        <div class="wf-section wf-section-alt">
+          <div class="wf-section-header"><h3>CLASSROOM</h3><div class="wf-slogans"><span>이것이 필수다.</span><span>당신에게 딱이다.</span></div><a href="#" class="wf-link">전체보기 ></a></div>
+          <div class="wf-tab-bar"><a href="#">전체</a><a href="#">국정철학</a><a href="#">직무공통</a></div>
+          <div class="wf-card-row">
+            <div class="wf-course-card"><div class="wf-thumb"><span class="wf-badge-time">60분</span><span class="wf-badge-cat">국정철학</span><span class="wf-badge-heart">♡ 42</span></div><strong>개인정보 보호교육</strong><small>우정사업본부 직원이 알아야할 개인...</small><div class="wf-meta">👤 1,234 💬 56</div></div>
+            <div class="wf-course-card"><div class="wf-thumb"><span class="wf-badge-time">60분</span><span class="wf-badge-cat">직무공통</span><span class="wf-badge-heart">♡ 38</span></div><strong>개인정보보호교육(이용자)</strong><small>개인정보보호교육(이용자)</small><div class="wf-meta">👤 987 💬 23</div></div>
+            <div class="wf-course-card"><div class="wf-thumb"><span class="wf-badge-time">60분</span><span class="wf-badge-cat">직무공통</span><span class="wf-badge-heart">♡ 55</span></div><strong>정보보안기본교육</strong><small>우정사업본부 직원이 알아야 할 정보</small><div class="wf-meta">👤 2,100 💬 89</div></div>
+            <div class="wf-course-card"><div class="wf-thumb"><span class="wf-badge-time">60분</span><span class="wf-badge-cat">국정철학</span><span class="wf-badge-heart">♡ 27</span></div><strong>이해충돌방지법</strong><small>알기 쉬운 이해충돌방지법</small><div class="wf-meta">👤 756 💬 12</div></div>
+            <div class="wf-course-card"><div class="wf-thumb"><span class="wf-badge-time">60분</span><span class="wf-badge-cat">직무공통</span><span class="wf-badge-heart">♡ 91</span></div><strong>엑셀실무테크닉</strong><small>엑셀 실무 테크닉 일잘러의 보고서...</small><div class="wf-meta">👤 3,456 💬 201</div></div>
+          </div><div class="wf-arrows">◀ ▶</div>
+        </div>
+        <!-- S05: Continue Learning -->
+        <div class="wf-section">
+          <div class="wf-section-header"><h3>이어서 학습하기</h3><a href="#" class="wf-link">전체보기 ></a></div>
+          <div class="wf-card-grid-3">
+            <div class="wf-learn-card"><div class="wf-thumb"></div><strong>우편취급 위반관련 법규</strong><div class="wf-progress"><div class="wf-progress-fill" style="width:30%"></div></div><small>30%</small><a href="#" class="wf-btn-sm">이어보기</a></div>
+            <div class="wf-learn-card"><div class="wf-thumb"></div><strong>도전! 나의 손해 2</strong><div class="wf-progress"><div class="wf-progress-fill" style="width:65%"></div></div><small>65%</small><a href="#" class="wf-btn-sm">이어보기</a></div>
+            <div class="wf-learn-card"><div class="wf-thumb"></div><strong>청렴판단력 키우기</strong><div class="wf-progress"><div class="wf-progress-fill" style="width:10%"></div></div><small>10%</small><a href="#" class="wf-btn-sm">이어보기</a></div>
+          </div>
+        </div>
+        <!-- S06: Channels + Books -->
+        <div class="wf-section wf-section-alt">
+          <div class="wf-two-col">
+            <div class="wf-col-narrow">
+              <div class="wf-section-header"><h3>구독중인 채널</h3><small>내가 팔로우하는 학습 채널</small><a href="#" class="wf-link">전체보기 ></a></div>
+              <div class="wf-channel-card"><span class="wf-ch-badge">우정</span><div><strong>우정인재개발원</strong><small>50,032명</small></div><a href="#" class="wf-btn-sm">구독중</a></div>
+              <div class="wf-channel-card"><span class="wf-ch-badge">교육</span><div><strong>교육큐레이션</strong><small>52,149명</small></div><a href="#" class="wf-btn-sm">구독중</a></div>
+              <div class="wf-channel-card"><span class="wf-ch-badge">보이</span><div><strong>보이스피싱 예방</strong><small>49,533명</small></div><a href="#" class="wf-btn-sm">구독중</a></div>
+            </div>
+            <div class="wf-col-wide">
+              <div class="wf-section-header"><h3>지금, 이 책!</h3><small>이달의 추천 도서</small><a href="#" class="wf-link">전체보기 ></a></div>
+              <div class="wf-book-grid"><div class="wf-book"><div class="wf-book-cover"></div><strong>가짜 노동</strong><small>데니스 뇌르마르크</small></div><div class="wf-book"><div class="wf-book-cover"></div><strong>공부하고 있다는 착각</strong><small>대니얼 T. 윌링햄</small></div><div class="wf-book"><div class="wf-book-cover"></div><strong>기본의 디자인</strong><small>아키타 미치오</small></div><div class="wf-book"><div class="wf-book-cover"></div><strong>도파민네이션</strong><small>애나 렘키</small></div><div class="wf-book"><div class="wf-book-cover"></div><strong>쇼펜하우어</strong><small>강용수</small></div><div class="wf-book"><div class="wf-book-cover"></div><strong>마흔에 읽는 쇼펜하우어</strong><small>강용수</small></div></div>
+            </div>
+          </div>
+        </div>
+        <!-- S07: Contact -->
+        <div class="wf-section">
+          <h3 class="wf-section-title wf-center">교육관련 안내</h3>
+          <div class="wf-contact-row">
+            <div class="wf-contact-card">📞<strong>이러닝 문의</strong><span>041-560-5350</span></div>
+            <div class="wf-contact-card">🖥<strong>집합교육(선발)</strong><span>041-560-5264</span></div>
+            <div class="wf-contact-card">📋<strong>집합교육(계획)</strong><span>041-560-5311</span></div>
+            <div class="wf-contact-card">📄<strong>직무인증평가</strong><span>041-560-5312</span></div>
+            <div class="wf-contact-card">📚<strong>지금, 이 책!</strong><span>041-560-5151</span></div>
+          </div>
+        </div>
+        <!-- S08: Footer -->
+        <div class="wf-footer">
+          <div class="wf-footer-top"><span class="wf-logo-sm">✦ 우정인재개발원</span><div class="wf-footer-links"><a href="#"><strong>개인정보처리 방침</strong></a><a href="#">영상정보처리기기 운영관리 방침</a><a href="#">이메일주소 무단수집거부</a><a href="#">이용약관</a><a href="#">찾아오시는길</a><a href="#">고객지원센터</a></div><a href="#" class="wf-link">관련사이트 바로가기 ▾</a></div>
+          <div class="wf-footer-info"><small>(31068) 충청남도 천안시 동남구 양지말1길 (유량동) 우정인재개발원</small><small>전화번호: 041-560-5350 | 팩스번호: 0505-005-1062 | 이메일: cyber123@korea.kr</small></div>
+          <div class="wf-footer-copy">COPYRIGHT(C) 2016 KOREA POST(OFFICE OF POSTAL SERVICE). ALL RIGHTS RESERVED.<span class="wf-scroll-top">↑</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="wf-annotations">
+      <h3>UX Notes</h3><ul><li>① Digital library card uses wide column with decorative elements — maintains existing brand personality</li><li>② Learning status donut chart provides quick visual progress — familiar dashboard pattern for returning users</li></ul>
+    </div>
+  </div>
+
+  <!-- ===== OPTION 2 ===== -->
+  <div class="option-panel" id="option-2">
+    <h2>Option 2: <span class="opt-name">Dashboard Hub</span></h2>
+    <p class="option-description">Dashboard-first approach with all learning metrics and status data visible at a glance.</p>
+    <div class="sub-tab-bar" id="frame-opt2-tabs">
+      <button class="sub-tab-btn active" data-variant="wireframe" data-frame="frame-opt2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48"><defs><mask id="ipTsketch2"><g fill="#555" stroke="#fff" stroke-linejoin="round" stroke-width="4"><rect width="36" height="36" x="6" y="6" rx="3"/><path stroke-linecap="round" d="M18.6 16h10.8l3.6 4.706L24 32l-9-11.294z"/></g></mask></defs><path fill="currentColor" d="M0 0h48v48H0z" mask="url(#ipTsketch2)"/></svg>
+        <span class="sub-tab-label">Wireframe</span>
+      </button>
+      <button class="sub-tab-btn" data-variant="clean" data-frame="frame-opt2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48"><defs><mask id="ipTpaint2"><g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"><path d="m15.536 22.898l9.899 9.9m-9.899-9.9L7.05 31.383a7 7 0 1 0 9.9 9.9l8.485-8.486m-9.899 0l-4.243 4.243"/><path fill="#555" d="m25.435 32.797l14.907-6.432c2.688-1.16 3.809-4.379 2.086-6.745C38.264 13.903 32.65 8.89 28.51 5.823c-2.29-1.696-5.33-.64-6.46 1.975l-6.514 15.1z"/></g></mask></defs><path fill="currentColor" d="M0 0h48v48H0z" mask="url(#ipTpaint2)"/></svg>
+        <span class="sub-tab-label">Clean</span>
+        <span class="sub-tab-badge">generating...</span>
+      </button>
+      <button class="sub-tab-btn" data-variant="polished" data-frame="frame-opt2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48"><defs><mask id="ipTdiamond2"><path fill="#555" stroke="#fff" stroke-width="4" d="M5.939 13.934L23.036 4.53a2 2 0 0 1 1.928 0l17.097 9.404a2 2 0 0 1 .683 2.888l-17.098 24.79a2 2 0 0 1-3.292 0L5.256 16.823a2 2 0 0 1 .683-2.888Z"/></mask></defs><path fill="currentColor" d="M0 0h48v48H0z" mask="url(#ipTdiamond2)"/></svg>
+        <span class="sub-tab-label">Polished</span>
+        <span class="sub-tab-badge">generating...</span>
+      </button>
+    </div>
+    <div class="browser-frame wireframe" id="frame-opt2">
+      <div class="browser-chrome">
+        <div class="browser-dots"><span></span><span></span><span></span></div>
+        <div class="browser-url">yourapp.com/main</div>
+        <div class="browser-controls">─ □ ✕</div>
+      </div>
+      <div class="browser-content">
+        <!-- S01: Compact Header -->
+        <div class="wf-section wf-header">
+          <div class="wf-logo-bar"><span class="wf-logo">✦ 새로e아름</span><div class="wf-gnb-inline"><a href="#">나의공간</a><a href="#">콘텐츠</a><a href="#">채널</a><a href="#">직무인증</a><a href="#">고객지원센터</a></div><span class="wf-right">홍길동님 <a href="#">로그아웃</a> 🌙 ≡</span></div>
+        </div>
+        <!-- Dashboard Panel: All metrics at top -->
+        <div class="wf-section wf-dashboard-panel">
+          <div class="wf-dash-grid">
+            <div class="wf-dash-cell"><div class="wf-donut wf-donut-sm"><span class="wf-donut-num">5</span></div><strong>아름포인트</strong><small>이수 현황</small><span class="wf-marker">①</span></div>
+            <div class="wf-dash-cell"><strong>필수교육</strong><div class="wf-mini-list"><span>공직가치 5/10</span><span>적극행정 5/10</span><span>성인지 5/10</span><span>정보화 5/10</span><span>정보보안 5/10</span><span>개인정보 5/10</span></div></div>
+            <div class="wf-dash-cell"><strong>법정교육</strong><div class="wf-mini-list"><span>성폭력예방 5/10</span><span>감염병예방 5/10</span><span>자살예방 5/10</span><span>안보 5/10</span><span>장애인식개선 5/10</span><span>아동학대예방 5/10</span></div></div>
+            <div class="wf-dash-cell wf-dash-continue"><strong>이어서 학습하기</strong><div class="wf-mini-progress"><span>우편취급 위반관련 법규 30%</span><span>도전! 나의 손해 2 65%</span><span>청렴판단력 키우기 10%</span></div><span class="wf-marker">②</span></div>
+          </div>
+        </div>
+        <!-- AI Curator Search -->
+        <div class="wf-section">
+          <div class="wf-search-hero"><strong>AX 교육 큐레이터에게 물어보세요</strong><div class="wf-search-bar wf-search-lg">구체적으로 질문하시면 더 정확한 답변이 나옵니다</div><div class="wf-tags"><span>교육 신청은 어떻게 해?</span><span>수료증은 어디서 받는지 알 수 있어?</span><span>온라인 교육 수강 방법은?</span></div></div>
+        </div>
+        <!-- CLASSROOM -->
+        <div class="wf-section wf-section-alt">
+          <div class="wf-section-header"><h3>CLASSROOM</h3><div class="wf-slogans"><span>이것이 필수다.</span><span>당신에게 딱이다.</span></div><a href="#" class="wf-link">전체보기 ></a></div>
+          <div class="wf-card-row">
+            <div class="wf-course-card"><div class="wf-thumb"><span class="wf-badge-time">60분</span><span class="wf-badge-cat">국정철학</span><span class="wf-badge-heart">♡ 42</span></div><strong>개인정보 보호교육</strong><small>우정사업본부 직원이 알아야할 개인...</small><div class="wf-meta">👤 1,234 💬 56</div></div>
+            <div class="wf-course-card"><div class="wf-thumb"><span class="wf-badge-time">60분</span><span class="wf-badge-cat">직무공통</span><span class="wf-badge-heart">♡ 38</span></div><strong>개인정보보호교육(이용자)</strong><small>개인정보보호교육(이용자)</small><div class="wf-meta">👤 987 💬 23</div></div>
+            <div class="wf-course-card"><div class="wf-thumb"><span class="wf-badge-time">60분</span><span class="wf-badge-cat">직무공통</span><span class="wf-badge-heart">♡ 55</span></div><strong>정보보안기본교육</strong><small>우정사업본부 직원이 알아야 할 정보</small><div class="wf-meta">👤 2,100 💬 89</div></div>
+            <div class="wf-course-card"><div class="wf-thumb"><span class="wf-badge-time">60분</span><span class="wf-badge-cat">국정철학</span><span class="wf-badge-heart">♡ 27</span></div><strong>이해충돌방지법</strong><small>알기 쉬운 이해충돌방지법</small><div class="wf-meta">👤 756 💬 12</div></div>
+            <div class="wf-course-card"><div class="wf-thumb"><span class="wf-badge-time">60분</span><span class="wf-badge-cat">직무공통</span><span class="wf-badge-heart">♡ 91</span></div><strong>엑셀실무테크닉</strong><small>엑셀 실무 테크닉 일잘러의 보고서...</small><div class="wf-meta">👤 3,456 💬 201</div></div>
+          </div>
+        </div>
+        <!-- Channels + Books + Library row -->
+        <div class="wf-section">
+          <div class="wf-three-col">
+            <div class="wf-col"><div class="wf-section-header"><h3>구독중인 채널</h3><a href="#" class="wf-link">전체보기 ></a></div><div class="wf-channel-card"><span class="wf-ch-badge">우정</span><strong>우정인재개발원</strong><small>50,032명</small></div><div class="wf-channel-card"><span class="wf-ch-badge">교육</span><strong>교육큐레이션</strong><small>52,149명</small></div><div class="wf-channel-card"><span class="wf-ch-badge">보이</span><strong>보이스피싱 예방</strong><small>49,533명</small></div></div>
+            <div class="wf-col"><div class="wf-section-header"><h3>지금, 이 책!</h3><a href="#" class="wf-link">전체보기 ></a></div><div class="wf-book-grid-compact"><div class="wf-book"><div class="wf-book-cover"></div><small>가짜 노동</small></div><div class="wf-book"><div class="wf-book-cover"></div><small>공부하고 있다는 착각</small></div><div class="wf-book"><div class="wf-book-cover"></div><small>기본의 디자인</small></div><div class="wf-book"><div class="wf-book-cover"></div><small>도파민네이션</small></div><div class="wf-book"><div class="wf-book-cover"></div><small>쇼펜하우어</small></div><div class="wf-book"><div class="wf-book-cover"></div><small>마흔에 읽는 쇼펜하우어</small></div></div></div>
+            <div class="wf-col"><div class="wf-card wf-card-accent"><h3>전자도서관</h3><p>슬기로운 독서생활!</p><a href="#" class="wf-btn">접속하기</a><span class="wf-deco">I love book</span></div></div>
+          </div>
+        </div>
+        <!-- Contact + Footer -->
+        <div class="wf-section wf-section-alt">
+          <h3 class="wf-section-title wf-center">교육관련 안내</h3>
+          <div class="wf-contact-row"><div class="wf-contact-card">📞<strong>이러닝 문의</strong><span>041-560-5350</span></div><div class="wf-contact-card">🖥<strong>집합교육(선발)</strong><span>041-560-5264</span></div><div class="wf-contact-card">📋<strong>집합교육(계획)</strong><span>041-560-5311</span></div><div class="wf-contact-card">📄<strong>직무인증평가</strong><span>041-560-5312</span></div><div class="wf-contact-card">📚<strong>지금, 이 책!</strong><span>041-560-5151</span></div></div>
+        </div>
+        <div class="wf-footer"><div class="wf-footer-top"><span class="wf-logo-sm">✦ 우정인재개발원</span><div class="wf-footer-links"><a href="#"><strong>개인정보처리 방침</strong></a><a href="#">영상정보처리기기 운영관리 방침</a><a href="#">이메일주소 무단수집거부</a><a href="#">이용약관</a><a href="#">찾아오시는길</a><a href="#">고객지원센터</a></div><a href="#" class="wf-link">관련사이트 바로가기 ▾</a></div><div class="wf-footer-info"><small>(31068) 충청남도 천안시 동남구 양지말1길 (유량동) 우정인재개발원 | 041-560-5350 | cyber123@korea.kr</small></div><div class="wf-footer-copy">COPYRIGHT(C) 2016 KOREA POST. ALL RIGHTS RESERVED.<span class="wf-scroll-top">↑</span></div></div>
+      </div>
+    </div>
+    <div class="wf-annotations">
+      <h3>UX Notes</h3><ul><li>① Dashboard panel consolidates all metrics (progress, mandatory/legal courses, continue learning) into one scannable area at the top</li><li>② AI curator search elevated to standalone section for higher discoverability</li></ul>
+    </div>
+  </div>
+
+  <!-- ===== OPTION 3 ===== -->
+  <div class="option-panel" id="option-3">
+    <h2>Option 3: <span class="opt-name">Progressive Reveal</span></h2>
+    <p class="option-description">Collapsible accordion sections that start clean and reveal detail on demand.</p>
+    <div class="sub-tab-bar" id="frame-opt3-tabs">
+      <button class="sub-tab-btn active" data-variant="wireframe" data-frame="frame-opt3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48"><defs><mask id="ipTsketch3"><g fill="#555" stroke="#fff" stroke-linejoin="round" stroke-width="4"><rect width="36" height="36" x="6" y="6" rx="3"/><path stroke-linecap="round" d="M18.6 16h10.8l3.6 4.706L24 32l-9-11.294z"/></g></mask></defs><path fill="currentColor" d="M0 0h48v48H0z" mask="url(#ipTsketch3)"/></svg>
+        <span class="sub-tab-label">Wireframe</span>
+      </button>
+      <button class="sub-tab-btn" data-variant="clean" data-frame="frame-opt3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48"><defs><mask id="ipTpaint3"><g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"><path d="m15.536 22.898l9.899 9.9m-9.899-9.9L7.05 31.383a7 7 0 1 0 9.9 9.9l8.485-8.486m-9.899 0l-4.243 4.243"/><path fill="#555" d="m25.435 32.797l14.907-6.432c2.688-1.16 3.809-4.379 2.086-6.745C38.264 13.903 32.65 8.89 28.51 5.823c-2.29-1.696-5.33-.64-6.46 1.975l-6.514 15.1z"/></g></mask></defs><path fill="currentColor" d="M0 0h48v48H0z" mask="url(#ipTpaint3)"/></svg>
+        <span class="sub-tab-label">Clean</span>
+        <span class="sub-tab-badge">generating...</span>
+      </button>
+      <button class="sub-tab-btn" data-variant="polished" data-frame="frame-opt3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48"><defs><mask id="ipTdiamond3"><path fill="#555" stroke="#fff" stroke-width="4" d="M5.939 13.934L23.036 4.53a2 2 0 0 1 1.928 0l17.097 9.404a2 2 0 0 1 .683 2.888l-17.098 24.79a2 2 0 0 1-3.292 0L5.256 16.823a2 2 0 0 1 .683-2.888Z"/></mask></defs><path fill="currentColor" d="M0 0h48v48H0z" mask="url(#ipTdiamond3)"/></svg>
+        <span class="sub-tab-label">Polished</span>
+        <span class="sub-tab-badge">generating...</span>
+      </button>
+    </div>
+    <div class="browser-frame wireframe" id="frame-opt3">
+      <div class="browser-chrome">
+        <div class="browser-dots"><span></span><span></span><span></span></div>
+        <div class="browser-url">yourapp.com/main</div>
+        <div class="browser-controls">─ □ ✕</div>
+      </div>
+      <div class="browser-content">
+        <!-- Minimal header -->
+        <div class="wf-section wf-header">
+          <div class="wf-logo-bar"><span class="wf-logo">✦ 새로e아름</span><div class="wf-gnb-inline"><a href="#">나의공간</a><a href="#">콘텐츠</a><a href="#">채널</a><a href="#">직무인증</a><a href="#">고객지원센터</a></div><span class="wf-right">홍길동님 🌙 ≡</span></div>
+        </div>
+        <!-- Accordion sections -->
+        <div class="wf-section">
+          <div class="wf-accordion open">
+            <div class="wf-acc-header"><h3>🔍 AX 교육 큐레이터</h3><span class="wf-acc-toggle">−</span><span class="wf-marker">①</span></div>
+            <div class="wf-acc-body"><div class="wf-search-bar wf-search-lg">구체적으로 질문하시면 더 정확한 답변이 나옵니다</div><div class="wf-tags"><span>교육 신청은 어떻게 해?</span><span>수료증은 어디서 받는지 알 수 있어?</span><span>온라인 교육 수강 방법은?</span></div></div>
+          </div>
+          <div class="wf-accordion open">
+            <div class="wf-acc-header"><h3>📊 학습 현황</h3><span class="wf-acc-toggle">−</span></div>
+            <div class="wf-acc-body">
+              <div class="wf-two-col">
+                <div class="wf-col-narrow wf-center"><div class="wf-donut"><span class="wf-donut-num">5</span></div><small>아름포인트</small></div>
+                <div class="wf-col-wide"><div class="wf-course-group"><strong>필수교육</strong><div class="wf-course-row"><span class="wf-pill">공직가치 5/10</span><span class="wf-pill">적극행정 5/10</span><span class="wf-pill">성인지 5/10</span><span class="wf-pill">정보화 5/10</span><span class="wf-pill">정보보안 5/10</span><span class="wf-pill">개인정보 5/10</span></div></div><div class="wf-course-group"><strong>법정교육</strong><div class="wf-course-row"><span class="wf-pill">성폭력예방 5/10</span><span class="wf-pill">감염병예방 5/10</span><span class="wf-pill">자살예방 5/10</span><span class="wf-pill">안보 5/10</span><span class="wf-pill">장애인식개선 5/10</span><span class="wf-pill">아동학대예방 5/10</span></div></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="wf-accordion">
+            <div class="wf-acc-header"><h3>▶ 이어서 학습하기</h3><span>3 과정</span><span class="wf-acc-toggle">+</span><span class="wf-marker">②</span></div>
+            <div class="wf-acc-body"><div class="wf-mini-progress"><span>우편취급 위반관련 법규 — 30%</span><span>도전! 나의 손해 2 — 65%</span><span>청렴판단력 키우기 — 10%</span></div></div>
+          </div>
+          <div class="wf-accordion open">
+            <div class="wf-acc-header"><h3>📚 CLASSROOM</h3><a href="#" class="wf-link">전체보기 ></a><span class="wf-acc-toggle">−</span></div>
+            <div class="wf-acc-body">
+              <div class="wf-slogans"><span>이것이 필수다.</span><span>당신에게 딱이다.</span></div>
+              <div class="wf-card-row">
+                <div class="wf-course-card"><div class="wf-thumb"><span class="wf-badge-time">60분</span></div><strong>개인정보 보호교육</strong><div class="wf-meta">👤 1,234 ♡ 42</div></div>
+                <div class="wf-course-card"><div class="wf-thumb"><span class="wf-badge-time">60분</span></div><strong>개인정보보호교육(이용자)</strong><div class="wf-meta">👤 987 ♡ 38</div></div>
+                <div class="wf-course-card"><div class="wf-thumb"><span class="wf-badge-time">60분</span></div><strong>정보보안기본교육</strong><div class="wf-meta">👤 2,100 ♡ 55</div></div>
+                <div class="wf-course-card"><div class="wf-thumb"><span class="wf-badge-time">60분</span></div><strong>이해충돌방지법</strong><div class="wf-meta">👤 756 ♡ 27</div></div>
+                <div class="wf-course-card"><div class="wf-thumb"><span class="wf-badge-time">60분</span></div><strong>엑셀실무테크닉</strong><div class="wf-meta">👤 3,456 ♡ 91</div></div>
+              </div>
+            </div>
+          </div>
+          <div class="wf-accordion">
+            <div class="wf-acc-header"><h3>📺 구독중인 채널</h3><span>3 채널</span><span class="wf-acc-toggle">+</span></div>
+            <div class="wf-acc-body"><div class="wf-channel-card"><span class="wf-ch-badge">우정</span><strong>우정인재개발원</strong><small>50,032명</small></div><div class="wf-channel-card"><span class="wf-ch-badge">교육</span><strong>교육큐레이션</strong><small>52,149명</small></div><div class="wf-channel-card"><span class="wf-ch-badge">보이</span><strong>보이스피싱 예방</strong><small>49,533명</small></div></div>
+          </div>
+          <div class="wf-accordion">
+            <div class="wf-acc-header"><h3>📖 지금, 이 책!</h3><span>6 도서</span><span class="wf-acc-toggle">+</span></div>
+            <div class="wf-acc-body"><div class="wf-book-grid"><div class="wf-book"><div class="wf-book-cover"></div><small>가짜 노동</small></div><div class="wf-book"><div class="wf-book-cover"></div><small>공부하고 있다는 착각</small></div><div class="wf-book"><div class="wf-book-cover"></div><small>기본의 디자인</small></div><div class="wf-book"><div class="wf-book-cover"></div><small>도파민네이션</small></div><div class="wf-book"><div class="wf-book-cover"></div><small>쇼펜하우어</small></div><div class="wf-book"><div class="wf-book-cover"></div><small>마흔에 읽는 쇼펜하우어</small></div></div></div>
+          </div>
+          <div class="wf-accordion">
+            <div class="wf-acc-header"><h3>📖 전자도서관</h3><span class="wf-acc-toggle">+</span></div>
+            <div class="wf-acc-body"><p>우정인재개발원 전자도서관 — 슬기로운 독서생활!</p><a href="#" class="wf-btn">전자도서관 접속</a></div>
+          </div>
+          <div class="wf-accordion">
+            <div class="wf-acc-header"><h3>📞 교육관련 안내</h3><span class="wf-acc-toggle">+</span></div>
+            <div class="wf-acc-body"><div class="wf-contact-row"><div class="wf-contact-card">📞<strong>이러닝 문의</strong><span>041-560-5350</span></div><div class="wf-contact-card">🖥<strong>집합교육(선발)</strong><span>041-560-5264</span></div><div class="wf-contact-card">📋<strong>집합교육(계획)</strong><span>041-560-5311</span></div><div class="wf-contact-card">📄<strong>직무인증평가</strong><span>041-560-5312</span></div><div class="wf-contact-card">📚<strong>지금, 이 책!</strong><span>041-560-5151</span></div></div></div>
+          </div>
+        </div>
+        <div class="wf-footer"><div class="wf-footer-copy"><span class="wf-logo-sm">✦ 우정인재개발원</span> | <a href="#"><strong>개인정보처리 방침</strong></a> | <a href="#">이용약관</a> | <a href="#">찾아오시는길</a><br><small>(31068) 충청남도 천안시 동남구 양지말1길 우정인재개발원 | 041-560-5350 | cyber123@korea.kr</small><br><small>COPYRIGHT(C) 2016 KOREA POST. ALL RIGHTS RESERVED.</small><span class="wf-scroll-top">↑</span></div></div>
+      </div>
+    </div>
+    <div class="wf-annotations">
+      <h3>UX Notes</h3><ul><li>① AI curator stays expanded by default — primary entry point for new users</li><li>② Continue learning shows count badge when collapsed — quick glance without expanding</li></ul>
+    </div>
+  </div>
+
+  <!-- ===== OPTION 4 ===== -->
+  <div class="option-panel" id="option-4">
+    <h2>Option 4: <span class="opt-name">Card Mosaic</span></h2>
+    <p class="option-description">All content as modular cards in a responsive masonry-style grid for a modern, scannable layout.</p>
+    <div class="sub-tab-bar" id="frame-opt4-tabs">
+      <button class="sub-tab-btn active" data-variant="wireframe" data-frame="frame-opt4">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48"><defs><mask id="ipTsketch4"><g fill="#555" stroke="#fff" stroke-linejoin="round" stroke-width="4"><rect width="36" height="36" x="6" y="6" rx="3"/><path stroke-linecap="round" d="M18.6 16h10.8l3.6 4.706L24 32l-9-11.294z"/></g></mask></defs><path fill="currentColor" d="M0 0h48v48H0z" mask="url(#ipTsketch4)"/></svg>
+        <span class="sub-tab-label">Wireframe</span>
+      </button>
+      <button class="sub-tab-btn" data-variant="clean" data-frame="frame-opt4">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48"><defs><mask id="ipTpaint4"><g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"><path d="m15.536 22.898l9.899 9.9m-9.899-9.9L7.05 31.383a7 7 0 1 0 9.9 9.9l8.485-8.486m-9.899 0l-4.243 4.243"/><path fill="#555" d="m25.435 32.797l14.907-6.432c2.688-1.16 3.809-4.379 2.086-6.745C38.264 13.903 32.65 8.89 28.51 5.823c-2.29-1.696-5.33-.64-6.46 1.975l-6.514 15.1z"/></g></mask></defs><path fill="currentColor" d="M0 0h48v48H0z" mask="url(#ipTpaint4)"/></svg>
+        <span class="sub-tab-label">Clean</span>
+        <span class="sub-tab-badge">generating...</span>
+      </button>
+      <button class="sub-tab-btn" data-variant="polished" data-frame="frame-opt4">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48"><defs><mask id="ipTdiamond4"><path fill="#555" stroke="#fff" stroke-width="4" d="M5.939 13.934L23.036 4.53a2 2 0 0 1 1.928 0l17.097 9.404a2 2 0 0 1 .683 2.888l-17.098 24.79a2 2 0 0 1-3.292 0L5.256 16.823a2 2 0 0 1 .683-2.888Z"/></mask></defs><path fill="currentColor" d="M0 0h48v48H0z" mask="url(#ipTdiamond4)"/></svg>
+        <span class="sub-tab-label">Polished</span>
+        <span class="sub-tab-badge">generating...</span>
+      </button>
+    </div>
+    <div class="browser-frame wireframe" id="frame-opt4">
+      <div class="browser-chrome">
+        <div class="browser-dots"><span></span><span></span><span></span></div>
+        <div class="browser-url">yourapp.com/main</div>
+        <div class="browser-controls">─ □ ✕</div>
+      </div>
+      <div class="browser-content">
+        <!-- Slim header -->
+        <div class="wf-section wf-header">
+          <div class="wf-logo-bar"><span class="wf-logo">✦ 새로e아름</span><div class="wf-gnb-inline"><a href="#">나의공간</a><a href="#">콘텐츠</a><a href="#">채널</a><a href="#">직무인증</a><a href="#">고객지원센터</a></div><span class="wf-right">홍길동님 🌙 <a href="#">플랫폼</a> ≡</span></div>
+        </div>
+        <!-- Mosaic grid: all content as cards -->
+        <div class="wf-section wf-mosaic">
+          <!-- Row 1: AI Search + Status -->
+          <div class="wf-mosaic-row">
+            <div class="wf-mosaic-card wf-mosaic-2x">
+              <strong>AX 교육 큐레이터에게 물어보세요</strong>
+              <div class="wf-search-bar wf-search-lg">구체적으로 질문하시면 더 정확한 답변이 나옵니다</div>
+              <div class="wf-tags"><span>교육 신청은 어떻게 해?</span><span>수료증은 어디서 받는지 알 수 있어?</span><span>온라인 교육 수강 방법은?</span></div>
+              <span class="wf-marker">①</span>
+            </div>
+            <div class="wf-mosaic-card">
+              <div class="wf-donut wf-donut-sm"><span class="wf-donut-num">5</span></div>
+              <strong>학습 현황</strong><small>아름포인트</small>
+              <div class="wf-mini-list"><span>필수교육 6과정</span><span>법정교육 6과정</span></div>
+            </div>
+          </div>
+          <!-- Row 2: Continue Learning cards -->
+          <div class="wf-mosaic-row">
+            <div class="wf-mosaic-card wf-mosaic-learn"><div class="wf-thumb-sm"></div><strong>우편취급 위반관련 법규</strong><div class="wf-progress"><div class="wf-progress-fill" style="width:30%"></div></div><small>30%</small><a href="#" class="wf-btn-sm">이어보기</a></div>
+            <div class="wf-mosaic-card wf-mosaic-learn"><div class="wf-thumb-sm"></div><strong>도전! 나의 손해 2</strong><div class="wf-progress"><div class="wf-progress-fill" style="width:65%"></div></div><small>65%</small><a href="#" class="wf-btn-sm">이어보기</a></div>
+            <div class="wf-mosaic-card wf-mosaic-learn"><div class="wf-thumb-sm"></div><strong>청렴판단력 키우기</strong><div class="wf-progress"><div class="wf-progress-fill" style="width:10%"></div></div><small>10%</small><a href="#" class="wf-btn-sm">이어보기</a></div>
+          </div>
+          <!-- Row 3: Education status pills -->
+          <div class="wf-mosaic-row">
+            <div class="wf-mosaic-card wf-mosaic-2x wf-mosaic-courses">
+              <strong>필수교육 이수현황</strong>
+              <div class="wf-course-row"><span class="wf-pill">공직가치 5/10</span><span class="wf-pill">적극행정 5/10</span><span class="wf-pill">성인지 5/10</span><span class="wf-pill">정보화 5/10</span><span class="wf-pill">정보보안 5/10</span><span class="wf-pill">개인정보 5/10</span></div>
+              <strong>법정교육 이수현황</strong>
+              <div class="wf-course-row"><span class="wf-pill">성폭력예방 5/10</span><span class="wf-pill">감염병예방 5/10</span><span class="wf-pill">자살예방 5/10</span><span class="wf-pill">안보 5/10</span><span class="wf-pill">장애인식개선 5/10</span><span class="wf-pill">아동학대예방 5/10</span></div>
+              <span class="wf-marker">②</span>
+            </div>
+            <div class="wf-mosaic-card wf-mosaic-lib">
+              <h3>전자도서관</h3><p>슬기로운 독서생활!</p>
+              <a href="#" class="wf-btn">접속하기</a>
+              <span class="wf-deco">I love book</span>
+            </div>
+          </div>
+          <!-- Row 4: CLASSROOM -->
+          <div class="wf-mosaic-row">
+            <div class="wf-section-header"><h3>CLASSROOM</h3><span class="wf-slogans"><span>이것이 필수다.</span> <span>당신에게 딱이다.</span></span><a href="#" class="wf-link">전체보기 ></a></div>
+          </div>
+          <div class="wf-mosaic-row wf-mosaic-5">
+            <div class="wf-mosaic-card wf-mosaic-course"><div class="wf-thumb"><span class="wf-badge-time">60분</span><span class="wf-badge-cat">국정철학</span><span class="wf-badge-heart">♡ 42</span></div><strong>개인정보 보호교육</strong><small>우정사업본부 직원이 알아야할 개인...</small><div class="wf-meta">👤 1,234 💬 56</div></div>
+            <div class="wf-mosaic-card wf-mosaic-course"><div class="wf-thumb"><span class="wf-badge-time">60분</span><span class="wf-badge-cat">직무공통</span><span class="wf-badge-heart">♡ 38</span></div><strong>개인정보보호교육(이용자)</strong><small>개인정보보호교육(이용자)</small><div class="wf-meta">👤 987 💬 23</div></div>
+            <div class="wf-mosaic-card wf-mosaic-course"><div class="wf-thumb"><span class="wf-badge-time">60분</span><span class="wf-badge-cat">직무공통</span><span class="wf-badge-heart">♡ 55</span></div><strong>정보보안기본교육</strong><small>우정사업본부 직원이 알아야 할 정보</small><div class="wf-meta">👤 2,100 💬 89</div></div>
+            <div class="wf-mosaic-card wf-mosaic-course"><div class="wf-thumb"><span class="wf-badge-time">60분</span><span class="wf-badge-cat">국정철학</span><span class="wf-badge-heart">♡ 27</span></div><strong>이해충돌방지법</strong><small>알기 쉬운 이해충돌방지법</small><div class="wf-meta">👤 756 💬 12</div></div>
+            <div class="wf-mosaic-card wf-mosaic-course"><div class="wf-thumb"><span class="wf-badge-time">60분</span><span class="wf-badge-cat">직무공통</span><span class="wf-badge-heart">♡ 91</span></div><strong>엑셀실무테크닉</strong><small>엑셀 실무 테크닉 일잘러의 보고서...</small><div class="wf-meta">👤 3,456 💬 201</div></div>
+          </div>
+          <!-- Row 5: Channels + Books -->
+          <div class="wf-mosaic-row">
+            <div class="wf-mosaic-card"><div class="wf-section-header"><strong>구독중인 채널</strong><a href="#" class="wf-link">전체보기 ></a></div><div class="wf-channel-card"><span class="wf-ch-badge">우정</span><strong>우정인재개발원</strong><small>50,032명</small></div><div class="wf-channel-card"><span class="wf-ch-badge">교육</span><strong>교육큐레이션</strong><small>52,149명</small></div><div class="wf-channel-card"><span class="wf-ch-badge">보이</span><strong>보이스피싱 예방</strong><small>49,533명</small></div></div>
+            <div class="wf-mosaic-card wf-mosaic-2x"><div class="wf-section-header"><strong>지금, 이 책!</strong><small>이달의 추천 도서</small><a href="#" class="wf-link">전체보기 ></a></div><div class="wf-book-grid"><div class="wf-book"><div class="wf-book-cover"></div><small>가짜 노동</small></div><div class="wf-book"><div class="wf-book-cover"></div><small>공부하고 있다는 착각</small></div><div class="wf-book"><div class="wf-book-cover"></div><small>기본의 디자인</small></div><div class="wf-book"><div class="wf-book-cover"></div><small>도파민네이션</small></div><div class="wf-book"><div class="wf-book-cover"></div><small>쇼펜하우어</small></div><div class="wf-book"><div class="wf-book-cover"></div><small>마흔에 읽는 쇼펜하우어</small></div></div></div>
+          </div>
+          <!-- Contact row -->
+          <div class="wf-mosaic-row wf-mosaic-5">
+            <div class="wf-mosaic-card wf-contact-mini">📞<strong>이러닝 문의</strong><small>041-560-5350</small></div>
+            <div class="wf-mosaic-card wf-contact-mini">🖥<strong>집합교육(선발)</strong><small>041-560-5264</small></div>
+            <div class="wf-mosaic-card wf-contact-mini">📋<strong>집합교육(계획)</strong><small>041-560-5311</small></div>
+            <div class="wf-mosaic-card wf-contact-mini">📄<strong>직무인증평가</strong><small>041-560-5312</small></div>
+            <div class="wf-mosaic-card wf-contact-mini">📚<strong>지금, 이 책!</strong><small>041-560-5151</small></div>
+          </div>
+        </div>
+        <div class="wf-footer"><div class="wf-footer-top"><span class="wf-logo-sm">✦ 우정인재개발원</span><div class="wf-footer-links"><a href="#"><strong>개인정보처리 방침</strong></a><a href="#">영상정보처리기기 운영관리 방침</a><a href="#">이메일주소 무단수집거부</a><a href="#">이용약관</a><a href="#">찾아오시는길</a><a href="#">고객지원센터</a></div><a href="#" class="wf-link">관련사이트 바로가기 ▾</a></div><div class="wf-footer-info"><small>(31068) 충청남도 천안시 동남구 양지말1길 (유량동) 우정인재개발원 | 041-560-5350 | cyber123@korea.kr</small></div><div class="wf-footer-copy">COPYRIGHT(C) 2016 KOREA POST. ALL RIGHTS RESERVED.<span class="wf-scroll-top">↑</span></div></div>
+      </div>
+    </div>
+    <div class="wf-annotations">
+      <h3>UX Notes</h3><ul><li>① AI search card takes 2/3 width in first row — dominant entry point paired with status summary</li><li>② Education status courses shown as pills in a wide card — scannable at a glance without horizontal scrolling</li></ul>
+    </div>
+  </div>
+
+  <!-- ===== OPTION 5 ===== -->
+  <div class="option-panel" id="option-5">
+    <h2>Option 5: <span class="opt-name">Search Portal</span></h2>
+    <p class="option-description">Search and AI curator as the primary entry point, with contextual content organized around discovery.</p>
+    <div class="sub-tab-bar" id="frame-opt5-tabs">
+      <button class="sub-tab-btn active" data-variant="wireframe" data-frame="frame-opt5">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48"><defs><mask id="ipTsketch5"><g fill="#555" stroke="#fff" stroke-linejoin="round" stroke-width="4"><rect width="36" height="36" x="6" y="6" rx="3"/><path stroke-linecap="round" d="M18.6 16h10.8l3.6 4.706L24 32l-9-11.294z"/></g></mask></defs><path fill="currentColor" d="M0 0h48v48H0z" mask="url(#ipTsketch5)"/></svg>
+        <span class="sub-tab-label">Wireframe</span>
+      </button>
+      <button class="sub-tab-btn" data-variant="clean" data-frame="frame-opt5">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48"><defs><mask id="ipTpaint5"><g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"><path d="m15.536 22.898l9.899 9.9m-9.899-9.9L7.05 31.383a7 7 0 1 0 9.9 9.9l8.485-8.486m-9.899 0l-4.243 4.243"/><path fill="#555" d="m25.435 32.797l14.907-6.432c2.688-1.16 3.809-4.379 2.086-6.745C38.264 13.903 32.65 8.89 28.51 5.823c-2.29-1.696-5.33-.64-6.46 1.975l-6.514 15.1z"/></g></mask></defs><path fill="currentColor" d="M0 0h48v48H0z" mask="url(#ipTpaint5)"/></svg>
+        <span class="sub-tab-label">Clean</span>
+        <span class="sub-tab-badge">generating...</span>
+      </button>
+      <button class="sub-tab-btn" data-variant="polished" data-frame="frame-opt5">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48"><defs><mask id="ipTdiamond5"><path fill="#555" stroke="#fff" stroke-width="4" d="M5.939 13.934L23.036 4.53a2 2 0 0 1 1.928 0l17.097 9.404a2 2 0 0 1 .683 2.888l-17.098 24.79a2 2 0 0 1-3.292 0L5.256 16.823a2 2 0 0 1 .683-2.888Z"/></mask></defs><path fill="currentColor" d="M0 0h48v48H0z" mask="url(#ipTdiamond5)"/></svg>
+        <span class="sub-tab-label">Polished</span>
+        <span class="sub-tab-badge">generating...</span>
+      </button>
+    </div>
+    <div class="browser-frame wireframe" id="frame-opt5">
+      <div class="browser-chrome">
+        <div class="browser-dots"><span></span><span></span><span></span></div>
+        <div class="browser-url">yourapp.com/main</div>
+        <div class="browser-controls">─ □ ✕</div>
+      </div>
+      <div class="browser-content">
+        <!-- Minimal header -->
+        <div class="wf-section wf-header">
+          <div class="wf-logo-bar"><span class="wf-logo">✦ 새로e아름</span><div class="wf-gnb-inline"><a href="#">나의공간</a><a href="#">콘텐츠</a><a href="#">채널</a><a href="#">직무인증</a><a href="#">고객지원센터</a></div><span class="wf-right">홍길동님 🌙 ≡</span></div>
+        </div>
+        <!-- Hero search area -->
+        <div class="wf-section wf-search-hero-section">
+          <div class="wf-search-hero-block">
+            <h2>무엇을 배우고 싶으신가요?</h2>
+            <strong>AX 교육 큐레이터에게 물어보세요</strong>
+            <div class="wf-search-bar wf-search-xl">구체적으로 질문하시면 더 정확한 답변이 나옵니다</div>
+            <div class="wf-tags"><span>교육 신청은 어떻게 해?</span><span>수료증은 어디서 받는지 알 수 있어?</span><span>온라인 교육 수강 방법은?</span></div>
+            <span class="wf-marker">①</span>
+          </div>
+          <!-- Quick status bar -->
+          <div class="wf-quick-status">
+            <div class="wf-qs-item"><div class="wf-donut wf-donut-xs"><span class="wf-donut-num">5</span></div><small>아름포인트</small></div>
+            <div class="wf-qs-item"><strong>3</strong><small>이어서 학습</small></div>
+            <div class="wf-qs-item"><strong>12</strong><small>교육 과정</small></div>
+            <div class="wf-qs-item"><strong>3</strong><small>구독 채널</small></div>
+            <span class="wf-marker">②</span>
+          </div>
+        </div>
+        <!-- Continue Learning -->
+        <div class="wf-section">
+          <div class="wf-section-header"><h3>이어서 학습하기</h3><a href="#" class="wf-link">전체보기 ></a></div>
+          <div class="wf-card-grid-3">
+            <div class="wf-learn-card"><div class="wf-thumb"></div><strong>우편취급 위반관련 법규</strong><div class="wf-progress"><div class="wf-progress-fill" style="width:30%"></div></div><small>30%</small><a href="#" class="wf-btn-sm">이어보기</a></div>
+            <div class="wf-learn-card"><div class="wf-thumb"></div><strong>도전! 나의 손해 2</strong><div class="wf-progress"><div class="wf-progress-fill" style="width:65%"></div></div><small>65%</small><a href="#" class="wf-btn-sm">이어보기</a></div>
+            <div class="wf-learn-card"><div class="wf-thumb"></div><strong>청렴판단력 키우기</strong><div class="wf-progress"><div class="wf-progress-fill" style="width:10%"></div></div><small>10%</small><a href="#" class="wf-btn-sm">이어보기</a></div>
+          </div>
+        </div>
+        <!-- Education Status -->
+        <div class="wf-section wf-section-alt">
+          <h3 class="wf-section-title">학습 현황</h3>
+          <div class="wf-two-col">
+            <div class="wf-col"><strong>필수교육 이수현황</strong><div class="wf-course-row"><span class="wf-pill">공직가치 5/10</span><span class="wf-pill">적극행정 5/10</span><span class="wf-pill">성인지 5/10</span><span class="wf-pill">정보화 5/10</span><span class="wf-pill">정보보안 5/10</span><span class="wf-pill">개인정보 5/10</span></div></div>
+            <div class="wf-col"><strong>법정교육 이수현황</strong><div class="wf-course-row"><span class="wf-pill">성폭력예방 5/10</span><span class="wf-pill">감염병예방 5/10</span><span class="wf-pill">자살예방 5/10</span><span class="wf-pill">안보 5/10</span><span class="wf-pill">장애인식개선 5/10</span><span class="wf-pill">아동학대예방 5/10</span></div></div>
+          </div>
+        </div>
+        <!-- CLASSROOM -->
+        <div class="wf-section">
+          <div class="wf-section-header"><h3>CLASSROOM</h3><div class="wf-slogans"><span>이것이 필수다.</span><span>당신에게 딱이다.</span></div><a href="#" class="wf-link">전체보기 ></a></div>
+          <div class="wf-card-row">
+            <div class="wf-course-card"><div class="wf-thumb"><span class="wf-badge-time">60분</span><span class="wf-badge-cat">국정철학</span><span class="wf-badge-heart">♡ 42</span></div><strong>개인정보 보호교육</strong><small>우정사업본부 직원이 알아야할 개인...</small><div class="wf-meta">👤 1,234 💬 56</div></div>
+            <div class="wf-course-card"><div class="wf-thumb"><span class="wf-badge-time">60분</span><span class="wf-badge-cat">직무공통</span><span class="wf-badge-heart">♡ 38</span></div><strong>개인정보보호교육(이용자)</strong><small>개인정보보호교육(이용자)</small><div class="wf-meta">👤 987 💬 23</div></div>
+            <div class="wf-course-card"><div class="wf-thumb"><span class="wf-badge-time">60분</span><span class="wf-badge-cat">직무공통</span><span class="wf-badge-heart">♡ 55</span></div><strong>정보보안기본교육</strong><small>우정사업본부 직원이 알아야 할 정보</small><div class="wf-meta">👤 2,100 💬 89</div></div>
+            <div class="wf-course-card"><div class="wf-thumb"><span class="wf-badge-time">60분</span><span class="wf-badge-cat">국정철학</span><span class="wf-badge-heart">♡ 27</span></div><strong>이해충돌방지법</strong><small>알기 쉬운 이해충돌방지법</small><div class="wf-meta">👤 756 💬 12</div></div>
+            <div class="wf-course-card"><div class="wf-thumb"><span class="wf-badge-time">60분</span><span class="wf-badge-cat">직무공통</span><span class="wf-badge-heart">♡ 91</span></div><strong>엑셀실무테크닉</strong><small>엑셀 실무 테크닉 일잘러의 보고서...</small><div class="wf-meta">👤 3,456 💬 201</div></div>
+          </div>
+        </div>
+        <!-- Discovery grid: channels + books + library -->
+        <div class="wf-section wf-section-alt">
+          <h3 class="wf-section-title">발견하기</h3>
+          <div class="wf-two-col">
+            <div class="wf-col">
+              <div class="wf-section-header"><strong>구독중인 채널</strong><a href="#" class="wf-link">전체보기 ></a></div>
+              <div class="wf-channel-card"><span class="wf-ch-badge">우정</span><strong>우정인재개발원</strong><small>50,032명</small><a href="#" class="wf-btn-sm">구독중</a></div>
+              <div class="wf-channel-card"><span class="wf-ch-badge">교육</span><strong>교육큐레이션</strong><small>52,149명</small><a href="#" class="wf-btn-sm">구독중</a></div>
+              <div class="wf-channel-card"><span class="wf-ch-badge">보이</span><strong>보이스피싱 예방</strong><small>49,533명</small><a href="#" class="wf-btn-sm">구독중</a></div>
+            </div>
+            <div class="wf-col">
+              <div class="wf-section-header"><strong>지금, 이 책!</strong><a href="#" class="wf-link">전체보기 ></a></div>
+              <div class="wf-book-grid"><div class="wf-book"><div class="wf-book-cover"></div><small>가짜 노동</small></div><div class="wf-book"><div class="wf-book-cover"></div><small>공부하고 있다는 착각</small></div><div class="wf-book"><div class="wf-book-cover"></div><small>기본의 디자인</small></div><div class="wf-book"><div class="wf-book-cover"></div><small>도파민네이션</small></div><div class="wf-book"><div class="wf-book-cover"></div><small>쇼펜하우어</small></div><div class="wf-book"><div class="wf-book-cover"></div><small>마흔에 읽는 쇼펜하우어</small></div></div>
+            </div>
+          </div>
+        </div>
+        <!-- Contact + Footer -->
+        <div class="wf-section"><h3 class="wf-section-title wf-center">교육관련 안내</h3><div class="wf-contact-row"><div class="wf-contact-card">📞<strong>이러닝 문의</strong><span>041-560-5350</span></div><div class="wf-contact-card">🖥<strong>집합교육(선발)</strong><span>041-560-5264</span></div><div class="wf-contact-card">📋<strong>집합교육(계획)</strong><span>041-560-5311</span></div><div class="wf-contact-card">📄<strong>직무인증평가</strong><span>041-560-5312</span></div><div class="wf-contact-card">📚<strong>지금, 이 책!</strong><span>041-560-5151</span></div></div></div>
+        <div class="wf-footer"><div class="wf-footer-top"><span class="wf-logo-sm">✦ 우정인재개발원</span><div class="wf-footer-links"><a href="#"><strong>개인정보처리 방침</strong></a><a href="#">영상정보처리기기 운영관리 방침</a><a href="#">이메일주소 무단수집거부</a><a href="#">이용약관</a><a href="#">찾아오시는길</a><a href="#">고객지원센터</a></div><a href="#" class="wf-link">관련사이트 바로가기 ▾</a></div><div class="wf-footer-info"><small>(31068) 충청남도 천안시 동남구 양지말1길 (유량동) 우정인재개발원 | 041-560-5350 | cyber123@korea.kr</small></div><div class="wf-footer-copy">COPYRIGHT(C) 2016 KOREA POST. ALL RIGHTS RESERVED.<span class="wf-scroll-top">↑</span></div></div>
+      </div>
+    </div>
+    <div class="wf-annotations">
+      <h3>UX Notes</h3><ul><li>① Hero search with large input field makes AI curator the focal point — "search-first" reduces cognitive load for new users</li><li>② Quick status bar below search shows key metrics at a glance without leaving the search context</li></ul>
+    </div>
+  </div>
+
+  <!-- ===== SUMMARY ===== -->
+  <div class="option-panel" id="summary">
+    <h2>Summary</h2>
+    <p>Optimization goal: <strong>Modernize</strong></p>
+    <table style="width:100%;border-collapse:collapse;font-size:13px;margin:16px 0;">
+      <tr style="border-bottom:2px solid #000;"><th style="text-align:left;padding:8px;">Option</th><th style="text-align:left;padding:8px;">Approach</th><th style="text-align:left;padding:8px;">Modernize Score</th></tr>
+      <tr style="border-bottom:1px solid #ccc;"><td style="padding:8px;">1: Classic Stack</td><td style="padding:8px;">Existing pattern — safe baseline</td><td style="padding:8px;">★★☆☆☆</td></tr>
+      <tr style="border-bottom:1px solid #ccc;"><td style="padding:8px;">2: Dashboard Hub</td><td style="padding:8px;">All metrics at top, data-dense overview</td><td style="padding:8px;">★★★★☆</td></tr>
+      <tr style="border-bottom:1px solid #ccc;"><td style="padding:8px;">3: Progressive Reveal</td><td style="padding:8px;">Accordion sections, clean initial view</td><td style="padding:8px;">★★★☆☆</td></tr>
+      <tr style="border-bottom:1px solid #ccc;background:#f9f9f9;"><td style="padding:8px;"><strong>4: Card Mosaic ★</strong></td><td style="padding:8px;">Modular card grid, responsive masonry</td><td style="padding:8px;"><strong>★★★★★</strong></td></tr>
+      <tr style="border-bottom:1px solid #ccc;"><td style="padding:8px;">5: Search Portal</td><td style="padding:8px;">Search-first with contextual discovery</td><td style="padding:8px;">★★★★☆</td></tr>
+    </table>
+    <p><strong>Recommendation: Option 4 (Card Mosaic)</strong> — The modular card grid best serves the "modernize" goal. It eliminates horizontal carousels in favor of a scannable grid, naturally adapts to responsive breakpoints, and presents all content types (courses, channels, books, status) in a unified visual language. The masonry-style layout feels contemporary while maintaining all existing content and functionality.</p>
+  </div>
+
+</div>
+
+<footer class="skill-footer">
+  This design was crafted by the <a href="https://github.com/Magdoub/claude-wireframe-skill">Wireframe skill</a> — follow on GitHub
+</footer>
+
+<script>
+(function() {
+  // Main tab switching
+  var tabBtns = document.querySelectorAll('.tab-btn');
+  var panels = document.querySelectorAll('.option-panel');
+  tabBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      tabBtns.forEach(function(b) { b.classList.remove('active'); });
+      panels.forEach(function(p) { p.classList.remove('active'); });
+      btn.classList.add('active');
+      var target = document.getElementById(btn.dataset.tab);
+      if (target) target.classList.add('active');
+    });
+  });
+
+  // Sub-tab switching
+  var subBtns = document.querySelectorAll('.sub-tab-btn');
+  subBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var frameId = btn.dataset.frame;
+      var siblings = btn.parentElement.querySelectorAll('.sub-tab-btn');
+      siblings.forEach(function(s) { s.classList.remove('active'); });
+      btn.classList.add('active');
+      var frame = document.getElementById(frameId);
+      if (frame) {
+        frame.classList.remove('wireframe', 'clean', 'polished');
+        frame.classList.add(btn.dataset.variant);
+      }
+    });
+  });
+
+  // Completion banner — one-time load check
+  window.addEventListener('load', function() {
+    var badges = document.querySelectorAll('.sub-tab-badge');
+    var anyVisible = false;
+    badges.forEach(function(b) {
+      if (getComputedStyle(b).display !== 'none') anyVisible = true;
+    });
+    if (!anyVisible && badges.length > 0) {
+      var banner = document.getElementById('completion-banner');
+      if (banner) {
+        banner.style.display = 'block';
+        setTimeout(function() { banner.style.display = 'none'; }, 8000);
+      }
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

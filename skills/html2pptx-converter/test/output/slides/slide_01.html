@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+html { background: #FFFFFF; }
+body {
+  width: 720pt;
+  height: 405pt;
+  margin: 0;
+  padding: 0;
+  background: #FFFFFF;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+.stats-row {
+  position: absolute;
+  top: 8pt;
+  left: 20pt;
+  width: 680pt;
+  display: flex;
+}
+.stat-col {
+  width: 155pt;
+  text-align: center;
+}
+.stat-col:nth-child(2) { margin-left: 15pt; }
+.stat-col:nth-child(3) { margin-left: 15pt; }
+.stat-col:nth-child(4) { margin-left: 15pt; }
+.stat-number {
+  font-size: 20pt;
+  font-weight: bold;
+  color: #2B6CB0;
+  margin: 0;
+  text-align: center;
+}
+.stat-label {
+  font-size: 8pt;
+  color: #718096;
+  margin: 2pt 0 0 0;
+  text-align: center;
+}
+.board-header {
+  position: absolute;
+  top: 52pt;
+  left: 15pt;
+  width: 470pt;
+  height: 26pt;
+  background: #2D3748;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.board-title {
+  font-size: 13pt;
+  font-weight: bold;
+  color: #FFFFFF;
+  margin: 0;
+  padding-left: 10pt;
+}
+.badge {
+  width: 42pt;
+  height: 18pt;
+  background: #E53E3E;
+  border-radius: 10pt;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8pt;
+}
+.badge-text {
+  font-size: 9pt;
+  color: #FFFFFF;
+  margin: 0;
+}
+.table-header {
+  position: absolute;
+  top: 82pt;
+  left: 15pt;
+  width: 470pt;
+}
+.table-header p {
+  font-size: 9pt;
+  font-weight: bold;
+  color: #4A5568;
+  margin: 0;
+}
+.table-row {
+  position: absolute;
+  left: 15pt;
+  width: 470pt;
+}
+.table-row p {
+  font-size: 9pt;
+  color: #2D3748;
+  margin: 0;
+}
+.row1 { top: 98pt; }
+.row2 { top: 114pt; }
+.row3 { top: 130pt; }
+.row4 { top: 146pt; }
+.row5 { top: 162pt; }
+.sidebar {
+  position: absolute;
+  top: 52pt;
+  left: 500pt;
+  width: 205pt;
+}
+.sidebar-heading {
+  font-size: 12pt;
+  font-weight: bold;
+  color: #2D3748;
+  margin: 0 0 5pt 0;
+}
+.sidebar-list {
+  font-size: 10pt;
+  color: #4A5568;
+  margin: 0;
+  padding-left: 14pt;
+  line-height: 1.8;
+}
+.sidebar-list li {
+  margin: 0;
+}
+.quick-links-section {
+  position: absolute;
+  top: 175pt;
+  left: 500pt;
+  width: 205pt;
+}
+.quick-links-heading {
+  font-size: 12pt;
+  font-weight: bold;
+  color: #2D3748;
+  margin: 0 0 5pt 0;
+}
+.quick-links-text {
+  font-size: 10pt;
+  color: #2B6CB0;
+  margin: 0;
+}
+</style>
+</head>
+<body>
+<!-- Stats Row -->
+<div class="stats-row">
+  <div class="stat-col">
+    <p class="stat-number">1,247</p>
+    <p class="stat-label">ACTIVE USERS</p>
+  </div>
+  <div class="stat-col">
+    <p class="stat-number">358</p>
+    <p class="stat-label">PROJECTS</p>
+  </div>
+  <div class="stat-col">
+    <p class="stat-number">99.9%</p>
+    <p class="stat-label">UPTIME</p>
+  </div>
+  <div class="stat-col">
+    <p class="stat-number">24/7</p>
+    <p class="stat-label">SUPPORT</p>
+  </div>
+</div>
+
+<!-- Board Header -->
+<div class="board-header">
+  <p class="board-title">Notice Board</p>
+  <div class="badge"><p class="badge-text">5 New</p></div>
+</div>
+
+<!-- Table Header -->
+<div class="table-header">
+  <p>No.    Category    Title                                                      Date           Views</p>
+</div>
+
+<!-- Table Rows -->
+<div class="table-row row1">
+  <p>125    Notice    System maintenance scheduled for March 15th    2026-03-10    342</p>
+</div>
+<div class="table-row row2">
+  <p>124    Event    Annual developer conference registration open    2026-03-08    567</p>
+</div>
+<div class="table-row row3">
+  <p>123    Update    Platform version 3.2 release notes    2026-03-05    891</p>
+</div>
+<div class="table-row row4">
+  <p>122    FAQ    How to reset your account password    2026-03-03    1,204</p>
+</div>
+<div class="table-row row5">
+  <p>121    Notice    New privacy policy effective April 1st    2026-03-01    456</p>
+</div>
+
+<!-- Sidebar -->
+<div class="sidebar">
+  <h3 class="sidebar-heading">Recent Updates</h3>
+  <ul class="sidebar-list">
+    <li>API v2.5 released  03-10</li>
+    <li>Dashboard redesign  03-08</li>
+    <li>Mobile app update  03-05</li>
+    <li>Security patch applied  03-01</li>
+  </ul>
+</div>
+
+<!-- Quick Links -->
+<div class="quick-links-section">
+  <h3 class="quick-links-heading">Quick Links</h3>
+  <p class="quick-links-text">Docs    Support    Reports    Settings</p>
+</div>
+</body>
+</html>

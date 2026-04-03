@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { background: #FFFFFF; }
+body {
+  width: 995pt; height: 720pt;
+  margin: 0; padding: 0;
+  background: #E0E0E0;
+  font-family: Arial, sans-serif;
+  display: flex;
+}
+
+/* === Layout Containers === */
+.content {
+  width: 720pt;
+  height: 720pt;
+  position: relative;
+  flex-shrink: 0;
+}
+.panel {
+  width: 275pt;
+  height: 720pt;
+  background: #FFFFFF;
+  border-left: 1pt solid #000000;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+/* === Shared Absolute Positioning Helper === */
+.abs { position: absolute; }
+</style>
+</head>
+<body>
+
+<!-- ================================================================ -->
+<!-- CONTENT AREA (720 x 720 pt)                                      -->
+<!-- ================================================================ -->
+<div class="content">
+
+  <!-- ============================================================ -->
+  <!-- SECTION 1: HEADER NAV                                         -->
+  <!-- ============================================================ -->
+  <div class="abs" style="left:0; top:0; width:720pt; height:32pt; background:#808080;"></div>
+  <p class="abs" style="left:12pt; top:7pt; width:200pt; font-size:11pt; font-weight:bold; color:#FFFFFF;">TestCorp Portal</p>
+  <p class="abs" style="left:330pt; top:9pt; width:380pt; font-size:7.5pt; color:#FFFFFF; text-align:right;">Home &nbsp; Services &nbsp; Board &nbsp; About &nbsp; Contact</p>
+  <!-- Badge 1 -->
+  <div class="abs" style="left:698pt; top:2pt; width:16pt; height:16pt; background:#000000; border-radius:50%;"></div>
+  <p class="abs" style="left:698pt; top:4pt; width:16pt; font-size:8pt; color:#FFFFFF; text-align:center;">1</p>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 2: HERO SECTION                                       -->
+  <!-- ============================================================ -->
+  <div class="abs" style="left:0; top:32pt; width:720pt; height:100pt; background:#808080;"></div>
+  <h1 class="abs" style="left:0; top:48pt; width:720pt; font-size:17pt; font-weight:bold; color:#FFFFFF; text-align:center;">Welcome to TestCorp Portal</h1>
+  <p class="abs" style="left:100pt; top:70pt; width:520pt; font-size:7.5pt; color:#FFFFFF; text-align:center; line-height:1.5;">Layout verification page for html2pptx conversion testing. Includes header navigation, hero content, board section, shape tests, and footer structure.</p>
+  <!-- CTA Button: Get Started -->
+  <div class="abs" style="left:262pt; top:98pt; width:80pt; height:20pt; background:#000000; border-radius:4pt;"></div>
+  <p class="abs" style="left:262pt; top:101pt; width:80pt; font-size:7.5pt; font-weight:bold; color:#FFFFFF; text-align:center;">Get Started</p>
+  <!-- CTA Button: Learn More -->
+  <div class="abs" style="left:352pt; top:98pt; width:80pt; height:20pt; border:1pt solid #FFFFFF; border-radius:4pt;"></div>
+  <p class="abs" style="left:352pt; top:101pt; width:80pt; font-size:7.5pt; color:#FFFFFF; text-align:center;">Learn More</p>
+  <!-- Badge 2 -->
+  <div class="abs" style="left:698pt; top:35pt; width:16pt; height:16pt; background:#000000; border-radius:50%;"></div>
+  <p class="abs" style="left:698pt; top:37pt; width:16pt; font-size:8pt; color:#FFFFFF; text-align:center;">2</p>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 3: STATS BAR                                          -->
+  <!-- ============================================================ -->
+  <div class="abs" style="left:0; top:132pt; width:720pt; height:45pt; background:#FFFFFF; border-bottom:1pt solid #E0E0E0;"></div>
+  <!-- Stat 1 -->
+  <p class="abs" style="left:0; top:137pt; width:180pt; font-size:13pt; font-weight:bold; color:#000000; text-align:center;">1,247</p>
+  <p class="abs" style="left:0; top:153pt; width:180pt; font-size:6pt; color:#808080; text-align:center;">ACTIVE USERS</p>
+  <!-- Stat 2 -->
+  <p class="abs" style="left:180pt; top:137pt; width:180pt; font-size:13pt; font-weight:bold; color:#000000; text-align:center;">358</p>
+  <p class="abs" style="left:180pt; top:153pt; width:180pt; font-size:6pt; color:#808080; text-align:center;">PROJECTS</p>
+  <!-- Stat 3 -->
+  <p class="abs" style="left:360pt; top:137pt; width:180pt; font-size:13pt; font-weight:bold; color:#000000; text-align:center;">99.9%</p>
+  <p class="abs" style="left:360pt; top:153pt; width:180pt; font-size:6pt; color:#808080; text-align:center;">UPTIME</p>
+  <!-- Stat 4 -->
+  <p class="abs" style="left:540pt; top:137pt; width:180pt; font-size:13pt; font-weight:bold; color:#000000; text-align:center;">24/7</p>
+  <p class="abs" style="left:540pt; top:153pt; width:180pt; font-size:6pt; color:#808080; text-align:center;">SUPPORT</p>
+  <!-- Badge 3 -->
+  <div class="abs" style="left:698pt; top:135pt; width:16pt; height:16pt; background:#000000; border-radius:50%;"></div>
+  <p class="abs" style="left:698pt; top:137pt; width:16pt; font-size:8pt; color:#FFFFFF; text-align:center;">3</p>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 4: BOARD + SIDEBAR                                    -->
+  <!-- ============================================================ -->
+
+  <!-- == Board Container == -->
+  <div class="abs" style="left:15pt; top:187pt; width:450pt; height:190pt; background:#FFFFFF; border:1pt solid #E0E0E0;"></div>
+  <!-- Board Header Bar -->
+  <div class="abs" style="left:15pt; top:187pt; width:450pt; height:22pt; background:#000000;"></div>
+  <p class="abs" style="left:25pt; top:190pt; width:200pt; font-size:9pt; font-weight:bold; color:#FFFFFF;">Notice Board</p>
+  <!-- 5 New badge -->
+  <div class="abs" style="left:405pt; top:191pt; width:45pt; height:14pt; background:#808080; border-radius:7pt;"></div>
+  <p class="abs" style="left:405pt; top:192pt; width:45pt; font-size:7pt; color:#FFFFFF; text-align:center;">5 New</p>
+  <!-- Column Headers -->
+  <p class="abs" style="left:20pt; top:213pt; width:440pt; font-size:6.5pt; font-weight:bold; color:#808080;">No. &nbsp;&nbsp;&nbsp; Category &nbsp;&nbsp;&nbsp; Title &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Date &nbsp;&nbsp;&nbsp; Views</p>
+  <!-- Row separator -->
+  <div class="abs" style="left:15pt; top:225pt; width:450pt; height:1pt; background:#E0E0E0;"></div>
+  <!-- Row 1 -->
+  <p class="abs" style="left:20pt; top:228pt; width:440pt; font-size:6.5pt; color:#000000;">125 &nbsp;&nbsp; Notice &nbsp;&nbsp;&nbsp; System maintenance scheduled for March 15th &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2026-03-10 &nbsp; 342</p>
+  <div class="abs" style="left:15pt; top:240pt; width:450pt; height:1pt; background:#E0E0E0;"></div>
+  <!-- Row 2 -->
+  <p class="abs" style="left:20pt; top:243pt; width:440pt; font-size:6.5pt; color:#000000;">124 &nbsp;&nbsp; Event &nbsp;&nbsp;&nbsp;&nbsp; Annual developer conference registration open &nbsp;&nbsp;&nbsp;&nbsp; 2026-03-08 &nbsp; 567</p>
+  <div class="abs" style="left:15pt; top:255pt; width:450pt; height:1pt; background:#E0E0E0;"></div>
+  <!-- Row 3 -->
+  <p class="abs" style="left:20pt; top:258pt; width:440pt; font-size:6.5pt; color:#000000;">123 &nbsp;&nbsp; Update &nbsp;&nbsp; Platform version 3.2 release notes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2026-03-05 &nbsp; 891</p>
+  <div class="abs" style="left:15pt; top:270pt; width:450pt; height:1pt; background:#E0E0E0;"></div>
+  <!-- Row 4 -->
+  <p class="abs" style="left:20pt; top:273pt; width:440pt; font-size:6.5pt; color:#000000;">122 &nbsp;&nbsp; FAQ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; How to reset your account password &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2026-03-03 &nbsp; 1,204</p>
+  <div class="abs" style="left:15pt; top:285pt; width:450pt; height:1pt; background:#E0E0E0;"></div>
+  <!-- Row 5 -->
+  <p class="abs" style="left:20pt; top:288pt; width:440pt; font-size:6.5pt; color:#000000;">121 &nbsp;&nbsp; Notice &nbsp;&nbsp;&nbsp; New privacy policy effective April 1st &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2026-03-01 &nbsp; 456</p>
+
+  <!-- == Sidebar Card 1: Recent Updates == -->
+  <div class="abs" style="left:475pt; top:187pt; width:230pt; height:90pt; background:#FFFFFF; border:1pt solid #E0E0E0;"></div>
+  <p class="abs" style="left:485pt; top:192pt; width:210pt; font-size:8pt; font-weight:bold; color:#000000;">Recent Updates</p>
+  <div class="abs" style="left:485pt; top:205pt; width:210pt; height:1pt; background:#000000;"></div>
+  <p class="abs" style="left:485pt; top:210pt; width:210pt; font-size:6.5pt; color:#000000;">API v2.5 released</p>
+  <p class="abs" style="left:485pt; top:222pt; width:210pt; font-size:6.5pt; color:#000000;">Dashboard redesign</p>
+  <p class="abs" style="left:485pt; top:234pt; width:210pt; font-size:6.5pt; color:#000000;">Mobile app update</p>
+  <p class="abs" style="left:485pt; top:246pt; width:210pt; font-size:6.5pt; color:#000000;">Security patch applied</p>
+
+  <!-- == Sidebar Card 2: Quick Links == -->
+  <div class="abs" style="left:475pt; top:285pt; width:230pt; height:92pt; background:#FFFFFF; border:1pt solid #E0E0E0;"></div>
+  <p class="abs" style="left:485pt; top:290pt; width:210pt; font-size:8pt; font-weight:bold; color:#000000;">Quick Links</p>
+  <div class="abs" style="left:485pt; top:303pt; width:210pt; height:1pt; background:#000000;"></div>
+  <!-- 2x2 Grid -->
+  <div class="abs" style="left:485pt; top:310pt; width:100pt; height:28pt; background:#E0E0E0; border:1pt solid #E0E0E0; border-radius:4pt;"></div>
+  <p class="abs" style="left:485pt; top:317pt; width:100pt; font-size:6.5pt; color:#000000; text-align:center;">Docs</p>
+  <div class="abs" style="left:595pt; top:310pt; width:100pt; height:28pt; background:#E0E0E0; border:1pt solid #E0E0E0; border-radius:4pt;"></div>
+  <p class="abs" style="left:595pt; top:317pt; width:100pt; font-size:6.5pt; color:#000000; text-align:center;">Support</p>
+  <div class="abs" style="left:485pt; top:344pt; width:100pt; height:28pt; background:#E0E0E0; border:1pt solid #E0E0E0; border-radius:4pt;"></div>
+  <p class="abs" style="left:485pt; top:351pt; width:100pt; font-size:6.5pt; color:#000000; text-align:center;">Reports</p>
+  <div class="abs" style="left:595pt; top:344pt; width:100pt; height:28pt; background:#E0E0E0; border:1pt solid #E0E0E0; border-radius:4pt;"></div>
+  <p class="abs" style="left:595pt; top:351pt; width:100pt; font-size:6.5pt; color:#000000; text-align:center;">Settings</p>
+
+  <!-- Badge 4 -->
+  <div class="abs" style="left:698pt; top:190pt; width:16pt; height:16pt; background:#000000; border-radius:50%;"></div>
+  <p class="abs" style="left:698pt; top:192pt; width:16pt; font-size:8pt; color:#FFFFFF; text-align:center;">4</p>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 5: SHAPE & LINE RENDERING TEST                        -->
+  <!-- ============================================================ -->
+  <div class="abs" style="left:15pt; top:387pt; width:690pt; height:135pt; background:#FFFFFF; border:1pt solid #E0E0E0;"></div>
+  <p class="abs" style="left:25pt; top:392pt; width:400pt; font-size:9pt; font-weight:bold; color:#000000;">Shape &amp; Line Rendering Test</p>
+  <div class="abs" style="left:25pt; top:406pt; width:670pt; height:1pt; background:#E0E0E0;"></div>
+
+  <!-- Shape 1: Rectangle (4px radius) -->
+  <div class="abs" style="left:45pt; top:415pt; width:50pt; height:30pt; background:#808080; border-radius:2pt;"></div>
+  <p class="abs" style="left:30pt; top:448pt; width:80pt; font-size:5.5pt; color:#808080; text-align:center;">Rectangle</p>
+
+  <!-- Shape 2: Rounded Rect (16px radius) -->
+  <div class="abs" style="left:175pt; top:415pt; width:50pt; height:30pt; background:#808080; border-radius:8pt;"></div>
+  <p class="abs" style="left:160pt; top:448pt; width:80pt; font-size:5.5pt; color:#808080; text-align:center;">Rounded Rect</p>
+
+  <!-- Shape 3: Circle (50% radius) -->
+  <div class="abs" style="left:310pt; top:412pt; width:35pt; height:35pt; background:#808080; border-radius:50%;"></div>
+  <p class="abs" style="left:290pt; top:450pt; width:75pt; font-size:5.5pt; color:#808080; text-align:center;">Circle</p>
+
+  <!-- Shape 4: Border Only (3px solid) -->
+  <div class="abs" style="left:430pt; top:415pt; width:50pt; height:30pt; border:2pt solid #000000; border-radius:4pt;"></div>
+  <p class="abs" style="left:415pt; top:448pt; width:80pt; font-size:5.5pt; color:#808080; text-align:center;">Border Only</p>
+
+  <!-- Shape 5: Box Shadow -->
+  <div class="abs" style="left:560pt; top:415pt; width:50pt; height:30pt; background:#808080; border-radius:4pt; box-shadow:2pt 2pt 6pt rgba(0,0,0,0.3);"></div>
+  <p class="abs" style="left:545pt; top:448pt; width:80pt; font-size:5.5pt; color:#808080; text-align:center;">Box Shadow</p>
+
+  <!-- Line 1: Top Border -->
+  <div class="abs" style="left:55pt; top:472pt; width:60pt; height:20pt; background:#E0E0E0; border-top:2pt solid #000000;"></div>
+  <p class="abs" style="left:40pt; top:495pt; width:90pt; font-size:5.5pt; color:#808080; text-align:center;">Top Border</p>
+
+  <!-- Line 2: Left Border -->
+  <div class="abs" style="left:210pt; top:472pt; width:60pt; height:20pt; background:#E0E0E0; border-left:2pt solid #808080;"></div>
+  <p class="abs" style="left:195pt; top:495pt; width:90pt; font-size:5.5pt; color:#808080; text-align:center;">Left Border</p>
+
+  <!-- Line 3: Bottom Border -->
+  <div class="abs" style="left:370pt; top:472pt; width:60pt; height:20pt; background:#E0E0E0; border-bottom:2pt solid #808080;"></div>
+  <p class="abs" style="left:355pt; top:495pt; width:90pt; font-size:5.5pt; color:#808080; text-align:center;">Bottom Border</p>
+
+  <!-- Line 4: Full Border -->
+  <div class="abs" style="left:530pt; top:472pt; width:60pt; height:20pt; background:#E0E0E0; border:1pt solid #808080; border-radius:3pt;"></div>
+  <p class="abs" style="left:515pt; top:495pt; width:90pt; font-size:5.5pt; color:#808080; text-align:center;">Full Border</p>
+
+  <!-- Badge 5 -->
+  <div class="abs" style="left:698pt; top:390pt; width:16pt; height:16pt; background:#000000; border-radius:50%;"></div>
+  <p class="abs" style="left:698pt; top:392pt; width:16pt; font-size:8pt; color:#FFFFFF; text-align:center;">5</p>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 6: FOOTER                                             -->
+  <!-- ============================================================ -->
+  <div class="abs" style="left:0; top:532pt; width:720pt; height:85pt; background:#808080;"></div>
+  <!-- Footer columns -->
+  <p class="abs" style="left:20pt; top:540pt; width:220pt; font-size:8pt; font-weight:bold; color:#FFFFFF;">TestCorp Portal</p>
+  <p class="abs" style="left:20pt; top:553pt; width:220pt; font-size:6pt; color:#FFFFFF; line-height:1.5;">A comprehensive testing page designed to verify html2pptx conversion accuracy.</p>
+  <p class="abs" style="left:260pt; top:540pt; width:100pt; font-size:7pt; font-weight:bold; color:#FFFFFF;">Company</p>
+  <p class="abs" style="left:260pt; top:552pt; width:100pt; font-size:5.5pt; color:#FFFFFF; line-height:1.6;">About Us</p>
+  <p class="abs" style="left:260pt; top:561pt; width:100pt; font-size:5.5pt; color:#FFFFFF;">Careers</p>
+  <p class="abs" style="left:260pt; top:570pt; width:100pt; font-size:5.5pt; color:#FFFFFF;">Press</p>
+  <p class="abs" style="left:260pt; top:579pt; width:100pt; font-size:5.5pt; color:#FFFFFF;">Blog</p>
+  <p class="abs" style="left:400pt; top:540pt; width:120pt; font-size:7pt; font-weight:bold; color:#FFFFFF;">Resources</p>
+  <p class="abs" style="left:400pt; top:552pt; width:120pt; font-size:5.5pt; color:#FFFFFF;">Documentation</p>
+  <p class="abs" style="left:400pt; top:561pt; width:120pt; font-size:5.5pt; color:#FFFFFF;">API Reference</p>
+  <p class="abs" style="left:400pt; top:570pt; width:120pt; font-size:5.5pt; color:#FFFFFF;">Status Page</p>
+  <p class="abs" style="left:400pt; top:579pt; width:120pt; font-size:5.5pt; color:#FFFFFF;">Changelog</p>
+  <p class="abs" style="left:555pt; top:540pt; width:120pt; font-size:7pt; font-weight:bold; color:#FFFFFF;">Legal</p>
+  <p class="abs" style="left:555pt; top:552pt; width:120pt; font-size:5.5pt; color:#FFFFFF;">Privacy Policy</p>
+  <p class="abs" style="left:555pt; top:561pt; width:120pt; font-size:5.5pt; color:#FFFFFF;">Terms of Service</p>
+  <p class="abs" style="left:555pt; top:570pt; width:120pt; font-size:5.5pt; color:#FFFFFF;">Cookie Policy</p>
+  <p class="abs" style="left:555pt; top:579pt; width:120pt; font-size:5.5pt; color:#FFFFFF;">GDPR</p>
+  <!-- Footer bottom bar divider -->
+  <div class="abs" style="left:20pt; top:593pt; width:680pt; height:1pt; background:#FFFFFF;"></div>
+  <p class="abs" style="left:20pt; top:598pt; width:350pt; font-size:5.5pt; color:#FFFFFF;">&#169; 2026 TestCorp. All rights reserved.</p>
+  <p class="abs" style="left:500pt; top:598pt; width:200pt; font-size:5.5pt; color:#FFFFFF; text-align:right;">GitHub &nbsp; Twitter &nbsp; LinkedIn</p>
+  <!-- Badge 6 -->
+  <div class="abs" style="left:698pt; top:535pt; width:16pt; height:16pt; background:#000000; border-radius:50%;"></div>
+  <p class="abs" style="left:698pt; top:537pt; width:16pt; font-size:8pt; color:#FFFFFF; text-align:center;">6</p>
+
+  <!-- ============================================================ -->
+  <!-- SECTION 7: CORNER MARKERS (overlay)                           -->
+  <!-- ============================================================ -->
+  <!-- TL marker -->
+  <div class="abs" style="left:0; top:0; width:20pt; height:20pt; background:#808080; border-radius:0 0 4pt 0;"></div>
+  <p class="abs" style="left:0; top:4pt; width:20pt; font-size:6pt; font-weight:bold; color:#FFFFFF; text-align:center;">TL</p>
+  <!-- TR marker -->
+  <div class="abs" style="left:700pt; top:0; width:20pt; height:20pt; background:#808080; border-radius:0 0 0 4pt;"></div>
+  <p class="abs" style="left:700pt; top:4pt; width:20pt; font-size:6pt; font-weight:bold; color:#FFFFFF; text-align:center;">TR</p>
+  <!-- BL marker -->
+  <div class="abs" style="left:0; top:700pt; width:20pt; height:20pt; background:#808080; border-radius:0 4pt 0 0;"></div>
+  <p class="abs" style="left:0; top:704pt; width:20pt; font-size:6pt; font-weight:bold; color:#FFFFFF; text-align:center;">BL</p>
+  <!-- BR marker -->
+  <div class="abs" style="left:700pt; top:700pt; width:20pt; height:20pt; background:#808080; border-radius:4pt 0 0 0;"></div>
+  <p class="abs" style="left:700pt; top:704pt; width:20pt; font-size:6pt; font-weight:bold; color:#FFFFFF; text-align:center;">BR</p>
+  <!-- CENTER marker -->
+  <div class="abs" style="left:345pt; top:345pt; width:30pt; height:30pt; background:#808080; border-radius:50%;"></div>
+  <p class="abs" style="left:345pt; top:351pt; width:30pt; font-size:5.5pt; font-weight:bold; color:#FFFFFF; text-align:center;">CTR</p>
+  <!-- Badge 7 -->
+  <div class="abs" style="left:330pt; top:340pt; width:16pt; height:16pt; background:#000000; border-radius:50%;"></div>
+  <p class="abs" style="left:330pt; top:342pt; width:16pt; font-size:8pt; color:#FFFFFF; text-align:center;">7</p>
+
+</div>
+<!-- END CONTENT AREA -->
+
+
+<!-- ================================================================ -->
+<!-- DESCRIPTION PANEL (275 x 720 pt)                                 -->
+<!-- ================================================================ -->
+<div class="panel" style="padding:12pt 15pt;">
+
+  <h2 style="font-size:11pt; color:#000000; margin-bottom:3pt;">TestCorp Portal</h2>
+  <p style="font-size:8pt; color:#808080; margin-bottom:2pt;">Wireframe Specification</p>
+  <p style="font-size:6.5pt; color:#808080; margin-bottom:8pt;">mode: wireframe | 1 slide | 7 sections</p>
+
+  <!-- Divider -->
+  <div style="width:245pt; border-top:1pt solid #E0E0E0; margin-bottom:8pt;"></div>
+
+  <h3 style="font-size:8pt; color:#000000; margin-bottom:2pt;">1 &nbsp; Header Nav</h3>
+  <p style="font-size:6.5pt; color:#808080; margin-bottom:1pt; padding-left:10pt;">#1E3A5F bg, 64px tall, 3px blue bottom border</p>
+  <p style="font-size:6.5pt; color:#808080; margin-bottom:6pt; padding-left:10pt;">Logo (22px bold) + 5 nav links (Home active)</p>
+
+  <h3 style="font-size:8pt; color:#000000; margin-bottom:2pt;">2 &nbsp; Hero Section</h3>
+  <p style="font-size:6.5pt; color:#808080; margin-bottom:1pt; padding-left:10pt;">#2B6CB0 bg, 80px top/bottom padding</p>
+  <p style="font-size:6.5pt; color:#808080; margin-bottom:1pt; padding-left:10pt;">Title (42px/800wt), subtitle (18px/#BEE3F8)</p>
+  <p style="font-size:6.5pt; color:#808080; margin-bottom:6pt; padding-left:10pt;">CTA: Get Started (#E53E3E) + Learn More (border)</p>
+
+  <h3 style="font-size:8pt; color:#000000; margin-bottom:2pt;">3 &nbsp; Stats Bar</h3>
+  <p style="font-size:6.5pt; color:#808080; margin-bottom:1pt; padding-left:10pt;">#FFFFFF bg, 1px bottom border #E2E8F0</p>
+  <p style="font-size:6.5pt; color:#808080; margin-bottom:6pt; padding-left:10pt;">4 stats: 1,247 | 358 | 99.9% | 24/7 (32px/#2B6CB0)</p>
+
+  <h3 style="font-size:8pt; color:#000000; margin-bottom:2pt;">4 &nbsp; Board + Sidebar</h3>
+  <p style="font-size:6.5pt; color:#808080; margin-bottom:1pt; padding-left:10pt;">2-column: Board (flex:2) + Sidebar (flex:1)</p>
+  <p style="font-size:6.5pt; color:#808080; margin-bottom:1pt; padding-left:10pt;">Board: 5x5 table, 4 tag colors, #2D3748 header</p>
+  <p style="font-size:6.5pt; color:#808080; margin-bottom:6pt; padding-left:10pt;">Sidebar: Recent Updates list + Quick Links 2x2</p>
+
+  <h3 style="font-size:8pt; color:#000000; margin-bottom:2pt;">5 &nbsp; Shape &amp; Line Test</h3>
+  <p style="font-size:6.5pt; color:#808080; margin-bottom:1pt; padding-left:10pt;">5 shapes: rect, rounded, circle, border, shadow</p>
+  <p style="font-size:6.5pt; color:#808080; margin-bottom:6pt; padding-left:10pt;">4 lines: top/left/bottom border + full border</p>
+
+  <h3 style="font-size:8pt; color:#000000; margin-bottom:2pt;">6 &nbsp; Footer</h3>
+  <p style="font-size:6.5pt; color:#808080; margin-bottom:1pt; padding-left:10pt;">#1A202C bg, 4-column grid (2fr+1fr+1fr+1fr)</p>
+  <p style="font-size:6.5pt; color:#808080; margin-bottom:6pt; padding-left:10pt;">Company/Resources/Legal links + social bar</p>
+
+  <h3 style="font-size:8pt; color:#000000; margin-bottom:2pt;">7 &nbsp; Corner Markers</h3>
+  <p style="font-size:6.5pt; color:#808080; margin-bottom:1pt; padding-left:10pt;">5 markers: TL(red) TR(blue) BL(green) BR(gold)</p>
+  <p style="font-size:6.5pt; color:#808080; margin-bottom:8pt; padding-left:10pt;">CTR(purple, 60px circle at center)</p>
+
+  <!-- Divider -->
+  <div style="width:245pt; border-top:1pt solid #E0E0E0; margin-bottom:6pt;"></div>
+
+  <p style="font-size:7pt; color:#000000; margin-bottom:2pt;"><b>Color Mapping</b></p>
+  <p style="font-size:6pt; color:#808080; margin-bottom:1pt;">Dark bg (#1E3A5F, #2B6CB0, #1A202C) &rarr; #808080</p>
+  <p style="font-size:6pt; color:#808080; margin-bottom:1pt;">Accent (#E53E3E, #2D3748) &rarr; #000000</p>
+  <p style="font-size:6pt; color:#808080; margin-bottom:1pt;">Light bg (#F5F5F5, #F7FAFC, tags) &rarr; #E0E0E0</p>
+  <p style="font-size:6pt; color:#808080; margin-bottom:6pt;">Card/content (#FFFFFF) &rarr; #FFFFFF</p>
+
+  <p style="font-size:7pt; color:#000000;"><b>16 UI elements | 4 wireframe colors</b></p>
+
+</div>
+<!-- END PANEL -->
+
+</body>
+</html>

@@ -1,0 +1,4 @@
+Pillow>=9.0
+chardet>=5.0        # optional: HTML encoding detection
+comtypes>=1.2       # optional: Windows PowerPoint COM automation
+python-pptx>=0.6.21 # optional: placeholder analysis

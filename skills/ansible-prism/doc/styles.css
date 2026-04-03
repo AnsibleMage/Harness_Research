@@ -1,0 +1,172 @@
+/* === Wireframe Content CSS — SaeroEArum Main Page === */
+
+/* Scrollable browser content */
+.browser-content { overflow-y: auto; max-height: 700px; }
+
+/* Sections */
+.wf-section { padding: 12px 16px; }
+.wf-section-alt { background: #eee; }
+.wf-section-title { margin: 0 0 8px; font-size: 16px; color: #000; }
+.wf-section-header { display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
+.wf-section-header h3 { margin: 0; font-size: 16px; }
+.wf-center { text-align: center; }
+.wf-right { margin-left: auto; }
+.wf-link { font-size: 11px; color: #666; text-decoration: none; margin-left: auto; }
+.wf-slogans { font-size: 11px; color: #666; display: flex; gap: 12px; }
+.wf-deco { font-size: 10px; color: #999; font-style: italic; }
+
+/* Header */
+.wf-header { padding: 0; }
+.wf-util-bar { display: flex; justify-content: space-between; padding: 4px 16px; font-size: 10px; color: #666; border-bottom: 1px solid #eee; }
+.wf-util-bar a { color: #333; text-decoration: none; margin-left: 8px; font-size: 10px; }
+.wf-logo-bar { display: flex; justify-content: space-between; align-items: center; padding: 8px 16px; border-bottom: 1px solid #eee; }
+.wf-logo { font-size: 14px; font-weight: 600; color: #000; }
+.wf-logo-sm { font-size: 11px; font-weight: 600; }
+.wf-gnb { display: flex; justify-content: space-around; padding: 8px 16px; border-bottom: 1px solid #ccc; }
+.wf-gnb a { text-decoration: none; color: #333; font-size: 12px; font-weight: 500; }
+.wf-gnb-inline { display: flex; gap: 12px; }
+.wf-gnb-inline a { text-decoration: none; color: #333; font-size: 11px; }
+.wf-logo-bar .wf-right { font-size: 11px; color: #666; }
+.wf-logo-bar .wf-right a { color: #333; text-decoration: none; }
+
+/* Two-column layout */
+.wf-two-col { display: flex; gap: 12px; }
+.wf-col-narrow { flex: 1; min-width: 0; }
+.wf-col-wide { flex: 2; min-width: 0; }
+.wf-col { flex: 1; min-width: 0; }
+.wf-three-col { display: flex; gap: 12px; }
+
+/* Cards */
+.wf-card { border: 1px solid #ccc; border-radius: 6px; padding: 12px; font-size: 11px; }
+.wf-card h3 { margin: 0 0 4px; font-size: 14px; }
+.wf-card p { margin: 2px 0; font-size: 11px; color: #666; }
+.wf-card-accent { background: #eee; }
+.wf-placeholder-img { width: 40px; height: 40px; background: #ccc; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #666; border-radius: 4px; margin-bottom: 6px; }
+
+/* Search bar */
+.wf-search-bar { border: 1px solid #ccc; border-radius: 4px; padding: 6px 8px; font-size: 10px; color: #999; margin: 6px 0; }
+.wf-search-lg { padding: 8px 12px; font-size: 11px; }
+.wf-search-xl { padding: 10px 14px; font-size: 12px; border-radius: 6px; }
+.wf-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+.wf-tags span { font-size: 9px; color: #666; background: #eee; padding: 2px 6px; border-radius: 3px; }
+
+/* Donut chart */
+.wf-donut { width: 60px; height: 60px; border: 4px solid #999; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 4px; }
+.wf-donut-sm { width: 48px; height: 48px; border-width: 3px; }
+.wf-donut-xs { width: 36px; height: 36px; border-width: 3px; }
+.wf-donut-num { font-size: 18px; font-weight: 700; color: #000; }
+.wf-donut-sm .wf-donut-num { font-size: 14px; }
+.wf-donut-xs .wf-donut-num { font-size: 12px; }
+
+/* Course pills */
+.wf-course-group { margin-bottom: 6px; }
+.wf-course-group strong { font-size: 11px; display: block; margin-bottom: 4px; }
+.wf-course-row { display: flex; gap: 4px; flex-wrap: wrap; }
+.wf-pill { font-size: 9px; background: #eee; border: 1px solid #ccc; border-radius: 3px; padding: 2px 6px; white-space: nowrap; }
+.wf-arrow { font-size: 10px; color: #999; }
+.wf-arrows { text-align: center; font-size: 12px; color: #999; margin-top: 4px; }
+
+/* Tab bar */
+.wf-tab-bar { display: flex; gap: 8px; margin-bottom: 8px; }
+.wf-tab-bar a { font-size: 10px; color: #666; text-decoration: none; padding: 2px 6px; border-bottom: 1px solid transparent; }
+
+/* Course cards */
+.wf-card-row { display: flex; gap: 8px; overflow-x: auto; }
+.wf-course-card { flex: 0 0 140px; border: 1px solid #ccc; border-radius: 4px; font-size: 10px; overflow: hidden; }
+.wf-course-card strong { display: block; padding: 4px 6px 0; font-size: 10px; }
+.wf-course-card small { display: block; padding: 0 6px; color: #666; font-size: 9px; }
+.wf-thumb { height: 70px; background: #eee; position: relative; }
+.wf-thumb-sm { height: 50px; background: #eee; border-radius: 4px; margin-bottom: 4px; }
+.wf-badge-time { position: absolute; bottom: 2px; right: 2px; font-size: 8px; background: #333; color: #fff; padding: 1px 4px; border-radius: 2px; }
+.wf-badge-cat { position: absolute; bottom: 2px; left: 2px; font-size: 8px; background: #999; color: #fff; padding: 1px 4px; border-radius: 2px; }
+.wf-badge-heart { position: absolute; top: 2px; right: 2px; font-size: 8px; color: #666; }
+.wf-meta { padding: 2px 6px 4px; font-size: 9px; color: #999; }
+
+/* Card grid */
+.wf-card-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+
+/* Learn cards */
+.wf-learn-card { border: 1px solid #ccc; border-radius: 4px; padding: 8px; font-size: 10px; }
+.wf-learn-card strong { display: block; margin: 4px 0; font-size: 10px; }
+.wf-progress { height: 6px; background: #eee; border-radius: 3px; overflow: hidden; margin: 4px 0; }
+.wf-progress-fill { height: 100%; background: #999; }
+.wf-btn { display: inline-block; padding: 4px 8px; border: 1px solid #ccc; border-radius: 3px; font-size: 10px; color: #333; text-decoration: none; }
+.wf-btn-sm { display: inline-block; padding: 2px 6px; border: 1px solid #ccc; border-radius: 3px; font-size: 9px; color: #333; text-decoration: none; margin-top: 4px; }
+
+/* Channel cards */
+.wf-channel-card { display: flex; align-items: center; gap: 6px; padding: 6px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 4px; font-size: 10px; }
+.wf-channel-card strong { font-size: 10px; }
+.wf-channel-card small { color: #666; font-size: 9px; }
+.wf-ch-badge { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: #eee; border-radius: 4px; font-size: 9px; font-weight: 600; flex-shrink: 0; }
+
+/* Book grid */
+.wf-book-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.wf-book-grid-compact { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+.wf-book { text-align: center; }
+.wf-book-cover { height: 60px; background: #eee; border: 1px solid #ccc; border-radius: 2px; margin-bottom: 2px; }
+.wf-book strong { font-size: 9px; display: block; }
+.wf-book small { font-size: 8px; color: #666; }
+
+/* Contact cards */
+.wf-contact-row { display: flex; gap: 6px; justify-content: center; }
+.wf-contact-card { flex: 1; border: 1px solid #ccc; border-radius: 4px; padding: 8px; text-align: center; font-size: 10px; }
+.wf-contact-card strong { display: block; margin: 2px 0; font-size: 10px; }
+.wf-contact-card span { font-size: 9px; color: #666; }
+.wf-contact-mini { text-align: center; }
+.wf-contact-mini strong { display: block; font-size: 9px; margin: 2px 0; }
+.wf-contact-mini small { font-size: 8px; color: #666; }
+
+/* Footer */
+.wf-footer { padding: 8px 16px; border-top: 1px solid #ccc; font-size: 9px; color: #666; }
+.wf-footer-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px; flex-wrap: wrap; gap: 4px; }
+.wf-footer-links { display: flex; gap: 6px; flex-wrap: wrap; }
+.wf-footer-links a { color: #666; text-decoration: none; font-size: 9px; }
+.wf-footer-info { margin: 4px 0; }
+.wf-footer-info small { display: block; font-size: 8px; color: #999; }
+.wf-footer-copy { font-size: 8px; color: #999; text-align: center; margin-top: 4px; position: relative; }
+.wf-scroll-top { position: absolute; right: 0; top: -4px; font-size: 14px; cursor: pointer; }
+
+/* Accordion (Option 3) */
+.wf-accordion { border: 1px solid #ccc; border-radius: 4px; margin-bottom: 4px; }
+.wf-acc-header { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; cursor: pointer; font-size: 12px; }
+.wf-acc-header h3 { margin: 0; font-size: 12px; }
+.wf-acc-toggle { font-size: 14px; color: #999; }
+.wf-acc-body { padding: 0 12px 8px; font-size: 10px; display: none; }
+.wf-accordion.open .wf-acc-body { display: block; }
+.wf-mini-list { font-size: 9px; color: #666; }
+.wf-mini-list span { display: block; margin: 1px 0; }
+.wf-mini-progress span { display: block; font-size: 9px; margin: 2px 0; color: #666; }
+
+/* Dashboard (Option 2) */
+.wf-dashboard-panel { background: #eee; }
+.wf-dash-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.wf-dash-cell { border: 1px solid #ccc; border-radius: 4px; padding: 8px; text-align: center; font-size: 10px; background: #fff; }
+.wf-dash-cell strong { display: block; font-size: 11px; margin-bottom: 4px; }
+.wf-dash-continue { grid-column: span 1; }
+
+/* Mosaic (Option 4) */
+.wf-mosaic { padding: 8px 16px; }
+.wf-mosaic-row { display: flex; gap: 8px; margin-bottom: 8px; }
+.wf-mosaic-card { flex: 1; border: 1px solid #ccc; border-radius: 6px; padding: 10px; font-size: 10px; min-width: 0; }
+.wf-mosaic-2x { flex: 2; }
+.wf-mosaic-5 { }
+.wf-mosaic-5 .wf-mosaic-card { flex: 1; }
+.wf-mosaic-course { padding: 0; overflow: hidden; }
+.wf-mosaic-course strong { padding: 4px 6px 0; display: block; }
+.wf-mosaic-course small { padding: 0 6px; display: block; color: #666; }
+.wf-mosaic-course .wf-meta { padding: 2px 6px 4px; }
+.wf-mosaic-learn { text-align: center; }
+
+/* Search hero (Option 5) */
+.wf-search-hero-section { text-align: center; padding: 20px 16px 8px; }
+.wf-search-hero-block { max-width: 500px; margin: 0 auto; }
+.wf-search-hero-block h2 { font-size: 16px; margin: 0 0 4px; color: #000; }
+.wf-search-hero-block strong { font-size: 11px; color: #666; }
+.wf-quick-status { display: flex; justify-content: center; gap: 16px; margin-top: 12px; padding: 8px; border: 1px solid #ccc; border-radius: 6px; }
+.wf-qs-item { text-align: center; font-size: 10px; }
+.wf-qs-item strong { font-size: 16px; display: block; }
+.wf-qs-item small { color: #666; font-size: 9px; }
+
+/* Search hero (Option 1 banner) */
+.wf-search-hero { text-align: center; padding: 12px; }
+.wf-search-hero strong { font-size: 13px; }

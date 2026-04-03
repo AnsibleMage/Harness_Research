@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip install openpyxl*)",
+      "Bash(pip install pyyaml*)",
+      "Bash(python *)",
+      "Bash(cp *)",
+      "Bash(mkdir *)",
+      "Bash(ls *)",
+      "Bash(wc *)",
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "Agent"
+    ]
+  }
+}

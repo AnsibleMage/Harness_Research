@@ -1,0 +1,31 @@
+{
+  "validated_at": "2026-03-11T14:57:44Z",
+  "files_checked": 4,
+  "results": [
+    {
+      "file": "C:\\Users\\name\\.claude\\skills\\html2pptx-converter\\test\\output\\slides\\slide_00.html",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "file": "C:\\Users\\name\\.claude\\skills\\html2pptx-converter\\test\\output\\slides\\slide_01.html",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "file": "C:\\Users\\name\\.claude\\skills\\html2pptx-converter\\test\\output\\slides\\slide_02.html",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "file": "C:\\Users\\name\\.claude\\skills\\html2pptx-converter\\test\\output\\slides\\slide_03.html",
+      "errors": [],
+      "warnings": []
+    }
+  ],
+  "summary": {
+    "total_errors": 0,
+    "total_warnings": 0,
+    "pass": true
+  }
+}

@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>새로e아름 — 우정인재개발원</title>
+  <meta name="description" content="우정인재개발원 새로e아름 학습 포털">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.min.css">
+  <script src="https://code.iconify.design/iconify-icon/2.3.0/iconify-icon.min.js"></script>
+  <style>
+    /*
+    FRAMEWORK: v2.0 | VIBE: warm | OL: 8 (Distinctive Craft)
+    PAGE DNA: CT-07(모노크롬+단일컬러) + VN-06(공백→충만) + LN-09(역순)
+    SECTIONS:
+      Hero/현황:  SB-09 + TC-02 + WS-06 + ED-03
+      이어학습:   SB-08 + TC-04 + WS-01 + ED-04
+      CLASSROOM:  SB-05 + TC-06 + WS-04 + ED-02
+      AI+도서관:  SB-04 + TC-10 + WS-09 + ED-06
+      채널+책:    SB-10 + TC-09 + WS-07 + ED-08
+      연락처:     SB-11 + TC-08 + WS-02 + ED-05
+    PREVIOUS GEN OVERLAP: 0 patterns
+    */
+
+    :root {
+      --white: #ffffff;
+      --gray-dark: #545556;
+      --gray-mid: #858586;
+      --red: #f1574d;
+      --gray-light: #b6b6b7;
+      --accent: #f05423;
+      --accent-hover: #f8de08;
+      --hover-brown: #715049;
+      --bg: #fafafa;
+      --text: #1a1a1a;
+      --text-sub: #666666;
+      --display: 'Poppins', sans-serif;
+      --body: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+      --radius: 10px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: var(--body); color: var(--text); background: var(--bg); line-height: 1.6; word-break: keep-all; }
+
+    /* ── NAV ── */
+    .nav-util {
+      display: flex; justify-content: flex-end; gap: 20px;
+      padding: 6px 40px; background: var(--text); font-size: 12px;
+    }
+    .nav-util a { color: var(--gray-light); text-decoration: none; }
+    .nav-util a:hover { color: var(--white); }
+
+    .nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 15px 40px; background: var(--white);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .nav-logo { font-family: var(--display); font-weight: 700; font-size: 16px; color: var(--text); }
+    .nav-center { display: flex; gap: 28px; }
+    .nav-center a { text-decoration: none; color: var(--gray-mid); font-size: 15px; font-weight: 500; }
+    .nav-center a:hover { color: var(--text); }
+    .nav-right { font-size: 15px; color: var(--gray-mid); }
+    .nav-right a { color: var(--text); text-decoration: none; font-weight: 600; }
+
+    /* ═══ CT-07: 모노크롬 전체. accent는 아름포인트 숫자에만 ═══ */
+
+    /* ── HERO: S03 학습현황 (LN-09 역순: 결과를 먼저) ──
+         SB-09: 텍스트 한 줄만 거대하게
+         TC-02: 숫자 타이포 (5를 거대하게)
+         WS-06: 여백이 콘텐츠 (VN-06: 공백→충만의 시작 = 거의 비어있음)
+         ED-03: 숫자 + 감정
+    */
+    .hero-status {
+      min-height: 80dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 150px 40px;
+      text-align: center;
+    }
+
+    .hero-point {
+      font-family: var(--display);
+      font-size: 180px;
+      font-weight: 700;
+      line-height: 0.85;
+      color: var(--accent);  /* ← CT-07: 유일한 accent 사용처 */
+      letter-spacing: -8px;
+      margin-bottom: 10px;
+    }
+
+    .hero-point-label {
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--gray-mid);
+      margin-bottom: 50px;
+      letter-spacing: 2px;
+    }
+
+    .hero-name {
+      font-size: 15px;
+      color: var(--gray-dark);
+      margin-bottom: 80px;
+    }
+
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      max-width: 800px;
+    }
+
+    .hero-pill {
+      font-size: 15px;
+      padding: 8px 20px;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: var(--radius);
+      color: var(--gray-dark);
+      background: var(--white);
+      transition: all 0.2s;
+    }
+
+    .hero-pill:hover { border-color: var(--text); color: var(--text); }
+
+    .hero-divider {
+      width: 40px; height: 1px;
+      background: var(--gray-light);
+      margin: 30px 0;
+    }
+
+    .hero-group-label {
+      font-size: 12px;
+      color: var(--gray-mid);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    /* ── S05: 이어서 학습하기 ──
+         SB-08: 가로 스크롤 스트립
+         TC-04: 무게 대비 (300 vs 700)
+         WS-01: 압축과 팽창 (이전 섹션 넓었으니 이건 압축)
+         ED-04: 대비 카피
+    */
+    .continue {
+      padding: 40px 0;
+      border-top: 1px solid rgba(0,0,0,0.06);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .continue-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 0 40px 20px;
+    }
+
+    .continue-title {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--gray-mid);
+      letter-spacing: 1px;
+    }
+
+    .continue-title strong {
+      font-weight: 700;
+      color: var(--text);
+      font-size: 20px;
+    }
+
+    .link-more {
+      font-size: 15px; color: var(--gray-mid);
+      text-decoration: none; font-weight: 500;
+    }
+    .link-more:hover { color: var(--text); }
+
+    .continue-scroll {
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .continue-scroll::-webkit-scrollbar { display: none; }
+
+    .continue-card {
+      flex: 0 0 340px;
+      scroll-snap-align: start;
+      padding: 25px 30px;
+      border-right: 1px solid rgba(0,0,0,0.06);
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      transition: background 0.2s;
+    }
+
+    .continue-card:hover { background: rgba(0,0,0,0.015); }
+
+    .continue-thumb {
+      width: 60px; height: 60px; flex-shrink: 0;
+      background: rgba(0,0,0,0.03);
+      border-radius: var(--radius);
+    }
+
+    .continue-meta strong { display: block; font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+
+    .continue-bar {
+      height: 3px; background: rgba(0,0,0,0.06);
+      border-radius: 2px; margin-bottom: 4px;
+    }
+
+    .continue-bar-fill { height: 100%; background: var(--text); border-radius: 2px; }
+
+    .continue-pct {
+      font-family: var(--display);
+      font-size: 12px; font-weight: 600;
+      color: var(--gray-mid);
+    }
+
+    /* 대비 카피 ED-04 */
+    .continue-card .before-after {
+      font-size: 12px; color: var(--gray-mid); font-weight: 300;
+    }
+
+    /* ── S04: CLASSROOM ──
+         SB-05: 핀보드 (masonry, 서로 다른 높이)
+         TC-06: 단일 거대 문장 ("이것이 필수다" 크게)
+         WS-04: 풀블리드 + 인셋 교차
+         ED-02: 질문형 ("당신의 다음 교육은?")
+    */
+    .classroom {
+      padding: 0;  /* WS-04: 풀블리드 */
+    }
+
+    .classroom-statement {
+      padding: 100px 40px 30px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .classroom-question {
+      font-size: 40px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .classroom-sub {
+      font-size: 15px;
+      color: var(--gray-mid);
+      font-weight: 300;
+    }
+
+    .classroom-tabs {
+      display: flex;
+      gap: 0;
+      padding: 0 40px;
+      max-width: 1100px;
+      margin: 30px auto 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .classroom-tabs a {
+      padding: 10px 20px; text-decoration: none;
+      font-size: 15px; color: var(--gray-mid);
+      border-bottom: 2px solid transparent;
+    }
+    .classroom-tabs a:first-child { color: var(--text); border-bottom-color: var(--text); font-weight: 600; }
+    .classroom-tabs a:hover { color: var(--text); }
+
+    /* SB-05: Masonry (핀보드 — 서로 다른 높이) */
+    .masonry {
+      padding: 30px 40px 80px;
+      max-width: 1100px;
+      margin: 0 auto;
+      columns: 3;
+      column-gap: 20px;
+    }
+
+    .masonry-card {
+      break-inside: avoid;
+      margin-bottom: 20px;
+      background: var(--white);
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    .masonry-card:hover { border-color: var(--text); }
+
+    .masonry-card:nth-child(1) .masonry-img { height: 180px; }
+    .masonry-card:nth-child(2) .masonry-img { height: 120px; }
+    .masonry-card:nth-child(3) .masonry-img { height: 160px; }
+    .masonry-card:nth-child(4) .masonry-img { height: 100px; }
+    .masonry-card:nth-child(5) .masonry-img { height: 140px; }
+
+    .masonry-img {
+      width: 100%;
+      background: rgba(0,0,0,0.03);
+      position: relative;
+    }
+
+    .masonry-badges {
+      position: absolute; top: 10px; left: 10px;
+      display: flex; gap: 4px;
+    }
+
+    .m-badge {
+      font-size: 10px; font-weight: 700; padding: 3px 8px;
+      background: var(--white); border-radius: 3px;
+      color: var(--gray-dark);
+    }
+
+    .m-heart {
+      position: absolute; top: 10px; right: 10px;
+      font-size: 12px; color: var(--gray-mid);
+      background: var(--white); padding: 2px 6px;
+      border-radius: 3px;
+    }
+
+    .masonry-body { padding: 18px; }
+    .masonry-body strong { display: block; font-size: 15px; font-weight: 600; margin-bottom: 4px; line-height: 1.4; }
+    .masonry-body small { font-size: 12px; color: var(--gray-mid); }
+
+    /* ── S02: AI큐레이터 + 전자도서관 ──
+         SB-04: 오버랩 레이아웃 (도서관이 큐레이터 위에 겹침)
+         TC-10: 빈 공간 타이포 (텍스트 주변 큰 여백)
+         WS-09: 좌우 여백 차등
+         ED-06: 은유 ("지식의 소리를 듣다")
+    */
+    .discover {
+      padding: 100px 40px 100px 120px; /* WS-09: 좌우 차등 */
+      background: var(--text);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .discover-grid {
+      max-width: 1000px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .discover-curator {}
+
+    .discover-label {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 4px; text-transform: uppercase;
+      color: var(--gray-mid); margin-bottom: 30px;
+    }
+
+    .discover-heading {
+      font-size: 28px; font-weight: 600;
+      color: var(--white); line-height: 1.4;
+      margin-bottom: 20px;
+    }
+
+    .discover-desc {
+      font-size: 16px; color: var(--gray-mid);
+      line-height: 1.8; margin-bottom: 30px;
+    }
+
+    .discover-search {
+      display: flex; max-width: 360px;
+    }
+
+    .discover-search input {
+      flex: 1; padding: 12px 18px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: transparent; color: var(--white);
+      font-family: var(--body); font-size: 15px; outline: none;
+    }
+    .discover-search input::placeholder { color: var(--gray-mid); }
+
+    .discover-search button {
+      padding: 12px 20px; background: var(--white);
+      color: var(--text); border: none;
+      font-family: var(--body); font-weight: 600; font-size: 15px;
+      cursor: pointer; transition: all 0.2s;
+    }
+    .discover-search button:hover { background: var(--accent-hover); color: var(--white); }
+
+    .discover-tags {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px;
+    }
+    .discover-tags span {
+      font-size: 12px; color: var(--gray-mid);
+      padding: 4px 10px; border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius); cursor: pointer;
+    }
+    .discover-tags span:hover { border-color: rgba(255,255,255,0.3); color: var(--white); }
+
+    /* SB-04: 도서관이 오버랩 — negative margin으로 큐레이터 영역에 침범 */
+    .discover-library {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 40px;
+      margin-top: -30px;
+      position: relative;
+      z-index: 2;
+      box-shadow: rgba(0,0,0,0.5) 4px -20px 18px 0px;
+    }
+
+    .library-eyebrow {
+      font-size: 10px; color: var(--gray-mid);
+      letter-spacing: 2px; text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .library-title {
+      font-size: 24px; font-weight: 700;
+      color: var(--text); margin-bottom: 10px;
+    }
+
+    .library-desc {
+      font-size: 15px; color: var(--gray-dark);
+      margin-bottom: 20px; line-height: 1.6;
+    }
+
+    .library-cta {
+      display: inline-block; padding: 12px 24px;
+      border: 1px solid var(--text);
+      color: var(--text); text-decoration: none;
+      font-weight: 600; font-size: 15px;
+      transition: all 0.2s;
+    }
+    .library-cta:hover { background: var(--accent-hover); border-color: var(--accent-hover); color: var(--white); }
+
+    /* ── S06: 채널 + 도서 ──
+         SB-10: L자 레이아웃
+         TC-09: 캡션 과잉
+         WS-07: margin collapse (밀집)
+         ED-08: 인용
+    */
+    .community {
+      padding: 60px 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .community-l {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto;
+      gap: 0;
+    }
+
+    /* L자: 채널이 좁은 상단 바, 책이 넓은 하단 */
+    .channels-bar {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      padding-bottom: 25px;
+      margin-bottom: 30px;
+    }
+
+    .channels-bar-label {
+      flex: 0 0 200px;
+      font-size: 15px; font-weight: 600;
+      padding-right: 25px;
+      border-right: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .channels-bar-label small {
+      display: block; font-size: 12px;
+      color: var(--gray-mid); font-weight: 400; margin-top: 2px;
+    }
+
+    .channel-list {
+      flex: 1;
+      display: flex;
+      gap: 0;
+    }
+
+    .ch-item {
+      flex: 1;
+      display: flex; align-items: center; gap: 10px;
+      padding: 0 20px;
+      border-right: 1px solid rgba(0,0,0,0.06);
+    }
+    .ch-item:last-child { border-right: none; }
+
+    .ch-badge {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--text); color: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; font-weight: 700; flex-shrink: 0;
+    }
+
+    .ch-info strong { display: block; font-size: 13px; font-weight: 600; }
+    .ch-info small { font-size: 10px; color: var(--gray-mid); }
+
+    /* TC-09: 캡션 과잉 — 책 정보에 캡션/메타 정보 많이 */
+    .books-section-label {
+      font-size: 15px; font-weight: 600;
+      margin-bottom: 5px;
+    }
+    .books-section-label small {
+      font-weight: 400; font-size: 12px; color: var(--gray-mid);
+    }
+
+    /* ED-08: 인용 — 책 추천 이유를 인용문으로 */
+    .books-quote {
+      font-size: 16px; font-style: italic;
+      color: var(--gray-dark); line-height: 1.6;
+      padding: 15px 0 20px;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      margin-bottom: 25px;
+    }
+
+    .books-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 15px; /* WS-07: 밀집 */
+    }
+
+    .book-item { text-align: center; }
+    .book-cover {
+      width: 100%; aspect-ratio: 3/4;
+      background: rgba(0,0,0,0.03);
+      border-radius: var(--radius); margin-bottom: 8px;
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+    .book-item strong { display: block; font-size: 13px; font-weight: 600; line-height: 1.3; }
+    .book-item small { font-size: 10px; color: var(--gray-mid); }
+
+    /* ── S07: 교육안내 ──
+         SB-11: 역전 배치 (전화번호 위, 제목 아래)
+         TC-08: 컬러 타이포 (전화번호만 accent)
+         WS-02: 비대칭 패딩
+         ED-05: 명령형
+    */
+    .contact {
+      padding: 30px 40px 60px; /* WS-02: 비대칭 top≠bottom */
+      background: var(--white);
+      border-top: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .contact-inner { max-width: 1100px; margin: 0 auto; }
+
+    /* SB-11: 역전 — 번호가 위, 라벨이 아래 */
+    .contact-grid {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .contact-item { text-align: center; }
+
+    .contact-num {
+      font-family: var(--display);
+      font-size: 20px; font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+      letter-spacing: -0.5px;
+    }
+
+    .contact-label {
+      font-size: 12px; color: var(--gray-mid); font-weight: 500;
+    }
+
+    .contact-heading {
+      font-size: 12px; color: var(--gray-mid);
+      text-align: center; margin-bottom: 25px;
+      letter-spacing: 2px; text-transform: uppercase;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 30px 40px 20px;
+      background: var(--text);
+    }
+    .footer-inner { max-width: 1100px; margin: 0 auto; }
+    .footer-top {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 15px;
+    }
+    .footer-logo { font-family: var(--display); font-size: 14px; font-weight: 700; color: var(--gray-mid); }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+    .footer-links a { font-size: 11px; color: var(--gray-mid); text-decoration: none; }
+    .footer-links a:first-child { font-weight: 700; color: var(--gray-light); }
+    .footer-links a:hover { color: var(--white); }
+    .footer-info { font-size: 11px; color: rgba(255,255,255,0.25); line-height: 1.8; margin-bottom: 10px; }
+    .footer-copy { font-size: 10px; color: rgba(255,255,255,0.15); }
+
+    /* ── Reveal ── */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.5s cubic-bezier(0.16,1,0.3,1), transform 0.5s cubic-bezier(0.16,1,0.3,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .nav-center { display: none; }
+      .hero-point { font-size: 100px; letter-spacing: -4px; }
+      .hero-status { padding: 80px 25px; min-height: 60dvh; }
+      .continue-card { flex: 0 0 280px; }
+      .masonry { columns: 1; padding: 20px 25px 60px; }
+      .classroom-question { font-size: 28px; }
+      .discover { padding: 60px 25px; }
+      .discover-grid { grid-template-columns: 1fr; gap: 40px; }
+      .channels-bar { flex-direction: column; gap: 20px; }
+      .channels-bar-label { flex: none; border-right: none; border-bottom: 1px solid rgba(0,0,0,0.06); padding-bottom: 15px; }
+      .channel-list { flex-direction: column; }
+      .ch-item { border-right: none; padding: 10px 0; }
+      .books-grid { grid-template-columns: repeat(3, 1fr); }
+      .contact-grid { flex-wrap: wrap; gap: 25px; justify-content: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <div class="nav-util">
+    <a href="#">플랫폼(관리자)</a>
+    <a href="#">학사행정시스템</a>
+  </div>
+  <nav class="nav">
+    <div class="nav-logo">✦ 새로e아름</div>
+    <div class="nav-center">
+      <a href="#">나의공간</a><a href="#">콘텐츠</a><a href="#">채널</a><a href="#">직무인증</a><a href="#">고객지원센터</a>
+    </div>
+    <div class="nav-right">홍길동님 <a href="#">로그아웃</a></div>
+  </nav>
+
+  <!-- LN-09 역순: 결과(학습현황)가 첫 화면 -->
+  <!-- VN-06 공백→충만: 여기서 가장 비어있음, 점점 밀집됨 -->
+
+  <!-- S03: 학습 현황 = Hero (SB-09 + TC-02 + WS-06 + ED-03) -->
+  <section class="hero-status">
+    <div class="hero-point">5</div>
+    <div class="hero-point-label">아름포인트</div>
+    <div class="hero-name">홍길동님의 학습 현황</div>
+
+    <div class="hero-group-label">필수교육 이수현황</div>
+    <div class="hero-pills">
+      <span class="hero-pill">공직가치 5/10</span>
+      <span class="hero-pill">적극행정 5/10</span>
+      <span class="hero-pill">성인지 5/10</span>
+      <span class="hero-pill">정보화 5/10</span>
+      <span class="hero-pill">정보보안 5/10</span>
+      <span class="hero-pill">개인정보 5/10</span>
+    </div>
+
+    <div class="hero-divider"></div>
+
+    <div class="hero-group-label">법정교육 이수현황</div>
+    <div class="hero-pills">
+      <span class="hero-pill">성폭력예방 5/10</span>
+      <span class="hero-pill">감염병예방 5/10</span>
+      <span class="hero-pill">자살예방 5/10</span>
+      <span class="hero-pill">안보 5/10</span>
+      <span class="hero-pill">장애인식개선 5/10</span>
+      <span class="hero-pill">아동학대예방 5/10</span>
+    </div>
+  </section>
+
+  <!-- S05: 이어서 학습하기 (SB-08 + TC-04 + WS-01 + ED-04) -->
+  <section class="continue reveal">
+    <div class="continue-top">
+      <div class="continue-title"><strong>이어서 학습하기</strong> — 멈춘 곳에서 다시</div>
+      <a href="#" class="link-more">전체보기 →</a>
+    </div>
+    <div class="continue-scroll">
+      <div class="continue-card">
+        <div class="continue-thumb"></div>
+        <div class="continue-meta">
+          <strong>우편취급 위반관련 법규</strong>
+          <div class="continue-bar"><div class="continue-bar-fill" style="width:30%"></div></div>
+          <span class="continue-pct">30%</span>
+        </div>
+      </div>
+      <div class="continue-card">
+        <div class="continue-thumb"></div>
+        <div class="continue-meta">
+          <strong>도전! 나의 손해 2</strong>
+          <div class="continue-bar"><div class="continue-bar-fill" style="width:65%"></div></div>
+          <span class="continue-pct">65%</span>
+        </div>
+      </div>
+      <div class="continue-card">
+        <div class="continue-thumb"></div>
+        <div class="continue-meta">
+          <strong>청렴판단력 키우기</strong>
+          <div class="continue-bar"><div class="continue-bar-fill" style="width:10%"></div></div>
+          <span class="continue-pct">10%</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S04: CLASSROOM (SB-05 + TC-06 + WS-04 + ED-02) -->
+  <section class="classroom reveal">
+    <div class="classroom-statement">
+      <div class="classroom-question">당신의 다음 교육은?</div>
+      <div class="classroom-sub">이것이 필수다. 당신에게 딱이다.</div>
+    </div>
+    <div class="classroom-tabs">
+      <a href="#">전체</a><a href="#">국정철학</a><a href="#">직무공통</a>
+    </div>
+    <div class="masonry">
+      <div class="masonry-card">
+        <div class="masonry-img">
+          <div class="masonry-badges"><span class="m-badge">60분</span><span class="m-badge">국정철학</span></div>
+          <span class="m-heart">♡ 42</span>
+        </div>
+        <div class="masonry-body"><strong>개인정보 보호교육</strong><small>수강 1,234명 · 댓글 56</small></div>
+      </div>
+      <div class="masonry-card">
+        <div class="masonry-img">
+          <div class="masonry-badges"><span class="m-badge">60분</span><span class="m-badge">직무공통</span></div>
+          <span class="m-heart">♡ 38</span>
+        </div>
+        <div class="masonry-body"><strong>개인정보보호교육(이용자)</strong><small>수강 987명 · 댓글 23</small></div>
+      </div>
+      <div class="masonry-card">
+        <div class="masonry-img">
+          <div class="masonry-badges"><span class="m-badge">60분</span><span class="m-badge">직무공통</span></div>
+          <span class="m-heart">♡ 55</span>
+        </div>
+        <div class="masonry-body"><strong>정보보안기본교육</strong><small>수강 2,100명 · 댓글 89</small></div>
+      </div>
+      <div class="masonry-card">
+        <div class="masonry-img">
+          <div class="masonry-badges"><span class="m-badge">60분</span><span class="m-badge">국정철학</span></div>
+          <span class="m-heart">♡ 27</span>
+        </div>
+        <div class="masonry-body"><strong>이해충돌방지법</strong><small>수강 756명 · 댓글 12</small></div>
+      </div>
+      <div class="masonry-card">
+        <div class="masonry-img">
+          <div class="masonry-badges"><span class="m-badge">60분</span><span class="m-badge">직무공통</span></div>
+          <span class="m-heart">♡ 91</span>
+        </div>
+        <div class="masonry-body"><strong>엑셀실무테크닉</strong><small>수강 3,456명 · 댓글 201</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S02: AI큐레이터 + 전자도서관 (SB-04 + TC-10 + WS-09 + ED-06) -->
+  <section class="discover reveal">
+    <div class="discover-grid">
+      <div class="discover-curator">
+        <div class="discover-label">AX Education Curator</div>
+        <div class="discover-heading">지식의 소리를 듣다</div>
+        <p class="discover-desc">구체적으로 질문하시면 더 정확한 답변이 나옵니다</p>
+        <div class="discover-search">
+          <input type="text" placeholder="교육 과정, 수료증, 수강 방법...">
+          <button>검색</button>
+        </div>
+        <div class="discover-tags">
+          <span>교육 신청은 어떻게 해?</span>
+          <span>수료증은 어디서 받는지 알 수 있어?</span>
+          <span>온라인 교육 수강 방법은?</span>
+        </div>
+      </div>
+      <div class="discover-library">
+        <div class="library-eyebrow">새로e아름 › 콘텐츠 › 전자도서관</div>
+        <div class="library-title">우정인재개발원 전자도서관</div>
+        <p class="library-desc">슬기로운 독서생활! 전자도서관에 접속해 보세요</p>
+        <a href="#" class="library-cta">사람은 책을 만들고 책은 사람을 만든다</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- S06: 채널 + 도서 (SB-10 + TC-09 + WS-07 + ED-08) -->
+  <section class="community reveal">
+    <div class="community-l">
+      <div class="channels-bar">
+        <div class="channels-bar-label">구독중인 채널<small>내가 팔로우하는 학습 채널</small></div>
+        <div class="channel-list">
+          <div class="ch-item">
+            <div class="ch-badge">우정</div>
+            <div class="ch-info"><strong>우정인재개발원</strong><small>50,032명</small></div>
+          </div>
+          <div class="ch-item">
+            <div class="ch-badge" style="background:var(--gray-dark)">교육</div>
+            <div class="ch-info"><strong>교육큐레이션</strong><small>52,149명</small></div>
+          </div>
+          <div class="ch-item">
+            <div class="ch-badge" style="background:var(--red)">보이</div>
+            <div class="ch-info"><strong>보이스피싱 예방</strong><small>49,533명</small></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px">
+          <div class="books-section-label">지금, 이 책! <small>이달의 추천 도서</small></div>
+          <a href="#" class="link-more">전체보기 →</a>
+        </div>
+        <div class="books-quote">"읽는 것은 생각하는 것이고, 생각하는 것은 살아가는 것이다."</div>
+        <div class="books-grid">
+          <div class="book-item"><div class="book-cover"></div><strong>가짜 노동</strong><small>데니스 뇌르마르크</small></div>
+          <div class="book-item"><div class="book-cover"></div><strong>공부하고 있다는 착각</strong><small>대니얼 T. 윌링햄</small></div>
+          <div class="book-item"><div class="book-cover"></div><strong>기본의 디자인</strong><small>아키타 미치오</small></div>
+          <div class="book-item"><div class="book-cover"></div><strong>도파민네이션</strong><small>애나 렘키</small></div>
+          <div class="book-item"><div class="book-cover"></div><strong>쇼펜하우어</strong><small>강용수</small></div>
+          <div class="book-item"><div class="book-cover"></div><strong>마흔에 읽는 쇼펜하우어</strong><small>강용수</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S07: 교육안내 (SB-11 + TC-08 + WS-02 + ED-05) -->
+  <section class="contact reveal">
+    <div class="contact-inner">
+      <div class="contact-heading">궁금한 점이 있다면, 지금 연락하세요</div>
+      <div class="contact-grid">
+        <div class="contact-item"><div class="contact-num">041-560-5350</div><div class="contact-label">이러닝 문의</div></div>
+        <div class="contact-item"><div class="contact-num">041-560-5264</div><div class="contact-label">집합교육(선발)</div></div>
+        <div class="contact-item"><div class="contact-num">041-560-5311</div><div class="contact-label">집합교육(계획)</div></div>
+        <div class="contact-item"><div class="contact-num">041-560-5312</div><div class="contact-label">직무인증평가</div></div>
+        <div class="contact-item"><div class="contact-num">041-560-5151</div><div class="contact-label">지금, 이 책!</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S08: Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-logo">✦ 우정인재개발원</div>
+        <div class="footer-links">
+          <a href="#">개인정보처리 방침</a><a href="#">영상정보처리기기 운영관리 방침</a><a href="#">이메일주소 무단수집거부</a><a href="#">이용약관</a><a href="#">찾아오시는길</a><a href="#">고객지원센터</a>
+        </div>
+      </div>
+      <div class="footer-info">(31068) 충청남도 천안시 동남구 양지말1길 (유량동) 우정인재개발원<br>전화번호: 041-560-5350 | 팩스번호: 0505-005-1062 | 이메일: cyber123@korea.kr</div>
+      <div class="footer-copy">COPYRIGHT(C) 2016 KOREA POST(OFFICE OF POSTAL SERVICE). ALL RIGHTS RESERVED.</div>
+    </div>
+  </footer>
+
+  <script>
+  (function(){
+    var els=document.querySelectorAll('.reveal');
+    if(!els.length)return;
+    var obs=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});
+    },{threshold:0.1});
+    els.forEach(function(el){obs.observe(el);});
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "validated_at": "2026-03-12T01:44:58Z",
+  "mode": "wireframe",
+  "total_files": 1,
+  "files": [
+    {
+      "file": "slide_00.html",
+      "errors": [],
+      "warnings": [
+        {
+          "rule": "body_dimensions",
+          "message": "Non-standard body size (1235pt x 1446pt). CUSTOM defineLayout required.",
+          "line": 30,
+          "severity": "warning"
+        }
+      ],
+      "status": "pass"
+    }
+  ],
+  "summary": {
+    "pass": 1,
+    "fail": 0,
+    "total_errors": 0,
+    "total_warnings": 1
+  }
+}

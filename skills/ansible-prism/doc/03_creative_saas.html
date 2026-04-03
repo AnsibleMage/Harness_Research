@@ -1,0 +1,1791 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>새로e아름 — 우정인재개발원</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Pretendard:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /*
+     * ═══════════════════════════════════════════════════════════════
+     * CSS METADATA
+     * ───────────────────────────────────────────────────────────────
+     * Project:      새로e아름 — 우정인재개발원 메인
+     * Framework:    CREATIVE GENERATION FRAMEWORK v3.2
+     * OL:           10 (Genius Originality)
+     * SLOT_1:       건축사무소 (Architectural Bureau)
+     * SLOT_2:       도시 (Urban Monochrome)
+     * SLOT_3:       카드덱 (Sticky Card Deck)
+     * SLOT_4:       둥근산세리프 (Nunito)
+     * SLOT_5:       hover서프라이즈 (Hover Surprise — #ff3b30)
+     * WORLD:        설계사무소 — 콘크리트와 철골 도면 위에 학습 구조물이
+     *               층층이 올라가는 건축 현장
+     * PR T(180°):   ① 수평→수직스택  ② 컬러풀→무채색+hover네온
+     *               ③ 곡선→날카로운 직각
+     * Author:       Supanova_Creative_Director
+     * Generated:    2026-03-22
+     * ═══════════════════════════════════════════════════════════════
+     */
+
+    /* ── CSS VARIABLES (SLOT_1 + SLOT_2) ── */
+    :root {
+      --concrete:   #f2f2f7;
+      --blueprint:  #1c1c1e;
+      --steel:      #8e8e93;
+      --beam:       #aeaeb2;
+      --draft:      #d1d1d6;
+
+      --base-bg:    #fafafa;
+      --card-bg:    #f2f2f7;
+      --dark-bg:    #1c1c1e;
+      --heading:    #1c1c1e;
+      --body-text:  #8e8e93;
+      --muted:      #aeaeb2;
+      --accent:     #ff3b30;
+
+      --font-display: 'Nunito', sans-serif;
+      --font-body:    'Pretendard', 'Nunito', sans-serif;
+
+      --grid-color: rgba(28, 28, 30, 0.04);
+      --grid-size:  24px;
+    }
+
+    /* ── RESET ── */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* ── BLUEPRINT GRID BACKGROUND (TEXTURE) ── */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--body-text);
+      background-color: var(--base-bg);
+      background-image:
+        repeating-linear-gradient(
+          0deg,
+          var(--grid-color) 0px,
+          var(--grid-color) 1px,
+          transparent 1px,
+          transparent var(--grid-size)
+        ),
+        repeating-linear-gradient(
+          90deg,
+          var(--grid-color) 0px,
+          var(--grid-color) 1px,
+          transparent 1px,
+          transparent var(--grid-size)
+        );
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    a:hover {
+      color: var(--accent);
+    }
+
+    /* ── NAV (SLOT_1: 좁은 상단 바, uppercase, letter-spacing) ── */
+    .nav-floating {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 9999;
+      background: rgba(250, 250, 250, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--draft);
+      transition: background 0.3s;
+    }
+
+    .nav-util {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 32px;
+      font-size: 12px;
+      color: var(--muted);
+      border-bottom: 1px solid rgba(28, 28, 30, 0.06);
+    }
+
+    .nav-util a {
+      margin-left: 16px;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-util a:hover {
+      color: var(--accent);
+    }
+
+    .nav-util .dark-toggle {
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .nav-util .dark-toggle:hover {
+      color: var(--accent);
+    }
+
+    .nav-main {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 32px;
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--heading);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .nav-logo .logo-mark {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: var(--heading);
+      margin-right: 8px;
+      transition: background 0.2s;
+    }
+
+    .nav-logo:hover .logo-mark {
+      background: var(--accent);
+    }
+
+    .nav-user {
+      font-size: 13px;
+      color: var(--steel);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-user a {
+      color: var(--steel);
+      font-size: 12px;
+      letter-spacing: 0.3px;
+    }
+
+    .nav-gnb {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      gap: 0;
+      padding: 0 32px;
+      border-top: 1px solid rgba(28, 28, 30, 0.06);
+    }
+
+    .nav-gnb a {
+      padding: 10px 20px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--steel);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .nav-gnb a:hover {
+      color: var(--heading);
+      border-bottom-color: var(--accent);
+    }
+
+    /* ── CARD DECK STRUCTURE (SLOT_3) ── */
+    .deck-container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 32px;
+      padding-top: 120px;
+    }
+
+    .deck-card {
+      position: sticky;
+      background: var(--card-bg);
+      border: 1px solid var(--draft);
+      border-radius: 0;
+      padding: 48px 40px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      transition: border-color 0.3s, box-shadow 0.3s;
+      /* 건축 도면 번호 라벨 */
+      position: sticky;
+    }
+
+    .deck-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 2px 12px rgba(255, 59, 48, 0.06);
+    }
+
+    .deck-card::before {
+      content: attr(data-drawing);
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--draft);
+      transition: color 0.3s;
+    }
+
+    .deck-card:hover::before {
+      color: var(--accent);
+    }
+
+    /* Sticky top values — each card stacks progressively */
+    .deck-card:nth-child(1) { top: 0px; z-index: 10; }
+    .deck-card:nth-child(2) { top: 20px; z-index: 20; }
+    .deck-card:nth-child(3) { top: 40px; z-index: 30; }
+    .deck-card:nth-child(4) { top: 60px; z-index: 40; }
+    .deck-card:nth-child(5) { top: 80px; z-index: 50; }
+    .deck-card:nth-child(6) { top: 100px; z-index: 60; }
+    .deck-card:nth-child(7) { top: 120px; z-index: 70; }
+    .deck-card:nth-child(8) { top: 140px; z-index: 80; }
+
+    /* Card tone differentiation — subtle concrete grades */
+    .deck-card:nth-child(1) { background: #ffffff; }
+    .deck-card:nth-child(2) { background: #fafafa; }
+    .deck-card:nth-child(3) { background: #f7f7f9; }
+    .deck-card:nth-child(4) { background: #f2f2f7; }
+    .deck-card:nth-child(5) { background: #ededf0; }
+    .deck-card:nth-child(6) { background: #e8e8ec; }
+    .deck-card:nth-child(7) { background: #e5e5ea; }
+    .deck-card:nth-child(8) { background: #e0e0e5; }
+
+    /* 구조선 — border-left accent bar (건축선) */
+    .deck-card {
+      border-left: 4px solid var(--draft);
+    }
+
+    .deck-card:hover {
+      border-left-color: var(--accent);
+    }
+
+    /* ── SECTION TITLES ── */
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--heading);
+      letter-spacing: 0.5px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title .title-marker {
+      display: inline-block;
+      width: 6px;
+      height: 28px;
+      background: var(--draft);
+      transition: background 0.3s;
+    }
+
+    .deck-card:hover .section-title .title-marker {
+      background: var(--accent);
+    }
+
+    .section-subtitle {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    /* ── S01: HERO CARD (첫 번째 카드 — 가장 큰) ── */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .ai-curator-box {
+      background: var(--dark-bg);
+      border: 1px solid #2c2c2e;
+      padding: 32px 28px;
+      border-radius: 0;
+      position: relative;
+    }
+
+    .ai-curator-box .ai-icon {
+      width: 48px;
+      height: 48px;
+      background: #2c2c2e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+      border: 1px solid #3a3a3c;
+      transition: border-color 0.3s;
+    }
+
+    .ai-curator-box:hover .ai-icon {
+      border-color: var(--accent);
+    }
+
+    .ai-curator-box h3 {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+      letter-spacing: 0.3px;
+    }
+
+    .ai-search-bar {
+      display: flex;
+      align-items: center;
+      background: #2c2c2e;
+      border: 1px solid #3a3a3c;
+      padding: 10px 14px;
+      font-size: 13px;
+      color: #636366;
+      margin-bottom: 16px;
+      transition: border-color 0.3s;
+    }
+
+    .ai-search-bar:hover,
+    .ai-search-bar:focus-within {
+      border-color: var(--accent);
+    }
+
+    .ai-search-bar input {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #fff;
+      font-size: 13px;
+      width: 100%;
+      font-family: var(--font-body);
+    }
+
+    .ai-search-bar input::placeholder {
+      color: #636366;
+    }
+
+    .ai-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .ai-tag {
+      font-size: 12px;
+      color: #aeaeb2;
+      border: 1px solid #3a3a3c;
+      padding: 6px 12px;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .ai-tag:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .library-banner {
+      border: 1px solid var(--draft);
+      background: var(--base-bg);
+      padding: 40px 36px;
+      position: relative;
+      border-left: 4px solid var(--draft);
+      transition: border-left-color 0.3s;
+    }
+
+    .library-banner:hover {
+      border-left-color: var(--accent);
+    }
+
+    .library-banner .breadcrumb {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+
+    .library-banner h3 {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--heading);
+      margin-bottom: 12px;
+    }
+
+    .library-banner p {
+      font-size: 14px;
+      color: var(--steel);
+      margin-bottom: 20px;
+    }
+
+    .library-banner .banner-cta {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--heading);
+      border: 1px solid var(--heading);
+      padding: 10px 20px;
+      letter-spacing: 0.5px;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+
+    .library-banner .banner-cta:hover {
+      color: #fff;
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .library-banner .banner-deco {
+      position: absolute;
+      bottom: 16px;
+      right: 24px;
+      font-family: var(--font-display);
+      font-size: 44px;
+      font-weight: 800;
+      color: rgba(28, 28, 30, 0.04);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      pointer-events: none;
+      line-height: 1;
+    }
+
+    .library-banner .marker {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 24px;
+      height: 24px;
+      border: 1px solid var(--draft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--muted);
+      font-family: var(--font-display);
+    }
+
+    /* ── S03: LEARNING STATUS ── */
+    .status-grid {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .arum-point {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .donut-ring {
+      width: 100px;
+      height: 100px;
+      border: 6px solid var(--draft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      position: relative;
+      transition: border-color 0.3s;
+    }
+
+    .deck-card:hover .donut-ring {
+      border-color: var(--accent);
+    }
+
+    .donut-ring .point-num {
+      font-family: var(--font-display);
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--heading);
+    }
+
+    .arum-point .label {
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: 0.5px;
+    }
+
+    .course-section {
+      margin-bottom: 20px;
+    }
+
+    .course-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .course-section .course-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--heading);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .course-section .course-label::before {
+      content: '';
+      width: 3px;
+      height: 14px;
+      background: var(--draft);
+      display: inline-block;
+      transition: background 0.3s;
+    }
+
+    .deck-card:hover .course-section .course-label::before {
+      background: var(--accent);
+    }
+
+    .pills-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .pill {
+      font-size: 12px;
+      color: var(--steel);
+      border: 1px solid var(--draft);
+      padding: 6px 14px;
+      font-family: var(--font-display);
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .pill:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .pill-nav {
+      font-size: 14px;
+      color: var(--muted);
+      cursor: pointer;
+      transition: color 0.2s;
+      user-select: none;
+    }
+
+    .pill-nav:hover {
+      color: var(--accent);
+    }
+
+    /* ── S04: CLASSROOM ── */
+    .classroom-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 24px;
+    }
+
+    .classroom-header .slogans {
+      display: flex;
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .classroom-header .slogan {
+      font-size: 13px;
+      color: var(--muted);
+      font-style: italic;
+      letter-spacing: 0.3px;
+    }
+
+    .view-all {
+      font-size: 13px;
+      color: var(--steel);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .view-all:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .tab-bar {
+      display: flex;
+      gap: 0;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--draft);
+    }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      padding: 10px 20px;
+      font-size: 13px;
+      font-weight: 600;
+      font-family: var(--font-body);
+      color: var(--steel);
+      cursor: pointer;
+      letter-spacing: 0.5px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .tab-btn:hover {
+      color: var(--heading);
+    }
+
+    .tab-btn.active {
+      color: var(--heading);
+      border-bottom-color: var(--heading);
+    }
+
+    .tab-btn.active:hover {
+      border-bottom-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .course-cards {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .course-card {
+      border: 1px solid var(--draft);
+      background: rgba(255,255,255,0.6);
+      overflow: hidden;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      position: relative;
+    }
+
+    .course-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 2px 8px rgba(255,59,48,0.06);
+    }
+
+    .course-card .thumb {
+      width: 100%;
+      height: 110px;
+      background: var(--draft);
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 8px;
+    }
+
+    .course-card .thumb .badge {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 8px;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-time {
+      background: var(--dark-bg);
+      color: #fff;
+    }
+
+    .badge-cat {
+      background: rgba(255,255,255,0.9);
+      color: var(--heading);
+      border: 1px solid var(--draft);
+    }
+
+    .badge-heart {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      font-size: 11px;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    .course-card:hover .badge-heart {
+      color: var(--accent);
+    }
+
+    .course-card .card-body {
+      padding: 12px 14px 14px;
+    }
+
+    .course-card .card-body h4 {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--heading);
+      margin-bottom: 4px;
+      line-height: 1.4;
+    }
+
+    .course-card .card-body .desc {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .course-card .card-body .meta {
+      font-size: 11px;
+      color: var(--beam);
+      display: flex;
+      gap: 12px;
+    }
+
+    .course-arrows {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .course-arrows span {
+      font-size: 18px;
+      color: var(--draft);
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .course-arrows span:hover {
+      color: var(--accent);
+    }
+
+    /* ── S05: CONTINUE LEARNING ── */
+    .learn-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .learn-card {
+      border: 1px solid var(--draft);
+      background: rgba(255,255,255,0.5);
+      padding: 0;
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+
+    .learn-card:hover {
+      border-color: var(--accent);
+    }
+
+    .learn-card .learn-thumb {
+      width: 100%;
+      height: 120px;
+      background: var(--draft);
+    }
+
+    .learn-card .learn-body {
+      padding: 16px 18px;
+    }
+
+    .learn-card h4 {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--heading);
+      margin-bottom: 12px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 4px;
+      background: var(--draft);
+      margin-bottom: 6px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--steel);
+      transition: background 0.3s;
+    }
+
+    .learn-card:hover .progress-fill {
+      background: var(--accent);
+    }
+
+    .learn-card .progress-text {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 12px;
+      font-family: var(--font-display);
+      font-weight: 700;
+    }
+
+    .btn-outline {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--heading);
+      border: 1px solid var(--heading);
+      padding: 7px 16px;
+      letter-spacing: 0.5px;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+      cursor: pointer;
+      background: transparent;
+      font-family: var(--font-body);
+    }
+
+    .btn-outline:hover {
+      color: #fff;
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* ── S06: CHANNELS + BOOKS ── */
+    .channels-books-grid {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 32px;
+    }
+
+    .channel-header {
+      margin-bottom: 20px;
+    }
+
+    .channel-header h3 {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--heading);
+    }
+
+    .channel-header small {
+      font-size: 13px;
+      color: var(--muted);
+      display: block;
+      margin-top: 4px;
+      margin-bottom: 8px;
+    }
+
+    .channel-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(28,28,30,0.06);
+      transition: border-color 0.2s;
+    }
+
+    .channel-item:hover {
+      border-bottom-color: var(--accent);
+    }
+
+    .channel-item:last-child {
+      border-bottom: none;
+    }
+
+    .ch-badge {
+      width: 44px;
+      height: 44px;
+      background: var(--dark-bg);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      flex-shrink: 0;
+      font-family: var(--font-display);
+      transition: background 0.3s;
+    }
+
+    .channel-item:hover .ch-badge {
+      background: var(--accent);
+    }
+
+    .ch-info {
+      flex: 1;
+    }
+
+    .ch-info strong {
+      font-size: 14px;
+      color: var(--heading);
+      display: block;
+    }
+
+    .ch-info small {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .btn-sub {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--steel);
+      border: 1px solid var(--draft);
+      padding: 5px 12px;
+      background: transparent;
+      cursor: pointer;
+      font-family: var(--font-body);
+      letter-spacing: 0.3px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .btn-sub:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .books-section .books-header {
+      margin-bottom: 20px;
+    }
+
+    .books-section .books-header h3 {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--heading);
+    }
+
+    .books-section .books-header small {
+      font-size: 13px;
+      color: var(--muted);
+      display: block;
+      margin-top: 4px;
+      margin-bottom: 8px;
+    }
+
+    .book-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 16px;
+    }
+
+    .book-item {
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .book-cover {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: var(--draft);
+      border: 1px solid rgba(28,28,30,0.08);
+      margin-bottom: 10px;
+      transition: border-color 0.3s;
+    }
+
+    .book-item:hover .book-cover {
+      border-color: var(--accent);
+    }
+
+    .book-item h5 {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--heading);
+      margin-bottom: 2px;
+      line-height: 1.3;
+    }
+
+    .book-item small {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* ── S07: CONTACT ── */
+    .contact-title {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .contact-row {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+
+    .contact-card {
+      border: 1px solid var(--draft);
+      background: rgba(255,255,255,0.5);
+      padding: 24px 16px;
+      text-align: center;
+      transition: border-color 0.3s;
+    }
+
+    .contact-card:hover {
+      border-color: var(--accent);
+    }
+
+    .contact-card .contact-icon {
+      font-size: 24px;
+      margin-bottom: 10px;
+      display: block;
+      filter: grayscale(1);
+      transition: filter 0.3s;
+    }
+
+    .contact-card:hover .contact-icon {
+      filter: grayscale(0);
+    }
+
+    .contact-card h4 {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--heading);
+      margin-bottom: 6px;
+    }
+
+    .contact-card .phone {
+      font-size: 13px;
+      color: var(--steel);
+      font-family: var(--font-display);
+      letter-spacing: 0.5px;
+    }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      max-width: 1120px;
+      margin: 40px auto 0;
+      padding: 0 32px 40px;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      border-top: 1px solid var(--draft);
+      border-bottom: 1px solid rgba(28,28,30,0.06);
+    }
+
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--heading);
+      letter-spacing: 1px;
+    }
+
+    .footer-logo .f-mark {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: var(--heading);
+      margin-right: 6px;
+      transition: background 0.2s;
+    }
+
+    .footer-top:hover .f-mark {
+      background: var(--accent);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      font-size: 12px;
+      color: var(--steel);
+      letter-spacing: 0.3px;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    .footer-links a.privacy {
+      font-weight: 700;
+      color: var(--heading);
+    }
+
+    .footer-links a.privacy:hover {
+      color: var(--accent);
+    }
+
+    .footer-sites {
+      font-size: 12px;
+      color: var(--steel);
+      transition: color 0.2s;
+    }
+
+    .footer-sites:hover {
+      color: var(--accent);
+    }
+
+    .footer-info {
+      padding: 16px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .footer-info small {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.3px;
+    }
+
+    .footer-copy {
+      padding: 16px 0;
+      border-top: 1px solid rgba(28,28,30,0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .scroll-top {
+      width: 32px;
+      height: 32px;
+      border: 1px solid var(--draft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 16px;
+      color: var(--steel);
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .scroll-top:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .deck-container {
+        padding: 0 16px;
+        padding-top: 110px;
+      }
+
+      .deck-card {
+        padding: 28px 20px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .status-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .arum-point {
+        flex-direction: row;
+        gap: 16px;
+        padding: 12px 0;
+      }
+
+      .donut-ring {
+        width: 64px;
+        height: 64px;
+        border-width: 4px;
+      }
+
+      .donut-ring .point-num {
+        font-size: 24px;
+      }
+
+      .course-cards {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .learn-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .channels-books-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .book-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .contact-row {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .nav-gnb {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .nav-gnb a {
+        white-space: nowrap;
+        padding: 10px 14px;
+        font-size: 12px;
+      }
+
+      .footer-top {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+      }
+
+      .footer-links {
+        gap: 12px;
+      }
+
+      .footer-copy {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+
+      .section-title {
+        font-size: 22px;
+      }
+
+      .classroom-header {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .classroom-header .slogans {
+        flex-direction: column;
+        gap: 4px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .course-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-row {
+        grid-template-columns: 1fr;
+      }
+
+      .book-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav-main {
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-start;
+      }
+
+      .nav-user {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- NAV — 투명 플로팅, uppercase, letter-spacing       -->
+<!-- ═══════════════════════════════════════════════════ -->
+<nav class="nav-floating">
+  <div class="nav-util">
+    <span class="dark-toggle">다크 모드로 보기</span>
+    <div>
+      <a href="#">플랫폼(관리자)</a>
+      <a href="#">학사행정시스템</a>
+    </div>
+  </div>
+  <div class="nav-main">
+    <a href="#" class="nav-logo"><span class="logo-mark"></span>우정인재개발원 새로e아름</a>
+    <div class="nav-user">
+      <span>홍길동님 환영합니다.</span>
+      <a href="#">로그아웃</a>
+      <span>|</span>
+      <a href="#">회원정보수정</a>
+    </div>
+  </div>
+  <div class="nav-gnb">
+    <a href="#">나의공간</a>
+    <a href="#">콘텐츠</a>
+    <a href="#">채널</a>
+    <a href="#">직무인증</a>
+    <a href="#">고객지원센터</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- CARD DECK — position: sticky, 겹쳐 쌓이는 카드들     -->
+<!-- ═══════════════════════════════════════════════════ -->
+<main class="deck-container">
+
+  <!-- ─── CARD 01 : HERO (Banner + AI Curator) ─── -->
+  <section class="deck-card" data-drawing="DWG-S01">
+    <div class="hero-grid">
+      <div class="ai-curator-box">
+        <div class="ai-icon">AI</div>
+        <h3>AX 교육 큐레이터에게 물어보세요</h3>
+        <div class="ai-search-bar">
+          <input type="text" placeholder="구체적으로 질문하시면 더 정확한 답변이 나옵니다">
+        </div>
+        <div class="ai-tags">
+          <span class="ai-tag">교육 신청은 어떻게 해?</span>
+          <span class="ai-tag">수료증은 어디서 받는지 알 수 있어?</span>
+          <span class="ai-tag">온라인 교육 수강 방법은?</span>
+        </div>
+      </div>
+      <div class="library-banner">
+        <div class="breadcrumb">새로e아름 &gt; 콘텐츠 &gt; 전자도서관(e-book)</div>
+        <h3>우정인재개발원 전자도서관</h3>
+        <p>슬기로운 독서생활! 전자도서관에 접속해 보세요</p>
+        <a href="#" class="banner-cta">사람은 책을 만들고 책은 사람을 만든다</a>
+        <span class="banner-deco">I love book</span>
+        <span class="marker">1</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CARD 02 : 학습 현황 ─── -->
+  <section class="deck-card" data-drawing="DWG-S02">
+    <h3 class="section-title"><span class="title-marker"></span>학습 현황<span style="font-size:12px; color:var(--muted); font-weight:400; margin-left:4px;">2</span></h3>
+    <div class="status-grid">
+      <div class="arum-point">
+        <div class="donut-ring">
+          <span class="point-num">5</span>
+        </div>
+        <span class="label">아름포인트</span>
+      </div>
+      <div>
+        <div class="course-section">
+          <div class="course-label">필수교육 이수현황</div>
+          <div class="pills-row">
+            <span class="pill">공직가치 5/10</span>
+            <span class="pill">적극행정 5/10</span>
+            <span class="pill">성인지 5/10</span>
+            <span class="pill">정보화 5/10</span>
+            <span class="pill">정보보안 5/10</span>
+            <span class="pill">개인정보 5/10</span>
+            <span class="pill-nav">◀ ▶</span>
+          </div>
+        </div>
+        <div class="course-section">
+          <div class="course-label">법정교육 이수현황</div>
+          <div class="pills-row">
+            <span class="pill">성폭력예방 5/10</span>
+            <span class="pill">감염병예방 5/10</span>
+            <span class="pill">자살예방 5/10</span>
+            <span class="pill">안보 5/10</span>
+            <span class="pill">장애인식개선 5/10</span>
+            <span class="pill">아동학대예방 5/10</span>
+            <span class="pill-nav">◀ ▶</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CARD 03 : CLASSROOM ─── -->
+  <section class="deck-card" data-drawing="DWG-S03">
+    <div class="classroom-header">
+      <div>
+        <h3 class="section-title"><span class="title-marker"></span>CLASSROOM</h3>
+        <div class="slogans">
+          <span class="slogan">이것이 필수다.</span>
+          <span class="slogan">당신에게 딱이다.</span>
+        </div>
+      </div>
+      <a href="#" class="view-all">전체보기 &gt;</a>
+    </div>
+    <div class="tab-bar">
+      <button class="tab-btn active" data-tab="tab-all">전체</button>
+      <button class="tab-btn" data-tab="tab-national">국정철학</button>
+      <button class="tab-btn" data-tab="tab-common">직무공통</button>
+    </div>
+
+    <!-- TAB: 전체 -->
+    <div class="tab-content active" id="tab-all">
+      <div class="course-cards">
+        <div class="course-card">
+          <div class="thumb">
+            <span class="badge badge-time">60분</span>
+            <span class="badge badge-cat">국정철학</span>
+            <span class="badge-heart">♡ 42</span>
+          </div>
+          <div class="card-body">
+            <h4>개인정보 보호교육</h4>
+            <p class="desc">우정사업본부 직원이 알아야할 개인...</p>
+            <div class="meta"><span>👤 1,234</span><span>💬 56</span></div>
+          </div>
+        </div>
+        <div class="course-card">
+          <div class="thumb">
+            <span class="badge badge-time">60분</span>
+            <span class="badge badge-cat">직무공통</span>
+            <span class="badge-heart">♡ 38</span>
+          </div>
+          <div class="card-body">
+            <h4>개인정보보호교육(이용자)</h4>
+            <p class="desc">개인정보보호교육(이용자)</p>
+            <div class="meta"><span>👤 987</span><span>💬 23</span></div>
+          </div>
+        </div>
+        <div class="course-card">
+          <div class="thumb">
+            <span class="badge badge-time">60분</span>
+            <span class="badge badge-cat">직무공통</span>
+            <span class="badge-heart">♡ 55</span>
+          </div>
+          <div class="card-body">
+            <h4>정보보안기본교육</h4>
+            <p class="desc">우정사업본부 직원이 알아야 할 정보</p>
+            <div class="meta"><span>👤 2,100</span><span>💬 89</span></div>
+          </div>
+        </div>
+        <div class="course-card">
+          <div class="thumb">
+            <span class="badge badge-time">60분</span>
+            <span class="badge badge-cat">국정철학</span>
+            <span class="badge-heart">♡ 27</span>
+          </div>
+          <div class="card-body">
+            <h4>이해충돌방지법</h4>
+            <p class="desc">알기 쉬운 이해충돌방지법</p>
+            <div class="meta"><span>👤 756</span><span>💬 12</span></div>
+          </div>
+        </div>
+        <div class="course-card">
+          <div class="thumb">
+            <span class="badge badge-time">60분</span>
+            <span class="badge badge-cat">직무공통</span>
+            <span class="badge-heart">♡ 91</span>
+          </div>
+          <div class="card-body">
+            <h4>엑셀실무테크닉</h4>
+            <p class="desc">엑셀 실무 테크닉 일잘러의 보고서...</p>
+            <div class="meta"><span>👤 3,456</span><span>💬 201</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="course-arrows"><span>◀</span><span>▶</span></div>
+    </div>
+
+    <!-- TAB: 국정철학 -->
+    <div class="tab-content" id="tab-national">
+      <div class="course-cards">
+        <div class="course-card">
+          <div class="thumb">
+            <span class="badge badge-time">60분</span>
+            <span class="badge badge-cat">국정철학</span>
+            <span class="badge-heart">♡ 42</span>
+          </div>
+          <div class="card-body">
+            <h4>개인정보 보호교육</h4>
+            <p class="desc">우정사업본부 직원이 알아야할 개인...</p>
+            <div class="meta"><span>👤 1,234</span><span>💬 56</span></div>
+          </div>
+        </div>
+        <div class="course-card">
+          <div class="thumb">
+            <span class="badge badge-time">60분</span>
+            <span class="badge badge-cat">국정철학</span>
+            <span class="badge-heart">♡ 27</span>
+          </div>
+          <div class="card-body">
+            <h4>이해충돌방지법</h4>
+            <p class="desc">알기 쉬운 이해충돌방지법</p>
+            <div class="meta"><span>👤 756</span><span>💬 12</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="course-arrows"><span>◀</span><span>▶</span></div>
+    </div>
+
+    <!-- TAB: 직무공통 -->
+    <div class="tab-content" id="tab-common">
+      <div class="course-cards">
+        <div class="course-card">
+          <div class="thumb">
+            <span class="badge badge-time">60분</span>
+            <span class="badge badge-cat">직무공통</span>
+            <span class="badge-heart">♡ 38</span>
+          </div>
+          <div class="card-body">
+            <h4>개인정보보호교육(이용자)</h4>
+            <p class="desc">개인정보보호교육(이용자)</p>
+            <div class="meta"><span>👤 987</span><span>💬 23</span></div>
+          </div>
+        </div>
+        <div class="course-card">
+          <div class="thumb">
+            <span class="badge badge-time">60분</span>
+            <span class="badge badge-cat">직무공통</span>
+            <span class="badge-heart">♡ 55</span>
+          </div>
+          <div class="card-body">
+            <h4>정보보안기본교육</h4>
+            <p class="desc">우정사업본부 직원이 알아야 할 정보</p>
+            <div class="meta"><span>👤 2,100</span><span>💬 89</span></div>
+          </div>
+        </div>
+        <div class="course-card">
+          <div class="thumb">
+            <span class="badge badge-time">60분</span>
+            <span class="badge badge-cat">직무공통</span>
+            <span class="badge-heart">♡ 91</span>
+          </div>
+          <div class="card-body">
+            <h4>엑셀실무테크닉</h4>
+            <p class="desc">엑셀 실무 테크닉 일잘러의 보고서...</p>
+            <div class="meta"><span>👤 3,456</span><span>💬 201</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="course-arrows"><span>◀</span><span>▶</span></div>
+    </div>
+  </section>
+
+  <!-- ─── CARD 04 : 이어서 학습하기 ─── -->
+  <section class="deck-card" data-drawing="DWG-S04">
+    <div class="classroom-header">
+      <h3 class="section-title"><span class="title-marker"></span>이어서 학습하기</h3>
+      <a href="#" class="view-all">전체보기 &gt;</a>
+    </div>
+    <div class="learn-grid">
+      <div class="learn-card">
+        <div class="learn-thumb"></div>
+        <div class="learn-body">
+          <h4>우편취급 위반관련 법규</h4>
+          <div class="progress-bar"><div class="progress-fill" style="width:30%"></div></div>
+          <div class="progress-text">30%</div>
+          <button class="btn-outline">이어보기</button>
+        </div>
+      </div>
+      <div class="learn-card">
+        <div class="learn-thumb"></div>
+        <div class="learn-body">
+          <h4>도전! 나의 손해 2</h4>
+          <div class="progress-bar"><div class="progress-fill" style="width:65%"></div></div>
+          <div class="progress-text">65%</div>
+          <button class="btn-outline">이어보기</button>
+        </div>
+      </div>
+      <div class="learn-card">
+        <div class="learn-thumb"></div>
+        <div class="learn-body">
+          <h4>청렴판단력 키우기</h4>
+          <div class="progress-bar"><div class="progress-fill" style="width:10%"></div></div>
+          <div class="progress-text">10%</div>
+          <button class="btn-outline">이어보기</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CARD 05 : 구독중인 채널 + 지금, 이 책! ─── -->
+  <section class="deck-card" data-drawing="DWG-S05">
+    <div class="channels-books-grid">
+      <div class="channels-section">
+        <div class="channel-header">
+          <h3>구독중인 채널</h3>
+          <small>내가 팔로우하는 학습 채널</small>
+          <a href="#" class="view-all">전체보기 &gt;</a>
+        </div>
+        <div class="channel-item">
+          <span class="ch-badge">우정</span>
+          <div class="ch-info">
+            <strong>우정인재개발원</strong>
+            <small>50,032명</small>
+          </div>
+          <button class="btn-sub">구독중</button>
+        </div>
+        <div class="channel-item">
+          <span class="ch-badge">교육</span>
+          <div class="ch-info">
+            <strong>교육큐레이션</strong>
+            <small>52,149명</small>
+          </div>
+          <button class="btn-sub">구독중</button>
+        </div>
+        <div class="channel-item">
+          <span class="ch-badge">보이</span>
+          <div class="ch-info">
+            <strong>보이스피싱 예방</strong>
+            <small>49,533명</small>
+          </div>
+          <button class="btn-sub">구독중</button>
+        </div>
+      </div>
+      <div class="books-section">
+        <div class="books-header">
+          <h3>지금, 이 책!</h3>
+          <small>이달의 추천 도서</small>
+          <a href="#" class="view-all">전체보기 &gt;</a>
+        </div>
+        <div class="book-grid">
+          <div class="book-item">
+            <div class="book-cover"></div>
+            <h5>가짜 노동</h5>
+            <small>데니스 뇌르마르크</small>
+          </div>
+          <div class="book-item">
+            <div class="book-cover"></div>
+            <h5>공부하고 있다는 착각</h5>
+            <small>대니얼 T. 윌링햄</small>
+          </div>
+          <div class="book-item">
+            <div class="book-cover"></div>
+            <h5>기본의 디자인</h5>
+            <small>아키타 미치오</small>
+          </div>
+          <div class="book-item">
+            <div class="book-cover"></div>
+            <h5>도파민네이션</h5>
+            <small>애나 렘키</small>
+          </div>
+          <div class="book-item">
+            <div class="book-cover"></div>
+            <h5>쇼펜하우어</h5>
+            <small>강용수</small>
+          </div>
+          <div class="book-item">
+            <div class="book-cover"></div>
+            <h5>마흔에 읽는 쇼펜하우어</h5>
+            <small>강용수</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CARD 06 : 교육관련 안내 ─── -->
+  <section class="deck-card" data-drawing="DWG-S06">
+    <h3 class="section-title contact-title" style="justify-content:center;"><span class="title-marker"></span>교육관련 안내</h3>
+    <div class="contact-row">
+      <div class="contact-card">
+        <span class="contact-icon">&#x1F4DE;</span>
+        <h4>이러닝 문의</h4>
+        <span class="phone">041-560-5350</span>
+      </div>
+      <div class="contact-card">
+        <span class="contact-icon">&#x1F5A5;</span>
+        <h4>집합교육(선발)</h4>
+        <span class="phone">041-560-5264</span>
+      </div>
+      <div class="contact-card">
+        <span class="contact-icon">&#x1F4CB;</span>
+        <h4>집합교육(계획)</h4>
+        <span class="phone">041-560-5311</span>
+      </div>
+      <div class="contact-card">
+        <span class="contact-icon">&#x1F4C4;</span>
+        <h4>직무인증평가</h4>
+        <span class="phone">041-560-5312</span>
+      </div>
+      <div class="contact-card">
+        <span class="contact-icon">&#x1F4DA;</span>
+        <h4>지금, 이 책!</h4>
+        <span class="phone">041-560-5151</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- FOOTER                                             -->
+<!-- ═══════════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="footer-top">
+    <span class="footer-logo"><span class="f-mark"></span>우정인재개발원</span>
+    <div class="footer-links">
+      <a href="#" class="privacy">개인정보처리 방침</a>
+      <a href="#">영상정보처리기기 운영관리 방침</a>
+      <a href="#">이메일주소 무단수집거부</a>
+      <a href="#">이용약관</a>
+      <a href="#">찾아오시는길</a>
+      <a href="#">고객지원센터</a>
+    </div>
+    <a href="#" class="footer-sites">관련사이트 바로가기 &#x25BE;</a>
+  </div>
+  <div class="footer-info">
+    <small>(31068) 충청남도 천안시 동남구 양지말1길 (유량동) 우정인재개발원</small>
+    <small>전화번호: 041-560-5350 | 팩스번호: 0505-005-1062 | 이메일: cyber123@korea.kr</small>
+  </div>
+  <div class="footer-copy">
+    <span>COPYRIGHT(C) 2016 KOREA POST(OFFICE OF POSTAL SERVICE). ALL RIGHTS RESERVED.</span>
+    <span class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#x2191;</span>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- JS — Tab Switching for CLASSROOM                   -->
+<!-- ═══════════════════════════════════════════════════ -->
+<script>
+(function() {
+  // Tab switching
+  var tabBtns = document.querySelectorAll('.tab-btn');
+  var tabContents = document.querySelectorAll('.tab-content');
+
+  tabBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var targetId = btn.getAttribute('data-tab');
+
+      // Deactivate all
+      tabBtns.forEach(function(b) { b.classList.remove('active'); });
+      tabContents.forEach(function(c) { c.classList.remove('active'); });
+
+      // Activate clicked
+      btn.classList.add('active');
+      var target = document.getElementById(targetId);
+      if (target) target.classList.add('active');
+    });
+  });
+
+  // Nav scroll effect — add subtle shadow on scroll
+  var nav = document.querySelector('.nav-floating');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 10) {
+      nav.style.boxShadow = '0 1px 4px rgba(0,0,0,0.06)';
+    } else {
+      nav.style.boxShadow = 'none';
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

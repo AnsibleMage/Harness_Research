@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>새로e아름 — 우정인재개발원 교육 포털</title>
+  <meta name="description" content="우정인재개발원 온라인 교육 플랫폼. 필수교육, 법정교육, 전자도서관, AI 교육 큐레이터.">
+  <meta property="og:title" content="새로e아름 — 우정인재개발원">
+  <meta property="og:description" content="우정인재개발원 온라인 교육 포털">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap" rel="stylesheet">
+  <script src="https://code.iconify.design/iconify-icon/2.3.0/iconify-icon.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', 'system-ui', 'sans-serif'],
+            display: ['"Tenor Sans"', 'Georgia', 'serif'],
+          },
+          colors: {
+            warm: { DEFAULT: '#936d52', light: '#bea89d', cream: '#f5f0eb', ivory: '#faf7f3', deep: '#5c4435' },
+            ink: { DEFAULT: '#212121', mid: '#444444', soft: '#888888', pale: '#c4c4c4' },
+            crimson: { DEFAULT: '#b9173d', soft: '#ce8c9c' },
+          },
+          letterSpacing: {
+            dramatic: '-0.04em',
+          }
+        },
+      },
+    }
+  </script>
+  <style>
+    .break-keep { word-break: keep-all; overflow-wrap: break-word; }
+    .scroll-row { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+    .scroll-row::-webkit-scrollbar { display: none; }
+    .scroll-row > * { scroll-snap-align: start; flex-shrink: 0; }
+
+    .fade-up { opacity: 0; transform: translateY(32px); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .stagger-1 { transition-delay: 80ms; }
+    .stagger-2 { transition-delay: 160ms; }
+    .stagger-3 { transition-delay: 240ms; }
+
+    .hover-warm { transition: all 0.5s cubic-bezier(0.16,1,0.3,1); }
+    .hover-warm:hover { border-color: #936d52; }
+
+    .grain { position: fixed; inset: 0; pointer-events: none; z-index: 60; opacity: 0.015; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .fade-up { opacity: 1; transform: none; transition: none; }
+      .hover-warm:hover { transform: none; }
+    }
+  </style>
+</head>
+<body class="bg-warm-ivory font-sans text-ink antialiased">
+<div class="grain"></div>
+
+<!-- ============================================ -->
+<!-- S01: HEADER / GNB -->
+<!-- ============================================ -->
+<header class="w-full">
+  <!-- Utility -->
+  <div class="bg-ink">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-8 text-[11px]">
+      <button class="flex items-center gap-1.5 text-ink-soft hover:text-white transition-colors duration-500" aria-label="다크 모드">
+        <iconify-icon icon="solar:moon-linear" width="13"></iconify-icon>
+        <span>다크 모드로 보기</span>
+      </button>
+      <div class="flex items-center gap-4">
+        <a href="#" class="text-ink-soft hover:text-white transition-colors duration-500">플랫폼(관리자)</a>
+        <a href="#" class="text-ink-soft hover:text-white transition-colors duration-500">학사행정시스템</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Logo -->
+  <div class="bg-warm-ivory border-b border-warm-light/50">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-20">
+      <a href="#" class="flex items-center gap-3" aria-label="홈">
+        <div class="w-9 h-9 border-2 border-warm flex items-center justify-center">
+          <iconify-icon icon="solar:letter-linear" width="18" class="text-warm"></iconify-icon>
+        </div>
+        <div>
+          <span class="text-[10px] text-ink-soft tracking-[0.2em] uppercase block">Korea Post HRD Institute</span>
+          <span class="text-xl font-display tracking-dramatic text-ink">새로<span class="text-warm italic">e</span>아름</span>
+        </div>
+      </a>
+      <div class="flex items-center gap-5 text-[13px]">
+        <span class="text-ink-mid"><strong class="text-ink">홍길동</strong>님 환영합니다.</span>
+        <a href="#" class="text-ink-soft hover:text-ink transition-colors duration-500">로그아웃</a>
+        <span class="w-px h-3 bg-ink-pale"></span>
+        <a href="#" class="text-ink-soft hover:text-ink transition-colors duration-500">회원정보수정</a>
+        <button class="md:hidden" aria-label="메뉴"><iconify-icon icon="solar:hamburger-menu-linear" width="22"></iconify-icon></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- GNB -->
+  <nav class="bg-warm-ivory border-b border-warm-light/30" aria-label="주 메뉴">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 flex">
+      <a href="#" class="flex-1 text-center text-[13px] font-medium text-ink py-4 border-b-2 border-transparent hover:border-warm hover:text-warm transition-all duration-500">나의공간</a>
+      <a href="#" class="flex-1 text-center text-[13px] font-medium text-ink py-4 border-b-2 border-transparent hover:border-warm hover:text-warm transition-all duration-500">콘텐츠</a>
+      <a href="#" class="flex-1 text-center text-[13px] font-medium text-ink py-4 border-b-2 border-transparent hover:border-warm hover:text-warm transition-all duration-500">채널</a>
+      <a href="#" class="flex-1 text-center text-[13px] font-medium text-ink py-4 border-b-2 border-transparent hover:border-warm hover:text-warm transition-all duration-500">직무인증</a>
+      <a href="#" class="flex-1 text-center text-[13px] font-medium text-ink py-4 border-b-2 border-transparent hover:border-warm hover:text-warm transition-all duration-500">고객지원센터</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ============================================ -->
+<!-- S02: BANNER / DIGITAL LIBRARY -->
+<!-- ============================================ -->
+<section class="bg-warm-ivory py-16 lg:py-24">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 fade-up">
+
+      <!-- AI Curator -->
+      <div class="relative">
+        <span class="text-[10px] tracking-[0.2em] uppercase text-warm font-medium block mb-6">AI Education Curator</span>
+        <h2 class="font-display text-4xl lg:text-5xl text-ink tracking-dramatic leading-tight mb-6 break-keep">AX 교육 큐레이터에게<br>물어보세요</h2>
+        <div class="relative mb-8">
+          <input type="text" placeholder="구체적으로 질문하시면 더 정확한 답변이 나옵니다" class="w-full border-0 border-b-2 border-ink/15 bg-transparent py-4 text-[15px] text-ink placeholder:text-ink-soft focus:border-warm focus:outline-none transition-colors duration-500" aria-label="교육 검색">
+          <iconify-icon icon="solar:magnifer-linear" width="20" class="absolute right-0 top-1/2 -translate-y-1/2 text-warm"></iconify-icon>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <span class="text-[12px] text-ink-mid border border-ink/8 px-4 py-2 cursor-pointer hover:border-warm hover:text-warm transition-all duration-500">교육 신청은 어떻게 해?</span>
+          <span class="text-[12px] text-ink-mid border border-ink/8 px-4 py-2 cursor-pointer hover:border-warm hover:text-warm transition-all duration-500">수료증은 어디서 받는지 알 수 있어?</span>
+          <span class="text-[12px] text-ink-mid border border-ink/8 px-4 py-2 cursor-pointer hover:border-warm hover:text-warm transition-all duration-500">온라인 교육 수강 방법은?</span>
+        </div>
+      </div>
+
+      <!-- Digital Library -->
+      <div class="bg-ink text-white p-10 lg:p-14 relative overflow-hidden fade-up stagger-1">
+        <div class="absolute top-6 right-6 text-[10px] text-white/25 tracking-[0.1em] uppercase">새로e아름 &gt; 콘텐츠 &gt; 전자도서관</div>
+        <div class="mt-8">
+          <span class="text-[10px] tracking-[0.2em] uppercase text-warm-light block mb-4">Digital Library</span>
+          <h3 class="font-display text-3xl lg:text-4xl tracking-dramatic leading-tight mb-3 break-keep">우정인재개발원<br>전자도서관</h3>
+          <p class="text-[14px] text-white/50 mb-8 break-keep leading-relaxed">슬기로운 독서생활!<br>전자도서관에 접속해 보세요</p>
+          <a href="#" class="inline-flex items-center gap-3 border border-white/20 px-6 py-3 text-[13px] font-medium hover:bg-white hover:text-ink transition-all duration-500 group">
+            사람은 책을 만들고 책은 사람을 만든다
+            <iconify-icon icon="solar:arrow-right-linear" width="16" class="group-hover:translate-x-1 transition-transform duration-500"></iconify-icon>
+          </a>
+        </div>
+        <div class="absolute bottom-6 right-8 text-[11px] text-white/10 font-display italic tracking-wider">I love book</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- S03: LEARNING STATUS -->
+<!-- ============================================ -->
+<section class="bg-ink text-white py-16 lg:py-20">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 fade-up">
+    <div class="flex items-end justify-between mb-10">
+      <div>
+        <span class="text-[10px] tracking-[0.2em] uppercase text-warm-light block mb-2">Learning Progress</span>
+        <h2 class="font-display text-3xl tracking-dramatic">학습 현황</h2>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <!-- Donut -->
+      <div class="lg:col-span-3 flex flex-col items-center justify-center">
+        <div class="relative w-32 h-32">
+          <svg viewBox="0 0 100 100" class="w-full h-full -rotate-90">
+            <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="6"/>
+            <circle cx="50" cy="50" r="42" fill="none" stroke="#936d52" stroke-width="6" stroke-dasharray="132 264" stroke-linecap="square"/>
+          </svg>
+          <div class="absolute inset-0 flex flex-col items-center justify-center">
+            <span class="text-4xl font-display text-white">5</span>
+          </div>
+        </div>
+        <span class="mt-3 text-[13px] text-white/40">아름포인트</span>
+      </div>
+
+      <!-- Courses -->
+      <div class="lg:col-span-9 space-y-8">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-[14px] font-medium text-white/70">필수교육 이수현황</h3>
+            <div class="flex gap-2">
+              <button class="w-8 h-8 border border-white/10 flex items-center justify-center text-white/30 hover:text-white hover:border-white/30 transition-all duration-500" aria-label="이전"><iconify-icon icon="solar:alt-arrow-left-linear" width="14"></iconify-icon></button>
+              <button class="w-8 h-8 border border-white/10 flex items-center justify-center text-white/30 hover:text-white hover:border-white/30 transition-all duration-500" aria-label="다음"><iconify-icon icon="solar:alt-arrow-right-linear" width="14"></iconify-icon></button>
+            </div>
+          </div>
+          <div class="scroll-row">
+            <div class="w-[150px] border border-white/8 p-4 relative hover-warm"><div class="absolute top-3 right-3 w-2.5 h-2.5 rounded-full bg-emerald-500"></div><span class="text-[13px] text-white block mb-1">공직가치</span><span class="text-[11px] text-white/30">5/10</span></div>
+            <div class="w-[150px] border border-white/8 p-4 relative hover-warm"><div class="absolute top-3 right-3 w-2.5 h-2.5 rounded-full bg-emerald-500"></div><span class="text-[13px] text-white block mb-1">적극행정</span><span class="text-[11px] text-white/30">5/10</span></div>
+            <div class="w-[150px] border border-white/8 p-4 relative hover-warm"><div class="absolute top-3 right-3 w-2.5 h-2.5 rounded-full bg-amber-500"></div><span class="text-[13px] text-white block mb-1">성인지</span><span class="text-[11px] text-white/30">5/10</span></div>
+            <div class="w-[150px] border border-white/8 p-4 relative hover-warm"><div class="absolute top-3 right-3 w-2.5 h-2.5 rounded-full bg-amber-500"></div><span class="text-[13px] text-white block mb-1">정보화</span><span class="text-[11px] text-white/30">5/10</span></div>
+            <div class="w-[150px] border border-white/8 p-4 relative hover-warm"><div class="absolute top-3 right-3 w-2.5 h-2.5 rounded-full bg-rose-500"></div><span class="text-[13px] text-white block mb-1">정보보안</span><span class="text-[11px] text-white/30">5/10</span></div>
+            <div class="w-[150px] border border-white/8 p-4 relative hover-warm"><div class="absolute top-3 right-3 w-2.5 h-2.5 rounded-full bg-rose-500"></div><span class="text-[13px] text-white block mb-1">개인정보</span><span class="text-[11px] text-white/30">5/10</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-[14px] font-medium text-white/70">법정교육 이수현황</h3>
+            <div class="flex gap-2">
+              <button class="w-8 h-8 border border-white/10 flex items-center justify-center text-white/30 hover:text-white hover:border-white/30 transition-all duration-500" aria-label="이전"><iconify-icon icon="solar:alt-arrow-left-linear" width="14"></iconify-icon></button>
+              <button class="w-8 h-8 border border-white/10 flex items-center justify-center text-white/30 hover:text-white hover:border-white/30 transition-all duration-500" aria-label="다음"><iconify-icon icon="solar:alt-arrow-right-linear" width="14"></iconify-icon></button>
+            </div>
+          </div>
+          <div class="scroll-row">
+            <div class="w-[150px] border border-white/8 p-4 relative hover-warm"><div class="absolute top-3 right-3 w-2.5 h-2.5 rounded-full bg-emerald-500"></div><span class="text-[13px] text-white block mb-1">성폭력예방</span><span class="text-[11px] text-white/30">5/10</span></div>
+            <div class="w-[150px] border border-white/8 p-4 relative hover-warm"><div class="absolute top-3 right-3 w-2.5 h-2.5 rounded-full bg-emerald-500"></div><span class="text-[13px] text-white block mb-1">감염병예방</span><span class="text-[11px] text-white/30">5/10</span></div>
+            <div class="w-[150px] border border-white/8 p-4 relative hover-warm"><div class="absolute top-3 right-3 w-2.5 h-2.5 rounded-full bg-amber-500"></div><span class="text-[13px] text-white block mb-1">자살예방</span><span class="text-[11px] text-white/30">5/10</span></div>
+            <div class="w-[150px] border border-white/8 p-4 relative hover-warm"><div class="absolute top-3 right-3 w-2.5 h-2.5 rounded-full bg-amber-500"></div><span class="text-[13px] text-white block mb-1">안보</span><span class="text-[11px] text-white/30">5/10</span></div>
+            <div class="w-[150px] border border-white/8 p-4 relative hover-warm"><div class="absolute top-3 right-3 w-2.5 h-2.5 rounded-full bg-rose-500"></div><span class="text-[13px] text-white block mb-1">장애인식개선</span><span class="text-[11px] text-white/30">5/10</span></div>
+            <div class="w-[150px] border border-white/8 p-4 relative hover-warm"><div class="absolute top-3 right-3 w-2.5 h-2.5 rounded-full bg-rose-500"></div><span class="text-[13px] text-white block mb-1">아동학대예방</span><span class="text-[11px] text-white/30">5/10</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- S04: CLASSROOM -->
+<!-- ============================================ -->
+<section class="bg-warm-ivory py-16 lg:py-24">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 fade-up">
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-4 gap-4">
+      <div>
+        <span class="text-[10px] tracking-[0.2em] uppercase text-warm block mb-2">Education Content</span>
+        <h2 class="font-display text-5xl lg:text-7xl tracking-dramatic text-ink leading-none">CLASSROOM</h2>
+      </div>
+      <div class="flex items-center gap-6">
+        <div class="flex gap-6 text-[14px]">
+          <span class="text-warm font-medium">이것이 필수다.</span>
+          <span class="text-ink-soft">당신에게 딱이다.</span>
+        </div>
+        <a href="#" class="text-[13px] text-ink-soft hover:text-warm transition-colors duration-500 flex items-center gap-1">전체보기 <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon></a>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="flex gap-0 border-b border-ink/8 mb-10">
+      <button class="px-5 py-3 text-[13px] font-medium text-ink border-b-2 border-warm">전체</button>
+      <button class="px-5 py-3 text-[13px] text-ink-soft border-b-2 border-transparent hover:text-ink transition-colors duration-500">국정철학</button>
+      <button class="px-5 py-3 text-[13px] text-ink-soft border-b-2 border-transparent hover:text-ink transition-colors duration-500">직무공통</button>
+    </div>
+
+    <!-- Cards -->
+    <div class="scroll-row pb-4">
+      <div class="w-[240px] group cursor-pointer">
+        <div class="relative aspect-[4/3] bg-warm-cream overflow-hidden mb-4"><img src="https://picsum.photos/seed/privacy-edu-mot/480/360" alt="개인정보 보호교육" class="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700" loading="lazy"><span class="absolute bottom-3 right-3 bg-ink/60 text-white text-[10px] px-2 py-0.5">60분</span><span class="absolute bottom-3 left-3 bg-warm text-white text-[10px] font-medium px-2 py-0.5">국정철학</span><span class="absolute top-3 right-3 text-white/70 text-[11px]"><iconify-icon icon="solar:heart-linear" width="13"></iconify-icon> 42</span></div>
+        <h4 class="text-[15px] font-medium text-ink mb-1 break-keep leading-snug">개인정보 보호교육</h4>
+        <p class="text-[12px] text-ink-soft leading-relaxed break-keep mb-2">우정사업본부 직원이 알아야할 개인...</p>
+        <div class="flex items-center gap-4 text-[11px] text-ink-soft"><span><iconify-icon icon="solar:users-group-rounded-linear" width="13" class="align-middle"></iconify-icon> 1,234</span><span><iconify-icon icon="solar:chat-round-line-linear" width="13" class="align-middle"></iconify-icon> 56</span></div>
+      </div>
+      <div class="w-[240px] group cursor-pointer">
+        <div class="relative aspect-[4/3] bg-warm-cream overflow-hidden mb-4"><img src="https://picsum.photos/seed/privacy-user-mot/480/360" alt="개인정보보호교육(이용자)" class="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700" loading="lazy"><span class="absolute bottom-3 right-3 bg-ink/60 text-white text-[10px] px-2 py-0.5">60분</span><span class="absolute bottom-3 left-3 bg-ink-mid text-white text-[10px] font-medium px-2 py-0.5">직무공통</span><span class="absolute top-3 right-3 text-white/70 text-[11px]"><iconify-icon icon="solar:heart-linear" width="13"></iconify-icon> 38</span></div>
+        <h4 class="text-[15px] font-medium text-ink mb-1 break-keep leading-snug">개인정보보호교육(이용자)</h4>
+        <p class="text-[12px] text-ink-soft leading-relaxed break-keep mb-2">개인정보보호교육(이용자)</p>
+        <div class="flex items-center gap-4 text-[11px] text-ink-soft"><span><iconify-icon icon="solar:users-group-rounded-linear" width="13" class="align-middle"></iconify-icon> 987</span><span><iconify-icon icon="solar:chat-round-line-linear" width="13" class="align-middle"></iconify-icon> 23</span></div>
+      </div>
+      <div class="w-[240px] group cursor-pointer">
+        <div class="relative aspect-[4/3] bg-warm-cream overflow-hidden mb-4"><img src="https://picsum.photos/seed/info-security-mot/480/360" alt="정보보안기본교육" class="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700" loading="lazy"><span class="absolute bottom-3 right-3 bg-ink/60 text-white text-[10px] px-2 py-0.5">60분</span><span class="absolute bottom-3 left-3 bg-ink-mid text-white text-[10px] font-medium px-2 py-0.5">직무공통</span><span class="absolute top-3 right-3 text-white/70 text-[11px]"><iconify-icon icon="solar:heart-linear" width="13"></iconify-icon> 55</span></div>
+        <h4 class="text-[15px] font-medium text-ink mb-1 break-keep leading-snug">정보보안기본교육</h4>
+        <p class="text-[12px] text-ink-soft leading-relaxed break-keep mb-2">우정사업본부 직원이 알아야 할 정보</p>
+        <div class="flex items-center gap-4 text-[11px] text-ink-soft"><span><iconify-icon icon="solar:users-group-rounded-linear" width="13" class="align-middle"></iconify-icon> 2,100</span><span><iconify-icon icon="solar:chat-round-line-linear" width="13" class="align-middle"></iconify-icon> 89</span></div>
+      </div>
+      <div class="w-[240px] group cursor-pointer">
+        <div class="relative aspect-[4/3] bg-warm-cream overflow-hidden mb-4"><img src="https://picsum.photos/seed/conflict-law-mot/480/360" alt="이해충돌방지법" class="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700" loading="lazy"><span class="absolute bottom-3 right-3 bg-ink/60 text-white text-[10px] px-2 py-0.5">60분</span><span class="absolute bottom-3 left-3 bg-warm text-white text-[10px] font-medium px-2 py-0.5">국정철학</span><span class="absolute top-3 right-3 text-white/70 text-[11px]"><iconify-icon icon="solar:heart-linear" width="13"></iconify-icon> 27</span></div>
+        <h4 class="text-[15px] font-medium text-ink mb-1 break-keep leading-snug">이해충돌방지법</h4>
+        <p class="text-[12px] text-ink-soft leading-relaxed break-keep mb-2">알기 쉬운 이해충돌방지법</p>
+        <div class="flex items-center gap-4 text-[11px] text-ink-soft"><span><iconify-icon icon="solar:users-group-rounded-linear" width="13" class="align-middle"></iconify-icon> 756</span><span><iconify-icon icon="solar:chat-round-line-linear" width="13" class="align-middle"></iconify-icon> 12</span></div>
+      </div>
+      <div class="w-[240px] group cursor-pointer">
+        <div class="relative aspect-[4/3] bg-warm-cream overflow-hidden mb-4"><img src="https://picsum.photos/seed/excel-tech-mot/480/360" alt="엑셀실무테크닉" class="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700" loading="lazy"><span class="absolute bottom-3 right-3 bg-ink/60 text-white text-[10px] px-2 py-0.5">60분</span><span class="absolute bottom-3 left-3 bg-ink-mid text-white text-[10px] font-medium px-2 py-0.5">직무공통</span><span class="absolute top-3 right-3 text-white/70 text-[11px]"><iconify-icon icon="solar:heart-linear" width="13"></iconify-icon> 91</span></div>
+        <h4 class="text-[15px] font-medium text-ink mb-1 break-keep leading-snug">엑셀실무테크닉</h4>
+        <p class="text-[12px] text-ink-soft leading-relaxed break-keep mb-2">엑셀 실무 테크닉 일잘러의 보고서...</p>
+        <div class="flex items-center gap-4 text-[11px] text-ink-soft"><span><iconify-icon icon="solar:users-group-rounded-linear" width="13" class="align-middle"></iconify-icon> 3,456</span><span><iconify-icon icon="solar:chat-round-line-linear" width="13" class="align-middle"></iconify-icon> 201</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- S05: CONTINUE LEARNING -->
+<!-- ============================================ -->
+<section class="bg-warm-cream py-16 lg:py-20 border-y border-warm-light/30">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 fade-up">
+    <div class="flex items-end justify-between mb-10">
+      <div>
+        <span class="text-[10px] tracking-[0.2em] uppercase text-warm block mb-2">Continue Learning</span>
+        <h2 class="font-display text-3xl tracking-dramatic text-ink">이어서 학습하기</h2>
+      </div>
+      <a href="#" class="text-[13px] text-ink-soft hover:text-warm transition-colors duration-500 flex items-center gap-1">전체보기 <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon></a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+      <div class="bg-white border border-warm-light/50 overflow-hidden hover-warm group">
+        <div class="aspect-[16/9] overflow-hidden"><img src="https://picsum.photos/seed/postal-law-mot/600/340" alt="우편취급 위반관련 법규" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy"></div>
+        <div class="p-6">
+          <h4 class="text-[15px] font-medium text-ink mb-4 break-keep">우편취급 위반관련 법규</h4>
+          <div class="flex items-center gap-4 mb-4"><div class="flex-1 h-1 bg-ink/5"><div class="h-full bg-warm" style="width:30%"></div></div><span class="text-[12px] font-medium text-warm">30%</span></div>
+          <a href="#" class="inline-flex items-center gap-2 border border-ink px-5 py-2.5 text-[12px] font-medium text-ink hover:bg-ink hover:text-white transition-all duration-500"><iconify-icon icon="solar:play-linear" width="14"></iconify-icon> 이어보기</a>
+        </div>
+      </div>
+      <div class="bg-white border border-warm-light/50 overflow-hidden hover-warm group">
+        <div class="aspect-[16/9] overflow-hidden"><img src="https://picsum.photos/seed/challenge-loss-mot/600/340" alt="도전! 나의 손해 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy"></div>
+        <div class="p-6">
+          <h4 class="text-[15px] font-medium text-ink mb-4 break-keep">도전! 나의 손해 2</h4>
+          <div class="flex items-center gap-4 mb-4"><div class="flex-1 h-1 bg-ink/5"><div class="h-full bg-warm" style="width:65%"></div></div><span class="text-[12px] font-medium text-warm">65%</span></div>
+          <a href="#" class="inline-flex items-center gap-2 border border-ink px-5 py-2.5 text-[12px] font-medium text-ink hover:bg-ink hover:text-white transition-all duration-500"><iconify-icon icon="solar:play-linear" width="14"></iconify-icon> 이어보기</a>
+        </div>
+      </div>
+      <div class="bg-white border border-warm-light/50 overflow-hidden hover-warm group">
+        <div class="aspect-[16/9] overflow-hidden"><img src="https://picsum.photos/seed/integrity-mot/600/340" alt="청렴판단력 키우기" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy"></div>
+        <div class="p-6">
+          <h4 class="text-[15px] font-medium text-ink mb-4 break-keep">청렴판단력 키우기</h4>
+          <div class="flex items-center gap-4 mb-4"><div class="flex-1 h-1 bg-ink/5"><div class="h-full bg-warm" style="width:10%"></div></div><span class="text-[12px] font-medium text-warm">10%</span></div>
+          <a href="#" class="inline-flex items-center gap-2 border border-ink px-5 py-2.5 text-[12px] font-medium text-ink hover:bg-ink hover:text-white transition-all duration-500"><iconify-icon icon="solar:play-linear" width="14"></iconify-icon> 이어보기</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- S06: CHANNELS + BOOKS -->
+<!-- ============================================ -->
+<section class="bg-warm-ivory py-16 lg:py-24">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 fade-up">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+
+      <!-- Channels -->
+      <div class="lg:col-span-4">
+        <span class="text-[10px] tracking-[0.2em] uppercase text-warm block mb-2">Subscribed Channels</span>
+        <div class="flex items-end justify-between mb-2">
+          <h2 class="font-display text-2xl tracking-dramatic text-ink">구독중인 채널</h2>
+          <a href="#" class="text-[12px] text-ink-soft hover:text-warm transition-colors duration-500">전체보기 <iconify-icon icon="solar:arrow-right-linear" width="12"></iconify-icon></a>
+        </div>
+        <p class="text-[13px] text-ink-soft mb-6">내가 팔로우하는 학습 채널</p>
+        <div class="space-y-3">
+          <div class="flex items-center gap-4 border border-warm-light/50 bg-white p-4 hover-warm">
+            <div class="w-11 h-11 bg-ink flex items-center justify-center text-white text-[11px] font-bold flex-shrink-0">우정</div>
+            <div class="flex-1"><span class="text-[14px] font-medium text-ink block">우정인재개발원</span><span class="text-[11px] text-ink-soft">50,032명</span></div>
+            <button class="border border-warm text-warm text-[11px] font-medium px-3 py-1.5 hover:bg-warm hover:text-white transition-all duration-500">구독중</button>
+          </div>
+          <div class="flex items-center gap-4 border border-warm-light/50 bg-white p-4 hover-warm">
+            <div class="w-11 h-11 bg-warm flex items-center justify-center text-white text-[11px] font-bold flex-shrink-0">교육</div>
+            <div class="flex-1"><span class="text-[14px] font-medium text-ink block">교육큐레이션</span><span class="text-[11px] text-ink-soft">52,149명</span></div>
+            <button class="border border-warm text-warm text-[11px] font-medium px-3 py-1.5 hover:bg-warm hover:text-white transition-all duration-500">구독중</button>
+          </div>
+          <div class="flex items-center gap-4 border border-warm-light/50 bg-white p-4 hover-warm">
+            <div class="w-11 h-11 bg-ink-mid flex items-center justify-center text-white text-[11px] font-bold flex-shrink-0">보이</div>
+            <div class="flex-1"><span class="text-[14px] font-medium text-ink block">보이스피싱 예방</span><span class="text-[11px] text-ink-soft">49,533명</span></div>
+            <button class="border border-warm text-warm text-[11px] font-medium px-3 py-1.5 hover:bg-warm hover:text-white transition-all duration-500">구독중</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Books -->
+      <div class="lg:col-span-8">
+        <span class="text-[10px] tracking-[0.2em] uppercase text-warm block mb-2">Book Recommendation</span>
+        <div class="flex items-end justify-between mb-2">
+          <h2 class="font-display text-2xl tracking-dramatic text-ink">지금, 이 책!</h2>
+          <a href="#" class="text-[12px] text-ink-soft hover:text-warm transition-colors duration-500">전체보기 <iconify-icon icon="solar:arrow-right-linear" width="12"></iconify-icon></a>
+        </div>
+        <p class="text-[13px] text-ink-soft mb-6">이달의 추천 도서</p>
+        <div class="grid grid-cols-3 md:grid-cols-6 gap-5">
+          <div class="group cursor-pointer"><div class="aspect-[3/4] bg-warm-cream border border-warm-light/30 overflow-hidden mb-3 group-hover:border-warm transition-colors duration-500"><img src="https://picsum.photos/seed/fake-labor-mot/180/240" alt="가짜 노동" class="w-full h-full object-cover" loading="lazy"></div><h5 class="text-[12px] font-medium text-ink break-keep leading-snug">가짜 노동</h5><span class="text-[10px] text-ink-soft">데니스 뇌르마르크</span></div>
+          <div class="group cursor-pointer"><div class="aspect-[3/4] bg-warm-cream border border-warm-light/30 overflow-hidden mb-3 group-hover:border-warm transition-colors duration-500"><img src="https://picsum.photos/seed/study-illusion-mot/180/240" alt="공부하고 있다는 착각" class="w-full h-full object-cover" loading="lazy"></div><h5 class="text-[12px] font-medium text-ink break-keep leading-snug">공부하고 있다는 착각</h5><span class="text-[10px] text-ink-soft">대니얼 T. 윌링햄</span></div>
+          <div class="group cursor-pointer"><div class="aspect-[3/4] bg-warm-cream border border-warm-light/30 overflow-hidden mb-3 group-hover:border-warm transition-colors duration-500"><img src="https://picsum.photos/seed/basic-design-mot/180/240" alt="기본의 디자인" class="w-full h-full object-cover" loading="lazy"></div><h5 class="text-[12px] font-medium text-ink break-keep leading-snug">기본의 디자인</h5><span class="text-[10px] text-ink-soft">아키타 미치오</span></div>
+          <div class="group cursor-pointer"><div class="aspect-[3/4] bg-warm-cream border border-warm-light/30 overflow-hidden mb-3 group-hover:border-warm transition-colors duration-500"><img src="https://picsum.photos/seed/dopamine-mot/180/240" alt="도파민네이션" class="w-full h-full object-cover" loading="lazy"></div><h5 class="text-[12px] font-medium text-ink break-keep leading-snug">도파민네이션</h5><span class="text-[10px] text-ink-soft">애나 렘키</span></div>
+          <div class="group cursor-pointer"><div class="aspect-[3/4] bg-warm-cream border border-warm-light/30 overflow-hidden mb-3 group-hover:border-warm transition-colors duration-500"><img src="https://picsum.photos/seed/schopenhauer-mot/180/240" alt="쇼펜하우어" class="w-full h-full object-cover" loading="lazy"></div><h5 class="text-[12px] font-medium text-ink break-keep leading-snug">쇼펜하우어</h5><span class="text-[10px] text-ink-soft">강용수</span></div>
+          <div class="group cursor-pointer"><div class="aspect-[3/4] bg-warm-cream border border-warm-light/30 overflow-hidden mb-3 group-hover:border-warm transition-colors duration-500"><img src="https://picsum.photos/seed/forty-schopen-mot/180/240" alt="마흔에 읽는 쇼펜하우어" class="w-full h-full object-cover" loading="lazy"></div><h5 class="text-[12px] font-medium text-ink break-keep leading-snug">마흔에 읽는 쇼펜하우어</h5><span class="text-[10px] text-ink-soft">강용수</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- S07: EDUCATION CONTACT -->
+<!-- ============================================ -->
+<section class="bg-ink text-white py-16 lg:py-20">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 fade-up">
+    <div class="text-center mb-10">
+      <span class="text-[10px] tracking-[0.2em] uppercase text-warm-light block mb-2">Contact</span>
+      <h2 class="font-display text-3xl tracking-dramatic">교육관련 안내</h2>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+      <div class="border border-white/8 p-6 text-center hover-warm group">
+        <iconify-icon icon="solar:phone-calling-linear" width="28" class="text-warm-light mb-4 block mx-auto group-hover:text-warm transition-colors duration-500"></iconify-icon>
+        <span class="text-[13px] font-medium text-white block mb-1">이러닝 문의</span>
+        <span class="text-[13px] text-white/40">041-560-5350</span>
+      </div>
+      <div class="border border-white/8 p-6 text-center hover-warm group">
+        <iconify-icon icon="solar:monitor-linear" width="28" class="text-warm-light mb-4 block mx-auto group-hover:text-warm transition-colors duration-500"></iconify-icon>
+        <span class="text-[13px] font-medium text-white block mb-1">집합교육(선발)</span>
+        <span class="text-[13px] text-white/40">041-560-5264</span>
+      </div>
+      <div class="border border-white/8 p-6 text-center hover-warm group">
+        <iconify-icon icon="solar:clipboard-list-linear" width="28" class="text-warm-light mb-4 block mx-auto group-hover:text-warm transition-colors duration-500"></iconify-icon>
+        <span class="text-[13px] font-medium text-white block mb-1">집합교육(계획)</span>
+        <span class="text-[13px] text-white/40">041-560-5311</span>
+      </div>
+      <div class="border border-white/8 p-6 text-center hover-warm group">
+        <iconify-icon icon="solar:diploma-verified-linear" width="28" class="text-warm-light mb-4 block mx-auto group-hover:text-warm transition-colors duration-500"></iconify-icon>
+        <span class="text-[13px] font-medium text-white block mb-1">직무인증평가</span>
+        <span class="text-[13px] text-white/40">041-560-5312</span>
+      </div>
+      <div class="border border-white/8 p-6 text-center hover-warm group col-span-2 md:col-span-1">
+        <iconify-icon icon="solar:book-2-linear" width="28" class="text-warm-light mb-4 block mx-auto group-hover:text-warm transition-colors duration-500"></iconify-icon>
+        <span class="text-[13px] font-medium text-white block mb-1">지금, 이 책!</span>
+        <span class="text-[13px] text-white/40">041-560-5151</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- S08: FOOTER -->
+<!-- ============================================ -->
+<footer class="bg-ink border-t border-white/5 text-white/50 py-12">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="flex flex-col lg:flex-row justify-between gap-10 mb-10">
+      <div class="flex-1">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-7 h-7 border border-warm flex items-center justify-center"><iconify-icon icon="solar:letter-linear" width="14" class="text-warm"></iconify-icon></div>
+          <span class="text-[14px] font-medium text-white">우정인재개발원</span>
+        </div>
+        <div class="text-[12px] text-white/25 space-y-1.5 leading-relaxed">
+          <p>(31068) 충청남도 천안시 동남구 양지말1길 (유량동) 우정인재개발원</p>
+          <p>전화번호: 041-560-5350 &nbsp;|&nbsp; 팩스번호: 0505-005-1062 &nbsp;|&nbsp; 이메일: cyber123@korea.kr</p>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-x-6 gap-y-2 text-[12px]">
+        <a href="#" class="text-white font-medium hover:text-warm transition-colors duration-500">개인정보처리 방침</a>
+        <a href="#" class="text-white/30 hover:text-white transition-colors duration-500">영상정보처리기기 운영관리 방침</a>
+        <a href="#" class="text-white/30 hover:text-white transition-colors duration-500">이메일주소 무단수집거부</a>
+        <a href="#" class="text-white/30 hover:text-white transition-colors duration-500">이용약관</a>
+        <a href="#" class="text-white/30 hover:text-white transition-colors duration-500">찾아오시는길</a>
+        <a href="#" class="text-white/30 hover:text-white transition-colors duration-500">고객지원센터</a>
+      </div>
+      <div><select class="bg-white/5 border border-white/8 text-white/40 text-[12px] px-4 py-2 focus:border-warm focus:outline-none" aria-label="관련사이트"><option>관련사이트 바로가기</option></select></div>
+    </div>
+    <div class="border-t border-white/5 pt-6 flex items-center justify-between">
+      <span class="text-[11px] text-white/15">COPYRIGHT(C) 2016 KOREA POST(OFFICE OF POSTAL SERVICE). ALL RIGHTS RESERVED.</span>
+      <button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="w-10 h-10 border border-white/10 flex items-center justify-center text-white/20 hover:text-warm hover:border-warm transition-all duration-500" aria-label="상단으로"><iconify-icon icon="solar:alt-arrow-up-linear" width="16"></iconify-icon></button>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+})();
+</script>
+
+</body>
+</html>

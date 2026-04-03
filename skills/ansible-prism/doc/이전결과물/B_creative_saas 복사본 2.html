@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>새로e아름 — 우정인재개발원</title>
+  <meta name="description" content="우정인재개발원 새로e아름 학습 포털. 나의 학습, 나의 성장.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.min.css">
+  <script src="https://code.iconify.design/iconify-icon/2.3.0/iconify-icon.min.js"></script>
+  <style>
+    /* === DESIGN SYSTEM TOKENS (카름스테이_design-system.html) === */
+    :root {
+      --color-white: #ffffff;
+      --color-gray-dark: #545556;
+      --color-gray-mid: #858586;
+      --color-red: #f1574d;
+      --color-gray-light: #b6b6b7;
+      --color-accent: #f05423;
+      --color-accent-hover: #f8de08;
+      --color-hover-brown: #715049;
+      --color-bg: #fafafa;
+      --color-surface: #ffffff;
+      --color-text: #1a1a1a;
+      --color-text-secondary: #666666;
+      --font-display: 'Poppins', sans-serif;
+      --font-body: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+      --radius-md: 10px;
+      --shadow-heavy: rgba(0,0,0,0.5) 4px -20px 18px 0px;
+      --shadow-subtle: rgba(0,0,0,0.05) 0px 4px 0px 0px;
+    }
+
+    /*
+    === GENERATION METADATA ===
+    framework: CREATIVE_GENERATION_FRAMEWORK v1.1
+    vibe: warm (Warm Editorial)
+    originality_level: 8 (Distinctive Craft)
+    parameters: warm × 0.85
+      symmetry_break: 60  |  color_tension: 55
+      layout_nonlinearity: 64  |  typographic_contrast: 72
+      whitespace_irregularity: 55  |  emotional_density: 68
+      visual_narrative: 72
+    fixation_break:
+      reversal_1: 3-tier header → floating minimal nav
+      reversal_2: equal card grid → bento grid
+      import_1: magazine editorial layout for education content
+    wireframe: opt1.html  |  design_system: 카름스테이_design-system.html
+    */
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-body);
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      word-break: keep-all;
+    }
+
+    /* ── NAV: Reversal 1 — 3-tier → floating pill ── */
+    .nav-util {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 101;
+      display: flex; justify-content: flex-end; gap: 20px;
+      padding: 6px 40px; background: var(--color-text); font-size: 12px;
+    }
+    .nav-util a { color: var(--color-gray-light); text-decoration: none; transition: color 0.2s; }
+    .nav-util a:hover { color: var(--color-white); }
+
+    .nav {
+      position: fixed; top: 30px; left: 50%; transform: translateX(-50%); z-index: 100;
+      display: flex; align-items: center; gap: 30px;
+      padding: 12px 30px; background: var(--color-white);
+      border: 1px solid rgba(0,0,0,0.08); border-radius: var(--radius-md);
+      box-shadow: var(--shadow-subtle); font-size: 15px;
+    }
+    .nav-logo { font-family: var(--font-display); font-weight: 700; font-size: 16px; color: var(--color-accent); letter-spacing: -0.5px; white-space: nowrap; }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a { text-decoration: none; color: var(--color-gray-dark); font-weight: 500; font-size: 15px; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--color-text); }
+    .nav-user { font-size: 15px; color: var(--color-gray-mid); white-space: nowrap; }
+    .nav-user a { color: var(--color-accent); text-decoration: none; font-weight: 600; }
+
+    /* ── HERO: S02 — Editorial Split ── */
+    .hero { margin-top: 20px; min-height: 100dvh; display: grid; grid-template-columns: 5fr 7fr; padding-top: 56px; }
+    .hero-left { background: var(--color-text); padding: 100px 50px 80px; display: flex; flex-direction: column; justify-content: center; }
+    .hero-eyebrow { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 4px; color: var(--color-accent); margin-bottom: 30px; }
+    .hero-title { font-family: var(--font-display); font-size: 40px; font-weight: 700; color: var(--color-white); line-height: 1.28; letter-spacing: -1px; margin-bottom: 20px; }
+    .hero-desc { font-size: 16px; color: var(--color-gray-light); line-height: 1.7; margin-bottom: 40px; max-width: 380px; }
+    .hero-search { display: flex; max-width: 380px; }
+    .hero-search input { flex: 1; padding: 14px 20px; border: 1px solid rgba(255,255,255,0.15); border-right: none; background: rgba(255,255,255,0.05); color: var(--color-white); font-family: var(--font-body); font-size: 15px; outline: none; }
+    .hero-search input::placeholder { color: var(--color-gray-mid); }
+    .hero-search button { padding: 14px 24px; background: var(--color-accent); color: var(--color-white); border: none; font-family: var(--font-body); font-weight: 600; font-size: 15px; cursor: pointer; transition: background 0.2s; }
+    .hero-search button:hover { background: var(--color-accent-hover); }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+    .hero-tags span { font-size: 12px; color: var(--color-gray-mid); padding: 4px 12px; border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-md); cursor: pointer; transition: all 0.2s; }
+    .hero-tags span:hover { border-color: var(--color-accent); color: var(--color-accent); }
+    .hero-right { background: var(--color-white); padding: 100px 50px 80px; display: flex; flex-direction: column; justify-content: center; position: relative; }
+    .hero-right-eyebrow { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; color: var(--color-gray-mid); margin-bottom: 20px; }
+    .hero-right h2 { font-size: 28px; font-weight: 600; line-height: 1.28; margin-bottom: 15px; }
+    .hero-right p { font-size: 16px; color: var(--color-gray-dark); line-height: 1.7; margin-bottom: 30px; }
+    .hero-cta { display: inline-block; padding: 14px 30px; background: var(--color-white); color: var(--color-accent); border: 1px solid var(--color-accent); font-family: var(--font-body); font-weight: 600; font-size: 18px; text-decoration: none; cursor: pointer; transition: all 0.2s; }
+    .hero-cta:hover { background: var(--color-accent-hover); color: var(--color-white); border-color: var(--color-accent-hover); }
+    .hero-deco { position: absolute; bottom: 50px; right: 50px; font-family: var(--font-display); font-size: 80px; font-weight: 700; color: rgba(240,84,35,0.04); line-height: 0.7; letter-spacing: -5px; user-select: none; }
+
+    /* ── S03: 학습 현황 ── */
+    .status { padding: 80px 40px; max-width: 1100px; margin: 0 auto; }
+    .section-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; color: var(--color-accent); margin-bottom: 15px; }
+    .section-title { font-size: 28px; font-weight: 600; letter-spacing: -0.5px; margin-bottom: 40px; }
+    .status-grid { display: grid; grid-template-columns: 200px 1fr; gap: 40px; align-items: start; }
+    .status-donut { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 30px; background: var(--color-white); border: 1px solid rgba(0,0,0,0.06); border-radius: var(--radius-md); }
+    .donut-circle { width: 120px; height: 120px; border-radius: 50%; border: 8px solid rgba(240,84,35,0.15); border-top-color: var(--color-accent); display: flex; align-items: center; justify-content: center; }
+    .donut-num { font-family: var(--font-display); font-size: 36px; font-weight: 700; color: var(--color-accent); }
+    .donut-label { font-size: 15px; color: var(--color-gray-mid); font-weight: 500; }
+    .status-courses { display: flex; flex-direction: column; gap: 20px; }
+    .course-group-title { font-size: 16px; font-weight: 600; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+    .course-group-title::before { content: ''; width: 3px; height: 16px; background: var(--color-accent); }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .pill { font-size: 15px; padding: 8px 18px; background: var(--color-white); border: 1px solid rgba(0,0,0,0.08); border-radius: var(--radius-md); color: var(--color-gray-dark); font-weight: 500; transition: all 0.2s; }
+    .pill:hover { border-color: var(--color-accent); color: var(--color-accent); }
+
+    /* ── S05: 이어서 학습하기 (Magazine timeline — Import 1) ── */
+    .continue { padding: 50px 40px 80px; max-width: 1100px; margin: 0 auto; }
+    .continue-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 30px; }
+    .link-more { font-size: 15px; color: var(--color-accent); text-decoration: none; font-weight: 600; transition: color 0.2s; }
+    .link-more:hover { color: var(--color-hover-brown); }
+    .continue-list { display: flex; flex-direction: column; border-top: 2px solid var(--color-text); }
+    .continue-item { display: grid; grid-template-columns: 80px 1fr 120px 100px; gap: 30px; align-items: center; padding: 25px 0; border-bottom: 1px solid rgba(0,0,0,0.06); transition: background 0.2s; }
+    .continue-item:hover { background: rgba(240,84,35,0.02); }
+    .continue-thumb { width: 80px; height: 60px; background: rgba(240,84,35,0.08); border-radius: var(--radius-md); }
+    .continue-info strong { display: block; font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+    .continue-progress { height: 4px; background: rgba(0,0,0,0.06); border-radius: 2px; overflow: hidden; }
+    .continue-progress-fill { height: 100%; background: var(--color-accent); border-radius: 2px; }
+    .continue-percent { font-family: var(--font-display); font-size: 24px; font-weight: 700; text-align: right; }
+    .continue-btn { padding: 8px 20px; background: var(--color-white); color: var(--color-accent); border: 1px solid var(--color-accent); font-family: var(--font-body); font-weight: 600; font-size: 15px; cursor: pointer; transition: all 0.2s; text-align: center; }
+    .continue-btn:hover { background: var(--color-accent-hover); color: var(--color-white); border-color: var(--color-accent-hover); }
+
+    /* ── S04: CLASSROOM (Bento Grid — Reversal 2) ── */
+    .classroom { padding: 100px 40px; background: var(--color-white); border-top: 10px solid var(--color-accent-hover); }
+    .classroom-inner { max-width: 1100px; margin: 0 auto; }
+    .classroom-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 15px; }
+    .classroom-slogans { display: flex; gap: 20px; font-size: 15px; color: var(--color-gray-mid); }
+    .classroom-tabs { display: flex; gap: 0; margin-bottom: 40px; border-bottom: 1px solid rgba(0,0,0,0.08); }
+    .classroom-tabs a { padding: 10px 20px; text-decoration: none; color: var(--color-gray-mid); font-size: 15px; font-weight: 500; border-bottom: 2px solid transparent; transition: all 0.2s; }
+    .classroom-tabs a:first-child { color: var(--color-text); border-bottom-color: var(--color-text); font-weight: 600; }
+    .classroom-tabs a:hover { color: var(--color-text); }
+    .bento { display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: auto auto; gap: 2px; }
+    .bento-card { background: var(--color-bg); padding: 30px; position: relative; overflow: hidden; transition: all 0.3s cubic-bezier(0.16,1,0.3,1); }
+    .bento-card:hover { background: var(--color-text); color: var(--color-white); }
+    .bento-card:hover .bento-meta { color: var(--color-gray-light); }
+    .bento-card:hover .bento-badge { background: var(--color-accent); color: var(--color-white); }
+    .bento-card:first-child { grid-row: span 2; padding: 40px; display: flex; flex-direction: column; justify-content: flex-end; min-height: 380px; background: var(--color-text); color: var(--color-white); }
+    .bento-card:first-child .bento-meta { color: var(--color-gray-light); }
+    .bento-thumb { height: 100px; background: rgba(240,84,35,0.08); border-radius: var(--radius-md); margin-bottom: 15px; position: relative; }
+    .bento-card:first-child .bento-thumb { height: 140px; background: rgba(255,255,255,0.05); margin-bottom: 20px; }
+    .bento-badges { position: absolute; top: 10px; left: 10px; display: flex; gap: 6px; }
+    .bento-badge { font-size: 10px; font-weight: 700; padding: 3px 8px; background: rgba(0,0,0,0.06); border-radius: 3px; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.3s; }
+    .bento-badge-heart { position: absolute; top: 10px; right: 10px; font-size: 12px; color: var(--color-gray-mid); }
+    .bento-title { font-size: 16px; font-weight: 600; margin-bottom: 6px; line-height: 1.4; }
+    .bento-card:first-child .bento-title { font-size: 20px; }
+    .bento-desc { font-size: 15px; color: var(--color-gray-mid); line-height: 1.5; margin-bottom: 10px; }
+    .bento-meta { font-size: 12px; color: var(--color-gray-mid); display: flex; gap: 15px; transition: color 0.3s; }
+
+    /* ── S06: 채널 + 도서 ── */
+    .community { padding: 80px 40px; max-width: 1100px; margin: 0 auto; }
+    .community-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 50px; }
+    .channel-card { display: flex; align-items: center; gap: 15px; padding: 18px 0; border-bottom: 1px solid rgba(0,0,0,0.06); }
+    .channel-badge { width: 44px; height: 44px; border-radius: 50%; background: var(--color-accent); color: var(--color-white); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; }
+    .channel-info { flex: 1; }
+    .channel-info strong { display: block; font-size: 15px; font-weight: 600; }
+    .channel-info small { font-size: 12px; color: var(--color-gray-mid); }
+    .channel-btn { padding: 6px 14px; background: var(--color-white); color: var(--color-gray-mid); border: 1px solid var(--color-gray-light); font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+    .channel-btn:hover { background: var(--color-accent-hover); color: var(--color-white); border-color: var(--color-accent-hover); }
+    .books-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+    .book-item { text-align: center; }
+    .book-cover { width: 100%; aspect-ratio: 3/4; background: rgba(240,84,35,0.06); border-radius: var(--radius-md); margin-bottom: 10px; border: 1px solid rgba(0,0,0,0.04); }
+    .book-item strong { display: block; font-size: 15px; font-weight: 600; line-height: 1.3; }
+    .book-item small { font-size: 12px; color: var(--color-gray-mid); }
+
+    /* ── S07: 교육안내 ── */
+    .contact { padding: 50px 40px; background: var(--color-text); }
+    .contact-inner { max-width: 1100px; margin: 0 auto; }
+    .contact-title { font-size: 18px; font-weight: 500; color: var(--color-white); margin-bottom: 30px; text-align: center; }
+    .contact-strip { display: flex; justify-content: center; }
+    .contact-item { padding: 0 30px; text-align: center; border-right: 1px solid rgba(255,255,255,0.1); }
+    .contact-item:last-child { border-right: none; }
+    .contact-item iconify-icon { font-size: 20px; color: var(--color-accent); margin-bottom: 8px; display: block; }
+    .contact-item strong { display: block; font-size: 15px; font-weight: 600; color: var(--color-white); margin-bottom: 4px; }
+    .contact-item span { font-family: var(--font-display); font-size: 16px; font-weight: 600; color: var(--color-gray-light); }
+
+    /* ── FOOTER ── */
+    footer { padding: 40px 40px 25px; background: var(--color-text); border-top: 1px solid rgba(255,255,255,0.06); }
+    .footer-inner { max-width: 1100px; margin: 0 auto; }
+    .footer-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .footer-logo { font-family: var(--font-display); font-size: 15px; font-weight: 700; color: var(--color-accent); }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-links a { font-size: 12px; color: var(--color-gray-mid); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:first-child { font-weight: 700; color: var(--color-gray-light); }
+    .footer-links a:hover { color: var(--color-white); }
+    .footer-info { font-size: 12px; color: var(--color-gray-mid); line-height: 1.8; margin-bottom: 15px; }
+    .footer-copy { font-size: 10px; color: rgba(255,255,255,0.2); display: flex; justify-content: space-between; align-items: center; }
+    .scroll-top { width: 32px; height: 32px; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: var(--color-gray-mid); cursor: pointer; transition: all 0.2s; }
+    .scroll-top:hover { border-color: var(--color-accent); color: var(--color-accent); }
+
+    /* ── Animations ── */
+    .reveal { opacity: 0; transform: translateY(25px); transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .nav { padding: 10px 20px; gap: 15px; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-left, .hero-right { padding: 60px 25px; }
+      .hero-title { font-size: 28px; }
+      .status-grid { grid-template-columns: 1fr; }
+      .continue-item { grid-template-columns: 60px 1fr 80px; }
+      .continue-btn { display: none; }
+      .bento { grid-template-columns: 1fr; }
+      .bento-card:first-child { grid-row: span 1; min-height: auto; }
+      .community-grid { grid-template-columns: 1fr; }
+      .books-grid { grid-template-columns: repeat(3, 1fr); }
+      .contact-strip { flex-wrap: wrap; gap: 20px; }
+      .contact-item { border-right: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="nav-util"><a href="#">플랫폼(관리자)</a><a href="#">학사행정시스템</a></div>
+
+  <nav class="nav">
+    <div class="nav-logo">✦ 새로e아름</div>
+    <div class="nav-links"><a href="#">나의공간</a><a href="#">콘텐츠</a><a href="#">채널</a><a href="#">직무인증</a><a href="#">고객지원센터</a></div>
+    <div class="nav-user">홍길동님 <a href="#">로그아웃</a></div>
+  </nav>
+
+  <!-- S02: Hero — Editorial Split -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow">AX Education Curator</div>
+      <h1 class="hero-title">무엇이든<br>물어보세요</h1>
+      <p class="hero-desc">구체적으로 질문하시면 더 정확한 답변이 나옵니다</p>
+      <div class="hero-search">
+        <input type="text" placeholder="교육 과정, 수료증, 수강 방법...">
+        <button>검색</button>
+      </div>
+      <div class="hero-tags">
+        <span>교육 신청은 어떻게 해?</span>
+        <span>수료증은 어디서 받는지 알 수 있어?</span>
+        <span>온라인 교육 수강 방법은?</span>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-right-eyebrow">새로e아름 › 콘텐츠 › 전자도서관</div>
+      <h2>우정인재개발원<br>전자도서관</h2>
+      <p>슬기로운 독서생활! 전자도서관에 접속해 보세요</p>
+      <a href="#" class="hero-cta">사람은 책을 만들고 책은 사람을 만든다</a>
+      <div class="hero-deco">BOOK</div>
+    </div>
+  </section>
+
+  <!-- S03: 학습 현황 -->
+  <section class="status reveal">
+    <div class="section-label">02 — My Status</div>
+    <h2 class="section-title">학습 현황</h2>
+    <div class="status-grid">
+      <div class="status-donut">
+        <div class="donut-circle"><span class="donut-num">5</span></div>
+        <span class="donut-label">아름포인트</span>
+      </div>
+      <div class="status-courses">
+        <div>
+          <div class="course-group-title">필수교육 이수현황</div>
+          <div class="pill-row">
+            <span class="pill">공직가치 5/10</span><span class="pill">적극행정 5/10</span><span class="pill">성인지 5/10</span>
+            <span class="pill">정보화 5/10</span><span class="pill">정보보안 5/10</span><span class="pill">개인정보 5/10</span>
+          </div>
+        </div>
+        <div>
+          <div class="course-group-title">법정교육 이수현황</div>
+          <div class="pill-row">
+            <span class="pill">성폭력예방 5/10</span><span class="pill">감염병예방 5/10</span><span class="pill">자살예방 5/10</span>
+            <span class="pill">안보 5/10</span><span class="pill">장애인식개선 5/10</span><span class="pill">아동학대예방 5/10</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S05: 이어서 학습하기 (Magazine timeline) -->
+  <section class="continue reveal">
+    <div class="continue-header">
+      <div><div class="section-label">03 — Continue</div><h2 class="section-title">이어서 학습하기</h2></div>
+      <a href="#" class="link-more">전체보기 →</a>
+    </div>
+    <div class="continue-list">
+      <div class="continue-item">
+        <div class="continue-thumb"></div>
+        <div class="continue-info"><strong>우편취급 위반관련 법규</strong><div class="continue-progress"><div class="continue-progress-fill" style="width:30%"></div></div></div>
+        <div class="continue-percent">30%</div>
+        <button class="continue-btn">이어보기</button>
+      </div>
+      <div class="continue-item">
+        <div class="continue-thumb"></div>
+        <div class="continue-info"><strong>도전! 나의 손해 2</strong><div class="continue-progress"><div class="continue-progress-fill" style="width:65%"></div></div></div>
+        <div class="continue-percent">65%</div>
+        <button class="continue-btn">이어보기</button>
+      </div>
+      <div class="continue-item">
+        <div class="continue-thumb"></div>
+        <div class="continue-info"><strong>청렴판단력 키우기</strong><div class="continue-progress"><div class="continue-progress-fill" style="width:10%"></div></div></div>
+        <div class="continue-percent">10%</div>
+        <button class="continue-btn">이어보기</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- S04: CLASSROOM (Bento Grid) -->
+  <section class="classroom reveal">
+    <div class="classroom-inner">
+      <div class="classroom-header">
+        <div><div class="section-label">04 — Classroom</div><h2 class="section-title">CLASSROOM</h2></div>
+        <div class="classroom-slogans"><span>이것이 필수다.</span><span>당신에게 딱이다.</span></div>
+      </div>
+      <div class="classroom-tabs"><a href="#">전체</a><a href="#">국정철학</a><a href="#">직무공통</a></div>
+      <div class="bento">
+        <div class="bento-card">
+          <div class="bento-thumb"><div class="bento-badges"><span class="bento-badge">60분</span><span class="bento-badge">국정철학</span></div><span class="bento-badge-heart">♡ 42</span></div>
+          <div class="bento-title">개인정보 보호교육</div>
+          <div class="bento-desc">우정사업본부 직원이 알아야할 개인정보 보호의 핵심</div>
+          <div class="bento-meta"><span>수강 1,234명</span><span>댓글 56</span></div>
+        </div>
+        <div class="bento-card">
+          <div class="bento-thumb"><div class="bento-badges"><span class="bento-badge">60분</span><span class="bento-badge">직무공통</span></div><span class="bento-badge-heart">♡ 38</span></div>
+          <div class="bento-title">개인정보보호교육(이용자)</div>
+          <div class="bento-meta"><span>수강 987명</span><span>댓글 23</span></div>
+        </div>
+        <div class="bento-card">
+          <div class="bento-thumb"><div class="bento-badges"><span class="bento-badge">60분</span><span class="bento-badge">직무공통</span></div><span class="bento-badge-heart">♡ 55</span></div>
+          <div class="bento-title">정보보안기본교육</div>
+          <div class="bento-meta"><span>수강 2,100명</span><span>댓글 89</span></div>
+        </div>
+        <div class="bento-card">
+          <div class="bento-thumb"><div class="bento-badges"><span class="bento-badge">60분</span><span class="bento-badge">국정철학</span></div><span class="bento-badge-heart">♡ 27</span></div>
+          <div class="bento-title">이해충돌방지법</div>
+          <div class="bento-meta"><span>수강 756명</span><span>댓글 12</span></div>
+        </div>
+        <div class="bento-card">
+          <div class="bento-thumb"><div class="bento-badges"><span class="bento-badge">60분</span><span class="bento-badge">직무공통</span></div><span class="bento-badge-heart">♡ 91</span></div>
+          <div class="bento-title">엑셀실무테크닉</div>
+          <div class="bento-meta"><span>수강 3,456명</span><span>댓글 201</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S06: 채널 + 도서 -->
+  <section class="community reveal">
+    <div class="community-grid">
+      <div>
+        <div class="section-label">05 — Channels</div>
+        <h2 class="section-title" style="margin-bottom:8px">구독중인 채널</h2>
+        <p style="font-size:15px;color:var(--color-gray-mid);margin-bottom:25px">내가 팔로우하는 학습 채널</p>
+        <div class="channel-card"><div class="channel-badge">우정</div><div class="channel-info"><strong>우정인재개발원</strong><small>50,032명</small></div><button class="channel-btn">구독중</button></div>
+        <div class="channel-card"><div class="channel-badge" style="background:var(--color-gray-dark)">교육</div><div class="channel-info"><strong>교육큐레이션</strong><small>52,149명</small></div><button class="channel-btn">구독중</button></div>
+        <div class="channel-card"><div class="channel-badge" style="background:var(--color-red)">보이</div><div class="channel-info"><strong>보이스피싱 예방</strong><small>49,533명</small></div><button class="channel-btn">구독중</button></div>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:25px">
+          <div><div class="section-label">06 — Books</div><h2 class="section-title" style="margin-bottom:4px">지금, 이 책!</h2><p style="font-size:15px;color:var(--color-gray-mid)">이달의 추천 도서</p></div>
+          <a href="#" class="link-more">전체보기 →</a>
+        </div>
+        <div class="books-grid">
+          <div class="book-item"><div class="book-cover"></div><strong>가짜 노동</strong><small>데니스 뇌르마르크</small></div>
+          <div class="book-item"><div class="book-cover"></div><strong>공부하고 있다는 착각</strong><small>대니얼 T. 윌링햄</small></div>
+          <div class="book-item"><div class="book-cover"></div><strong>기본의 디자인</strong><small>아키타 미치오</small></div>
+          <div class="book-item"><div class="book-cover"></div><strong>도파민네이션</strong><small>애나 렘키</small></div>
+          <div class="book-item"><div class="book-cover"></div><strong>쇼펜하우어</strong><small>강용수</small></div>
+          <div class="book-item"><div class="book-cover"></div><strong>마흔에 읽는 쇼펜하우어</strong><small>강용수</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S07: 교육안내 -->
+  <section class="contact">
+    <div class="contact-inner">
+      <div class="contact-title">교육관련 안내</div>
+      <div class="contact-strip">
+        <div class="contact-item"><iconify-icon icon="solar:phone-calling-linear"></iconify-icon><strong>이러닝 문의</strong><span>041-560-5350</span></div>
+        <div class="contact-item"><iconify-icon icon="solar:monitor-linear"></iconify-icon><strong>집합교육(선발)</strong><span>041-560-5264</span></div>
+        <div class="contact-item"><iconify-icon icon="solar:clipboard-list-linear"></iconify-icon><strong>집합교육(계획)</strong><span>041-560-5311</span></div>
+        <div class="contact-item"><iconify-icon icon="solar:document-text-linear"></iconify-icon><strong>직무인증평가</strong><span>041-560-5312</span></div>
+        <div class="contact-item"><iconify-icon icon="solar:book-2-linear"></iconify-icon><strong>지금, 이 책!</strong><span>041-560-5151</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S08: Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-logo">✦ 우정인재개발원</div>
+        <div class="footer-links">
+          <a href="#">개인정보처리 방침</a><a href="#">영상정보처리기기 운영관리 방침</a><a href="#">이메일주소 무단수집거부</a><a href="#">이용약관</a><a href="#">찾아오시는길</a><a href="#">고객지원센터</a>
+        </div>
+      </div>
+      <div class="footer-info">(31068) 충청남도 천안시 동남구 양지말1길 (유량동) 우정인재개발원<br>전화번호: 041-560-5350 | 팩스번호: 0505-005-1062 | 이메일: cyber123@korea.kr</div>
+      <div class="footer-copy">
+        <span>COPYRIGHT(C) 2016 KOREA POST(OFFICE OF POSTAL SERVICE). ALL RIGHTS RESERVED.</span>
+        <div class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function(){
+    var els=document.querySelectorAll('.reveal');
+    if(!els.length)return;
+    var obs=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});
+    },{threshold:0.1});
+    els.forEach(function(el){obs.observe(el);});
+  })();
+  </script>
+</body>
+</html>

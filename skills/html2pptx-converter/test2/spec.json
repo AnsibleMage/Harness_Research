@@ -1,0 +1,278 @@
+{
+  "presentation": {
+    "layout": "CUSTOM",
+    "width_pt": 995,
+    "height_pt": 720,
+    "width_in": 13.819,
+    "height_in": 10.0,
+    "mode": "wireframe",
+    "slides_count": 1
+  },
+  "theme": {
+    "wireframe_palette": {
+      "black": "#000000",
+      "gray": "#808080",
+      "light_gray": "#E0E0E0",
+      "white": "#FFFFFF"
+    },
+    "font": "Arial"
+  },
+  "color_mapping": {
+    "dark_backgrounds": {
+      "#1E3A5F_header": "#808080",
+      "#2B6CB0_hero": "#808080",
+      "#1A202C_footer": "#808080",
+      "#2D3748_board_header": "#000000"
+    },
+    "accent_colors": {
+      "#E53E3E_red": "#000000",
+      "#38A169_green": "#808080",
+      "#D69E2E_gold": "#808080",
+      "#805AD5_purple": "#808080",
+      "#3182CE_blue": "#808080"
+    },
+    "light_backgrounds": {
+      "#F5F5F5_body": "#E0E0E0",
+      "#FFFFFF_card": "#FFFFFF",
+      "#F7FAFC_table_header": "#E0E0E0",
+      "#EBF8FF_quick_link": "#E0E0E0"
+    },
+    "tag_backgrounds": {
+      "#FED7D7_notice": "#E0E0E0",
+      "#C6F6D5_event": "#E0E0E0",
+      "#BEE3F8_update": "#E0E0E0",
+      "#FEFCBF_faq": "#E0E0E0"
+    },
+    "text_colors": {
+      "#FFFFFF_white": "#FFFFFF",
+      "#1F2937_primary": "#000000",
+      "#718096_secondary": "#808080",
+      "#4A5568_body": "#000000",
+      "#A0AEC0_muted": "#808080",
+      "#CBD5E0_nav": "#FFFFFF",
+      "#BEE3F8_subtitle": "#FFFFFF",
+      "#2B6CB0_stat_number": "#000000"
+    }
+  },
+  "slides": [
+    {
+      "index": 0,
+      "type": "wireframe",
+      "body_background": "#E0E0E0",
+      "content_area": {
+        "x": 0,
+        "y": 0,
+        "width_pt": 720,
+        "height_pt": 720
+      },
+      "description_panel": {
+        "x": 720,
+        "y": 0,
+        "width_pt": 275,
+        "height_pt": 720,
+        "background": "#FFFFFF",
+        "border_left": "1pt solid #000000"
+      },
+      "sections": [
+        {
+          "id": 1,
+          "name": "Header Nav",
+          "badge_number": "1",
+          "original": {
+            "background": "#1E3A5F",
+            "height": "64px",
+            "border_bottom": "3px solid #2B6CB0"
+          },
+          "wireframe": {
+            "background": "#808080",
+            "position": { "x": 0, "y": 0, "w": 720, "h": 32 }
+          },
+          "elements": [
+            {
+              "type": "text",
+              "content": "TestCorp Portal",
+              "role": "logo",
+              "original_style": "22px bold #FFFFFF",
+              "wireframe_style": "11pt bold #FFFFFF"
+            },
+            {
+              "type": "text",
+              "content": "Home  Services  Board  About  Contact",
+              "role": "navigation",
+              "original_style": "15px #CBD5E0",
+              "wireframe_style": "7.5pt #FFFFFF text-align: right"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Hero Section",
+          "badge_number": "2",
+          "original": {
+            "background": "#2B6CB0",
+            "padding": "80px 60px"
+          },
+          "wireframe": {
+            "background": "#808080",
+            "position": { "x": 0, "y": 32, "w": 720, "h": 100 }
+          },
+          "elements": [
+            {
+              "type": "heading",
+              "content": "Welcome to TestCorp Portal",
+              "role": "title",
+              "original_style": "42px 800weight #FFFFFF center",
+              "wireframe_style": "17pt bold #FFFFFF center"
+            },
+            {
+              "type": "text",
+              "content": "Layout verification page for html2pptx conversion testing. Includes header, hero, board, shapes, and footer.",
+              "role": "subtitle",
+              "original_style": "18px #BEE3F8 center max-width:640px",
+              "wireframe_style": "8pt #FFFFFF center"
+            },
+            {
+              "type": "button",
+              "content": "Get Started",
+              "role": "cta_primary",
+              "original_style": "#E53E3E bg, 16px bold #FFFFFF, 8px radius",
+              "wireframe_style": "#000000 bg, 8pt bold #FFFFFF, 4pt radius"
+            },
+            {
+              "type": "button",
+              "content": "Learn More",
+              "role": "cta_secondary",
+              "original_style": "transparent bg, 2px border rgba(255,255,255,0.4), 16px #FFFFFF",
+              "wireframe_style": "no bg, 1pt border #FFFFFF, 8pt #FFFFFF"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Stats Bar",
+          "badge_number": "3",
+          "original": {
+            "background": "#FFFFFF",
+            "border_bottom": "1px solid #E2E8F0"
+          },
+          "wireframe": {
+            "background": "#FFFFFF",
+            "position": { "x": 0, "y": 132, "w": 720, "h": 45 },
+            "border_bottom": "1pt solid #E0E0E0"
+          },
+          "elements": [
+            { "type": "stat", "number": "1,247", "label": "ACTIVE USERS" },
+            { "type": "stat", "number": "358", "label": "PROJECTS" },
+            { "type": "stat", "number": "99.9%", "label": "UPTIME" },
+            { "type": "stat", "number": "24/7", "label": "SUPPORT" }
+          ]
+        },
+        {
+          "id": 4,
+          "name": "Board + Sidebar",
+          "badge_number": "4",
+          "wireframe": {
+            "position": { "x": 15, "y": 187, "w": 690, "h": 190 }
+          },
+          "sub_sections": [
+            {
+              "name": "Notice Board (main)",
+              "wireframe": {
+                "background": "#FFFFFF",
+                "border": "1pt solid #E0E0E0",
+                "position": { "x": 15, "y": 187, "w": 450, "h": 190 }
+              },
+              "elements": [
+                { "type": "bar", "content": "Notice Board", "badge": "5 New", "bg": "#000000" },
+                { "type": "table_header", "columns": ["No.", "Category", "Title", "Date", "Views"] },
+                { "type": "table_rows", "count": 5, "sample_data": true }
+              ]
+            },
+            {
+              "name": "Sidebar",
+              "cards": [
+                {
+                  "title": "Recent Updates",
+                  "wireframe": {
+                    "background": "#FFFFFF",
+                    "border": "1pt solid #E0E0E0",
+                    "position": { "x": 475, "y": 187, "w": 230, "h": 90 }
+                  },
+                  "items": ["API v2.5 released", "Dashboard redesign", "Mobile app update", "Security patch"]
+                },
+                {
+                  "title": "Quick Links",
+                  "wireframe": {
+                    "background": "#FFFFFF",
+                    "border": "1pt solid #E0E0E0",
+                    "position": { "x": 475, "y": 285, "w": 230, "h": 92 }
+                  },
+                  "grid": "2x2",
+                  "items": ["Docs", "Support", "Reports", "Settings"]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "name": "Shape & Line Test",
+          "badge_number": "5",
+          "wireframe": {
+            "background": "#FFFFFF",
+            "border": "1pt solid #E0E0E0",
+            "position": { "x": 15, "y": 387, "w": 690, "h": 135 }
+          },
+          "elements": {
+            "shapes": [
+              { "name": "Rectangle", "type": "rect", "wireframe": "#808080 bg, 2pt radius" },
+              { "name": "Rounded Rect", "type": "rounded_rect", "wireframe": "#808080 bg, 8pt radius" },
+              { "name": "Circle", "type": "circle", "wireframe": "#808080 bg, 50% radius" },
+              { "name": "Border Only", "type": "border_only", "wireframe": "no bg, 2pt border #000000" },
+              { "name": "Box Shadow", "type": "shadow", "wireframe": "#808080 bg, box-shadow" }
+            ],
+            "lines": [
+              { "name": "Top Border", "type": "border_top", "wireframe": "border-top 2pt #000000" },
+              { "name": "Left Border", "type": "border_left", "wireframe": "border-left 2pt #808080" },
+              { "name": "Bottom Border", "type": "border_bottom", "wireframe": "border-bottom 2pt #808080" },
+              { "name": "Full Border", "type": "border_full", "wireframe": "border 1pt #808080, 3pt radius" }
+            ]
+          }
+        },
+        {
+          "id": 6,
+          "name": "Footer",
+          "badge_number": "6",
+          "original": {
+            "background": "#1A202C",
+            "grid": "2fr 1fr 1fr 1fr"
+          },
+          "wireframe": {
+            "background": "#808080",
+            "position": { "x": 0, "y": 532, "w": 720, "h": 85 }
+          },
+          "elements": [
+            { "type": "column", "title": "TestCorp Portal", "content": "description text" },
+            { "type": "column", "title": "Company", "links": ["About Us", "Careers", "Press", "Blog"] },
+            { "type": "column", "title": "Resources", "links": ["Documentation", "API Reference", "Status Page", "Changelog"] },
+            { "type": "column", "title": "Legal", "links": ["Privacy Policy", "Terms of Service", "Cookie Policy", "GDPR"] },
+            { "type": "bottom_bar", "copyright": "2026 TestCorp. All rights reserved.", "social": ["GitHub", "Twitter", "LinkedIn"] }
+          ]
+        },
+        {
+          "id": 7,
+          "name": "Corner Markers",
+          "badge_number": "7",
+          "description": "5 position-verification markers at corners and center",
+          "elements": [
+            { "label": "TL", "position": "top-left", "original_color": "#E53E3E", "wireframe_xy": [0, 0], "size": 20 },
+            { "label": "TR", "position": "top-right", "original_color": "#3182CE", "wireframe_xy": [700, 0], "size": 20 },
+            { "label": "BL", "position": "bottom-left", "original_color": "#38A169", "wireframe_xy": [0, 700], "size": 20 },
+            { "label": "BR", "position": "bottom-right", "original_color": "#D69E2E", "wireframe_xy": [700, 700], "size": 20 },
+            { "label": "CTR", "position": "center", "original_color": "#805AD5", "wireframe_xy": [345, 345], "size": 30 }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+html { background: #2B6CB0; }
+body {
+  width: 720pt;
+  height: 405pt;
+  margin: 0;
+  padding: 0;
+  background: #2B6CB0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+.corner-tl {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 30pt;
+  height: 30pt;
+  background: #E53E3E;
+  border-radius: 0 0 6pt 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+.corner-tr {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 30pt;
+  height: 30pt;
+  background: #3182CE;
+  border-radius: 0 0 0 6pt;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+.corner-bl {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 30pt;
+  height: 30pt;
+  background: #38A169;
+  border-radius: 0 6pt 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+.corner-br {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 30pt;
+  height: 30pt;
+  background: #D69E2E;
+  border-radius: 6pt 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+.corner-center {
+  position: absolute;
+  left: 338pt;
+  top: 180pt;
+  width: 45pt;
+  height: 45pt;
+  background: #805AD5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+.corner-label {
+  font-size: 8pt;
+  color: #FFFFFF;
+  text-align: center;
+  margin: 0;
+}
+.header-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 720pt;
+  height: 48pt;
+  background: #1E3A5F;
+  border-bottom: 2pt solid #2B6CB0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 5;
+}
+.logo-text {
+  font-size: 16pt;
+  font-weight: bold;
+  color: #FFFFFF;
+  margin: 0;
+  padding-left: 30pt;
+}
+.nav-text {
+  font-size: 11pt;
+  color: #CBD5E0;
+  margin: 0;
+  padding-right: 30pt;
+}
+.hero-section {
+  position: absolute;
+  top: 100pt;
+  left: 60pt;
+  width: 600pt;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hero-title {
+  font-size: 32pt;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center;
+  margin: 0;
+}
+.hero-subtitle {
+  font-size: 13pt;
+  color: #BEE3F8;
+  text-align: center;
+  margin: 20pt 40pt 0 40pt;
+  line-height: 1.5;
+}
+.button-row {
+  position: absolute;
+  top: 230pt;
+  left: 240pt;
+  display: flex;
+  gap: 20pt;
+}
+.btn-primary {
+  width: 105pt;
+  height: 32pt;
+  background: #E53E3E;
+  border-radius: 6pt;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-primary p {
+  font-size: 12pt;
+  font-weight: bold;
+  color: #FFFFFF;
+  margin: 0;
+}
+.btn-secondary {
+  width: 105pt;
+  height: 32pt;
+  background: transparent;
+  border: 2pt solid #FFFFFF;
+  border-radius: 6pt;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.btn-secondary p {
+  font-size: 12pt;
+  color: #FFFFFF;
+  margin: 0;
+}
+</style>
+</head>
+<body>
+<!-- Corner Markers -->
+<div class="corner-tl"><p class="corner-label">TL</p></div>
+<div class="corner-tr"><p class="corner-label">TR</p></div>
+<div class="corner-bl"><p class="corner-label">BL</p></div>
+<div class="corner-br"><p class="corner-label">BR</p></div>
+<div class="corner-center"><p class="corner-label">CENTER</p></div>
+
+<!-- Header Bar -->
+<div class="header-bar">
+  <p class="logo-text">TestCorp Portal</p>
+  <p class="nav-text">Home   Services   Board   About   Contact</p>
+</div>
+
+<!-- Hero Section -->
+<div class="hero-section">
+  <h1 class="hero-title">Welcome to TestCorp Portal</h1>
+  <p class="hero-subtitle">This is a layout verification page for html2pptx conversion testing. It includes header navigation, hero content, board section, shape tests, and footer structure.</p>
+</div>
+
+<!-- Buttons -->
+<div class="button-row">
+  <div class="btn-primary"><p>Get Started</p></div>
+  <div class="btn-secondary"><p>Learn More</p></div>
+</div>
+</body>
+</html>

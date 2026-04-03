@@ -1,0 +1,28 @@
+{
+  "execution": {
+    "success": true,
+    "pptx_path": "C:\\Users\\name\\.claude\\skills\\html2pptx-converter\\test3\\presentation.pptx",
+    "pptx_size_bytes": 178138,
+    "thumbnail_path": "C:\\Users\\name\\.claude\\skills\\html2pptx-converter\\test3\\thumbnails.jpg",
+    "comparison_path": "C:\\Users\\name\\.claude\\skills\\html2pptx-converter\\test3\\comparison.jpg",
+    "no_reference_image": false,
+    "slides_converted": 1,
+    "conversion_time_ms": 2283
+  },
+  "validation": {
+    "slides_count": 1,
+    "inspected_slides": [0],
+    "issues": [
+      {
+        "slide_index": 0,
+        "issue_type": "badge_misplacement",
+        "description": "Badge 1 (Corner Markers) and Badge 2 (Header Navigation) are both positioned at left:6pt, top:6pt, causing Badge 1 to be hidden behind Badge 2. Only Badge 2 is visible.",
+        "severity": "low",
+        "affected_element": "div.badge (badges 1 and 2)",
+        "suggested_fix": "Move Badge 1 to a distinct position (e.g., left:6pt, top:30pt) to avoid overlap with Badge 2. This is an HTML source issue, not a conversion error."
+      }
+    ],
+    "overall_quality": "pass",
+    "quality_notes": "Conversion successful. All 8 sections (Corner Markers, Header Navigation, Hero Section, Stats Bar, Notice Board, Sidebar, Shape & Line Rendering Test, Footer) are rendered correctly. Description panel (right 275pt) is fully visible with Korean text. Wireframe palette (#000000, #808080, #E0E0E0, #FFFFFF) is correctly applied throughout. Text content is complete with no clipping or overlap. Number badges 2-8 are visible (badge 1 is overlapped by badge 2 at the same position -- this is an HTML source characteristic). Shape rendering test shows all 5 shapes and 4 line styles. Footer 4-column layout preserved. Only a minor shadow opacity warning was emitted during conversion (non-blocking). Overall layout and positioning match the original faithfully."
+  }
+}

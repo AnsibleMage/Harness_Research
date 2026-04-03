@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HTML2PPTX Layout Test Page</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: Arial, sans-serif;
+    background: #F5F5F5;
+    color: #1F2937;
+    min-height: 100vh;
+  }
+
+  /* ===== CORNER MARKERS — 좌표 검증용 ===== */
+  .corner-marker {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: bold;
+    color: #FFFFFF;
+  }
+  .corner-tl { top: 0; left: 0; background: #E53E3E; border-bottom-right-radius: 8px; }
+  .corner-tr { top: 0; right: 0; background: #3182CE; border-bottom-left-radius: 8px; }
+  .corner-bl { bottom: 0; left: 0; background: #38A169; border-top-right-radius: 8px; }
+  .corner-br { bottom: 0; right: 0; background: #D69E2E; border-top-left-radius: 8px; }
+  .corner-center {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: #805AD5;
+    border-radius: 50%;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    font-weight: bold;
+    color: #FFFFFF;
+  }
+
+  /* ===== HEADER NAV ===== */
+  .header {
+    background: #1E3A5F;
+    padding: 0 40px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 3px solid #2B6CB0;
+  }
+  .header .logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #FFFFFF;
+    letter-spacing: 1px;
+  }
+  .header nav {
+    display: flex;
+    gap: 32px;
+  }
+  .header nav a {
+    color: #CBD5E0;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 8px 0;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+  }
+  .header nav a:hover,
+  .header nav a.active {
+    color: #FFFFFF;
+    border-bottom-color: #63B3ED;
+  }
+
+  /* ===== HERO SECTION ===== */
+  .hero {
+    background: #2B6CB0;
+    padding: 80px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: -30px;
+    width: 150px;
+    height: 150px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+  }
+  .hero h1 {
+    font-size: 42px;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+    font-weight: 800;
+    line-height: 1.2;
+  }
+  .hero p.subtitle {
+    font-size: 18px;
+    color: #BEE3F8;
+    max-width: 640px;
+    margin: 0 auto 32px;
+    line-height: 1.6;
+  }
+  .hero .cta-group {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+  }
+  .hero .btn-primary {
+    background: #E53E3E;
+    color: #FFFFFF;
+    padding: 14px 36px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    border: 2px solid #E53E3E;
+  }
+  .hero .btn-secondary {
+    background: transparent;
+    color: #FFFFFF;
+    padding: 14px 36px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+  }
+
+  /* ===== STATS BAR ===== */
+  .stats-bar {
+    background: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    padding: 32px 40px;
+    border-bottom: 1px solid #E2E8F0;
+  }
+  .stat-item {
+    text-align: center;
+  }
+  .stat-item .stat-number {
+    font-size: 32px;
+    font-weight: 800;
+    color: #2B6CB0;
+  }
+  .stat-item .stat-label {
+    font-size: 13px;
+    color: #718096;
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* ===== CONTENT SECTION — BOARD ===== */
+  .content-section {
+    max-width: 1200px;
+    margin: 48px auto;
+    padding: 0 40px;
+    display: flex;
+    gap: 32px;
+  }
+
+  /* --- Main Board --- */
+  .board-main {
+    flex: 2;
+    background: #FFFFFF;
+    border-radius: 12px;
+    border: 1px solid #E2E8F0;
+    overflow: hidden;
+  }
+  .board-header {
+    background: #2D3748;
+    color: #FFFFFF;
+    padding: 16px 24px;
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .board-header .badge {
+    background: #E53E3E;
+    color: #FFFFFF;
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+  }
+  .board-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .board-table thead th {
+    background: #F7FAFC;
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 600;
+    color: #4A5568;
+    border-bottom: 2px solid #E2E8F0;
+  }
+  .board-table tbody td {
+    padding: 14px 16px;
+    font-size: 14px;
+    color: #2D3748;
+    border-bottom: 1px solid #EDF2F7;
+  }
+  .board-table tbody tr:hover {
+    background: #F7FAFC;
+  }
+  .board-table .tag {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .tag-notice { background: #FED7D7; color: #C53030; }
+  .tag-event  { background: #C6F6D5; color: #276749; }
+  .tag-update { background: #BEE3F8; color: #2A4365; }
+  .tag-faq    { background: #FEFCBF; color: #744210; }
+
+  /* --- Sidebar --- */
+  .sidebar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .sidebar-card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    border: 1px solid #E2E8F0;
+    padding: 24px;
+  }
+  .sidebar-card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #2D3748;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #2B6CB0;
+  }
+  .sidebar-card ul {
+    list-style: none;
+    padding: 0;
+  }
+  .sidebar-card ul li {
+    padding: 10px 0;
+    font-size: 14px;
+    color: #4A5568;
+    border-bottom: 1px solid #EDF2F7;
+    display: flex;
+    justify-content: space-between;
+  }
+  .sidebar-card ul li:last-child {
+    border-bottom: none;
+  }
+  .sidebar-card ul li .date {
+    font-size: 12px;
+    color: #A0AEC0;
+  }
+
+  /* --- Quick Links Card --- */
+  .quick-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .quick-link-item {
+    background: #EBF8FF;
+    border: 1px solid #BEE3F8;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    text-decoration: none;
+    color: #2B6CB0;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+  .quick-link-item:hover {
+    background: #BEE3F8;
+  }
+  .quick-link-item .icon {
+    font-size: 24px;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  /* ===== LINE + SHAPE TEST AREA ===== */
+  .shape-test {
+    max-width: 1200px;
+    margin: 0 auto 48px;
+    padding: 0 40px;
+  }
+  .shape-test-inner {
+    background: #FFFFFF;
+    border-radius: 12px;
+    border: 1px solid #E2E8F0;
+    padding: 32px;
+  }
+  .shape-test h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2D3748;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #E2E8F0;
+  }
+  .shapes-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+  .shape-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .shape-rect {
+    width: 100px;
+    height: 60px;
+    background: #2B6CB0;
+    border-radius: 4px;
+  }
+  .shape-rounded {
+    width: 100px;
+    height: 60px;
+    background: #38A169;
+    border-radius: 16px;
+  }
+  .shape-circle {
+    width: 70px;
+    height: 70px;
+    background: #E53E3E;
+    border-radius: 50%;
+  }
+  .shape-bordered {
+    width: 100px;
+    height: 60px;
+    background: #FFFFFF;
+    border: 3px solid #D69E2E;
+    border-radius: 8px;
+  }
+  .shape-shadow {
+    width: 100px;
+    height: 60px;
+    background: #805AD5;
+    border-radius: 8px;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  .shape-label {
+    font-size: 11px;
+    color: #718096;
+    text-align: center;
+  }
+
+  /* --- Lines test --- */
+  .lines-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .line-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .line-sample {
+    width: 120px;
+    height: 40px;
+  }
+  .line-top {
+    border-top: 4px solid #E53E3E;
+    background: #FFF5F5;
+  }
+  .line-left {
+    border-left: 4px solid #2B6CB0;
+    background: #EBF8FF;
+  }
+  .line-bottom {
+    border-bottom: 4px solid #38A169;
+    background: #F0FFF4;
+  }
+  .line-full {
+    border: 2px solid #D69E2E;
+    background: #FFFFF0;
+    border-radius: 6px;
+  }
+  .line-label {
+    font-size: 11px;
+    color: #718096;
+    text-align: center;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    background: #1A202C;
+    color: #A0AEC0;
+    padding: 48px 60px 32px;
+  }
+  .footer-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+  .footer h4 {
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  .footer p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #A0AEC0;
+  }
+  .footer ul {
+    list-style: none;
+    padding: 0;
+  }
+  .footer ul li {
+    margin-bottom: 10px;
+  }
+  .footer ul li a {
+    color: #A0AEC0;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .footer ul li a:hover {
+    color: #FFFFFF;
+  }
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 24px;
+    border-top: 1px solid #2D3748;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+  }
+  .footer-bottom .social {
+    display: flex;
+    gap: 16px;
+  }
+  .footer-bottom .social a {
+    color: #718096;
+    text-decoration: none;
+    font-size: 13px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== CORNER MARKERS ===== -->
+<div class="corner-marker corner-tl">TL</div>
+<div class="corner-marker corner-tr">TR</div>
+<div class="corner-marker corner-bl">BL</div>
+<div class="corner-marker corner-br">BR</div>
+<div class="corner-center">CENTER</div>
+
+<!-- ===== HEADER NAV ===== -->
+<header class="header">
+  <div class="logo">TestCorp Portal</div>
+  <nav>
+    <a href="#" class="active">Home</a>
+    <a href="#">Services</a>
+    <a href="#">Board</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>
+
+<!-- ===== HERO SECTION ===== -->
+<section class="hero">
+  <h1>Welcome to TestCorp Portal</h1>
+  <p class="subtitle">This is a layout verification page for html2pptx conversion testing. It includes header navigation, hero content, board section, shape tests, and footer structure.</p>
+  <div class="cta-group">
+    <a href="#" class="btn-primary">Get Started</a>
+    <a href="#" class="btn-secondary">Learn More</a>
+  </div>
+</section>
+
+<!-- ===== STATS BAR ===== -->
+<section class="stats-bar">
+  <div class="stat-item">
+    <div class="stat-number">1,247</div>
+    <div class="stat-label">Active Users</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">358</div>
+    <div class="stat-label">Projects</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">99.9%</div>
+    <div class="stat-label">Uptime</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">24/7</div>
+    <div class="stat-label">Support</div>
+  </div>
+</section>
+
+<!-- ===== CONTENT: BOARD + SIDEBAR ===== -->
+<section class="content-section">
+  <!-- Main Board -->
+  <div class="board-main">
+    <div class="board-header">
+      <span>Notice Board</span>
+      <span class="badge">5 New</span>
+    </div>
+    <table class="board-table">
+      <thead>
+        <tr>
+          <th style="width:80px;">No.</th>
+          <th style="width:100px;">Category</th>
+          <th>Title</th>
+          <th style="width:100px;">Date</th>
+          <th style="width:70px;">Views</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>125</td>
+          <td><span class="tag tag-notice">Notice</span></td>
+          <td>System maintenance scheduled for March 15th</td>
+          <td>2026-03-10</td>
+          <td>342</td>
+        </tr>
+        <tr>
+          <td>124</td>
+          <td><span class="tag tag-event">Event</span></td>
+          <td>Annual developer conference registration open</td>
+          <td>2026-03-08</td>
+          <td>567</td>
+        </tr>
+        <tr>
+          <td>123</td>
+          <td><span class="tag tag-update">Update</span></td>
+          <td>Platform version 3.2 release notes</td>
+          <td>2026-03-05</td>
+          <td>891</td>
+        </tr>
+        <tr>
+          <td>122</td>
+          <td><span class="tag tag-faq">FAQ</span></td>
+          <td>How to reset your account password</td>
+          <td>2026-03-03</td>
+          <td>1,204</td>
+        </tr>
+        <tr>
+          <td>121</td>
+          <td><span class="tag tag-notice">Notice</span></td>
+          <td>New privacy policy effective April 1st</td>
+          <td>2026-03-01</td>
+          <td>456</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-card">
+      <h3>Recent Updates</h3>
+      <ul>
+        <li>
+          <span>API v2.5 released</span>
+          <span class="date">03-10</span>
+        </li>
+        <li>
+          <span>Dashboard redesign</span>
+          <span class="date">03-08</span>
+        </li>
+        <li>
+          <span>Mobile app update</span>
+          <span class="date">03-05</span>
+        </li>
+        <li>
+          <span>Security patch applied</span>
+          <span class="date">03-01</span>
+        </li>
+      </ul>
+    </div>
+    <div class="sidebar-card">
+      <h3>Quick Links</h3>
+      <div class="quick-links">
+        <a href="#" class="quick-link-item">
+          <span class="icon">📋</span>
+          Docs
+        </a>
+        <a href="#" class="quick-link-item">
+          <span class="icon">💬</span>
+          Support
+        </a>
+        <a href="#" class="quick-link-item">
+          <span class="icon">📊</span>
+          Reports
+        </a>
+        <a href="#" class="quick-link-item">
+          <span class="icon">⚙️</span>
+          Settings
+        </a>
+      </div>
+    </div>
+  </aside>
+</section>
+
+<!-- ===== SHAPE & LINE TEST AREA ===== -->
+<section class="shape-test">
+  <div class="shape-test-inner">
+    <h2>Shape &amp; Line Rendering Test</h2>
+
+    <!-- Shapes -->
+    <div class="shapes-grid">
+      <div class="shape-box">
+        <div class="shape-rect"></div>
+        <span class="shape-label">Rectangle<br>(4px radius)</span>
+      </div>
+      <div class="shape-box">
+        <div class="shape-rounded"></div>
+        <span class="shape-label">Rounded Rect<br>(16px radius)</span>
+      </div>
+      <div class="shape-box">
+        <div class="shape-circle"></div>
+        <span class="shape-label">Circle<br>(50% radius)</span>
+      </div>
+      <div class="shape-box">
+        <div class="shape-bordered"></div>
+        <span class="shape-label">Border Only<br>(3px solid)</span>
+      </div>
+      <div class="shape-box">
+        <div class="shape-shadow"></div>
+        <span class="shape-label">Box Shadow<br>(4px offset)</span>
+      </div>
+    </div>
+
+    <!-- Lines -->
+    <div class="lines-grid">
+      <div class="line-box">
+        <div class="line-sample line-top"></div>
+        <span class="line-label">Top Border<br>(4px red)</span>
+      </div>
+      <div class="line-box">
+        <div class="line-sample line-left"></div>
+        <span class="line-label">Left Border<br>(4px blue)</span>
+      </div>
+      <div class="line-box">
+        <div class="line-sample line-bottom"></div>
+        <span class="line-label">Bottom Border<br>(4px green)</span>
+      </div>
+      <div class="line-box">
+        <div class="line-sample line-full"></div>
+        <span class="line-label">Full Border<br>(2px gold)</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <h4>TestCorp Portal</h4>
+      <p>A comprehensive testing page designed to verify html2pptx conversion accuracy. This page includes navigation, hero sections, data tables, shape rendering, line borders, and footer layouts.</p>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Press</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="#">Documentation</a></li>
+        <li><a href="#">API Reference</a></li>
+        <li><a href="#">Status Page</a></li>
+        <li><a href="#">Changelog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Cookie Policy</a></li>
+        <li><a href="#">GDPR</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 TestCorp. All rights reserved.</span>
+    <div class="social">
+      <a href="#">GitHub</a>
+      <a href="#">Twitter</a>
+      <a href="#">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

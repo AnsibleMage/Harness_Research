@@ -1,0 +1,43 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "Agent",
+      "Bash(cd:*)",
+      "Bash(node:*)",
+      "Bash(python:*)",
+      "Bash(python3:*)",
+      "Bash(python -X utf8:*)",
+      "Bash(python -X:*)",
+      "Bash(mkdir:*)",
+      "Bash(cp:*)",
+      "Bash(mv:*)",
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(file:*)",
+      "Bash(stat:*)",
+      "Bash(npx:*)",
+      "Bash(pip:*)",
+      "Bash(pip3:*)",
+      "Bash(pip install:*)",
+      "Bash(wc:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(echo:*)",
+      "Bash(export:*)",
+      "Bash(set:*)",
+      "Bash(find:*)",
+      "Bash(dir:*)",
+      "Bash(type:*)",
+      "Bash(powershell:*)",
+      "Bash(test:*)",
+      "Bash([:*)",
+      "Bash(diff:*)"
+    ],
+    "deny": []
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "execution": {
+    "success": true,
+    "pptx_path": "C:\\Users\\name\\.claude\\skills\\html2pptx-converter\\test\\output\\presentation.pptx",
+    "pptx_size_bytes": 124432,
+    "thumbnail_path": "C:\\Users\\name\\.claude\\skills\\html2pptx-converter\\test\\output\\thumbnails.jpg",
+    "comparison_path": "C:\\Users\\name\\.claude\\skills\\html2pptx-converter\\test\\output\\comparison.jpg",
+    "no_reference_image": false,
+    "slides_converted": 4,
+    "conversion_time_ms": 5181
+  },
+  "validation": {
+    "slides_count": 4,
+    "inspected_slides": [0, 1, 2, 3],
+    "issues": [
+      {
+        "slide": 0,
+        "type": "positioning",
+        "severity": "low",
+        "description": "Navigation link 'Contact' wraps to a second line in PPTX header, whereas in original HTML it stays inline on one row."
+      },
+      {
+        "slide": 1,
+        "type": "missing_content",
+        "severity": "low",
+        "description": "Quick Links section renders as text-only links (Docs, Support, Reports, Settings) instead of icon cards with colored backgrounds as in original HTML. Expected limitation since pptxgenjs cannot render HTML icon elements."
+      },
+      {
+        "slide": 1,
+        "type": "positioning",
+        "severity": "low",
+        "description": "Notice Board category badges (Notice, Event, Update, FAQ) rendered as plain text instead of colored pill badges as in original HTML."
+      },
+      {
+        "slide": 3,
+        "type": "positioning",
+        "severity": "low",
+        "description": "Legal column 'Terms of Service' wraps to two lines due to narrower text box width compared to original HTML layout."
+      }
+    ],
+    "overall_quality": "pass",
+    "quality_notes": "All 4 slides converted successfully with high fidelity. All textual content is fully preserved with no cutoff or loss. Colors, backgrounds, and shapes render correctly. Minor positioning differences are typical HTML-to-PPTX conversion artifacts (text wrapping, icon-to-text fallback). No high or medium severity issues detected. Shape rendering on slide 2 is excellent -- rectangles, rounded rects, circles, border-only shapes, and individual border sides all render accurately with correct colors."
+  }
+}

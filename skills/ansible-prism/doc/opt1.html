@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Option 1: Classic Stack — SaeroEArum Main Page</title>
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles-opt1.css">
+  <style>
+    body { margin: 0; background: #f5f5f5; }
+    .standalone-wrapper { max-width: 960px; margin: 0 auto; padding: 20px; }
+    .standalone-title { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: #fff; border: 1px solid #ccc; border-radius: 8px; font-size: 14px; margin-bottom: 12px; }
+    .standalone-title .name { font-weight: 600; color: #000; }
+    .standalone-title .desc { font-size: 12px; color: #666; }
+    .sub-tab-bar { display: flex; gap: 24px; justify-content: center; padding: 8px 0 12px; }
+    .sub-tab-btn { display: flex; flex-direction: column; align-items: center; gap: 2px; background: none; border: none; border-bottom: 2px solid transparent; padding: 4px 8px 6px; cursor: pointer; color: #666; font-size: 12px; transition: color 0.2s, border-color 0.2s; }
+    .sub-tab-btn svg { width: 24px; height: 24px; }
+    .sub-tab-btn[data-variant="wireframe"].active { color: #000; border-bottom-color: #000; }
+    .sub-tab-btn[data-variant="clean"] { color: #64B5F6; }
+    .sub-tab-btn[data-variant="clean"]:hover { color: #1E88E5; }
+    .sub-tab-btn[data-variant="clean"].active { color: #1565C0; border-bottom-color: #1565C0; }
+    .sub-tab-btn[data-variant="polished"] { color: #81C784; }
+    .sub-tab-btn[data-variant="polished"]:hover { color: #43A047; }
+    .sub-tab-btn[data-variant="polished"].active { color: #2E7D32; border-bottom-color: #2E7D32; }
+    .browser-content { overflow: visible !important; max-height: none !important; min-height: auto !important; }
+    .browser-frame { max-width: 900px; margin: 0 auto; border: 1px solid #ccc; border-radius: 8px; overflow: visible; background: #fff; }
+    .browser-chrome { display: flex; align-items: center; padding: 8px 12px; background: #f0f0f0; border-bottom: 1px solid #ccc; gap: 8px; border-radius: 8px 8px 0 0; }
+    .browser-dots { display: flex; gap: 6px; }
+    .browser-dots span { width: 12px; height: 12px; border-radius: 50%; background: #ccc; }
+    .browser-url { flex: 1; font-size: 12px; color: #999; background: #fff; border: 1px solid #ddd; border-radius: 4px; padding: 4px 8px; }
+    .browser-controls { display: flex; gap: 8px; font-size: 14px; color: #999; }
+  </style>
+</head>
+<body>
+<div class="standalone-wrapper">
+  <div class="standalone-title">
+    <span class="name">Option 1: Classic Stack</span>
+    <span class="desc">Safe baseline replicating the existing 3-tier header, vertical sections, and horizontal carousel patterns.</span>
+  </div>
+  <div class="sub-tab-bar">
+    <button class="sub-tab-btn active" data-variant="wireframe" data-frame="frame-opt1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48"><rect width="36" height="36" x="6" y="6" rx="3" fill="#888" stroke="currentColor" stroke-width="2"/></svg>
+      <span>Wireframe</span>
+    </button>
+    <button class="sub-tab-btn" data-variant="clean" data-frame="frame-opt1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48"><circle cx="24" cy="24" r="18" fill="#888" stroke="currentColor" stroke-width="2"/></svg>
+      <span>Clean</span>
+    </button>
+    <button class="sub-tab-btn" data-variant="polished" data-frame="frame-opt1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48"><path d="M24 6 L42 24 L24 42 L6 24 Z" fill="#888" stroke="currentColor" stroke-width="2"/></svg>
+      <span>Polished</span>
+    </button>
+  </div>
+  <div class="browser-frame wireframe" id="frame-opt1">
+    <div class="browser-chrome">
+      <div class="browser-dots"><span></span><span></span><span></span></div>
+      <div class="browser-url">saeroearum.kr/main</div>
+      <div class="browser-controls">- [] x</div>
+    </div>
+    <div class="browser-content">
+<!-- S01: Header -->
+        <div class="wf-section wf-header">
+          <div class="wf-util-bar"><span>🌙 다크 모드로 보기</span><span class="wf-right"><a href="#">플랫폼(관리자)</a> <a href="#">학사행정시스템</a></span></div>
+          <div class="wf-logo-bar"><span class="wf-logo">✦ 우정인재개발원 새로e아름</span><span class="wf-right">홍길동님 환영합니다. <a href="#">로그아웃</a> | <a href="#">회원정보수정</a> ≡</span></div>
+          <div class="wf-gnb"><a href="#">나의공간</a><a href="#">콘텐츠</a><a href="#">채널</a><a href="#">직무인증</a><a href="#">고객지원센터</a></div>
+        </div>
+        <!-- S02: Banner + Library -->
+        <div class="wf-section wf-two-col">
+          <div class="wf-col-narrow">
+            <div class="wf-card"><div class="wf-placeholder-img">AI</div><strong>AX 교육 큐레이터에게 물어보세요</strong><div class="wf-search-bar">구체적으로 질문하시면 더 정확한 답변이 나옵니다</div><div class="wf-tags"><span>교육 신청은 어떻게 해?</span><span>수료증은 어디서 받는지 알 수 있어?</span><span>온라인 교육 수강 방법은?</span></div></div>
+          </div>
+          <div class="wf-col-wide">
+            <div class="wf-card wf-card-accent"><small>새로e아름 > 콘텐츠 > 전자도서관(e-book)</small><h3>우정인재개발원 전자도서관</h3><p>슬기로운 독서생활! 전자도서관에 접속해 보세요</p><a href="#" class="wf-btn">사람은 책을 만들고 책은 사람을 만든다</a><span class="wf-deco">I love book</span><span class="wf-marker">①</span></div>
+          </div>
+        </div>
+        <!-- S03: Learning Status -->
+        <div class="wf-section">
+          <h3 class="wf-section-title">학습 현황<span class="wf-marker">②</span></h3>
+          <div class="wf-two-col">
+            <div class="wf-col-narrow wf-center"><div class="wf-donut"><span class="wf-donut-num">5</span></div><small>아름포인트</small></div>
+            <div class="wf-col-wide">
+              <div class="wf-course-group"><strong>필수교육 이수현황</strong><div class="wf-course-row"><span class="wf-pill">공직가치 5/10</span><span class="wf-pill">적극행정 5/10</span><span class="wf-pill">성인지 5/10</span><span class="wf-pill">정보화 5/10</span><span class="wf-pill">정보보안 5/10</span><span class="wf-pill">개인정보 5/10</span><span class="wf-arrow">◀ ▶</span></div></div>
+              <div class="wf-course-group"><strong>법정교육 이수현황</strong><div class="wf-course-row"><span class="wf-pill">성폭력예방 5/10</span><span class="wf-pill">감염병예방 5/10</span><span class="wf-pill">자살예방 5/10</span><span class="wf-pill">안보 5/10</span><span class="wf-pill">장애인식개선 5/10</span><span class="wf-pill">아동학대예방 5/10</span><span class="wf-arrow">◀ ▶</span></div></div>
+            </div>
+          </div>
+        </div>
+        <!-- S04: CLASSROOM -->
+        <div class="wf-section wf-section-alt">
+          <div class="wf-section-header"><h3>CLASSROOM</h3><div class="wf-slogans"><span>이것이 필수다.</span><span>당신에게 딱이다.</span></div><a href="#" class="wf-link">전체보기 ></a></div>
+          <div class="wf-tab-bar"><a href="#">전체</a><a href="#">국정철학</a><a href="#">직무공통</a></div>
+          <div class="wf-card-row">
+            <div class="wf-course-card"><div class="wf-thumb"><span class="wf-badge-time">60분</span><span class="wf-badge-cat">국정철학</span><span class="wf-badge-heart">♡ 42</span></div><strong>개인정보 보호교육</strong><small>우정사업본부 직원이 알아야할 개인...</small><div class="wf-meta">👤 1,234 💬 56</div></div>
+            <div class="wf-course-card"><div class="wf-thumb"><span class="wf-badge-time">60분</span><span class="wf-badge-cat">직무공통</span><span class="wf-badge-heart">♡ 38</span></div><strong>개인정보보호교육(이용자)</strong><small>개인정보보호교육(이용자)</small><div class="wf-meta">👤 987 💬 23</div></div>
+            <div class="wf-course-card"><div class="wf-thumb"><span class="wf-badge-time">60분</span><span class="wf-badge-cat">직무공통</span><span class="wf-badge-heart">♡ 55</span></div><strong>정보보안기본교육</strong><small>우정사업본부 직원이 알아야 할 정보</small><div class="wf-meta">👤 2,100 💬 89</div></div>
+            <div class="wf-course-card"><div class="wf-thumb"><span class="wf-badge-time">60분</span><span class="wf-badge-cat">국정철학</span><span class="wf-badge-heart">♡ 27</span></div><strong>이해충돌방지법</strong><small>알기 쉬운 이해충돌방지법</small><div class="wf-meta">👤 756 💬 12</div></div>
+            <div class="wf-course-card"><div class="wf-thumb"><span class="wf-badge-time">60분</span><span class="wf-badge-cat">직무공통</span><span class="wf-badge-heart">♡ 91</span></div><strong>엑셀실무테크닉</strong><small>엑셀 실무 테크닉 일잘러의 보고서...</small><div class="wf-meta">👤 3,456 💬 201</div></div>
+          </div><div class="wf-arrows">◀ ▶</div>
+        </div>
+        <!-- S05: Continue Learning -->
+        <div class="wf-section">
+          <div class="wf-section-header"><h3>이어서 학습하기</h3><a href="#" class="wf-link">전체보기 ></a></div>
+          <div class="wf-card-grid-3">
+            <div class="wf-learn-card"><div class="wf-thumb"></div><strong>우편취급 위반관련 법규</strong><div class="wf-progress"><div class="wf-progress-fill" style="width:30%"></div></div><small>30%</small><a href="#" class="wf-btn-sm">이어보기</a></div>
+            <div class="wf-learn-card"><div class="wf-thumb"></div><strong>도전! 나의 손해 2</strong><div class="wf-progress"><div class="wf-progress-fill" style="width:65%"></div></div><small>65%</small><a href="#" class="wf-btn-sm">이어보기</a></div>
+            <div class="wf-learn-card"><div class="wf-thumb"></div><strong>청렴판단력 키우기</strong><div class="wf-progress"><div class="wf-progress-fill" style="width:10%"></div></div><small>10%</small><a href="#" class="wf-btn-sm">이어보기</a></div>
+          </div>
+        </div>
+        <!-- S06: Channels + Books -->
+        <div class="wf-section wf-section-alt">
+          <div class="wf-two-col">
+            <div class="wf-col-narrow">
+              <div class="wf-section-header"><h3>구독중인 채널</h3><small>내가 팔로우하는 학습 채널</small><a href="#" class="wf-link">전체보기 ></a></div>
+              <div class="wf-channel-card"><span class="wf-ch-badge">우정</span><div><strong>우정인재개발원</strong><small>50,032명</small></div><a href="#" class="wf-btn-sm">구독중</a></div>
+              <div class="wf-channel-card"><span class="wf-ch-badge">교육</span><div><strong>교육큐레이션</strong><small>52,149명</small></div><a href="#" class="wf-btn-sm">구독중</a></div>
+              <div class="wf-channel-card"><span class="wf-ch-badge">보이</span><div><strong>보이스피싱 예방</strong><small>49,533명</small></div><a href="#" class="wf-btn-sm">구독중</a></div>
+            </div>
+            <div class="wf-col-wide">
+              <div class="wf-section-header"><h3>지금, 이 책!</h3><small>이달의 추천 도서</small><a href="#" class="wf-link">전체보기 ></a></div>
+              <div class="wf-book-grid"><div class="wf-book"><div class="wf-book-cover"></div><strong>가짜 노동</strong><small>데니스 뇌르마르크</small></div><div class="wf-book"><div class="wf-book-cover"></div><strong>공부하고 있다는 착각</strong><small>대니얼 T. 윌링햄</small></div><div class="wf-book"><div class="wf-book-cover"></div><strong>기본의 디자인</strong><small>아키타 미치오</small></div><div class="wf-book"><div class="wf-book-cover"></div><strong>도파민네이션</strong><small>애나 렘키</small></div><div class="wf-book"><div class="wf-book-cover"></div><strong>쇼펜하우어</strong><small>강용수</small></div><div class="wf-book"><div class="wf-book-cover"></div><strong>마흔에 읽는 쇼펜하우어</strong><small>강용수</small></div></div>
+            </div>
+          </div>
+        </div>
+        <!-- S07: Contact -->
+        <div class="wf-section">
+          <h3 class="wf-section-title wf-center">교육관련 안내</h3>
+          <div class="wf-contact-row">
+            <div class="wf-contact-card">📞<strong>이러닝 문의</strong><span>041-560-5350</span></div>
+            <div class="wf-contact-card">🖥<strong>집합교육(선발)</strong><span>041-560-5264</span></div>
+            <div class="wf-contact-card">📋<strong>집합교육(계획)</strong><span>041-560-5311</span></div>
+            <div class="wf-contact-card">📄<strong>직무인증평가</strong><span>041-560-5312</span></div>
+            <div class="wf-contact-card">📚<strong>지금, 이 책!</strong><span>041-560-5151</span></div>
+          </div>
+        </div>
+        <!-- S08: Footer -->
+        <div class="wf-footer">
+          <div class="wf-footer-top"><span class="wf-logo-sm">✦ 우정인재개발원</span><div class="wf-footer-links"><a href="#"><strong>개인정보처리 방침</strong></a><a href="#">영상정보처리기기 운영관리 방침</a><a href="#">이메일주소 무단수집거부</a><a href="#">이용약관</a><a href="#">찾아오시는길</a><a href="#">고객지원센터</a></div><a href="#" class="wf-link">관련사이트 바로가기 ▾</a></div>
+          <div class="wf-footer-info"><small>(31068) 충청남도 천안시 동남구 양지말1길 (유량동) 우정인재개발원</small><small>전화번호: 041-560-5350 | 팩스번호: 0505-005-1062 | 이메일: cyber123@korea.kr</small></div>
+          <div class="wf-footer-copy">COPYRIGHT(C) 2016 KOREA POST(OFFICE OF POSTAL SERVICE). ALL RIGHTS RESERVED.<span class="wf-scroll-top">↑</span></div>
+        </div>
+    </div>
+  </div>
+</div>
+<script>
+(function() {
+  var subBtns = document.querySelectorAll('.sub-tab-btn');
+  subBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var frameId = btn.dataset.frame;
+      var siblings = btn.parentElement.querySelectorAll('.sub-tab-btn');
+      siblings.forEach(function(s) { s.classList.remove('active'); });
+      btn.classList.add('active');
+      var frame = document.getElementById(frameId);
+      if (frame) {
+        frame.classList.remove('wireframe', 'clean', 'polished');
+        frame.classList.add(btn.dataset.variant);
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>

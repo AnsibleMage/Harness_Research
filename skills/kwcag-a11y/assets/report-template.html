@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{TITLE}}</title>
+<style>
+/* =======================================================================
+   KWCAG 2.2 웹 접근성 검사 보고서 -- HTML 템플릿
+   Self-contained, 외부 의존성 없음, 인쇄 최적화
+   ======================================================================= */
+
+/* --- 기본 리셋 및 타이포그래피 --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Noto Sans KR', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #2d3748;
+  background: #f7fafc;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* --- 헤더 --- */
+.report-header {
+  background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+  color: #fff;
+  padding: 40px 48px;
+  border-radius: 12px;
+  margin-bottom: 32px;
+}
+
+.report-header h1 {
+  font-size: 1.8em;
+  font-weight: 700;
+  margin-bottom: 4px;
+  letter-spacing: -0.02em;
+}
+
+.report-header .subtitle {
+  font-size: 0.95em;
+  opacity: 0.85;
+}
+
+/* --- 검사 개요 테이블 --- */
+.overview-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0 32px;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.overview-table td {
+  padding: 12px 20px;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 0.95em;
+}
+
+.overview-table td:first-child {
+  font-weight: 600;
+  color: #4a5568;
+  width: 140px;
+  background: #f7fafc;
+}
+
+/* --- 대시보드 --- */
+.dashboard {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.dashboard-card {
+  flex: 1;
+  min-width: 280px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.dashboard-card h3 {
+  font-size: 1.05em;
+  color: #2c5282;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #ebf4ff;
+}
+
+/* --- 도넛 차트 (순수 CSS) --- */
+.donut-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin: 16px 0;
+}
+
+.donut {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.donut-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 72px;
+  height: 72px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.donut-center .rate-value {
+  font-size: 1.3em;
+  font-weight: 700;
+  color: #1a365d;
+  line-height: 1;
+}
+
+.donut-center .rate-label {
+  font-size: 0.7em;
+  color: #718096;
+  margin-top: 2px;
+}
+
+.donut-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.9em;
+}
+
+.donut-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+/* --- 요약 테이블 --- */
+.summary-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 8px 0;
+}
+
+.summary-table th,
+.summary-table td {
+  padding: 10px 16px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 0.93em;
+}
+
+.summary-table th {
+  background: #f7fafc;
+  color: #4a5568;
+  font-weight: 600;
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.summary-table .total-row td {
+  font-weight: 700;
+  background: #ebf8ff;
+  border-top: 2px solid #bee3f8;
+}
+
+.rate-good { color: #276749; font-weight: 700; }
+.rate-warn { color: #c05621; font-weight: 700; }
+.rate-bad { color: #c53030; font-weight: 700; }
+
+/* --- 심각도 뱃지 --- */
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.82em;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.badge-critical { background: #e53e3e; }
+.badge-major { background: #dd6b20; }
+.badge-minor { background: #d69e2e; color: #744210; }
+.badge-info { background: #3182ce; }
+.badge-pass { background: #38a169; }
+
+/* --- 섹션 --- */
+section.content-section {
+  background: #fff;
+  border-radius: 12px;
+  padding: 28px 32px;
+  margin-bottom: 24px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+section.content-section > h2 {
+  font-size: 1.25em;
+  color: #1a365d;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #ebf4ff;
+}
+
+/* --- 원칙별 섹션 --- */
+.principle-section {
+  margin-bottom: 24px;
+}
+
+.principle-section h3 {
+  font-size: 1.1em;
+  color: #2c5282;
+  margin-bottom: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* --- 요구사항 접기/펼치기 --- */
+details {
+  margin-bottom: 8px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+details[open] {
+  border-color: #cbd5e0;
+}
+
+summary.req-header {
+  padding: 12px 16px;
+  cursor: pointer;
+  font-size: 0.95em;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  list-style: none;
+  user-select: none;
+}
+
+summary.req-header::-webkit-details-marker {
+  display: none;
+}
+
+summary.req-header::before {
+  content: '\25B6';
+  font-size: 0.7em;
+  color: #a0aec0;
+  transition: transform 0.15s ease;
+  flex-shrink: 0;
+}
+
+details[open] > summary.req-header::before {
+  transform: rotate(90deg);
+}
+
+summary.violated {
+  background: #fff5f5;
+  border-left: 4px solid #e53e3e;
+}
+
+summary.compliant {
+  background: #f0fff4;
+  border-left: 4px solid #38a169;
+}
+
+summary.manual {
+  background: #ebf8ff;
+  border-left: 4px solid #3182ce;
+}
+
+.req-id {
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-weight: 700;
+  color: #2d3748;
+  font-size: 0.9em;
+}
+
+.count {
+  font-size: 0.85em;
+  color: #718096;
+}
+
+/* --- 상세 결과 테이블 --- */
+.detail-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9em;
+  margin: 0;
+}
+
+.detail-table th {
+  background: #f7fafc;
+  color: #4a5568;
+  font-weight: 600;
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 2px solid #e2e8f0;
+  font-size: 0.88em;
+}
+
+.detail-table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #edf2f7;
+  vertical-align: top;
+  word-break: break-word;
+}
+
+.detail-table tr:hover {
+  background: #f7fafc;
+}
+
+.detail-table code {
+  background: #edf2f7;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 0.88em;
+  font-family: 'Consolas', 'Courier New', monospace;
+  word-break: break-all;
+}
+
+/* --- 수동 검토 체크리스트 --- */
+.checklist {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 16px;
+}
+
+.checklist li {
+  padding: 4px 0 4px 4px;
+  font-size: 0.93em;
+}
+
+.checklist li label {
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.checklist input[type="checkbox"] {
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+blockquote {
+  border-left: 3px solid #bee3f8;
+  padding: 8px 16px;
+  margin: 8px 0;
+  background: #ebf8ff;
+  color: #2c5282;
+  font-size: 0.92em;
+  border-radius: 0 6px 6px 0;
+}
+
+.manual-note,
+.pass-note {
+  padding: 12px 16px;
+  font-size: 0.93em;
+  color: #718096;
+}
+
+.manual-note {
+  background: #ebf8ff;
+  border-top: 1px solid #bee3f8;
+}
+
+.pass-note {
+  background: #f0fff4;
+  border-top: 1px solid #c6f6d5;
+}
+
+/* --- 수정 우선순위 --- */
+.priority-group {
+  margin-bottom: 20px;
+  padding: 16px 20px;
+  border-radius: 8px;
+}
+
+.priority-group h4 {
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+
+.priority-group ol {
+  padding-left: 24px;
+}
+
+.priority-group li {
+  margin-bottom: 6px;
+  font-size: 0.93em;
+  line-height: 1.6;
+}
+
+.p1 { background: #fff5f5; border-left: 4px solid #e53e3e; }
+.p1 h4 { color: #c53030; }
+.p2 { background: #fffaf0; border-left: 4px solid #dd6b20; }
+.p2 h4 { color: #c05621; }
+.p3 { background: #fffff0; border-left: 4px solid #d69e2e; }
+.p3 h4 { color: #975a16; }
+.p4 { background: #ebf8ff; border-left: 4px solid #3182ce; }
+.p4 h4 { color: #2b6cb0; }
+
+/* --- 푸터 --- */
+.report-footer {
+  text-align: center;
+  padding: 20px;
+  color: #a0aec0;
+  font-size: 0.85em;
+  margin-top: 32px;
+  border-top: 1px solid #e2e8f0;
+}
+
+/* --- 인쇄 --- */
+@media print {
+  body {
+    background: #fff;
+    padding: 0;
+    font-size: 12px;
+    max-width: none;
+  }
+
+  .report-header {
+    background: #1a365d !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    border-radius: 0;
+    margin-bottom: 16px;
+    padding: 24px 32px;
+  }
+
+  .dashboard {
+    flex-direction: row;
+  }
+
+  .dashboard-card,
+  section.content-section {
+    box-shadow: none;
+    border: 1px solid #e2e8f0;
+    break-inside: avoid;
+  }
+
+  details {
+    break-inside: avoid;
+  }
+
+  details[open] > summary.req-header {
+    break-after: avoid;
+  }
+
+  .badge {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .donut {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  summary.violated,
+  summary.compliant,
+  summary.manual {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .priority-group {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+/* --- 반응형 --- */
+@media (max-width: 768px) {
+  body {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .report-header {
+    padding: 24px;
+  }
+
+  .report-header h1 {
+    font-size: 1.4em;
+  }
+
+  .dashboard {
+    flex-direction: column;
+  }
+
+  .dashboard-card {
+    min-width: auto;
+  }
+
+  section.content-section {
+    padding: 20px 16px;
+  }
+
+  .detail-table {
+    font-size: 0.82em;
+  }
+
+  .detail-table th:nth-child(4),
+  .detail-table td:nth-child(4) {
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .overview-table td:first-child {
+    width: 100px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================== 헤더 ============================== -->
+<header class="report-header">
+  <h1>{{TITLE}}</h1>
+  <div class="subtitle">KWCAG 2.2 (한국형 웹 콘텐츠 접근성 지침 2.2) 기반 자동 검사 결과</div>
+</header>
+
+<!-- ============================== 검사 개요 ============================== -->
+<section class="content-section">
+  <h2>검사 개요</h2>
+  <table class="overview-table">
+    <tr><td>검사 대상</td><td>{{TARGET}}</td></tr>
+    <tr><td>검사 일시</td><td>{{DATE}}</td></tr>
+    <tr><td>검사 도구</td><td>{{TOOLS}}</td></tr>
+  </table>
+</section>
+
+<!-- ============================== 대시보드 ============================== -->
+<div class="dashboard">
+  <!-- 준수율 도넛 차트 -->
+  <div class="dashboard-card">
+    <h3>전체 준수율</h3>
+    <div class="donut-wrapper" id="donut-area">
+      <!-- 도넛 차트는 스크립트로 동적 생성 -->
+      <noscript>
+        <p>JavaScript가 비활성화되어 차트를 표시할 수 없습니다.</p>
+      </noscript>
+    </div>
+  </div>
+
+  <!-- 심각도별 현황 -->
+  <div class="dashboard-card">
+    <h3>심각도별 현황</h3>
+    <table class="summary-table">
+      <thead><tr><th>심각도</th><th>건수</th></tr></thead>
+      <tbody>
+        {{SEVERITY_TABLE}}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ============================== 준수율 테이블 ============================== -->
+<section class="content-section">
+  <h2>원칙별 준수율</h2>
+  <table class="summary-table">
+    <thead>
+      <tr><th>원칙</th><th>검사 항목</th><th>준수</th><th>미준수</th><th>준수율</th></tr>
+    </thead>
+    <tbody>
+      {{SUMMARY_TABLE}}
+    </tbody>
+  </table>
+</section>
+
+<!-- ============================== 상세 결과 ============================== -->
+<section class="content-section">
+  <h2>상세 결과</h2>
+  {{DETAIL_SECTIONS}}
+</section>
+
+<!-- ============================== 수동 검토 체크리스트 ============================== -->
+<section class="content-section">
+  <h2>수동 검토 체크리스트</h2>
+  <p style="color:#718096; margin-bottom:16px; font-size:0.93em;">
+    아래 9개 항목은 자동화 검사가 불가능합니다. 브라우저에서 직접 확인하세요.
+  </p>
+  {{MANUAL_CHECKLIST}}
+</section>
+
+<!-- ============================== 수정 우선순위 ============================== -->
+<section class="content-section">
+  <h2>수정 우선순위 권고</h2>
+  {{PRIORITY_SECTION}}
+</section>
+
+<!-- ============================== 푸터 ============================== -->
+<footer class="report-footer">
+  KWCAG A11y Checker v1.0 | 생성일: {{DATE}}
+</footer>
+
+<!-- ============================== 도넛 차트 스크립트 ============================== -->
+<script>
+(function() {
+  'use strict';
+
+  // 준수율 테이블에서 데이터를 추출하여 도넛 차트를 생성
+  var summaryTable = document.querySelector('.summary-table tbody');
+  if (!summaryTable) return;
+
+  var rows = summaryTable.querySelectorAll('tr');
+  if (rows.length === 0) return;
+
+  // 마지막 행(전체)에서 준수/미준수 추출
+  var lastRow = rows[rows.length - 1];
+  var cells = lastRow.querySelectorAll('td');
+  if (cells.length < 5) return;
+
+  var totalText = (cells[1].textContent || '').replace(/[^0-9]/g, '');
+  var compliantText = (cells[2].textContent || '').replace(/[^0-9]/g, '');
+  var violatedText = (cells[3].textContent || '').replace(/[^0-9]/g, '');
+
+  var total = parseInt(totalText, 10) || 33;
+  var compliant = parseInt(compliantText, 10) || 0;
+  var violated = parseInt(violatedText, 10) || 0;
+  var rate = total > 0 ? (compliant / total * 100) : 100;
+
+  // conic-gradient 기반 도넛 차트 생성
+  var donutArea = document.getElementById('donut-area');
+  if (!donutArea) return;
+
+  var compliantDeg = (compliant / total) * 360;
+
+  var donut = document.createElement('div');
+  donut.className = 'donut';
+  donut.style.background = 'conic-gradient(#38a169 0deg ' + compliantDeg + 'deg, #e53e3e ' + compliantDeg + 'deg 360deg)';
+
+  var center = document.createElement('div');
+  center.className = 'donut-center';
+
+  var rateVal = document.createElement('div');
+  rateVal.className = 'rate-value';
+  rateVal.textContent = rate.toFixed(1) + '%';
+  center.appendChild(rateVal);
+
+  var rateLabel = document.createElement('div');
+  rateLabel.className = 'rate-label';
+  rateLabel.textContent = '\uC900\uC218\uC728';
+  center.appendChild(rateLabel);
+
+  donut.appendChild(center);
+
+  var legend = document.createElement('div');
+  legend.className = 'donut-legend';
+
+  var items = [
+    { color: '#38a169', label: '\uC900\uC218 ' + compliant + '\uAC1C (' + (compliant / total * 100).toFixed(1) + '%)' },
+    { color: '#e53e3e', label: '\uBBF8\uC900\uC218 ' + violated + '\uAC1C (' + (violated / total * 100).toFixed(1) + '%)' }
+  ];
+
+  for (var i = 0; i < items.length; i++) {
+    var item = document.createElement('div');
+    item.className = 'donut-legend-item';
+
+    var colorBox = document.createElement('div');
+    colorBox.className = 'legend-color';
+    colorBox.style.background = items[i].color;
+    item.appendChild(colorBox);
+
+    var labelSpan = document.createElement('span');
+    labelSpan.textContent = items[i].label;
+    item.appendChild(labelSpan);
+
+    legend.appendChild(item);
+  }
+
+  donutArea.innerHTML = '';
+  donutArea.appendChild(donut);
+  donutArea.appendChild(legend);
+})();
+</script>
+
+</body>
+</html>

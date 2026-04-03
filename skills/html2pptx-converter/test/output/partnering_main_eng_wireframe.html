@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { background: #ffffff; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  width: 1684pt; height: 1191pt;
+  margin: 0; padding: 0;
+  background: #ffffff;
+  font-family: Arial, sans-serif;
+  display: flex;
+  position: relative;
+}
+
+/* 배지 공통 */
+.badge {
+  position: absolute;
+  width: 20pt; height: 20pt;
+  background: #000000;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 100;
+}
+.badge p {
+  color: #ffffff; font-size: 9.75pt; font-weight: bold;
+  margin: 0; text-align: center;
+}
+</style>
+</head>
+<body>
+
+<!-- ========================================== -->
+<!-- 영역 1: 광고 배너 (0, 0, 1409, 96) #808080 -->
+<!-- ========================================== -->
+<div style="position:absolute; left:0; top:0; width:1409pt; height:96pt; background:#808080; border:1pt solid #000000;">
+  <div style="padding:12pt 50pt;">
+    <p style="font-size:22.5pt; font-weight:bold; color:#ffffff;">Special Promotion!</p>
+    <p style="font-size:13.5pt; color:#ffffff; margin-top:4pt;">Register now and get 20% discount.</p>
+  </div>
+  <div style="position:absolute; top:8pt; right:15pt;">
+    <p style="font-size:13.5pt; color:#ffffff; font-weight:bold;">X</p>
+  </div>
+</div>
+
+<!-- ========================================== -->
+<!-- 영역 2: 사이드바 (0, 96, 128, 1094)        -->
+<!-- ========================================== -->
+<div style="position:absolute; left:0; top:96pt; width:128pt; height:1094pt; background:#ffffff; border-right:1pt solid #000000;">
+  <!-- 로고 영역 (높이 ~71pt, 하단 0.5pt 구분선) -->
+  <div style="height:71pt; padding:15pt 10pt; border-bottom:0.5pt solid #000000; display:flex; align-items:center; gap:5pt;">
+    <p style="font-size:15pt;">[F]</p>
+    <p style="font-size:15pt; font-weight:bold;">BioKorea</p>
+  </div>
+  <!-- 네비게이션 메뉴 (각 항목 ~17pt) -->
+  <div style="padding:8pt 0;">
+    <div style="padding:4pt 10pt;">
+      <p style="font-size:10.5pt;">[H] Home</p>
+    </div>
+    <div style="padding:4pt 10pt;">
+      <p style="font-size:10.5pt;">[P] Profile</p>
+    </div>
+    <div style="background:#E0E0E0; padding:4pt 10pt;">
+      <p style="font-size:10.5pt;">[S] Search</p>
+    </div>
+    <div style="padding:4pt 10pt;">
+      <p style="font-size:10.5pt;">[A] Agenda</p>
+    </div>
+    <div style="padding:4pt 10pt;">
+      <p style="font-size:10.5pt;">[M] Messages</p>
+    </div>
+    <div style="padding:4pt 10pt;">
+      <p style="font-size:10.5pt;">[♥] Favorites</p>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================== -->
+<!-- 영역 3: 헤더 바 (128, 96, 1281, 71)        -->
+<!-- ========================================== -->
+<div style="position:absolute; left:128pt; top:96pt; width:1281pt; height:71pt; background:#ffffff; border-bottom:1pt solid #000000;">
+  <div style="display:flex; align-items:center; justify-content:flex-end; height:71pt; padding:0 20pt; gap:18pt;">
+    <p style="font-size:10.5pt;">2026-03-11 19:10 (KST)</p>
+    <p style="font-size:10.5pt;">[🔍]</p>
+    <p style="font-size:10.5pt;">[🔔]</p>
+    <p style="font-size:10.5pt;">Personal [ON]</p>
+    <p style="font-size:10.5pt;">Company [OFF]</p>
+    <div style="width:57pt; height:57pt; border:1pt solid #000000; border-radius:50%;"></div>
+  </div>
+</div>
+
+<!-- ========================================== -->
+<!-- 영역 4 배경: 콘텐츠 영역 (128, 167, 1281, 1023) -->
+<!-- ========================================== -->
+<div style="position:absolute; left:128pt; top:167pt; width:1281pt; height:1023pt; background:#E0E0E0;"></div>
+
+<!-- ========================================== -->
+<!-- 영역 5: 디스크립션 패널 (1409, 0, 275, 1191) -->
+<!-- ========================================== -->
+<div style="position:absolute; left:1409pt; top:0; width:275pt; height:1191pt; background:#ffffff; border-left:1pt solid #000000; padding:14pt; overflow:hidden;">
+  <!-- 패널 제목 (12pt Bold + 2pt 검정 밑줄) -->
+  <div style="border-bottom:2pt solid #000000; padding-bottom:6pt; margin-bottom:14pt;">
+    <p style="font-size:12pt; font-weight:bold;">화면 구성 설명</p>
+  </div>
+
+  <p style="font-size:10.5pt; font-weight:bold;">1. 광고 배너</p>
+  <p style="font-size:9.75pt; margin-left:11pt; margin-top:2pt;">프로모션 배너 영역. X 버튼으로 닫기 가능.</p>
+
+  <p style="font-size:10.5pt; font-weight:bold; margin-top:11pt;">2. 글로벌 네비게이션</p>
+  <p style="font-size:9.75pt; margin-left:11pt; margin-top:2pt;">좌측 사이드바. Home, Profile, Search, Agenda, Messages, Favorites 메뉴 구성.</p>
+
+  <p style="font-size:10.5pt; font-weight:bold; margin-top:11pt;">3. 상단 헤더 바</p>
+  <p style="font-size:9.75pt; margin-left:11pt; margin-top:2pt;">KST 시간 표시, 검색, 알림(5건), Personal/Company 토글, 프로필 아바타.</p>
+
+  <p style="font-size:10.5pt; font-weight:bold; margin-top:11pt;">4. Requests Summary</p>
+  <p style="font-size:9.75pt; margin-left:11pt; margin-top:2pt;">All / Incoming / Outgoing 탭별 요청 현황 (Pending, Confirmed, Declined).</p>
+
+  <p style="font-size:10.5pt; font-weight:bold; margin-top:11pt;">5. Today's Meetings</p>
+  <p style="font-size:9.75pt; margin-left:11pt; margin-top:2pt;">당일 미팅 일정 목록. 시간, 회사명, 담당자, 회의실 정보 표시.</p>
+
+  <p style="font-size:10.5pt; font-weight:bold; margin-top:11pt;">6. Important Dates</p>
+  <p style="font-size:9.75pt; margin-left:11pt; margin-top:2pt;">파트너링 주요 일정 안내. 센터 오픈일, 스케줄 확정일 등.</p>
+
+  <p style="font-size:10.5pt; font-weight:bold; margin-top:11pt;">7. My Company Profile</p>
+  <p style="font-size:9.75pt; margin-left:11pt; margin-top:2pt;">회사 프로필 카드 (회사명, 업종) 및 Edit Profile 버튼.</p>
+
+  <p style="font-size:10.5pt; font-weight:bold; margin-top:11pt;">8. Meeting Notifications</p>
+  <p style="font-size:9.75pt; margin-left:11pt; margin-top:2pt;">최근 미팅 관련 알림 목록. 요청/수락 등 상태 변경 알림.</p>
+
+  <p style="font-size:10.5pt; font-weight:bold; margin-top:11pt;">9. Recommended Companies</p>
+  <p style="font-size:9.75pt; margin-left:11pt; margin-top:2pt;">AI 추천 기업 목록. 관심 분야와 Request Meeting 버튼 제공.</p>
+
+  <p style="font-size:10.5pt; font-weight:bold; margin-top:11pt;">10. Contact for Help</p>
+  <p style="font-size:9.75pt; margin-left:11pt; margin-top:2pt;">문의처 안내. Partnering, Registration, Sponsor 담당 이메일.</p>
+</div>
+
+<!-- ========================================== -->
+<!-- 카드 4: Requests Summary (153, 196, 805, 269) -->
+<!-- ========================================== -->
+<div style="position:absolute; left:153pt; top:196pt; width:805pt; height:269pt; background:#ffffff; border:0.5pt solid #000000;">
+  <!-- 카드 헤더 -->
+  <div style="padding:12pt 18pt;">
+    <p style="font-size:13.5pt; font-weight:600;">Requests Summary</p>
+  </div>
+  <div style="border-bottom:0.5pt solid #000000;"></div>
+  <!-- 탭 바 -->
+  <div style="display:flex; gap:20pt; padding:8pt 18pt; align-items:flex-end;">
+    <div style="border-bottom:2pt solid #000000; padding-bottom:5pt;">
+      <p style="font-size:10.5pt; font-weight:bold;">All</p>
+    </div>
+    <p style="font-size:10.5pt; padding-bottom:5pt;">Incoming</p>
+    <p style="font-size:10.5pt; padding-bottom:5pt;">Outgoing</p>
+  </div>
+  <div style="border-bottom:0.5pt solid #000000;"></div>
+  <!-- 데이터 행 -->
+  <div style="display:flex; justify-content:space-between; padding:12pt 18pt;">
+    <p style="font-size:10.5pt;">Pending Requests</p>
+    <p style="font-size:10.5pt;">5</p>
+  </div>
+  <div style="display:flex; justify-content:space-between; padding:12pt 18pt;">
+    <p style="font-size:10.5pt;">Confirmed</p>
+    <p style="font-size:10.5pt;">2</p>
+  </div>
+  <div style="display:flex; justify-content:space-between; padding:12pt 18pt;">
+    <p style="font-size:10.5pt;">Declined / Canceled</p>
+    <p style="font-size:10.5pt;">3</p>
+  </div>
+</div>
+
+<!-- ========================================== -->
+<!-- 카드 5: Today's Meetings (153, 488, 805, 241) -->
+<!-- ========================================== -->
+<div style="position:absolute; left:153pt; top:488pt; width:805pt; height:241pt; background:#ffffff; border:0.5pt solid #000000;">
+  <!-- 카드 헤더 -->
+  <div style="display:flex; justify-content:space-between; align-items:center; padding:12pt 18pt;">
+    <p style="font-size:13.5pt; font-weight:600;">Today's Meetings</p>
+    <p style="font-size:10.5pt;">View All</p>
+  </div>
+  <div style="border-bottom:0.5pt solid #000000;"></div>
+  <!-- 미팅 행 1 -->
+  <div style="display:flex; padding:10pt 18pt; align-items:center; gap:15pt;">
+    <p style="font-size:10.5pt; width:100pt;">11:00 - 11:30</p>
+    <p style="font-size:10.5pt; flex:1;">PharmaCorp (Kim Minjun)</p>
+    <p style="font-size:10.5pt;">Meeting Room 3</p>
+    <p style="font-size:10.5pt; width:15pt; text-align:right;">></p>
+  </div>
+  <div style="border-bottom:0.5pt solid #000000;"></div>
+  <!-- 미팅 행 2 -->
+  <div style="display:flex; padding:10pt 18pt; align-items:center; gap:15pt;">
+    <p style="font-size:10.5pt; width:100pt;">14:00 - 14:30</p>
+    <p style="font-size:10.5pt; flex:1;">Gentech Solutions (Lee Seoyeon)</p>
+    <p style="font-size:10.5pt;">Meeting Room 7</p>
+    <p style="font-size:10.5pt; width:15pt; text-align:right;">></p>
+  </div>
+  <div style="border-bottom:0.5pt solid #000000;"></div>
+  <!-- 미팅 행 3 -->
+  <div style="display:flex; padding:10pt 18pt; align-items:center; gap:15pt;">
+    <p style="font-size:10.5pt; width:100pt;">16:30 - 17:00</p>
+    <p style="font-size:10.5pt; flex:1;">NextGen Pharma (Park Jihun)</p>
+    <p style="font-size:10.5pt;">Meeting Room 1</p>
+    <p style="font-size:10.5pt; width:15pt; text-align:right;">></p>
+  </div>
+</div>
+
+<!-- ========================================== -->
+<!-- 카드 6: Important Dates (153, 751, 805, 241) -->
+<!-- ========================================== -->
+<div style="position:absolute; left:153pt; top:751pt; width:805pt; height:241pt; background:#ffffff; border:0.5pt solid #000000;">
+  <!-- 카드 헤더 -->
+  <div style="padding:12pt 18pt;">
+    <p style="font-size:13.5pt; font-weight:600;">Important Dates</p>
+  </div>
+  <div style="border-bottom:0.5pt solid #000000;"></div>
+  <!-- 일정 1 -->
+  <div style="display:flex; gap:12pt; padding:12pt 18pt; align-items:flex-start;">
+    <div style="background:#E0E0E0; padding:6pt 10pt;">
+      <p style="font-size:10.5pt;">March 3 (Mon), 2025</p>
+    </div>
+    <div>
+      <p style="font-size:10.5pt; font-weight:600;">Partnering Center opens</p>
+      <p style="font-size:10.5pt; margin-top:3pt;">Request meetings and respond for confirming business meetings.</p>
+    </div>
+  </div>
+  <!-- 일정 2 -->
+  <div style="display:flex; gap:12pt; padding:12pt 18pt; align-items:flex-start;">
+    <div style="background:#E0E0E0; padding:6pt 10pt;">
+      <p style="font-size:10.5pt;">March 10 (Mon), 2025</p>
+    </div>
+    <div>
+      <p style="font-size:10.5pt; font-weight:600;">Meeting Schedule Finalization</p>
+      <p style="font-size:10.5pt; margin-top:3pt;">All meeting schedules will be finalized and notifications will be sent to participants.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================== -->
+<!-- 카드 7: My Company Profile (986, 196, 397, 170) -->
+<!-- ========================================== -->
+<div style="position:absolute; left:986pt; top:196pt; width:397pt; height:170pt; background:#ffffff; border:0.5pt solid #000000;">
+  <div style="padding:12pt 15pt;">
+    <p style="font-size:13.5pt; font-weight:600;">My Company Profile</p>
+  </div>
+  <!-- 프로필 정보 -->
+  <div style="display:flex; gap:10pt; padding:5pt 15pt; align-items:center;">
+    <div style="width:40pt; height:40pt; background:#E0E0E0; display:flex; align-items:center; justify-content:center;">
+      <p style="font-size:10.5pt;">[🏠]</p>
+    </div>
+    <div>
+      <p style="font-size:12pt; font-weight:500;">BioSolutions</p>
+      <p style="font-size:10.5pt; margin-top:2pt;">Biotechnology</p>
+    </div>
+  </div>
+  <!-- Edit Profile 버튼 -->
+  <div style="padding:8pt 15pt;">
+    <div style="background:#E0E0E0; border:0.5pt solid #000000; padding:6pt; text-align:center;">
+      <p style="font-size:10.5pt;">Edit Profile</p>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================== -->
+<!-- 카드 8: Meeting Notifications (986, 388, 397, 156) -->
+<!-- ========================================== -->
+<div style="position:absolute; left:986pt; top:388pt; width:397pt; height:156pt; background:#ffffff; border:0.5pt solid #000000;">
+  <div style="padding:12pt 15pt;">
+    <p style="font-size:13.5pt; font-weight:600;">Meeting Notifications</p>
+  </div>
+  <div style="border-bottom:0.5pt solid #000000;"></div>
+  <!-- 알림 1 -->
+  <div style="display:flex; justify-content:space-between; padding:8pt 15pt;">
+    <p style="font-size:10.5pt;">Meeting request from <b>PharmaCorp</b></p>
+    <p style="font-size:10.5pt;">2 hours ago</p>
+  </div>
+  <div style="border-bottom:0.5pt solid #000000;"></div>
+  <!-- 알림 2 -->
+  <div style="display:flex; justify-content:space-between; padding:8pt 15pt;">
+    <p style="font-size:10.5pt;">Meeting accepted with <b>Gentech Solutions</b></p>
+    <p style="font-size:10.5pt;">4 hours ago</p>
+  </div>
+</div>
+
+<!-- ========================================== -->
+<!-- 카드 9: Recommended Companies (986, 567, 397, 227) -->
+<!-- ========================================== -->
+<div style="position:absolute; left:986pt; top:567pt; width:397pt; height:227pt; background:#ffffff; border:0.5pt solid #000000;">
+  <div style="padding:12pt 15pt;">
+    <p style="font-size:13.5pt; font-weight:600;">Recommended Companies</p>
+  </div>
+  <!-- 회사 1 -->
+  <div style="display:flex; justify-content:space-between; align-items:center; padding:6pt 15pt;">
+    <div>
+      <p style="font-size:10.5pt; font-weight:500;">NextGen Pharma</p>
+      <p style="font-size:10.5pt;">Interest: AI Drug Development</p>
+    </div>
+    <div style="background:#808080; padding:4pt 10pt;">
+      <p style="font-size:10.5pt; color:#ffffff;">Request Meeting</p>
+    </div>
+  </div>
+  <!-- 회사 2 -->
+  <div style="display:flex; justify-content:space-between; align-items:center; padding:6pt 15pt;">
+    <div>
+      <p style="font-size:10.5pt; font-weight:500;">MediFuture</p>
+      <p style="font-size:10.5pt;">Interest: Digital Therapeutics</p>
+    </div>
+    <div style="background:#808080; padding:4pt 10pt;">
+      <p style="font-size:10.5pt; color:#ffffff;">Request Meeting</p>
+    </div>
+  </div>
+  <!-- 회사 3 -->
+  <div style="display:flex; justify-content:space-between; align-items:center; padding:6pt 15pt;">
+    <div>
+      <p style="font-size:10.5pt; font-weight:500;">CellBioTech</p>
+      <p style="font-size:10.5pt;">Interest: Cell Therapy</p>
+    </div>
+    <div style="background:#808080; padding:4pt 10pt;">
+      <p style="font-size:10.5pt; color:#ffffff;">Request Meeting</p>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================== -->
+<!-- 카드 10: Contact for Help (986, 816, 397, 241) -->
+<!-- ========================================== -->
+<div style="position:absolute; left:986pt; top:816pt; width:397pt; height:241pt; background:#ffffff; border:0.5pt solid #000000;">
+  <div style="padding:12pt 15pt;">
+    <p style="font-size:13.5pt; font-weight:600;">Contact for Help</p>
+  </div>
+  <div style="border-bottom:0.5pt solid #000000;"></div>
+  <!-- Partnering -->
+  <div style="padding:8pt 15pt;">
+    <p style="font-size:10.5pt; font-weight:500;">Partnering</p>
+    <p style="font-size:9pt; margin-top:2pt;">Meeting, Technical issue</p>
+    <p style="font-size:10.5pt; margin-top:2pt;"><u>bizforum@biokorea.org</u></p>
+  </div>
+  <!-- Registration -->
+  <div style="padding:8pt 15pt;">
+    <p style="font-size:10.5pt; font-weight:500;">Registration</p>
+    <p style="font-size:9pt; margin-top:2pt;">General Inquiries</p>
+    <p style="font-size:10.5pt; margin-top:2pt;"><u>registration@biokorea.org</u></p>
+  </div>
+  <!-- Sponsor -->
+  <div style="padding:8pt 15pt;">
+    <p style="font-size:10.5pt; font-weight:500;">Sponsor for Private Meeting Booth</p>
+    <p style="font-size:10.5pt; margin-top:2pt;"><u>sponsor@biokorea.org</u></p>
+    <p style="font-size:10.5pt; margin-top:2pt;"><u>bizforum@biokorea.org</u></p>
+  </div>
+</div>
+
+<!-- ========================================== -->
+<!-- 10개 배지 (20pt 검정 원형 + 흰색 번호)     -->
+<!-- ========================================== -->
+<!-- ① 광고 배너 -->
+<div class="badge" style="left:6pt; top:6pt;"><p>1</p></div>
+<!-- ② 사이드바 -->
+<div class="badge" style="left:6pt; top:102pt;"><p>2</p></div>
+<!-- ③ 헤더 바 -->
+<div class="badge" style="left:133pt; top:102pt;"><p>3</p></div>
+<!-- ④ Requests Summary -->
+<div class="badge" style="left:159pt; top:201pt;"><p>4</p></div>
+<!-- ⑤ Today's Meetings -->
+<div class="badge" style="left:159pt; top:493pt;"><p>5</p></div>
+<!-- ⑥ Important Dates -->
+<div class="badge" style="left:159pt; top:757pt;"><p>6</p></div>
+<!-- ⑦ My Company Profile -->
+<div class="badge" style="left:992pt; top:201pt;"><p>7</p></div>
+<!-- ⑧ Meeting Notifications -->
+<div class="badge" style="left:992pt; top:394pt;"><p>8</p></div>
+<!-- ⑨ Recommended Companies -->
+<div class="badge" style="left:992pt; top:573pt;"><p>9</p></div>
+<!-- ⑩ Contact for Help -->
+<div class="badge" style="left:992pt; top:822pt;"><p>10</p></div>
+
+</body>
+</html>

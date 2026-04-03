@@ -1,0 +1,882 @@
+{
+  "presentation": {
+    "layout": "CUSTOM",
+    "width_pt": 1235,
+    "height_pt": 1446,
+    "title": "TestCorp Portal - Web Portal Test Page"
+  },
+  "design": {
+    "mode": "wireframe",
+    "wireframe_palette": {
+      "border": "#000000",
+      "accent_bg": "#808080",
+      "section_bg": "#E0E0E0",
+      "card_bg": "#FFFFFF",
+      "text": "#000000",
+      "text_on_accent": "#FFFFFF"
+    },
+    "original_palette": {
+      "primary": "#2B6CB0",
+      "secondary": "#1E3A5F",
+      "accent": "#E53E3E",
+      "background": "#F5F5F5",
+      "text_primary": "#1F2937",
+      "text_secondary": "#718096"
+    },
+    "color_mapping": [
+      { "original": "#1E3A5F", "wireframe": "#808080", "role": "header background" },
+      { "original": "#2B6CB0", "wireframe": "#808080", "role": "hero background / primary" },
+      { "original": "#2D3748", "wireframe": "#808080", "role": "board header background" },
+      { "original": "#1A202C", "wireframe": "#808080", "role": "footer background" },
+      { "original": "#E53E3E", "wireframe": "#808080", "role": "accent / CTA primary / badge" },
+      { "original": "#38A169", "wireframe": "#808080", "role": "shape green" },
+      { "original": "#805AD5", "wireframe": "#808080", "role": "shape purple / center marker" },
+      { "original": "#D69E2E", "wireframe": "#808080", "role": "shape gold border" },
+      { "original": "#F5F5F5", "wireframe": "#FFFFFF", "role": "body background" },
+      { "original": "#FFFFFF", "wireframe": "#FFFFFF", "role": "card / section background" },
+      { "original": "#F7FAFC", "wireframe": "#E0E0E0", "role": "table header background" },
+      { "original": "#EBF8FF", "wireframe": "#E0E0E0", "role": "quick link item background" },
+      { "original": "#E2E8F0", "wireframe": "#E0E0E0", "role": "border / divider" },
+      { "original": "#EDF2F7", "wireframe": "#E0E0E0", "role": "row divider" },
+      { "original": "#FED7D7", "wireframe": "#E0E0E0", "role": "notice tag background" },
+      { "original": "#C6F6D5", "wireframe": "#E0E0E0", "role": "event tag background" },
+      { "original": "#BEE3F8", "wireframe": "#E0E0E0", "role": "update tag background" },
+      { "original": "#FEFCBF", "wireframe": "#E0E0E0", "role": "faq tag background" },
+      { "original": "#FFF5F5", "wireframe": "#E0E0E0", "role": "line test red bg" },
+      { "original": "#F0FFF4", "wireframe": "#E0E0E0", "role": "line test green bg" },
+      { "original": "#FFFFF0", "wireframe": "#E0E0E0", "role": "line test gold bg" },
+      { "original": "#1F2937", "wireframe": "#000000", "role": "text primary" },
+      { "original": "#2D3748", "wireframe": "#000000", "role": "text dark" },
+      { "original": "#4A5568", "wireframe": "#000000", "role": "text medium" },
+      { "original": "#718096", "wireframe": "#808080", "role": "text secondary / labels" },
+      { "original": "#A0AEC0", "wireframe": "#808080", "role": "text muted / footer text" },
+      { "original": "#CBD5E0", "wireframe": "#FFFFFF", "role": "nav link text" },
+      { "original": "#BEE3F8", "wireframe": "#FFFFFF", "role": "hero subtitle text" },
+      { "original": "#FFFFFF", "wireframe": "#FFFFFF", "role": "text on dark background" },
+      { "original": "#C53030", "wireframe": "#000000", "role": "notice tag text" },
+      { "original": "#276749", "wireframe": "#000000", "role": "event tag text" },
+      { "original": "#2A4365", "wireframe": "#000000", "role": "update tag text" },
+      { "original": "#744210", "wireframe": "#000000", "role": "faq tag text" },
+      { "original": "#3182CE", "wireframe": "#808080", "role": "corner marker TR" },
+      { "original": "#E53E3E", "wireframe": "#808080", "role": "corner marker TL" },
+      { "original": "#38A169", "wireframe": "#808080", "role": "corner marker BL" },
+      { "original": "#D69E2E", "wireframe": "#808080", "role": "corner marker BR" }
+    ],
+    "fonts": {
+      "heading": "Arial",
+      "body": "Arial"
+    }
+  },
+  "description_panel": {
+    "title": "\ud654\uba74 \uad6c\uc131 \uc124\uba85",
+    "width_pt": 275,
+    "position": "right",
+    "entries": [
+      {
+        "number": 1,
+        "name": "\ucf54\ub108 \ub9c8\ucee4",
+        "description": "PPTX \ubcc0\ud658 \uc2dc \uc88c\ud45c \ub9e4\ud551 \uc815\ud655\ub3c4\ub97c \uac80\uc99d\ud558\uae30 \uc704\ud55c \uae30\uc900\uc810. 5\uac1c \ub9c8\ucee4(TL, TR, BL, BR, CENTER)\uac00 \ub124 \uaf2d\uc9d3\uc810\uacfc \uc815\uc911\uc559\uc5d0 \ubc30\uce58\ub418\uc5b4 \ubcc0\ud658 \ud6c4 \uc2ac\ub77c\uc774\ub4dc \uc88c\ud45c\uc640 1:1 \ub9e4\ud551 \uc5ec\ubd80\ub97c \ud655\uc778\ud55c\ub2e4."
+      },
+      {
+        "number": 2,
+        "name": "\ud5e4\ub354 \ub124\ube44\uac8c\uc774\uc158",
+        "description": "\uc88c\uce21 'TestCorp Portal' \ube0c\ub79c\ub4dc \ub85c\uace0 \ud14d\uc2a4\ud2b8\uc640 \uc6b0\uce21 5\uac1c \ub124\ube44\uac8c\uc774\uc158 \uba54\ub274(Home, Services, Board, About, Contact)\ub85c \uad6c\uc131. \uc5b4\ub450\uc6b4 \ub124\uc774\ube44 \ubc30\uacbd \uc704\uc5d0 \ubc1d\uc740 \ud14d\uc2a4\ud2b8 \ubc30\uce58, \ud558\ub2e8 \ud30c\ub780\uc0c9 \uad6c\ubd84\uc120\uc73c\ub85c \ubcf8\ubb38\uacfc \uc2dc\uac01\uc801 \ubd84\ub9ac."
+      },
+      {
+        "number": 3,
+        "name": "\ud788\uc5b4\ub85c \uc139\uc158",
+        "description": "\uc11c\ube44\uc2a4 \uc18c\uac1c \ubc0f CTA \ubc30\ub108. 'Welcome to TestCorp Portal' \ub300\ud615 \uc81c\ubaa9, \uc124\uba85 \ubd80\uc81c\ubaa9, 2\uac1c CTA \ubc84\ud2bc(Get Started \ucc44\uc6c0\ud615, Learn More \ud14c\ub450\ub9ac\ud615)\uc744 \uc911\uc559 \uc815\ub82c\ub85c \ubc30\uce58. \ud30c\ub780 \ubc30\uacbd \uc704 \ud770 \ud14d\uc2a4\ud2b8\ub85c \ub192\uc740 \ub300\ube44 \uc720\uc9c0."
+      },
+      {
+        "number": 4,
+        "name": "\ud1b5\uacc4 \uc694\uc57d \ubc14",
+        "description": "\ud575\uc2ec \uc131\uacfc \uc9c0\ud45c 4\uac1c(1,247 Active Users / 358 Projects / 99.9% Uptime / 24/7 Support)\ub97c \uc218\ud3c9 \uade0\ub4f1 \ubc30\uce58. \ud070 \uc22b\uc790(\ud30c\ub780, \uad75\uc740 \uae00\uc528)\uc640 \uc791\uc740 \ub77c\ubca8(\ub300\ubb38\uc790, \ud68c\uc0c9)\uc758 \ub300\ube44\ub85c \uc815\ubcf4 \uc704\uacc4 \ud45c\ud604."
+      },
+      {
+        "number": 5,
+        "name": "\uac8c\uc2dc\ud310",
+        "description": "Notice Board \uc81c\ubaa9 + '5 New' \ube68\uac04 \ubc43\uc9c0, 5\uc5f4(No, Category, Title, Date, Views) x 5\ud589 \ub370\uc774\ud130 \ud14c\uc774\ube14. \uce74\ud14c\uace0\ub9ac\ubcc4 \ucee8\ub7ec \ud0dc\uadf8(Notice/Event/Update/FAQ)\ub85c \uac8c\uc2dc\ubb3c \uc720\ud615 \uc2dc\uac01 \uad6c\ubd84."
+      },
+      {
+        "number": 6,
+        "name": "\uc0ac\uc774\ub4dc\ubc14",
+        "description": "2\uac1c \uce74\ub4dc: Recent Updates(\ucd5c\uadfc \uc5c5\ub370\uc774\ud2b8 4\uac74 \ub9ac\uc2a4\ud2b8)  + Quick Links(2x2 \uadf8\ub9ac\ub4dc: Docs, Support, Reports, Settings). \ud770 \ubc30\uacbd, \ub465\uadfc \ubaa8\uc11c\ub9ac, \uc5f0\ud55c \ud14c\ub450\ub9ac\uc758 \ud1b5\uc77c\ub41c \uce74\ub4dc \uc2a4\ud0c0\uc77c."
+      },
+      {
+        "number": 7,
+        "name": "\ub3c4\ud615 & \ub77c\uc778 \ud14c\uc2a4\ud2b8",
+        "description": "PPTX \ubcc0\ud658 \uc5d4\uc9c4\uc758 \ub3c4\ud615/\ub77c\uc778 \ub80c\ub354\ub9c1 \uc815\ud655\ub3c4 \uac80\uc99d. \ub3c4\ud615 5\uc885(Rectangle, Rounded Rect, Circle, Border Only, Box Shadow) + \ub77c\uc778 4\uc885(Top/Left/Bottom/Full Border). \uac01 \uc694\uc18c \uc544\ub798 \uc774\ub984 \ub77c\ubca8 \ud45c\uc2dc."
+      },
+      {
+        "number": 8,
+        "name": "\ud478\ud130",
+        "description": "4\ub2e8 \uadf8\ub9ac\ub4dc: TestCorp \uc18c\uac1c / Company(About Us, Careers, Press, Blog) / Resources(Documentation, API Reference, Status Page, Changelog) / Legal(Privacy Policy, Terms of Service, Cookie Policy, GDPR). \ud558\ub2e8 \ubc14\uc5d0 \uc800\uc791\uad8c + \uc18c\uc15c \ub9c1\ud06c(GitHub, Twitter, LinkedIn)."
+      }
+    ]
+  },
+  "slides": [
+    {
+      "slide_index": 0,
+      "slide_type": "wireframe",
+      "source_section": "full page wireframe",
+      "sections": [
+        {
+          "section_id": 1,
+          "name": "Corner Markers",
+          "position": { "x_pt": 0, "y_pt": 0, "width_pt": 960, "height_pt": 1446 },
+          "background": "transparent",
+          "border": "none",
+          "elements": [
+            {
+              "type": "shape",
+              "name": "Corner TL",
+              "position": { "x_pt": 0, "y_pt": 0, "width_pt": 30, "height_pt": 30 },
+              "style": { "background": "#808080", "border_radius": "0 0 6pt 0", "color": "#FFFFFF", "font_size_pt": 8 },
+              "text": "TL"
+            },
+            {
+              "type": "shape",
+              "name": "Corner TR",
+              "position": { "x_pt": 930, "y_pt": 0, "width_pt": 30, "height_pt": 30 },
+              "style": { "background": "#808080", "border_radius": "0 0 0 6pt", "color": "#FFFFFF", "font_size_pt": 8 },
+              "text": "TR"
+            },
+            {
+              "type": "shape",
+              "name": "Corner BL",
+              "position": { "x_pt": 0, "y_pt": 1416, "width_pt": 30, "height_pt": 30 },
+              "style": { "background": "#808080", "border_radius": "0 6pt 0 0", "color": "#FFFFFF", "font_size_pt": 8 },
+              "text": "BL"
+            },
+            {
+              "type": "shape",
+              "name": "Corner BR",
+              "position": { "x_pt": 930, "y_pt": 1416, "width_pt": 30, "height_pt": 30 },
+              "style": { "background": "#808080", "border_radius": "6pt 0 0 0", "color": "#FFFFFF", "font_size_pt": 8 },
+              "text": "BR"
+            },
+            {
+              "type": "shape",
+              "name": "Center Marker",
+              "position": { "x_pt": 457, "y_pt": 700, "width_pt": 45, "height_pt": 45 },
+              "style": { "background": "#808080", "border_radius": "50%", "color": "#FFFFFF", "font_size_pt": 7 },
+              "text": "CENTER"
+            }
+          ]
+        },
+        {
+          "section_id": 2,
+          "name": "Header Navigation",
+          "position": { "x_pt": 0, "y_pt": 0, "width_pt": 960, "height_pt": 48 },
+          "background": "#808080",
+          "border": "none",
+          "border_bottom": "2pt solid #000000",
+          "elements": [
+            {
+              "type": "heading",
+              "name": "Logo Text",
+              "position": { "x_pt": 30, "y_pt": 12, "width_pt": 200, "height_pt": 24 },
+              "style": { "font_size_pt": 17, "font_weight": "bold", "color": "#FFFFFF", "font_family": "Arial" },
+              "text": "TestCorp Portal"
+            },
+            {
+              "type": "text",
+              "name": "Nav Links",
+              "position": { "x_pt": 530, "y_pt": 15, "width_pt": 400, "height_pt": 18 },
+              "style": { "font_size_pt": 11, "font_weight": "500", "color": "#FFFFFF", "font_family": "Arial", "text_align": "right" },
+              "text": "Home    Services    Board    About    Contact"
+            }
+          ]
+        },
+        {
+          "section_id": 3,
+          "name": "Hero Section",
+          "position": { "x_pt": 0, "y_pt": 50, "width_pt": 960, "height_pt": 220 },
+          "background": "#808080",
+          "border": "none",
+          "elements": [
+            {
+              "type": "heading",
+              "name": "Hero Title",
+              "position": { "x_pt": 100, "y_pt": 110, "width_pt": 760, "height_pt": 38 },
+              "style": { "font_size_pt": 32, "font_weight": "800", "color": "#FFFFFF", "font_family": "Arial", "text_align": "center" },
+              "text": "Welcome to TestCorp Portal"
+            },
+            {
+              "type": "text",
+              "name": "Hero Subtitle",
+              "position": { "x_pt": 180, "y_pt": 155, "width_pt": 600, "height_pt": 50 },
+              "style": { "font_size_pt": 14, "font_weight": "normal", "color": "#FFFFFF", "font_family": "Arial", "text_align": "center", "line_height": 1.6 },
+              "text": "This is a layout verification page for html2pptx conversion testing. It includes header navigation, hero content, board section, shape tests, and footer structure."
+            },
+            {
+              "type": "shape",
+              "name": "CTA Button Primary - Get Started",
+              "position": { "x_pt": 348, "y_pt": 217, "width_pt": 120, "height_pt": 34 },
+              "style": { "background": "#808080", "border_radius": "6pt", "color": "#FFFFFF", "font_size_pt": 12, "font_weight": "700", "text_align": "center" },
+              "text": "Get Started"
+            },
+            {
+              "type": "shape",
+              "name": "CTA Button Secondary - Learn More",
+              "position": { "x_pt": 480, "y_pt": 217, "width_pt": 120, "height_pt": 34 },
+              "style": { "background": "transparent", "border": "2pt solid #FFFFFF", "border_radius": "6pt", "color": "#FFFFFF", "font_size_pt": 12, "font_weight": "600", "text_align": "center" },
+              "text": "Learn More"
+            }
+          ]
+        },
+        {
+          "section_id": 4,
+          "name": "Stats Bar",
+          "position": { "x_pt": 0, "y_pt": 270, "width_pt": 960, "height_pt": 71 },
+          "background": "#FFFFFF",
+          "border": "none",
+          "border_bottom": "1pt solid #E0E0E0",
+          "elements": [
+            {
+              "type": "text",
+              "name": "Stat 1 - Number",
+              "position": { "x_pt": 120, "y_pt": 282, "width_pt": 120, "height_pt": 28 },
+              "style": { "font_size_pt": 24, "font_weight": "800", "color": "#808080", "font_family": "Arial", "text_align": "center" },
+              "text": "1,247"
+            },
+            {
+              "type": "text",
+              "name": "Stat 1 - Label",
+              "position": { "x_pt": 120, "y_pt": 310, "width_pt": 120, "height_pt": 14 },
+              "style": { "font_size_pt": 10, "font_weight": "normal", "color": "#808080", "font_family": "Arial", "text_align": "center", "text_transform": "uppercase" },
+              "text": "Active Users"
+            },
+            {
+              "type": "text",
+              "name": "Stat 2 - Number",
+              "position": { "x_pt": 320, "y_pt": 282, "width_pt": 120, "height_pt": 28 },
+              "style": { "font_size_pt": 24, "font_weight": "800", "color": "#808080", "font_family": "Arial", "text_align": "center" },
+              "text": "358"
+            },
+            {
+              "type": "text",
+              "name": "Stat 2 - Label",
+              "position": { "x_pt": 320, "y_pt": 310, "width_pt": 120, "height_pt": 14 },
+              "style": { "font_size_pt": 10, "font_weight": "normal", "color": "#808080", "font_family": "Arial", "text_align": "center", "text_transform": "uppercase" },
+              "text": "Projects"
+            },
+            {
+              "type": "text",
+              "name": "Stat 3 - Number",
+              "position": { "x_pt": 520, "y_pt": 282, "width_pt": 120, "height_pt": 28 },
+              "style": { "font_size_pt": 24, "font_weight": "800", "color": "#808080", "font_family": "Arial", "text_align": "center" },
+              "text": "99.9%"
+            },
+            {
+              "type": "text",
+              "name": "Stat 3 - Label",
+              "position": { "x_pt": 520, "y_pt": 310, "width_pt": 120, "height_pt": 14 },
+              "style": { "font_size_pt": 10, "font_weight": "normal", "color": "#808080", "font_family": "Arial", "text_align": "center", "text_transform": "uppercase" },
+              "text": "Uptime"
+            },
+            {
+              "type": "text",
+              "name": "Stat 4 - Number",
+              "position": { "x_pt": 720, "y_pt": 282, "width_pt": 120, "height_pt": 28 },
+              "style": { "font_size_pt": 24, "font_weight": "800", "color": "#808080", "font_family": "Arial", "text_align": "center" },
+              "text": "24/7"
+            },
+            {
+              "type": "text",
+              "name": "Stat 4 - Label",
+              "position": { "x_pt": 720, "y_pt": 310, "width_pt": 120, "height_pt": 14 },
+              "style": { "font_size_pt": 10, "font_weight": "normal", "color": "#808080", "font_family": "Arial", "text_align": "center", "text_transform": "uppercase" },
+              "text": "Support"
+            }
+          ]
+        },
+        {
+          "section_id": 5,
+          "name": "Notice Board",
+          "position": { "x_pt": 30, "y_pt": 377, "width_pt": 584, "height_pt": 278 },
+          "background": "#FFFFFF",
+          "border": "1pt solid #E0E0E0",
+          "border_radius": "9pt",
+          "elements": [
+            {
+              "type": "shape",
+              "name": "Board Header",
+              "position": { "x_pt": 30, "y_pt": 377, "width_pt": 584, "height_pt": 38 },
+              "style": { "background": "#808080", "border_radius": "9pt 9pt 0 0" },
+              "text": ""
+            },
+            {
+              "type": "heading",
+              "name": "Board Title",
+              "position": { "x_pt": 48, "y_pt": 384, "width_pt": 200, "height_pt": 20 },
+              "style": { "font_size_pt": 14, "font_weight": "700", "color": "#FFFFFF", "font_family": "Arial" },
+              "text": "Notice Board"
+            },
+            {
+              "type": "shape",
+              "name": "New Badge",
+              "position": { "x_pt": 546, "y_pt": 386, "width_pt": 52, "height_pt": 20 },
+              "style": { "background": "#808080", "border_radius": "15pt", "color": "#FFFFFF", "font_size_pt": 9, "font_weight": "600", "text_align": "center" },
+              "text": "5 New"
+            },
+            {
+              "type": "shape",
+              "name": "Table Header Row",
+              "position": { "x_pt": 30, "y_pt": 415, "width_pt": 584, "height_pt": 28 },
+              "style": { "background": "#E0E0E0", "border_bottom": "2pt solid #E0E0E0" },
+              "text": ""
+            },
+            {
+              "type": "text",
+              "name": "Table Header - No.",
+              "position": { "x_pt": 42, "y_pt": 420, "width_pt": 50, "height_pt": 16 },
+              "style": { "font_size_pt": 10, "font_weight": "600", "color": "#000000", "font_family": "Arial" },
+              "text": "No."
+            },
+            {
+              "type": "text",
+              "name": "Table Header - Category",
+              "position": { "x_pt": 100, "y_pt": 420, "width_pt": 75, "height_pt": 16 },
+              "style": { "font_size_pt": 10, "font_weight": "600", "color": "#000000", "font_family": "Arial" },
+              "text": "Category"
+            },
+            {
+              "type": "text",
+              "name": "Table Header - Title",
+              "position": { "x_pt": 185, "y_pt": 420, "width_pt": 260, "height_pt": 16 },
+              "style": { "font_size_pt": 10, "font_weight": "600", "color": "#000000", "font_family": "Arial" },
+              "text": "Title"
+            },
+            {
+              "type": "text",
+              "name": "Table Header - Date",
+              "position": { "x_pt": 455, "y_pt": 420, "width_pt": 75, "height_pt": 16 },
+              "style": { "font_size_pt": 10, "font_weight": "600", "color": "#000000", "font_family": "Arial" },
+              "text": "Date"
+            },
+            {
+              "type": "text",
+              "name": "Table Header - Views",
+              "position": { "x_pt": 545, "y_pt": 420, "width_pt": 55, "height_pt": 16 },
+              "style": { "font_size_pt": 10, "font_weight": "600", "color": "#000000", "font_family": "Arial" },
+              "text": "Views"
+            },
+            {
+              "type": "text",
+              "name": "Row 1 - No",
+              "position": { "x_pt": 42, "y_pt": 452, "width_pt": 50, "height_pt": 14 },
+              "style": { "font_size_pt": 11, "color": "#000000", "font_family": "Arial" },
+              "text": "125"
+            },
+            {
+              "type": "shape",
+              "name": "Row 1 - Tag Notice",
+              "position": { "x_pt": 100, "y_pt": 450, "width_pt": 55, "height_pt": 18 },
+              "style": { "background": "#E0E0E0", "border_radius": "9pt", "color": "#000000", "font_size_pt": 9, "font_weight": "600", "text_align": "center" },
+              "text": "Notice"
+            },
+            {
+              "type": "text",
+              "name": "Row 1 - Title",
+              "position": { "x_pt": 185, "y_pt": 452, "width_pt": 260, "height_pt": 14 },
+              "style": { "font_size_pt": 11, "color": "#000000", "font_family": "Arial" },
+              "text": "System maintenance scheduled for March 15th"
+            },
+            {
+              "type": "text",
+              "name": "Row 1 - Date",
+              "position": { "x_pt": 455, "y_pt": 452, "width_pt": 75, "height_pt": 14 },
+              "style": { "font_size_pt": 11, "color": "#000000", "font_family": "Arial" },
+              "text": "2026-03-10"
+            },
+            {
+              "type": "text",
+              "name": "Row 1 - Views",
+              "position": { "x_pt": 545, "y_pt": 452, "width_pt": 55, "height_pt": 14 },
+              "style": { "font_size_pt": 11, "color": "#000000", "font_family": "Arial" },
+              "text": "342"
+            },
+            {
+              "type": "text",
+              "name": "Row 2 - No",
+              "position": { "x_pt": 42, "y_pt": 484, "width_pt": 50, "height_pt": 14 },
+              "style": { "font_size_pt": 11, "color": "#000000", "font_family": "Arial" },
+              "text": "124"
+            },
+            {
+              "type": "shape",
+              "name": "Row 2 - Tag Event",
+              "position": { "x_pt": 100, "y_pt": 482, "width_pt": 50, "height_pt": 18 },
+              "style": { "background": "#E0E0E0", "border_radius": "9pt", "color": "#000000", "font_size_pt": 9, "font_weight": "600", "text_align": "center" },
+              "text": "Event"
+            },
+            {
+              "type": "text",
+              "name": "Row 2 - Title",
+              "position": { "x_pt": 185, "y_pt": 484, "width_pt": 260, "height_pt": 14 },
+              "style": { "font_size_pt": 11, "color": "#000000", "font_family": "Arial" },
+              "text": "Annual developer conference registration open"
+            },
+            {
+              "type": "text",
+              "name": "Row 2 - Date",
+              "position": { "x_pt": 455, "y_pt": 484, "width_pt": 75, "height_pt": 14 },
+              "style": { "font_size_pt": 11, "color": "#000000", "font_family": "Arial" },
+              "text": "2026-03-08"
+            },
+            {
+              "type": "text",
+              "name": "Row 2 - Views",
+              "position": { "x_pt": 545, "y_pt": 484, "width_pt": 55, "height_pt": 14 },
+              "style": { "font_size_pt": 11, "color": "#000000", "font_family": "Arial" },
+              "text": "567"
+            },
+            {
+              "type": "text",
+              "name": "Row 3 - No",
+              "position": { "x_pt": 42, "y_pt": 516, "width_pt": 50, "height_pt": 14 },
+              "style": { "font_size_pt": 11, "color": "#000000", "font_family": "Arial" },
+              "text": "123"
+            },
+            {
+              "type": "shape",
+              "name": "Row 3 - Tag Update",
+              "position": { "x_pt": 100, "y_pt": 514, "width_pt": 55, "height_pt": 18 },
+              "style": { "background": "#E0E0E0", "border_radius": "9pt", "color": "#000000", "font_size_pt": 9, "font_weight": "600", "text_align": "center" },
+              "text": "Update"
+            },
+            {
+              "type": "text",
+              "name": "Row 3 - Title",
+              "position": { "x_pt": 185, "y_pt": 516, "width_pt": 260, "height_pt": 14 },
+              "style": { "font_size_pt": 11, "color": "#000000", "font_family": "Arial" },
+              "text": "Platform version 3.2 release notes"
+            },
+            {
+              "type": "text",
+              "name": "Row 3 - Date",
+              "position": { "x_pt": 455, "y_pt": 516, "width_pt": 75, "height_pt": 14 },
+              "style": { "font_size_pt": 11, "color": "#000000", "font_family": "Arial" },
+              "text": "2026-03-05"
+            },
+            {
+              "type": "text",
+              "name": "Row 3 - Views",
+              "position": { "x_pt": 545, "y_pt": 516, "width_pt": 55, "height_pt": 14 },
+              "style": { "font_size_pt": 11, "color": "#000000", "font_family": "Arial" },
+              "text": "891"
+            },
+            {
+              "type": "text",
+              "name": "Row 4 - No",
+              "position": { "x_pt": 42, "y_pt": 548, "width_pt": 50, "height_pt": 14 },
+              "style": { "font_size_pt": 11, "color": "#000000", "font_family": "Arial" },
+              "text": "122"
+            },
+            {
+              "type": "shape",
+              "name": "Row 4 - Tag FAQ",
+              "position": { "x_pt": 100, "y_pt": 546, "width_pt": 40, "height_pt": 18 },
+              "style": { "background": "#E0E0E0", "border_radius": "9pt", "color": "#000000", "font_size_pt": 9, "font_weight": "600", "text_align": "center" },
+              "text": "FAQ"
+            },
+            {
+              "type": "text",
+              "name": "Row 4 - Title",
+              "position": { "x_pt": 185, "y_pt": 548, "width_pt": 260, "height_pt": 14 },
+              "style": { "font_size_pt": 11, "color": "#000000", "font_family": "Arial" },
+              "text": "How to reset your account password"
+            },
+            {
+              "type": "text",
+              "name": "Row 4 - Date",
+              "position": { "x_pt": 455, "y_pt": 548, "width_pt": 75, "height_pt": 14 },
+              "style": { "font_size_pt": 11, "color": "#000000", "font_family": "Arial" },
+              "text": "2026-03-03"
+            },
+            {
+              "type": "text",
+              "name": "Row 4 - Views",
+              "position": { "x_pt": 545, "y_pt": 548, "width_pt": 55, "height_pt": 14 },
+              "style": { "font_size_pt": 11, "color": "#000000", "font_family": "Arial" },
+              "text": "1,204"
+            },
+            {
+              "type": "text",
+              "name": "Row 5 - No",
+              "position": { "x_pt": 42, "y_pt": 580, "width_pt": 50, "height_pt": 14 },
+              "style": { "font_size_pt": 11, "color": "#000000", "font_family": "Arial" },
+              "text": "121"
+            },
+            {
+              "type": "shape",
+              "name": "Row 5 - Tag Notice",
+              "position": { "x_pt": 100, "y_pt": 578, "width_pt": 55, "height_pt": 18 },
+              "style": { "background": "#E0E0E0", "border_radius": "9pt", "color": "#000000", "font_size_pt": 9, "font_weight": "600", "text_align": "center" },
+              "text": "Notice"
+            },
+            {
+              "type": "text",
+              "name": "Row 5 - Title",
+              "position": { "x_pt": 185, "y_pt": 580, "width_pt": 260, "height_pt": 14 },
+              "style": { "font_size_pt": 11, "color": "#000000", "font_family": "Arial" },
+              "text": "New privacy policy effective April 1st"
+            },
+            {
+              "type": "text",
+              "name": "Row 5 - Date",
+              "position": { "x_pt": 455, "y_pt": 580, "width_pt": 75, "height_pt": 14 },
+              "style": { "font_size_pt": 11, "color": "#000000", "font_family": "Arial" },
+              "text": "2026-03-01"
+            },
+            {
+              "type": "text",
+              "name": "Row 5 - Views",
+              "position": { "x_pt": 545, "y_pt": 580, "width_pt": 55, "height_pt": 14 },
+              "style": { "font_size_pt": 11, "color": "#000000", "font_family": "Arial" },
+              "text": "456"
+            }
+          ]
+        },
+        {
+          "section_id": 6,
+          "name": "Sidebar",
+          "position": { "x_pt": 638, "y_pt": 377, "width_pt": 292, "height_pt": 278 },
+          "background": "transparent",
+          "border": "none",
+          "elements": [
+            {
+              "type": "shape",
+              "name": "Recent Updates Card",
+              "position": { "x_pt": 638, "y_pt": 377, "width_pt": 292, "height_pt": 155 },
+              "style": { "background": "#FFFFFF", "border": "1pt solid #E0E0E0", "border_radius": "9pt" },
+              "text": ""
+            },
+            {
+              "type": "heading",
+              "name": "Recent Updates Title",
+              "position": { "x_pt": 656, "y_pt": 391, "width_pt": 256, "height_pt": 16 },
+              "style": { "font_size_pt": 12, "font_weight": "700", "color": "#000000", "font_family": "Arial", "border_bottom": "2pt solid #808080" },
+              "text": "Recent Updates"
+            },
+            {
+              "type": "list",
+              "name": "Recent Updates List",
+              "position": { "x_pt": 656, "y_pt": 418, "width_pt": 256, "height_pt": 105 },
+              "style": { "font_size_pt": 11, "color": "#000000", "font_family": "Arial", "line_height": 1.8 },
+              "items": [
+                { "text": "API v2.5 released", "secondary": "03-10" },
+                { "text": "Dashboard redesign", "secondary": "03-08" },
+                { "text": "Mobile app update", "secondary": "03-05" },
+                { "text": "Security patch applied", "secondary": "03-01" }
+              ]
+            },
+            {
+              "type": "shape",
+              "name": "Quick Links Card",
+              "position": { "x_pt": 638, "y_pt": 550, "width_pt": 292, "height_pt": 105 },
+              "style": { "background": "#FFFFFF", "border": "1pt solid #E0E0E0", "border_radius": "9pt" },
+              "text": ""
+            },
+            {
+              "type": "heading",
+              "name": "Quick Links Title",
+              "position": { "x_pt": 656, "y_pt": 564, "width_pt": 256, "height_pt": 16 },
+              "style": { "font_size_pt": 12, "font_weight": "700", "color": "#000000", "font_family": "Arial", "border_bottom": "2pt solid #808080" },
+              "text": "Quick Links"
+            },
+            {
+              "type": "shape",
+              "name": "Quick Link - Docs",
+              "position": { "x_pt": 656, "y_pt": 590, "width_pt": 122, "height_pt": 26 },
+              "style": { "background": "#E0E0E0", "border": "1pt solid #E0E0E0", "border_radius": "6pt", "color": "#000000", "font_size_pt": 10, "font_weight": "600", "text_align": "center" },
+              "text": "Docs"
+            },
+            {
+              "type": "shape",
+              "name": "Quick Link - Support",
+              "position": { "x_pt": 786, "y_pt": 590, "width_pt": 122, "height_pt": 26 },
+              "style": { "background": "#E0E0E0", "border": "1pt solid #E0E0E0", "border_radius": "6pt", "color": "#000000", "font_size_pt": 10, "font_weight": "600", "text_align": "center" },
+              "text": "Support"
+            },
+            {
+              "type": "shape",
+              "name": "Quick Link - Reports",
+              "position": { "x_pt": 656, "y_pt": 622, "width_pt": 122, "height_pt": 26 },
+              "style": { "background": "#E0E0E0", "border": "1pt solid #E0E0E0", "border_radius": "6pt", "color": "#000000", "font_size_pt": 10, "font_weight": "600", "text_align": "center" },
+              "text": "Reports"
+            },
+            {
+              "type": "shape",
+              "name": "Quick Link - Settings",
+              "position": { "x_pt": 786, "y_pt": 622, "width_pt": 122, "height_pt": 26 },
+              "style": { "background": "#E0E0E0", "border": "1pt solid #E0E0E0", "border_radius": "6pt", "color": "#000000", "font_size_pt": 10, "font_weight": "600", "text_align": "center" },
+              "text": "Settings"
+            }
+          ]
+        },
+        {
+          "section_id": 7,
+          "name": "Shape & Line Rendering Test",
+          "position": { "x_pt": 30, "y_pt": 691, "width_pt": 900, "height_pt": 225 },
+          "background": "#FFFFFF",
+          "border": "1pt solid #E0E0E0",
+          "border_radius": "9pt",
+          "elements": [
+            {
+              "type": "heading",
+              "name": "Section Title",
+              "position": { "x_pt": 54, "y_pt": 709, "width_pt": 850, "height_pt": 20 },
+              "style": { "font_size_pt": 15, "font_weight": "700", "color": "#000000", "font_family": "Arial", "border_bottom": "2pt solid #E0E0E0" },
+              "text": "Shape & Line Rendering Test"
+            },
+            {
+              "type": "shape",
+              "name": "Shape - Rectangle",
+              "position": { "x_pt": 72, "y_pt": 745, "width_pt": 75, "height_pt": 45 },
+              "style": { "background": "#808080", "border_radius": "3pt" },
+              "text": ""
+            },
+            {
+              "type": "text",
+              "name": "Label - Rectangle",
+              "position": { "x_pt": 54, "y_pt": 795, "width_pt": 110, "height_pt": 22 },
+              "style": { "font_size_pt": 8, "color": "#808080", "font_family": "Arial", "text_align": "center" },
+              "text": "Rectangle\n(4px radius)"
+            },
+            {
+              "type": "shape",
+              "name": "Shape - Rounded Rect",
+              "position": { "x_pt": 237, "y_pt": 745, "width_pt": 75, "height_pt": 45 },
+              "style": { "background": "#808080", "border_radius": "12pt" },
+              "text": ""
+            },
+            {
+              "type": "text",
+              "name": "Label - Rounded Rect",
+              "position": { "x_pt": 219, "y_pt": 795, "width_pt": 110, "height_pt": 22 },
+              "style": { "font_size_pt": 8, "color": "#808080", "font_family": "Arial", "text_align": "center" },
+              "text": "Rounded Rect\n(16px radius)"
+            },
+            {
+              "type": "shape",
+              "name": "Shape - Circle",
+              "position": { "x_pt": 409, "y_pt": 741, "width_pt": 53, "height_pt": 53 },
+              "style": { "background": "#808080", "border_radius": "50%" },
+              "text": ""
+            },
+            {
+              "type": "text",
+              "name": "Label - Circle",
+              "position": { "x_pt": 389, "y_pt": 795, "width_pt": 92, "height_pt": 22 },
+              "style": { "font_size_pt": 8, "color": "#808080", "font_family": "Arial", "text_align": "center" },
+              "text": "Circle\n(50% radius)"
+            },
+            {
+              "type": "shape",
+              "name": "Shape - Border Only",
+              "position": { "x_pt": 564, "y_pt": 745, "width_pt": 75, "height_pt": 45 },
+              "style": { "background": "#FFFFFF", "border": "2pt solid #808080", "border_radius": "6pt" },
+              "text": ""
+            },
+            {
+              "type": "text",
+              "name": "Label - Border Only",
+              "position": { "x_pt": 546, "y_pt": 795, "width_pt": 110, "height_pt": 22 },
+              "style": { "font_size_pt": 8, "color": "#808080", "font_family": "Arial", "text_align": "center" },
+              "text": "Border Only\n(3px solid)"
+            },
+            {
+              "type": "shape",
+              "name": "Shape - Box Shadow",
+              "position": { "x_pt": 729, "y_pt": 745, "width_pt": 75, "height_pt": 45 },
+              "style": { "background": "#808080", "border_radius": "6pt", "shadow": "3pt 3pt 9pt rgba(0,0,0,0.3)" },
+              "text": ""
+            },
+            {
+              "type": "text",
+              "name": "Label - Box Shadow",
+              "position": { "x_pt": 711, "y_pt": 795, "width_pt": 110, "height_pt": 22 },
+              "style": { "font_size_pt": 8, "color": "#808080", "font_family": "Arial", "text_align": "center" },
+              "text": "Box Shadow\n(4px offset)"
+            },
+            {
+              "type": "shape",
+              "name": "Line - Top Border",
+              "position": { "x_pt": 72, "y_pt": 840, "width_pt": 90, "height_pt": 30 },
+              "style": { "background": "#E0E0E0", "border_top": "3pt solid #808080" },
+              "text": ""
+            },
+            {
+              "type": "text",
+              "name": "Label - Top Border",
+              "position": { "x_pt": 54, "y_pt": 875, "width_pt": 126, "height_pt": 22 },
+              "style": { "font_size_pt": 8, "color": "#808080", "font_family": "Arial", "text_align": "center" },
+              "text": "Top Border\n(4px red)"
+            },
+            {
+              "type": "shape",
+              "name": "Line - Left Border",
+              "position": { "x_pt": 270, "y_pt": 840, "width_pt": 90, "height_pt": 30 },
+              "style": { "background": "#E0E0E0", "border_left": "3pt solid #808080" },
+              "text": ""
+            },
+            {
+              "type": "text",
+              "name": "Label - Left Border",
+              "position": { "x_pt": 252, "y_pt": 875, "width_pt": 126, "height_pt": 22 },
+              "style": { "font_size_pt": 8, "color": "#808080", "font_family": "Arial", "text_align": "center" },
+              "text": "Left Border\n(4px blue)"
+            },
+            {
+              "type": "shape",
+              "name": "Line - Bottom Border",
+              "position": { "x_pt": 468, "y_pt": 840, "width_pt": 90, "height_pt": 30 },
+              "style": { "background": "#E0E0E0", "border_bottom": "3pt solid #808080" },
+              "text": ""
+            },
+            {
+              "type": "text",
+              "name": "Label - Bottom Border",
+              "position": { "x_pt": 450, "y_pt": 875, "width_pt": 126, "height_pt": 22 },
+              "style": { "font_size_pt": 8, "color": "#808080", "font_family": "Arial", "text_align": "center" },
+              "text": "Bottom Border\n(4px green)"
+            },
+            {
+              "type": "shape",
+              "name": "Line - Full Border",
+              "position": { "x_pt": 666, "y_pt": 840, "width_pt": 90, "height_pt": 30 },
+              "style": { "background": "#E0E0E0", "border": "2pt solid #808080", "border_radius": "5pt" },
+              "text": ""
+            },
+            {
+              "type": "text",
+              "name": "Label - Full Border",
+              "position": { "x_pt": 648, "y_pt": 875, "width_pt": 126, "height_pt": 22 },
+              "style": { "font_size_pt": 8, "color": "#808080", "font_family": "Arial", "text_align": "center" },
+              "text": "Full Border\n(2px gold)"
+            }
+          ]
+        },
+        {
+          "section_id": 8,
+          "name": "Footer",
+          "position": { "x_pt": 0, "y_pt": 953, "width_pt": 960, "height_pt": 493 },
+          "background": "#808080",
+          "border": "none",
+          "elements": [
+            {
+              "type": "heading",
+              "name": "Footer Col 1 Title",
+              "position": { "x_pt": 45, "y_pt": 989, "width_pt": 380, "height_pt": 18 },
+              "style": { "font_size_pt": 12, "font_weight": "700", "color": "#FFFFFF", "font_family": "Arial" },
+              "text": "TestCorp Portal"
+            },
+            {
+              "type": "text",
+              "name": "Footer Col 1 Description",
+              "position": { "x_pt": 45, "y_pt": 1013, "width_pt": 380, "height_pt": 70 },
+              "style": { "font_size_pt": 11, "color": "#FFFFFF", "font_family": "Arial", "line_height": 1.7 },
+              "text": "A comprehensive testing page designed to verify html2pptx conversion accuracy. This page includes navigation, hero sections, data tables, shape rendering, line borders, and footer layouts."
+            },
+            {
+              "type": "heading",
+              "name": "Footer Col 2 Title - Company",
+              "position": { "x_pt": 460, "y_pt": 989, "width_pt": 140, "height_pt": 18 },
+              "style": { "font_size_pt": 12, "font_weight": "700", "color": "#FFFFFF", "font_family": "Arial" },
+              "text": "Company"
+            },
+            {
+              "type": "list",
+              "name": "Footer Col 2 Links",
+              "position": { "x_pt": 460, "y_pt": 1013, "width_pt": 140, "height_pt": 80 },
+              "style": { "font_size_pt": 11, "color": "#FFFFFF", "font_family": "Arial", "line_height": 1.8 },
+              "items": [
+                { "text": "About Us" },
+                { "text": "Careers" },
+                { "text": "Press" },
+                { "text": "Blog" }
+              ]
+            },
+            {
+              "type": "heading",
+              "name": "Footer Col 3 Title - Resources",
+              "position": { "x_pt": 630, "y_pt": 989, "width_pt": 140, "height_pt": 18 },
+              "style": { "font_size_pt": 12, "font_weight": "700", "color": "#FFFFFF", "font_family": "Arial" },
+              "text": "Resources"
+            },
+            {
+              "type": "list",
+              "name": "Footer Col 3 Links",
+              "position": { "x_pt": 630, "y_pt": 1013, "width_pt": 140, "height_pt": 80 },
+              "style": { "font_size_pt": 11, "color": "#FFFFFF", "font_family": "Arial", "line_height": 1.8 },
+              "items": [
+                { "text": "Documentation" },
+                { "text": "API Reference" },
+                { "text": "Status Page" },
+                { "text": "Changelog" }
+              ]
+            },
+            {
+              "type": "heading",
+              "name": "Footer Col 4 Title - Legal",
+              "position": { "x_pt": 800, "y_pt": 989, "width_pt": 140, "height_pt": 18 },
+              "style": { "font_size_pt": 12, "font_weight": "700", "color": "#FFFFFF", "font_family": "Arial" },
+              "text": "Legal"
+            },
+            {
+              "type": "list",
+              "name": "Footer Col 4 Links",
+              "position": { "x_pt": 800, "y_pt": 1013, "width_pt": 140, "height_pt": 80 },
+              "style": { "font_size_pt": 11, "color": "#FFFFFF", "font_family": "Arial", "line_height": 1.8 },
+              "items": [
+                { "text": "Privacy Policy" },
+                { "text": "Terms of Service" },
+                { "text": "Cookie Policy" },
+                { "text": "GDPR" }
+              ]
+            },
+            {
+              "type": "text",
+              "name": "Footer Bottom - Copyright",
+              "position": { "x_pt": 45, "y_pt": 1120, "width_pt": 400, "height_pt": 16 },
+              "style": { "font_size_pt": 10, "color": "#FFFFFF", "font_family": "Arial" },
+              "text": "\u00a9 2026 TestCorp. All rights reserved."
+            },
+            {
+              "type": "text",
+              "name": "Footer Bottom - Social Links",
+              "position": { "x_pt": 750, "y_pt": 1120, "width_pt": 190, "height_pt": 16 },
+              "style": { "font_size_pt": 10, "color": "#FFFFFF", "font_family": "Arial", "text_align": "right" },
+              "text": "GitHub    Twitter    LinkedIn"
+            }
+          ]
+        }
+      ],
+      "badges": [
+        { "number": 1, "position": { "x_pt": 6, "y_pt": 6 } },
+        { "number": 2, "position": { "x_pt": 6, "y_pt": 6 } },
+        { "number": 3, "position": { "x_pt": 6, "y_pt": 56 } },
+        { "number": 4, "position": { "x_pt": 6, "y_pt": 276 } },
+        { "number": 5, "position": { "x_pt": 36, "y_pt": 383 } },
+        { "number": 6, "position": { "x_pt": 644, "y_pt": 383 } },
+        { "number": 7, "position": { "x_pt": 36, "y_pt": 697 } },
+        { "number": 8, "position": { "x_pt": 6, "y_pt": 959 } }
+      ],
+      "background": {
+        "type": "solid",
+        "value": "#FFFFFF"
+      }
+    }
+  ],
+  "warnings": [
+    "Corner markers use position:fixed in HTML; mapped to absolute positions at slide corners in wireframe.",
+    "Center marker positioned at visual center of content area (480pt, 723pt) rather than exact 50%/50% of slide including description panel.",
+    "Box shadow CSS property has limited PPTX support; represented as shadow style hint.",
+    "Emoji icons in Quick Links (Docs, Support, Reports, Settings) omitted in wireframe; text labels only.",
+    "Partial borders (border-top, border-left, border-bottom only) require special PPTX handling.",
+    "Hero pseudo-elements (::before, ::after decorative circles) not represented in wireframe.",
+    "Table hover effects (tr:hover) not applicable in static PPTX output."
+  ]
+}

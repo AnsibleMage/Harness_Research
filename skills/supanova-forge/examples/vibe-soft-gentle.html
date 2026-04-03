@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VIBE: Soft — Gentle Flow Demo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  <script src="https://code.iconify.design/iconify-icon/2.3.0/iconify-icon.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        fontFamily: { sans: ['Pretendard','system-ui','sans-serif'], display: ['Quicksand','Pretendard','sans-serif'] },
+        colors: { rose: { soft: '#fce4ec', mid: '#f48fb1', deep: '#e91e63' }, lavender: { soft: '#f3e5f5', mid: '#ce93d8' }, sky: { soft: '#e3f2fd', mid: '#90caf9' } },
+      }}
+    }
+  </script>
+  <style>
+    .break-keep { word-break: keep-all; }
+    .blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.3; pointer-events: none; }
+    .gentle-lift { transition: all 0.5s cubic-bezier(0.16,1,0.3,1); }
+    .gentle-lift:hover { transform: scale(1.03); }
+    .soft-shadow { box-shadow: 0 8px 40px -10px rgba(0,0,0,0.08); }
+  </style>
+</head>
+<body class="bg-[#faf8f6] font-sans text-[#4a4a4a] antialiased relative overflow-x-hidden">
+
+<!-- Ambient blobs -->
+<div class="blob w-[400px] h-[400px] bg-rose-soft top-[-100px] left-[-100px]" style="position:fixed;z-index:0;"></div>
+<div class="blob w-[300px] h-[300px] bg-lavender-soft bottom-[100px] right-[-50px]" style="position:fixed;z-index:0;"></div>
+<div class="blob w-[350px] h-[350px] bg-sky-soft top-[40%] left-[60%]" style="position:fixed;z-index:0;"></div>
+
+<div class="relative z-10">
+
+<!-- Soft Header -->
+<header class="bg-white/70 backdrop-blur-md sticky top-0 z-40">
+  <div class="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
+    <span class="font-display text-xl font-bold text-[#4a4a4a] tracking-wide">새로e아름</span>
+    <nav class="flex gap-8">
+      <a href="#" class="text-base text-[#888] hover:text-rose-deep transition-colors duration-500">나의공간</a>
+      <a href="#" class="text-base text-[#888] hover:text-rose-deep transition-colors duration-500">콘텐츠</a>
+      <a href="#" class="text-base text-[#888] hover:text-rose-deep transition-colors duration-500">채널</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero: Gentle & warm -->
+<section class="py-24 lg:py-32 text-center">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="inline-flex items-center gap-2 bg-rose-soft rounded-full px-5 py-2 mb-8">
+      <iconify-icon icon="solar:heart-linear" width="16" class="text-rose-deep"></iconify-icon>
+      <span class="text-sm font-semibold text-rose-deep tracking-wide">AI Education</span>
+    </div>
+    <h1 class="font-display text-4xl lg:text-5xl font-bold text-[#333] tracking-wide leading-tight mb-6 break-keep">
+      배움이 즐거워지는<br>순간을 만나보세요
+    </h1>
+    <p class="text-lg text-[#888] max-w-xl mx-auto mb-10 break-keep leading-relaxed">우정인재개발원의 교육 큐레이터가 당신에게 딱 맞는 학습을 추천합니다</p>
+    <a href="#" class="inline-flex items-center gap-2 bg-gradient-to-r from-rose-mid to-lavender-mid text-white rounded-full px-8 py-4 text-lg font-semibold gentle-lift soft-shadow">
+      학습 시작하기 <iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon>
+    </a>
+  </div>
+</section>
+
+<!-- Cards: Rounded, soft shadow -->
+<section class="py-16">
+  <div class="max-w-5xl mx-auto px-6">
+    <h2 class="font-display text-2xl font-bold text-center text-[#333] mb-10 tracking-wide">이어서 학습하기</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-white rounded-3xl p-6 soft-shadow gentle-lift">
+        <div class="h-[170px] bg-gradient-to-br from-rose-soft to-lavender-soft rounded-2xl mb-4"></div>
+        <h3 class="text-lg font-semibold text-[#333] mb-2 break-keep">우편취급 위반관련 법규</h3>
+        <div class="flex items-center gap-3 mb-3">
+          <div class="flex-1 h-2 bg-rose-soft rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-rose-mid to-rose-deep rounded-full" style="width:30%"></div></div>
+          <span class="text-sm font-semibold text-rose-deep">30%</span>
+        </div>
+        <a href="#" class="text-base text-rose-deep font-semibold hover:underline">이어보기</a>
+      </div>
+      <div class="bg-white rounded-3xl p-6 soft-shadow gentle-lift">
+        <div class="h-[170px] bg-gradient-to-br from-lavender-soft to-sky-soft rounded-2xl mb-4"></div>
+        <h3 class="text-lg font-semibold text-[#333] mb-2 break-keep">도전! 나의 손해 2</h3>
+        <div class="flex items-center gap-3 mb-3">
+          <div class="flex-1 h-2 bg-lavender-soft rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-lavender-mid to-rose-mid rounded-full" style="width:65%"></div></div>
+          <span class="text-sm font-semibold text-lavender-mid">65%</span>
+        </div>
+        <a href="#" class="text-base text-lavender-mid font-semibold hover:underline">이어보기</a>
+      </div>
+      <div class="bg-white rounded-3xl p-6 soft-shadow gentle-lift">
+        <div class="h-[170px] bg-gradient-to-br from-sky-soft to-rose-soft rounded-2xl mb-4"></div>
+        <h3 class="text-lg font-semibold text-[#333] mb-2 break-keep">청렴판단력 키우기</h3>
+        <div class="flex items-center gap-3 mb-3">
+          <div class="flex-1 h-2 bg-sky-soft rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-sky-mid to-lavender-mid rounded-full" style="width:10%"></div></div>
+          <span class="text-sm font-semibold text-sky-mid">10%</span>
+        </div>
+        <a href="#" class="text-base text-sky-mid font-semibold hover:underline">이어보기</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Channel: Rounded list -->
+<section class="py-16">
+  <div class="max-w-4xl mx-auto px-6">
+    <h2 class="font-display text-2xl font-bold text-center text-[#333] mb-10 tracking-wide">구독중인 채널</h2>
+    <div class="space-y-4">
+      <div class="bg-white rounded-2xl p-5 soft-shadow flex items-center gap-4 gentle-lift">
+        <div class="w-12 h-12 bg-gradient-to-br from-rose-mid to-rose-deep rounded-2xl flex items-center justify-center text-white text-sm font-bold">우정</div>
+        <div class="flex-1"><span class="text-base font-semibold text-[#333]">우정인재개발원</span><span class="text-sm text-[#aaa] ml-2">50,032명</span></div>
+        <span class="text-sm text-rose-deep bg-rose-soft rounded-full px-4 py-1.5 font-semibold">구독중</span>
+      </div>
+      <div class="bg-white rounded-2xl p-5 soft-shadow flex items-center gap-4 gentle-lift">
+        <div class="w-12 h-12 bg-gradient-to-br from-lavender-mid to-rose-mid rounded-2xl flex items-center justify-center text-white text-sm font-bold">교육</div>
+        <div class="flex-1"><span class="text-base font-semibold text-[#333]">교육큐레이션</span><span class="text-sm text-[#aaa] ml-2">52,149명</span></div>
+        <span class="text-sm text-lavender-mid bg-lavender-soft rounded-full px-4 py-1.5 font-semibold">구독중</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-10 text-center">
+  <span class="font-display text-lg text-[#ccc] tracking-wider">우정인재개발원</span>
+  <p class="text-sm text-[#ccc] mt-2">VIBE: Soft (Gentle Flow) — supanova-forge v2.1 demo</p>
+</footer>
+
+</div>
+</body>
+</html>

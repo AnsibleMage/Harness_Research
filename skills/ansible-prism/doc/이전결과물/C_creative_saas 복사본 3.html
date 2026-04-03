@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>새로e아름 — 우정인재개발원</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.min.css">
+  <style>
+    /*
+    FRAMEWORK: v3.1
+    OL: 8
+    WORLD: "화이트 갤러리 — 순백의 벽, 콘텐츠가 작품이 되는 공간"
+    GI: O8 C8 P8 S8 / A3 B2
+    CC: f(교육포털 → 갤러리) = "동영상=영상작품, 가로스크롤=전시벽 동선, 흰배경=작품 돋보임"
+    SLOTS: 메타포=갤러리전시실 | 색온도=도시 | 구조=싱글스크롤 | 타이포=압축볼드 | 악센트=배경반전
+    PREV: 천문대|수중|타임라인|모노스페이스|hover서프라이즈 → 5/5 변경
+    */
+
+    :root {
+      --gallery: #ffffff;
+      --concrete: #f2f2f7;
+      --graphite: #1c1c1e;
+      --steel: #8e8e93;
+      --vermillion: #ff3b30;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Pretendard', -apple-system, sans-serif;
+      background: var(--gallery);
+      color: var(--graphite);
+      line-height: 1.6;
+      word-break: keep-all;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Nav ── */
+    .nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 16px 48px; background: var(--gallery);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      position: sticky; top: 0; z-index: 50;
+    }
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 24px; color: var(--graphite); letter-spacing: 1px;
+    }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a {
+      text-decoration: none; color: var(--steel); font-size: 15px;
+      font-weight: 500; transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--graphite); }
+    .nav-right { font-size: 15px; color: var(--steel); }
+    .nav-right a { color: var(--vermillion); text-decoration: none; font-weight: 600; }
+
+    /* ── Hero: 넷플릭스 메인 배너 ── */
+    .hero {
+      position: relative;
+      margin: 24px 48px;
+      height: 420px;
+      background: var(--graphite);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .hero-gradient {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, var(--graphite) 0%, transparent 60%);
+    }
+
+    .hero-content {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 48px;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 16px; color: var(--vermillion);
+      letter-spacing: 3px; margin-bottom: 16px;
+    }
+
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 56px; color: var(--gallery);
+      letter-spacing: 2px; line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .hero-desc {
+      font-size: 16px; color: var(--steel);
+      margin-bottom: 28px; max-width: 500px;
+    }
+
+    .hero-search {
+      display: flex; max-width: 480px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 4px; overflow: hidden;
+    }
+    .hero-search input {
+      flex: 1; padding: 16px 20px; border: none; background: transparent;
+      font-family: 'Pretendard', sans-serif; font-size: 15px;
+      color: var(--gallery); outline: none;
+    }
+    .hero-search input::placeholder { color: var(--steel); }
+    .hero-search button {
+      padding: 16px 28px; background: var(--gallery); border: none;
+      color: var(--graphite); font-family: 'Pretendard', sans-serif;
+      font-weight: 700; font-size: 15px; cursor: pointer;
+      transition: background 0.15s;
+    }
+    .hero-search button:hover { background: var(--concrete); }
+
+    .hero-hints {
+      display: flex; gap: 8px; margin-top: 14px;
+    }
+    .hero-hints span {
+      font-size: 14px; color: rgba(255,255,255,0.45);
+      padding: 6px 14px; border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 4px; cursor: pointer; transition: all 0.15s;
+    }
+    .hero-hints span:hover { color: var(--gallery); border-color: rgba(255,255,255,0.3); }
+
+    /* 학습현황: 히어로 우측 상단 글래스 카드 */
+    .hero-status {
+      position: absolute; top: 24px; right: 24px;
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 6px;
+      padding: 24px 28px; text-align: center;
+    }
+    .hero-status-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 56px; color: var(--gallery); line-height: 1;
+    }
+    .hero-status-label { font-size: 14px; color: rgba(255,255,255,0.5); margin-top: 4px; font-weight: 500; }
+    .hero-status-detail { font-size: 14px; color: rgba(255,255,255,0.3); margin-top: 14px; line-height: 1.8; }
+
+    /* ── 공통: 가로 스크롤 행 ── */
+    .row { padding: 40px 0 0; }
+
+    .row-head {
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding: 0 48px; margin-bottom: 20px;
+    }
+
+    .row-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px; letter-spacing: 1px;
+    }
+
+    .row-link {
+      font-size: 14px; color: var(--vermillion); text-decoration: none;
+      font-weight: 600;
+    }
+    .row-link:hover { opacity: 0.7; }
+
+    .scroll-track {
+      display: flex; gap: 20px; overflow-x: auto;
+      padding: 0 48px 32px; scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+    }
+    .scroll-track::-webkit-scrollbar { display: none; }
+
+    /* ── 동영상 카드 ── */
+    .vid {
+      flex: 0 0 320px; scroll-snap-align: start;
+      cursor: pointer; transition: transform 0.2s;
+    }
+    .vid:hover { transform: translateY(-4px); }
+
+    .vid-thumb {
+      width: 100%; aspect-ratio: 16/9;
+      background: var(--concrete); border-radius: 4px;
+      position: relative; overflow: hidden;
+      margin-bottom: 14px;
+    }
+
+    /* hover시 재생 오버레이 */
+    .vid-play {
+      position: absolute; inset: 0;
+      background: rgba(28,28,30,0.5);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity 0.2s;
+    }
+    .vid:hover .vid-play { opacity: 1; }
+
+    .vid-play-icon {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--gallery); display: flex;
+      align-items: center; justify-content: center;
+    }
+    .vid-play-icon::after {
+      content: ''; width: 0; height: 0;
+      border-style: solid; border-width: 8px 0 8px 14px;
+      border-color: transparent transparent transparent var(--graphite);
+      margin-left: 2px;
+    }
+
+    .vid-badges { position: absolute; top: 10px; left: 10px; display: flex; gap: 6px; }
+    .vid-badge {
+      font-size: 14px; font-weight: 600; padding: 4px 10px;
+      background: var(--graphite); color: var(--gallery);
+      border-radius: 4px;
+    }
+    .vid-heart {
+      position: absolute; top: 10px; right: 10px;
+      font-size: 14px; color: var(--gallery); opacity: 0.8;
+      background: rgba(0,0,0,0.4); padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+    .vid-title { font-size: 16px; font-weight: 700; line-height: 1.4; margin-bottom: 4px; }
+    .vid-desc { font-size: 14px; color: var(--steel); line-height: 1.5; margin-bottom: 4px; }
+    .vid-meta { font-size: 14px; color: var(--steel); }
+
+    /* 이어서학습: 진행바 */
+    .vid-progress { height: 4px; background: var(--concrete); border-radius: 2px; margin-top: 10px; }
+    .vid-progress-fill { height: 100%; background: var(--vermillion); border-radius: 2px; }
+    .vid-pct { font-family: 'Bebas Neue', sans-serif; font-size: 18px; margin-top: 6px; letter-spacing: 0.5px; }
+
+    /* ── CLASSROOM 탭 ── */
+    .classroom-tabs {
+      display: flex; gap: 0; padding: 0 48px;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .tab-btn {
+      padding: 14px 28px; font-size: 15px; font-weight: 600;
+      color: var(--steel); background: none; border: none;
+      border-bottom: 2px solid transparent;
+      cursor: pointer; transition: all 0.15s;
+      font-family: 'Pretendard', sans-serif;
+    }
+    .tab-btn.active { color: var(--graphite); border-bottom-color: var(--vermillion); }
+    .tab-btn:hover { color: var(--graphite); }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* ── 교육현황: SLOT_5 배경 반전 (vermillion 배경) ── */
+    .status-band {
+      margin: 32px 48px;
+      padding: 36px 40px;
+      background: var(--vermillion);
+      border-radius: 6px;
+      color: var(--gallery);
+      display: flex; gap: 48px;
+    }
+
+    .status-group { flex: 1; }
+    .status-label {
+      font-size: 15px; font-weight: 700; margin-bottom: 12px;
+      opacity: 0.9;
+    }
+    .status-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .status-pill {
+      font-size: 14px; padding: 8px 16px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: var(--gallery); font-weight: 500;
+      border-radius: 4px; transition: background 0.15s;
+    }
+    .status-pill:hover { background: rgba(255,255,255,0.25); }
+
+    /* ── 전자도서관 ── */
+    .library-card {
+      margin: 0 48px 32px;
+      padding: 40px 48px;
+      background: var(--graphite);
+      border-radius: 6px;
+      display: flex; justify-content: space-between; align-items: center;
+      color: var(--gallery); position: relative; overflow: hidden;
+    }
+    .library-text h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px; letter-spacing: 1px; margin-bottom: 8px;
+    }
+    .library-text p { font-size: 15px; color: var(--steel); }
+    .library-cta {
+      padding: 14px 32px; background: var(--gallery); color: var(--graphite);
+      font-weight: 700; font-size: 15px; border: none; border-radius: 4px;
+      cursor: pointer; transition: background 0.15s; text-decoration: none;
+      flex-shrink: 0;
+    }
+    .library-cta:hover { background: var(--concrete); }
+    .library-deco {
+      position: absolute; right: 220px; top: -20px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 140px; color: rgba(255,255,255,0.03); letter-spacing: 4px;
+    }
+
+    /* ── 채널 ── */
+    .channels { padding: 0 48px 32px; }
+    .channels-head {
+      display: flex; justify-content: space-between; align-items: baseline;
+      margin-bottom: 16px;
+    }
+    .ch-grid { display: flex; gap: 16px; }
+    .ch-card {
+      flex: 1; display: flex; align-items: center; gap: 16px;
+      padding: 20px; background: var(--concrete); border-radius: 6px;
+      transition: background 0.15s;
+    }
+    .ch-card:hover { background: rgba(0,0,0,0.04); }
+    .ch-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--graphite); color: var(--gallery);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 700; flex-shrink: 0;
+    }
+    .ch-name { font-size: 15px; font-weight: 600; }
+    .ch-count { font-size: 14px; color: var(--steel); }
+
+    /* ── 도서: 가로 스크롤 ── */
+    .book {
+      flex: 0 0 140px; scroll-snap-align: start; text-align: center;
+    }
+    .book-cover {
+      width: 100%; aspect-ratio: 3/4;
+      background: var(--concrete); border-radius: 4px;
+      margin-bottom: 10px; border: 1px solid rgba(0,0,0,0.04);
+    }
+    .book-title { font-size: 14px; font-weight: 600; line-height: 1.3; }
+    .book-author { font-size: 14px; color: var(--steel); }
+
+    /* ── 연락처 ── */
+    .contact {
+      padding: 36px 48px;
+      background: var(--concrete);
+      border-top: 1px solid rgba(0,0,0,0.04);
+    }
+    .contact-label {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 18px; letter-spacing: 1px; text-align: center;
+      margin-bottom: 24px; color: var(--steel);
+    }
+    .contact-grid { display: flex; justify-content: center; gap: 48px; }
+    .contact-item { text-align: center; }
+    .contact-item strong {
+      display: block; font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px; letter-spacing: 0.5px; margin-bottom: 4px;
+    }
+    .contact-item span { font-size: 14px; color: var(--steel); }
+
+    /* ── Footer ── */
+    footer { padding: 28px 48px 18px; border-top: 1px solid rgba(0,0,0,0.06); }
+    .footer-top {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 14px; padding-bottom: 12px;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 18px; color: var(--steel); letter-spacing: 1px;
+    }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+    .footer-links a { font-size: 14px; color: var(--steel); text-decoration: none; }
+    .footer-links a:first-child { font-weight: 700; color: var(--graphite); }
+    .footer-links a:hover { color: var(--vermillion); }
+    .footer-info { font-size: 14px; color: rgba(0,0,0,0.2); line-height: 1.8; margin-bottom: 8px; }
+    .footer-copy { font-size: 14px; color: rgba(0,0,0,0.12); }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+      .hero { margin: 12px 16px; height: 340px; }
+      .hero-content { padding: 28px; }
+      .hero-title { font-size: 36px; }
+      .hero-status { display: none; }
+      .row-head, .classroom-tabs, .channels { padding-left: 20px; padding-right: 20px; }
+      .scroll-track { padding: 0 20px 20px; }
+      .vid { flex: 0 0 280px; }
+      .status-band { margin: 20px 16px; flex-direction: column; gap: 24px; padding: 28px; }
+      .library-card { margin: 0 16px 24px; padding: 28px; flex-direction: column; gap: 16px; }
+      .ch-grid { flex-direction: column; }
+      .contact { padding: 28px 20px; }
+      .contact-grid { flex-wrap: wrap; gap: 20px; }
+      footer { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-logo">새로e아름</div>
+    <div class="nav-links"><a href="#">나의공간</a><a href="#">콘텐츠</a><a href="#">채널</a><a href="#">직무인증</a><a href="#">고객지원센터</a></div>
+    <div class="nav-right">홍길동님 <a href="#">플랫폼</a></div>
+  </nav>
+
+  <!-- Hero Banner -->
+  <section class="hero">
+    <div class="hero-gradient"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">AX EDUCATION CURATOR</div>
+      <h1 class="hero-title">무엇이든 물어보세요</h1>
+      <p class="hero-desc">구체적으로 질문하시면 더 정확한 답변이 나옵니다</p>
+      <div class="hero-search">
+        <input type="text" placeholder="교육 과정, 수료증, 수강 방법...">
+        <button>검색</button>
+      </div>
+      <div class="hero-hints">
+        <span>교육 신청은 어떻게 해?</span>
+        <span>수료증은 어디서 받아?</span>
+        <span>온라인 수강 방법은?</span>
+      </div>
+    </div>
+    <div class="hero-status">
+      <div class="hero-status-num">5</div>
+      <div class="hero-status-label">아름포인트</div>
+      <div class="hero-status-detail">필수 6과정<br>법정 6과정</div>
+    </div>
+  </section>
+
+  <!-- 이어서 학습하기 -->
+  <section class="row">
+    <div class="row-head">
+      <h2 class="row-title">이어서 학습하기</h2>
+      <a href="#" class="row-link">전체보기 →</a>
+    </div>
+    <div class="scroll-track">
+      <div class="vid">
+        <div class="vid-thumb">
+          <div class="vid-play"><div class="vid-play-icon"></div></div>
+          <div class="vid-badges"><span class="vid-badge">진행중</span></div>
+        </div>
+        <div class="vid-title">우편취급 위반관련 법규</div>
+        <div class="vid-progress"><div class="vid-progress-fill" style="width:30%"></div></div>
+        <div class="vid-pct">30%</div>
+      </div>
+      <div class="vid">
+        <div class="vid-thumb">
+          <div class="vid-play"><div class="vid-play-icon"></div></div>
+          <div class="vid-badges"><span class="vid-badge">진행중</span></div>
+        </div>
+        <div class="vid-title">도전! 나의 손해 2</div>
+        <div class="vid-progress"><div class="vid-progress-fill" style="width:65%"></div></div>
+        <div class="vid-pct">65%</div>
+      </div>
+      <div class="vid">
+        <div class="vid-thumb">
+          <div class="vid-play"><div class="vid-play-icon"></div></div>
+          <div class="vid-badges"><span class="vid-badge">진행중</span></div>
+        </div>
+        <div class="vid-title">청렴판단력 키우기</div>
+        <div class="vid-progress"><div class="vid-progress-fill" style="width:10%"></div></div>
+        <div class="vid-pct">10%</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLASSROOM -->
+  <section class="row">
+    <div class="row-head">
+      <h2 class="row-title">CLASSROOM</h2>
+      <a href="#" class="row-link">전체보기 →</a>
+    </div>
+    <div class="classroom-tabs">
+      <button class="tab-btn active" onclick="switchTab('required')">이것이 필수다</button>
+      <button class="tab-btn" onclick="switchTab('foryou')">당신에게 딱이다</button>
+    </div>
+
+    <div class="tab-content active" id="tab-required">
+      <div class="scroll-track" style="padding-top:24px">
+        <div class="vid">
+          <div class="vid-thumb">
+            <div class="vid-play"><div class="vid-play-icon"></div></div>
+            <div class="vid-badges"><span class="vid-badge">60분</span><span class="vid-badge">국정철학</span></div>
+            <span class="vid-heart">♡ 42</span>
+          </div>
+          <div class="vid-title">개인정보 보호교육</div>
+          <div class="vid-desc">우정사업본부 직원이 알아야할 개인정보 보호의 핵심</div>
+          <div class="vid-meta">수강 1,234명 · 댓글 56</div>
+        </div>
+        <div class="vid">
+          <div class="vid-thumb">
+            <div class="vid-play"><div class="vid-play-icon"></div></div>
+            <div class="vid-badges"><span class="vid-badge">60분</span><span class="vid-badge">직무공통</span></div>
+            <span class="vid-heart">♡ 55</span>
+          </div>
+          <div class="vid-title">정보보안기본교육</div>
+          <div class="vid-desc">우정사업본부 직원이 알아야 할 정보보안 기초</div>
+          <div class="vid-meta">수강 2,100명 · 댓글 89</div>
+        </div>
+        <div class="vid">
+          <div class="vid-thumb">
+            <div class="vid-play"><div class="vid-play-icon"></div></div>
+            <div class="vid-badges"><span class="vid-badge">60분</span><span class="vid-badge">국정철학</span></div>
+            <span class="vid-heart">♡ 27</span>
+          </div>
+          <div class="vid-title">이해충돌방지법</div>
+          <div class="vid-desc">알기 쉬운 이해충돌방지법</div>
+          <div class="vid-meta">수강 756명 · 댓글 12</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-foryou">
+      <div class="scroll-track" style="padding-top:24px">
+        <div class="vid">
+          <div class="vid-thumb">
+            <div class="vid-play"><div class="vid-play-icon"></div></div>
+            <div class="vid-badges"><span class="vid-badge">60분</span><span class="vid-badge">직무공통</span></div>
+            <span class="vid-heart">♡ 38</span>
+          </div>
+          <div class="vid-title">개인정보보호교육(이용자)</div>
+          <div class="vid-meta">수강 987명 · 댓글 23</div>
+        </div>
+        <div class="vid">
+          <div class="vid-thumb">
+            <div class="vid-play"><div class="vid-play-icon"></div></div>
+            <div class="vid-badges"><span class="vid-badge">60분</span><span class="vid-badge">직무공통</span></div>
+            <span class="vid-heart">♡ 91</span>
+          </div>
+          <div class="vid-title">엑셀실무테크닉</div>
+          <div class="vid-desc">엑셀 실무 테크닉 일잘러의 보고서</div>
+          <div class="vid-meta">수강 3,456명 · 댓글 201</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 교육현황: SLOT_5 배경 반전 — vermillion 배경 -->
+  <div class="status-band">
+    <div class="status-group">
+      <div class="status-label">필수교육 이수현황</div>
+      <div class="status-pills">
+        <span class="status-pill">공직가치 5/10</span><span class="status-pill">적극행정 5/10</span><span class="status-pill">성인지 5/10</span>
+        <span class="status-pill">정보화 5/10</span><span class="status-pill">정보보안 5/10</span><span class="status-pill">개인정보 5/10</span>
+      </div>
+    </div>
+    <div class="status-group">
+      <div class="status-label">법정교육 이수현황</div>
+      <div class="status-pills">
+        <span class="status-pill">성폭력예방 5/10</span><span class="status-pill">감염병예방 5/10</span><span class="status-pill">자살예방 5/10</span>
+        <span class="status-pill">안보 5/10</span><span class="status-pill">장애인식개선 5/10</span><span class="status-pill">아동학대예방 5/10</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 전자도서관 -->
+  <div class="library-card">
+    <div class="library-text">
+      <h3>전자도서관</h3>
+      <p>슬기로운 독서생활! 전자도서관에 접속해 보세요</p>
+    </div>
+    <a href="#" class="library-cta">사람은 책을 만들고 책은 사람을 만든다</a>
+    <div class="library-deco">BOOK</div>
+  </div>
+
+  <!-- 채널 -->
+  <div class="channels">
+    <div class="channels-head">
+      <h2 class="row-title">구독중인 채널</h2>
+      <a href="#" class="row-link">전체보기 →</a>
+    </div>
+    <div class="ch-grid">
+      <div class="ch-card"><div class="ch-avatar">우정</div><div><div class="ch-name">우정인재개발원</div><div class="ch-count">50,032명</div></div></div>
+      <div class="ch-card"><div class="ch-avatar" style="background:var(--steel)">교육</div><div><div class="ch-name">교육큐레이션</div><div class="ch-count">52,149명</div></div></div>
+      <div class="ch-card"><div class="ch-avatar" style="background:var(--vermillion)">보이</div><div><div class="ch-name">보이스피싱 예방</div><div class="ch-count">49,533명</div></div></div>
+    </div>
+  </div>
+
+  <!-- 도서 -->
+  <section class="row">
+    <div class="row-head">
+      <h2 class="row-title">지금, 이 책!</h2>
+      <a href="#" class="row-link">전체보기 →</a>
+    </div>
+    <div class="scroll-track">
+      <div class="book"><div class="book-cover"></div><div class="book-title">가짜 노동</div><div class="book-author">데니스 뇌르마르크</div></div>
+      <div class="book"><div class="book-cover"></div><div class="book-title">공부하고 있다는 착각</div><div class="book-author">대니얼 T. 윌링햄</div></div>
+      <div class="book"><div class="book-cover"></div><div class="book-title">기본의 디자인</div><div class="book-author">아키타 미치오</div></div>
+      <div class="book"><div class="book-cover"></div><div class="book-title">도파민네이션</div><div class="book-author">애나 렘키</div></div>
+      <div class="book"><div class="book-cover"></div><div class="book-title">쇼펜하우어</div><div class="book-author">강용수</div></div>
+      <div class="book"><div class="book-cover"></div><div class="book-title">마흔에 읽는 쇼펜하우어</div><div class="book-author">강용수</div></div>
+    </div>
+  </section>
+
+  <!-- 연락처 -->
+  <section class="contact">
+    <div class="contact-label">CONTACT</div>
+    <div class="contact-grid">
+      <div class="contact-item"><strong>041-560-5350</strong><span>이러닝 문의</span></div>
+      <div class="contact-item"><strong>041-560-5264</strong><span>집합교육(선발)</span></div>
+      <div class="contact-item"><strong>041-560-5311</strong><span>집합교육(계획)</span></div>
+      <div class="contact-item"><strong>041-560-5312</strong><span>직무인증평가</span></div>
+      <div class="contact-item"><strong>041-560-5151</strong><span>지금, 이 책!</span></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-logo">우정인재개발원</div>
+      <div class="footer-links">
+        <a href="#">개인정보처리 방침</a><a href="#">영상정보처리기기 운영관리 방침</a><a href="#">이메일주소 무단수집거부</a><a href="#">이용약관</a><a href="#">찾아오시는길</a><a href="#">고객지원센터</a>
+      </div>
+    </div>
+    <div class="footer-info">(31068) 충청남도 천안시 동남구 양지말1길 (유량동) 우정인재개발원 | 041-560-5350 | cyber123@korea.kr</div>
+    <div class="footer-copy">COPYRIGHT(C) 2016 KOREA POST. ALL RIGHTS RESERVED.</div>
+  </footer>
+
+  <script>
+  function switchTab(id) {
+    document.querySelectorAll('.tab-content').forEach(function(p){ p.classList.remove('active'); });
+    document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+    document.getElementById('tab-'+id).classList.add('active');
+    event.target.classList.add('active');
+  }
+  </script>
+</body>
+</html>

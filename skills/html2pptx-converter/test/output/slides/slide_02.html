@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+html { background: #FFFFFF; }
+body {
+  width: 720pt;
+  height: 405pt;
+  margin: 0;
+  padding: 0;
+  background: #FFFFFF;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+.section-title {
+  position: absolute;
+  top: 15pt;
+  left: 30pt;
+  font-size: 15pt;
+  font-weight: bold;
+  color: #2D3748;
+  margin: 0;
+}
+/* Shapes Row */
+.shape-rect {
+  position: absolute;
+  top: 60pt;
+  left: 40pt;
+  width: 75pt;
+  height: 45pt;
+  background: #2B6CB0;
+  border-radius: 3pt;
+}
+.shape-rounded {
+  position: absolute;
+  top: 60pt;
+  left: 175pt;
+  width: 75pt;
+  height: 45pt;
+  background: #38A169;
+  border-radius: 12pt;
+}
+.shape-circle {
+  position: absolute;
+  top: 55pt;
+  left: 313pt;
+  width: 53pt;
+  height: 53pt;
+  background: #E53E3E;
+  border-radius: 50%;
+}
+.shape-border {
+  position: absolute;
+  top: 60pt;
+  left: 430pt;
+  width: 75pt;
+  height: 45pt;
+  background: #FFFFFF;
+  border: 2pt solid #D69E2E;
+  border-radius: 6pt;
+  box-sizing: border-box;
+}
+.shape-shadow {
+  position: absolute;
+  top: 60pt;
+  left: 565pt;
+  width: 75pt;
+  height: 45pt;
+  background: #805AD5;
+  border-radius: 6pt;
+  box-shadow: 3pt 3pt 9pt #00000050;
+}
+/* Shape Labels */
+.label-rect {
+  position: absolute;
+  top: 110pt;
+  left: 30pt;
+  width: 95pt;
+  text-align: center;
+}
+.label-rounded {
+  position: absolute;
+  top: 110pt;
+  left: 165pt;
+  width: 95pt;
+  text-align: center;
+}
+.label-circle {
+  position: absolute;
+  top: 110pt;
+  left: 300pt;
+  width: 80pt;
+  text-align: center;
+}
+.label-border {
+  position: absolute;
+  top: 110pt;
+  left: 420pt;
+  width: 95pt;
+  text-align: center;
+}
+.label-shadow {
+  position: absolute;
+  top: 110pt;
+  left: 555pt;
+  width: 95pt;
+  text-align: center;
+}
+.shape-label {
+  font-size: 8pt;
+  color: #718096;
+  margin: 0;
+  line-height: 1.4;
+}
+/* Lines Row */
+.line-top-border {
+  position: absolute;
+  top: 175pt;
+  left: 40pt;
+  width: 90pt;
+  height: 30pt;
+  background: #FFF5F5;
+  border-top: 3pt solid #E53E3E;
+}
+.line-left-border {
+  position: absolute;
+  top: 175pt;
+  left: 195pt;
+  width: 90pt;
+  height: 30pt;
+  background: #EBF8FF;
+  border-left: 3pt solid #2B6CB0;
+}
+.line-bottom-border {
+  position: absolute;
+  top: 175pt;
+  left: 350pt;
+  width: 90pt;
+  height: 30pt;
+  background: #F0FFF4;
+  border-bottom: 3pt solid #38A169;
+}
+.line-full-border {
+  position: absolute;
+  top: 175pt;
+  left: 505pt;
+  width: 90pt;
+  height: 30pt;
+  background: #FFFFF0;
+  border: 2pt solid #D69E2E;
+  border-radius: 4pt;
+  box-sizing: border-box;
+}
+/* Line Labels */
+.label-line-top {
+  position: absolute;
+  top: 210pt;
+  left: 35pt;
+  width: 100pt;
+  text-align: center;
+}
+.label-line-left {
+  position: absolute;
+  top: 210pt;
+  left: 190pt;
+  width: 100pt;
+  text-align: center;
+}
+.label-line-bottom {
+  position: absolute;
+  top: 210pt;
+  left: 345pt;
+  width: 100pt;
+  text-align: center;
+}
+.label-line-full {
+  position: absolute;
+  top: 210pt;
+  left: 500pt;
+  width: 100pt;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+<!-- Section Title -->
+<h2 class="section-title">Shape &amp; Line Rendering Test</h2>
+
+<!-- Shape divs -->
+<div class="shape-rect"></div>
+<div class="shape-rounded"></div>
+<div class="shape-circle"></div>
+<div class="shape-border"></div>
+<div class="shape-shadow"></div>
+
+<!-- Shape Labels -->
+<div class="label-rect">
+  <p class="shape-label">Rectangle<br>(4px radius)</p>
+</div>
+<div class="label-rounded">
+  <p class="shape-label">Rounded Rect<br>(16px radius)</p>
+</div>
+<div class="label-circle">
+  <p class="shape-label">Circle<br>(50% radius)</p>
+</div>
+<div class="label-border">
+  <p class="shape-label">Border Only<br>(3px solid)</p>
+</div>
+<div class="label-shadow">
+  <p class="shape-label">Box Shadow<br>(4px offset)</p>
+</div>
+
+<!-- Line divs -->
+<div class="line-top-border"></div>
+<div class="line-left-border"></div>
+<div class="line-bottom-border"></div>
+<div class="line-full-border"></div>
+
+<!-- Line Labels -->
+<div class="label-line-top">
+  <p class="shape-label">Top Border<br>(4px red)</p>
+</div>
+<div class="label-line-left">
+  <p class="shape-label">Left Border<br>(4px blue)</p>
+</div>
+<div class="label-line-bottom">
+  <p class="shape-label">Bottom Border<br>(4px green)</p>
+</div>
+<div class="label-line-full">
+  <p class="shape-label">Full Border<br>(2px gold)</p>
+</div>
+</body>
+</html>

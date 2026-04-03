@@ -1,0 +1,1954 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>우정인재개발원 새로e아름</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Pretendard:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /*
+     * ============================================
+     * CSS METADATA
+     * ============================================
+     * Project:       새로e아름 — 우정인재개발원
+     * Metaphor:      천문대 (Observatory)
+     * Color Temp:    한랭 (Cold) — DARK THEME
+     * Structure:     싱글스크롤 (Single Scroll, snap)
+     * Typography:    압축볼드 (Bebas Neue + Pretendard)
+     * Accent:        단일폭발 (Single Burst — 1 element only)
+     * World:         관측소 — 심연의 밤하늘 아래 학습이 별자리처럼 펼쳐지는 천체 관측 공간
+     * PR T(180°):    1) Light→Full Dark  2) Vertical→Snap Scroll  3) Multi-accent→Single Burst
+     * Fonts:         Bebas Neue (display), Pretendard (body/Korean)
+     * Min font:      14px
+     * Card radius:   ≤ 8px
+     * ============================================
+     */
+
+    /* ── CSS Variables ── */
+    :root {
+      --void: #0f172a;
+      --nebula: #1e293b;
+      --star: #f8fafc;
+      --corona: #38bdf8;
+      --dust: #475569;
+
+      --body-text: #94a3b8;
+      --muted: #475569;
+      --card-bg: rgba(255, 255, 255, 0.04);
+      --card-bg-hover: rgba(255, 255, 255, 0.07);
+      --glass-border: rgba(255, 255, 255, 0.06);
+
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-body: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      --glow-sm: 0 0 8px rgba(56, 189, 248, 0.15);
+      --glow-md: 0 0 20px rgba(56, 189, 248, 0.2);
+      --glow-lg: 0 0 40px rgba(56, 189, 248, 0.25);
+    }
+
+    /* ── Reset & Base ── */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-snap-type: y mandatory;
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--void);
+      color: var(--body-text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      font-size: 15px;
+    }
+
+    a {
+      color: var(--body-text);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: var(--star);
+    }
+
+    /* ── Starfield Background ── */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background:
+        radial-gradient(1px 1px at 10% 20%, rgba(248, 250, 252, 0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 30% 60%, rgba(248, 250, 252, 0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 50% 10%, rgba(248, 250, 252, 0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 70% 40%, rgba(248, 250, 252, 0.25) 0%, transparent 100%),
+        radial-gradient(1px 1px at 90% 80%, rgba(248, 250, 252, 0.35) 0%, transparent 100%),
+        radial-gradient(1px 1px at 15% 75%, rgba(248, 250, 252, 0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 45% 85%, rgba(248, 250, 252, 0.2) 0%, transparent 100%),
+        radial-gradient(1px 1px at 65% 15%, rgba(248, 250, 252, 0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 85% 55%, rgba(248, 250, 252, 0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 25% 45%, rgba(248, 250, 252, 0.35) 0%, transparent 100%),
+        radial-gradient(1px 1px at 55% 35%, rgba(248, 250, 252, 0.2) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 5% 50%, rgba(248, 250, 252, 0.6) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 75% 70%, rgba(248, 250, 252, 0.5) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 40% 5%, rgba(248, 250, 252, 0.55) 0%, transparent 100%),
+        radial-gradient(1px 1px at 95% 25%, rgba(248, 250, 252, 0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 20% 90%, rgba(248, 250, 252, 0.25) 0%, transparent 100%),
+        radial-gradient(0.5px 0.5px at 60% 50%, rgba(248, 250, 252, 0.2) 0%, transparent 100%),
+        radial-gradient(0.5px 0.5px at 80% 10%, rgba(248, 250, 252, 0.15) 0%, transparent 100%),
+        radial-gradient(0.5px 0.5px at 35% 30%, rgba(248, 250, 252, 0.2) 0%, transparent 100%),
+        radial-gradient(0.5px 0.5px at 8% 65%, rgba(248, 250, 252, 0.15) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Sections — Fullscreen Snap ── */
+    .observatory-section {
+      min-height: 100dvh;
+      scroll-snap-align: start;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 40px 40px;
+    }
+
+    .observatory-section--auto {
+      min-height: auto;
+      scroll-snap-align: start;
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    /* ── Typography ── */
+    h1, h2, h3, .display-text {
+      font-family: var(--font-display);
+      color: var(--star);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    h2 {
+      font-size: clamp(32px, 5vw, 56px);
+      letter-spacing: 3px;
+      margin-bottom: 16px;
+    }
+
+    h3 {
+      font-size: clamp(24px, 3.5vw, 40px);
+      letter-spacing: 2px;
+    }
+
+    .section-subtitle {
+      font-family: var(--font-body);
+      color: var(--dust);
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0;
+      text-transform: none;
+      margin-bottom: 40px;
+    }
+
+    .korean-text {
+      font-family: var(--font-body);
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    /* ── Navigation (Transparent Overlay) ── */
+    .obs-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: transparent;
+      transition: background 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .obs-nav.scrolled {
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04);
+    }
+
+    .obs-nav__util {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 8px 40px;
+      font-size: 14px;
+      color: var(--dust);
+    }
+
+    .obs-nav__util a {
+      color: var(--dust);
+      font-size: 14px;
+      margin-left: 16px;
+    }
+
+    .obs-nav__main {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 12px 40px;
+    }
+
+    .obs-logo {
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--star);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .obs-logo__star {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.6) 0%, transparent 70%);
+      border-radius: 50%;
+      position: relative;
+    }
+
+    .obs-logo__star::after {
+      content: '✦';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 14px;
+      color: var(--star);
+    }
+
+    .obs-nav__user {
+      font-size: 14px;
+      color: var(--dust);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .obs-nav__user a {
+      color: var(--dust);
+      font-size: 14px;
+    }
+
+    .obs-nav__gnb {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px 12px;
+    }
+
+    .obs-nav__gnb a {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--body-text);
+      padding: 4px 0;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    .obs-nav__gnb a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 1px;
+      background: var(--star);
+      transition: width 0.3s, left 0.3s;
+    }
+
+    .obs-nav__gnb a:hover {
+      color: var(--star);
+    }
+
+    .obs-nav__gnb a:hover::after {
+      width: 100%;
+      left: 0;
+    }
+
+    .obs-hamburger {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--star);
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    /* ── Dark mode toggle ── */
+    .dark-toggle {
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .dark-toggle:hover {
+      color: var(--body-text);
+    }
+
+    /* ── S01: Hero Section ── */
+    .hero-section {
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 40%, rgba(30, 41, 59, 0.8) 0%, transparent 70%),
+        linear-gradient(180deg, var(--void) 0%, rgba(15, 23, 42, 0.95) 100%);
+      padding-top: 140px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    /* AI Curator Card */
+    .ai-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: 8px;
+      padding: 32px 28px;
+      box-shadow: 0 0 24px rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--glass-border);
+    }
+
+    .ai-card__icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, rgba(30, 41, 59, 0.4) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.08);
+    }
+
+    .ai-card__title {
+      font-family: var(--font-body);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--star);
+      text-transform: none;
+      letter-spacing: 0;
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+
+    .ai-search {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 6px;
+      padding: 12px 16px;
+      font-size: 14px;
+      color: var(--dust);
+      font-family: var(--font-body);
+      outline: none;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      margin-bottom: 16px;
+    }
+
+    .ai-search:focus {
+      border-color: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.08);
+    }
+
+    .ai-tags {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .ai-tag {
+      font-size: 14px;
+      color: var(--dust);
+      padding: 8px 12px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      line-height: 1.4;
+    }
+
+    .ai-tag:hover {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--body-text);
+    }
+
+    /* Library Banner */
+    .library-banner {
+      background:
+        radial-gradient(ellipse at 80% 30%, rgba(56, 189, 248, 0.04) 0%, transparent 50%),
+        var(--card-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: 8px;
+      padding: 48px 40px;
+      box-shadow: 0 0 32px rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--glass-border);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 320px;
+    }
+
+    .library-banner__crumb {
+      font-size: 14px;
+      color: var(--dust);
+      margin-bottom: 16px;
+    }
+
+    .library-banner__heading {
+      font-family: var(--font-body);
+      font-size: clamp(24px, 3vw, 32px);
+      font-weight: 800;
+      color: var(--star);
+      text-transform: none;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .library-banner__desc {
+      font-size: 15px;
+      color: var(--body-text);
+      margin-bottom: 24px;
+    }
+
+    .library-banner__cta {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--body-text);
+      padding: 12px 24px;
+      border: 1px solid rgba(248, 250, 252, 0.15);
+      border-radius: 6px;
+      transition: all 0.3s;
+      box-shadow: 0 0 8px rgba(248, 250, 252, 0.04);
+      margin-bottom: 20px;
+      background: transparent;
+    }
+
+    .library-banner__cta:hover {
+      border-color: rgba(248, 250, 252, 0.3);
+      color: var(--star);
+      box-shadow: 0 0 16px rgba(248, 250, 252, 0.08);
+    }
+
+    .library-banner__deco {
+      font-family: var(--font-display);
+      font-size: clamp(48px, 8vw, 96px);
+      color: rgba(255, 255, 255, 0.02);
+      letter-spacing: 8px;
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* ── S02: Learning Status ── */
+    .status-section {
+      background: linear-gradient(180deg, var(--void) 0%, rgba(15, 23, 42, 0.97) 100%);
+    }
+
+    .status-grid {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .donut-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .donut {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: conic-gradient(
+        rgba(248, 250, 252, 0.12) 0deg,
+        rgba(248, 250, 252, 0.06) 120deg,
+        rgba(248, 250, 252, 0.03) 240deg,
+        rgba(248, 250, 252, 0.12) 360deg
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-shadow: 0 0 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .donut::before {
+      content: '';
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: var(--void);
+      position: absolute;
+    }
+
+    .donut__num {
+      position: relative;
+      z-index: 1;
+      font-family: var(--font-display);
+      font-size: 48px;
+      color: var(--star);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 2px;
+      text-shadow: 0 0 20px rgba(248, 250, 252, 0.15);
+    }
+
+    .donut__label {
+      font-size: 14px;
+      color: var(--dust);
+    }
+
+    .course-group {
+      margin-bottom: 28px;
+    }
+
+    .course-group__title {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--star);
+      margin-bottom: 12px;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .pill {
+      font-size: 14px;
+      font-variant-numeric: tabular-nums;
+      padding: 6px 14px;
+      background: var(--card-bg);
+      border-radius: 4px;
+      color: var(--body-text);
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+      border: 1px solid var(--glass-border);
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+
+    .pill:hover {
+      background: var(--card-bg-hover);
+    }
+
+    .pill-nav {
+      font-size: 14px;
+      color: var(--dust);
+      cursor: pointer;
+      user-select: none;
+      padding: 4px;
+      transition: color 0.2s;
+    }
+
+    .pill-nav:hover {
+      color: var(--body-text);
+    }
+
+    /* ── S03: Classroom ── */
+    .classroom-section {
+      background:
+        radial-gradient(ellipse 50% 40% at 80% 50%, rgba(30, 41, 59, 0.5) 0%, transparent 100%),
+        linear-gradient(180deg, rgba(15, 23, 42, 0.97) 0%, var(--void) 100%);
+    }
+
+    .classroom-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .classroom-header__left {
+      display: flex;
+      align-items: baseline;
+      gap: 20px;
+    }
+
+    .classroom-slogans {
+      display: flex;
+      gap: 16px;
+      font-size: 14px;
+      color: var(--dust);
+      font-style: italic;
+    }
+
+    .view-all {
+      font-size: 14px;
+      color: var(--dust);
+      transition: color 0.3s;
+    }
+
+    .view-all:hover {
+      color: var(--star);
+    }
+
+    /* Tab Bar */
+    .tab-bar {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 28px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      padding-bottom: 0;
+    }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: var(--dust);
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: color 0.3s, border-color 0.3s;
+    }
+
+    .tab-btn:hover {
+      color: var(--body-text);
+    }
+
+    .tab-btn.active {
+      color: var(--star);
+      border-bottom-color: var(--star);
+    }
+
+    /* Course Cards — horizontal scroll */
+    .card-scroll-container {
+      position: relative;
+    }
+
+    .card-scroll {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      padding-bottom: 8px;
+    }
+
+    .card-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .course-card {
+      flex: 0 0 220px;
+      scroll-snap-align: start;
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+      border: 1px solid var(--glass-border);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .course-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    .course-card__thumb {
+      height: 130px;
+      background:
+        radial-gradient(circle at 30% 40%, rgba(248, 250, 252, 0.04) 0%, transparent 60%),
+        linear-gradient(135deg, var(--nebula) 0%, rgba(15, 23, 42, 0.8) 100%);
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 10px;
+    }
+
+    .badge {
+      font-size: 14px;
+      font-variant-numeric: tabular-nums;
+      padding: 3px 8px;
+      border-radius: 3px;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(4px);
+      color: var(--body-text);
+    }
+
+    .badge--cat {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+    }
+
+    .badge--heart {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+    }
+
+    .course-card__body {
+      padding: 16px;
+    }
+
+    .course-card__title {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--star);
+      text-transform: none;
+      letter-spacing: 0;
+      margin-bottom: 6px;
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .course-card__desc {
+      font-size: 14px;
+      color: var(--dust);
+      margin-bottom: 10px;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .course-card__meta {
+      font-size: 14px;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .scroll-arrows {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .scroll-arrow-btn {
+      background: none;
+      border: 1px solid rgba(248, 250, 252, 0.1);
+      color: var(--dust);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .scroll-arrow-btn:hover {
+      border-color: rgba(248, 250, 252, 0.25);
+      color: var(--star);
+      box-shadow: var(--glow-sm);
+    }
+
+    /* Tab content panels */
+    .tab-panel {
+      display: none;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    /* ── S04: Continue Learning ── */
+    .continue-section {
+      background: linear-gradient(180deg, var(--void) 0%, rgba(15, 23, 42, 0.97) 100%);
+    }
+
+    .learn-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .learn-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+      border: 1px solid var(--glass-border);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .learn-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    .learn-card__thumb {
+      height: 120px;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(248, 250, 252, 0.03) 0%, transparent 60%),
+        linear-gradient(180deg, var(--nebula) 0%, rgba(15, 23, 42, 0.6) 100%);
+    }
+
+    .learn-card__body {
+      padding: 20px;
+    }
+
+    .learn-card__title {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--star);
+      text-transform: none;
+      letter-spacing: 0;
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 2px;
+      margin-bottom: 8px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: rgba(248, 250, 252, 0.25);
+      border-radius: 2px;
+      transition: width 0.6s ease;
+    }
+
+    .progress-text {
+      font-size: 14px;
+      font-variant-numeric: tabular-nums;
+      color: var(--dust);
+      margin-bottom: 14px;
+    }
+
+    .btn-sm {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--body-text);
+      padding: 8px 20px;
+      border: 1px solid rgba(248, 250, 252, 0.12);
+      border-radius: 4px;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 0 6px rgba(248, 250, 252, 0.03);
+      text-decoration: none;
+    }
+
+    .btn-sm:hover {
+      border-color: rgba(248, 250, 252, 0.25);
+      color: var(--star);
+      box-shadow: 0 0 12px rgba(248, 250, 252, 0.06);
+    }
+
+    /* ── S05: Channels + Books ── */
+    .channels-section {
+      background:
+        radial-gradient(ellipse 60% 40% at 20% 60%, rgba(30, 41, 59, 0.4) 0%, transparent 100%),
+        linear-gradient(180deg, rgba(15, 23, 42, 0.97) 0%, var(--void) 100%);
+    }
+
+    .channels-grid {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 40px;
+    }
+
+    .channel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .channel-header__sub {
+      font-size: 14px;
+      color: var(--dust);
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    .channel-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 16px;
+      background: var(--card-bg);
+      backdrop-filter: blur(8px);
+      border-radius: 6px;
+      margin-bottom: 10px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+      border: 1px solid var(--glass-border);
+      transition: background 0.2s;
+    }
+
+    .channel-item:hover {
+      background: var(--card-bg-hover);
+    }
+
+    .channel-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--body-text);
+      flex-shrink: 0;
+    }
+
+    .channel-info {
+      flex: 1;
+    }
+
+    .channel-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--star);
+      display: block;
+    }
+
+    .channel-count {
+      font-size: 14px;
+      font-variant-numeric: tabular-nums;
+      color: var(--dust);
+    }
+
+    /* Books */
+    .book-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 20px;
+    }
+
+    .book-item {
+      text-align: center;
+    }
+
+    .book-cover {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      background:
+        linear-gradient(145deg, rgba(248, 250, 252, 0.04) 0%, rgba(30, 41, 59, 0.4) 100%);
+      border-radius: 4px;
+      margin-bottom: 10px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .book-item:hover .book-cover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    .book-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--star);
+      display: block;
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+
+    .book-author {
+      font-size: 14px;
+      color: var(--dust);
+    }
+
+    /* ── S06: Contact ── */
+    .contact-section {
+      background: linear-gradient(180deg, var(--void) 0%, rgba(15, 23, 42, 0.97) 100%);
+    }
+
+    .contact-section h2 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+
+    .contact-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(8px);
+      border-radius: 8px;
+      padding: 28px 20px;
+      text-align: center;
+      box-shadow: 0 0 16px rgba(0, 0, 0, 0.2);
+      border: 1px solid var(--glass-border);
+      transition: background 0.2s, transform 0.3s;
+    }
+
+    .contact-card:hover {
+      background: var(--card-bg-hover);
+      transform: translateY(-2px);
+    }
+
+    .contact-icon {
+      font-size: 28px;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .contact-label {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--star);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .contact-tel {
+      font-size: 14px;
+      font-variant-numeric: tabular-nums;
+      color: var(--body-text);
+      letter-spacing: 0.5px;
+    }
+
+    /* ── S07: Footer ── */
+    .obs-footer {
+      background: rgba(15, 23, 42, 0.98);
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      position: relative;
+      z-index: 1;
+      scroll-snap-align: end;
+    }
+
+    .obs-footer__top {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 40px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-logo {
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--body-text);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 14px;
+    }
+
+    .footer-links a {
+      color: var(--dust);
+      font-size: 14px;
+    }
+
+    .footer-links a:first-child {
+      font-weight: 700;
+      color: var(--body-text);
+    }
+
+    .footer-site-link {
+      font-size: 14px;
+      color: var(--dust);
+    }
+
+    .obs-footer__info {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .obs-footer__info small {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .obs-footer__copy {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 40px 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .obs-footer__copy span {
+      font-family: var(--font-display);
+      letter-spacing: 1px;
+    }
+
+    .scroll-top-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(248, 250, 252, 0.1);
+      background: none;
+      color: var(--dust);
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+
+    .scroll-top-btn:hover {
+      border-color: rgba(248, 250, 252, 0.25);
+      color: var(--star);
+      box-shadow: var(--glow-sm);
+    }
+
+    /* ── ACCENT: Single Burst — CTA button only ── */
+    .accent-burst {
+      background: transparent;
+      color: var(--corona);
+      border: 1px solid rgba(56, 189, 248, 0.5);
+      padding: 14px 32px;
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.15);
+      display: inline-block;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .accent-burst::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(56, 189, 248, 0.08);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    .accent-burst:hover {
+      color: var(--star);
+      border-color: var(--corona);
+      box-shadow: var(--glow-lg);
+      text-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
+    }
+
+    .accent-burst:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    /* ── Animations ── */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes subtlePulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    .fade-in {
+      animation: fadeInUp 0.8s ease-out both;
+    }
+
+    .fade-in--d1 { animation-delay: 0.1s; }
+    .fade-in--d2 { animation-delay: 0.2s; }
+    .fade-in--d3 { animation-delay: 0.3s; }
+    .fade-in--d4 { animation-delay: 0.4s; }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      html {
+        scroll-snap-type: none;
+      }
+
+      .observatory-section {
+        min-height: auto;
+        padding: 100px 20px 40px;
+      }
+
+      .obs-nav__util {
+        padding: 8px 20px;
+        font-size: 14px;
+      }
+
+      .obs-nav__main {
+        padding: 12px 20px;
+      }
+
+      .obs-nav__gnb {
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        padding: 0 20px 12px;
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(12px);
+      }
+
+      .obs-nav__gnb.open {
+        display: flex;
+      }
+
+      .obs-nav__gnb a {
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      }
+
+      .obs-hamburger {
+        display: block;
+      }
+
+      .obs-nav__user {
+        display: none;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .status-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .donut-wrap {
+        margin-bottom: 20px;
+      }
+
+      .pill-row {
+        justify-content: center;
+      }
+
+      .learn-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .channels-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .obs-footer__top {
+        padding: 24px 20px 16px;
+        flex-direction: column;
+      }
+
+      .footer-links {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .obs-footer__info {
+        padding: 0 20px 16px;
+      }
+
+      .obs-footer__copy {
+        padding: 16px 20px 24px;
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+
+      .library-banner__deco {
+        font-size: 40px;
+      }
+
+      .classroom-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .classroom-header__left {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .book-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .book-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .course-card {
+        flex: 0 0 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- NAV: Transparent Overlay                    -->
+<!-- ═══════════════════════════════════════════ -->
+<nav class="obs-nav" id="obsNav">
+  <div class="obs-nav__util">
+    <span class="dark-toggle">&#x1F319; 다크 모드로 보기</span>
+    <div>
+      <a href="#">플랫폼(관리자)</a>
+      <a href="#">학사행정시스템</a>
+    </div>
+  </div>
+  <div class="obs-nav__main">
+    <div class="obs-logo">
+      <span class="obs-logo__star"></span>
+      우정인재개발원 새로e아름
+    </div>
+    <div class="obs-nav__user">
+      홍길동님 환영합니다.
+      <a href="#">로그아웃</a> |
+      <a href="#">회원정보수정</a>
+    </div>
+    <button class="obs-hamburger" id="hamburgerBtn" aria-label="메뉴 열기">&#x2261;</button>
+  </div>
+  <div class="obs-nav__gnb" id="gnbMenu">
+    <a href="#">나의공간</a>
+    <a href="#">콘텐츠</a>
+    <a href="#">채널</a>
+    <a href="#">직무인증</a>
+    <a href="#">고객지원센터</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- S01: HERO — Banner + AI Curator             -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="observatory-section hero-section" id="hero">
+  <div class="section-inner">
+    <div class="hero-grid">
+      <div class="ai-card fade-in fade-in--d1">
+        <div class="ai-card__icon">AI</div>
+        <div class="ai-card__title">AX 교육 큐레이터에게 물어보세요</div>
+        <input type="text" class="ai-search" placeholder="구체적으로 질문하시면 더 정확한 답변이 나옵니다" aria-label="AI 검색">
+        <div class="ai-tags">
+          <span class="ai-tag">교육 신청은 어떻게 해?</span>
+          <span class="ai-tag">수료증은 어디서 받는지 알 수 있어?</span>
+          <span class="ai-tag">온라인 교육 수강 방법은?</span>
+        </div>
+      </div>
+      <div class="library-banner fade-in fade-in--d2">
+        <small class="library-banner__crumb">새로e아름 &gt; 콘텐츠 &gt; 전자도서관(e-book)</small>
+        <div class="library-banner__heading korean-text">우정인재개발원 전자도서관</div>
+        <p class="library-banner__desc">슬기로운 독서생활! 전자도서관에 접속해 보세요</p>
+        <!-- SINGLE BURST ACCENT: This is the ONE element on the entire page -->
+        <a href="#" class="accent-burst">사람은 책을 만들고 책은 사람을 만든다</a>
+        <span class="library-banner__deco">I LOVE BOOK</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- S02: LEARNING STATUS                        -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="observatory-section status-section" id="status">
+  <div class="section-inner">
+    <h2 class="korean-text fade-in">학습 현황</h2>
+    <p class="section-subtitle fade-in fade-in--d1">나의 학습 여정을 별자리처럼 한눈에</p>
+    <div class="status-grid fade-in fade-in--d2">
+      <div class="donut-wrap">
+        <div class="donut">
+          <span class="donut__num">5</span>
+        </div>
+        <span class="donut__label">아름포인트</span>
+      </div>
+      <div>
+        <div class="course-group">
+          <div class="course-group__title">필수교육 이수현황</div>
+          <div class="pill-row">
+            <span class="pill">공직가치 5/10</span>
+            <span class="pill">적극행정 5/10</span>
+            <span class="pill">성인지 5/10</span>
+            <span class="pill">정보화 5/10</span>
+            <span class="pill">정보보안 5/10</span>
+            <span class="pill">개인정보 5/10</span>
+            <span class="pill-nav">&#x25C0; &#x25B6;</span>
+          </div>
+        </div>
+        <div class="course-group">
+          <div class="course-group__title">법정교육 이수현황</div>
+          <div class="pill-row">
+            <span class="pill">성폭력예방 5/10</span>
+            <span class="pill">감염병예방 5/10</span>
+            <span class="pill">자살예방 5/10</span>
+            <span class="pill">안보 5/10</span>
+            <span class="pill">장애인식개선 5/10</span>
+            <span class="pill">아동학대예방 5/10</span>
+            <span class="pill-nav">&#x25C0; &#x25B6;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- S03: CLASSROOM                              -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="observatory-section classroom-section" id="classroom">
+  <div class="section-inner">
+    <div class="classroom-header fade-in">
+      <div class="classroom-header__left">
+        <h2>CLASSROOM</h2>
+        <div class="classroom-slogans">
+          <span>이것이 필수다.</span>
+          <span>당신에게 딱이다.</span>
+        </div>
+      </div>
+      <a href="#" class="view-all">전체보기 &gt;</a>
+    </div>
+
+    <div class="tab-bar fade-in fade-in--d1">
+      <button class="tab-btn active" data-tab="all">전체</button>
+      <button class="tab-btn" data-tab="policy">국정철학</button>
+      <button class="tab-btn" data-tab="common">직무공통</button>
+    </div>
+
+    <!-- Tab: 전체 -->
+    <div class="tab-panel active" id="panel-all">
+      <div class="card-scroll-container">
+        <div class="card-scroll">
+          <div class="course-card fade-in fade-in--d1">
+            <div class="course-card__thumb">
+              <span class="badge">60분</span>
+              <span class="badge badge--cat">국정철학</span>
+              <span class="badge badge--heart">&#x2661; 42</span>
+            </div>
+            <div class="course-card__body">
+              <div class="course-card__title">개인정보 보호교육</div>
+              <div class="course-card__desc">우정사업본부 직원이 알아야할 개인...</div>
+              <div class="course-card__meta">&#x1F464; 1,234 &#x1F4AC; 56</div>
+            </div>
+          </div>
+          <div class="course-card fade-in fade-in--d2">
+            <div class="course-card__thumb">
+              <span class="badge">60분</span>
+              <span class="badge badge--cat">직무공통</span>
+              <span class="badge badge--heart">&#x2661; 38</span>
+            </div>
+            <div class="course-card__body">
+              <div class="course-card__title">개인정보보호교육(이용자)</div>
+              <div class="course-card__desc">개인정보보호교육(이용자)</div>
+              <div class="course-card__meta">&#x1F464; 987 &#x1F4AC; 23</div>
+            </div>
+          </div>
+          <div class="course-card fade-in fade-in--d3">
+            <div class="course-card__thumb">
+              <span class="badge">60분</span>
+              <span class="badge badge--cat">직무공통</span>
+              <span class="badge badge--heart">&#x2661; 55</span>
+            </div>
+            <div class="course-card__body">
+              <div class="course-card__title">정보보안기본교육</div>
+              <div class="course-card__desc">우정사업본부 직원이 알아야 할 정보</div>
+              <div class="course-card__meta">&#x1F464; 2,100 &#x1F4AC; 89</div>
+            </div>
+          </div>
+          <div class="course-card fade-in fade-in--d4">
+            <div class="course-card__thumb">
+              <span class="badge">60분</span>
+              <span class="badge badge--cat">국정철학</span>
+              <span class="badge badge--heart">&#x2661; 27</span>
+            </div>
+            <div class="course-card__body">
+              <div class="course-card__title">이해충돌방지법</div>
+              <div class="course-card__desc">알기 쉬운 이해충돌방지법</div>
+              <div class="course-card__meta">&#x1F464; 756 &#x1F4AC; 12</div>
+            </div>
+          </div>
+          <div class="course-card fade-in fade-in--d4">
+            <div class="course-card__thumb">
+              <span class="badge">60분</span>
+              <span class="badge badge--cat">직무공통</span>
+              <span class="badge badge--heart">&#x2661; 91</span>
+            </div>
+            <div class="course-card__body">
+              <div class="course-card__title">엑셀실무테크닉</div>
+              <div class="course-card__desc">엑셀 실무 테크닉 일잘러의 보고서...</div>
+              <div class="course-card__meta">&#x1F464; 3,456 &#x1F4AC; 201</div>
+            </div>
+          </div>
+        </div>
+        <div class="scroll-arrows">
+          <button class="scroll-arrow-btn" data-dir="left" aria-label="이전">&#x25C0;</button>
+          <button class="scroll-arrow-btn" data-dir="right" aria-label="다음">&#x25B6;</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab: 국정철학 -->
+    <div class="tab-panel" id="panel-policy">
+      <div class="card-scroll-container">
+        <div class="card-scroll">
+          <div class="course-card">
+            <div class="course-card__thumb">
+              <span class="badge">60분</span>
+              <span class="badge badge--cat">국정철학</span>
+              <span class="badge badge--heart">&#x2661; 42</span>
+            </div>
+            <div class="course-card__body">
+              <div class="course-card__title">개인정보 보호교육</div>
+              <div class="course-card__desc">우정사업본부 직원이 알아야할 개인...</div>
+              <div class="course-card__meta">&#x1F464; 1,234 &#x1F4AC; 56</div>
+            </div>
+          </div>
+          <div class="course-card">
+            <div class="course-card__thumb">
+              <span class="badge">60분</span>
+              <span class="badge badge--cat">국정철학</span>
+              <span class="badge badge--heart">&#x2661; 27</span>
+            </div>
+            <div class="course-card__body">
+              <div class="course-card__title">이해충돌방지법</div>
+              <div class="course-card__desc">알기 쉬운 이해충돌방지법</div>
+              <div class="course-card__meta">&#x1F464; 756 &#x1F4AC; 12</div>
+            </div>
+          </div>
+        </div>
+        <div class="scroll-arrows">
+          <button class="scroll-arrow-btn" data-dir="left" aria-label="이전">&#x25C0;</button>
+          <button class="scroll-arrow-btn" data-dir="right" aria-label="다음">&#x25B6;</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab: 직무공통 -->
+    <div class="tab-panel" id="panel-common">
+      <div class="card-scroll-container">
+        <div class="card-scroll">
+          <div class="course-card">
+            <div class="course-card__thumb">
+              <span class="badge">60분</span>
+              <span class="badge badge--cat">직무공통</span>
+              <span class="badge badge--heart">&#x2661; 38</span>
+            </div>
+            <div class="course-card__body">
+              <div class="course-card__title">개인정보보호교육(이용자)</div>
+              <div class="course-card__desc">개인정보보호교육(이용자)</div>
+              <div class="course-card__meta">&#x1F464; 987 &#x1F4AC; 23</div>
+            </div>
+          </div>
+          <div class="course-card">
+            <div class="course-card__thumb">
+              <span class="badge">60분</span>
+              <span class="badge badge--cat">직무공통</span>
+              <span class="badge badge--heart">&#x2661; 55</span>
+            </div>
+            <div class="course-card__body">
+              <div class="course-card__title">정보보안기본교육</div>
+              <div class="course-card__desc">우정사업본부 직원이 알아야 할 정보</div>
+              <div class="course-card__meta">&#x1F464; 2,100 &#x1F4AC; 89</div>
+            </div>
+          </div>
+          <div class="course-card">
+            <div class="course-card__thumb">
+              <span class="badge">60분</span>
+              <span class="badge badge--cat">직무공통</span>
+              <span class="badge badge--heart">&#x2661; 91</span>
+            </div>
+            <div class="course-card__body">
+              <div class="course-card__title">엑셀실무테크닉</div>
+              <div class="course-card__desc">엑셀 실무 테크닉 일잘러의 보고서...</div>
+              <div class="course-card__meta">&#x1F464; 3,456 &#x1F4AC; 201</div>
+            </div>
+          </div>
+        </div>
+        <div class="scroll-arrows">
+          <button class="scroll-arrow-btn" data-dir="left" aria-label="이전">&#x25C0;</button>
+          <button class="scroll-arrow-btn" data-dir="right" aria-label="다음">&#x25B6;</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- S04: CONTINUE LEARNING                      -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="observatory-section continue-section" id="continue">
+  <div class="section-inner">
+    <div class="classroom-header fade-in" style="margin-bottom: 32px;">
+      <h2 class="korean-text">이어서 학습하기</h2>
+      <a href="#" class="view-all">전체보기 &gt;</a>
+    </div>
+    <div class="learn-grid">
+      <div class="learn-card fade-in fade-in--d1">
+        <div class="learn-card__thumb"></div>
+        <div class="learn-card__body">
+          <div class="learn-card__title">우편취급 위반관련 법규</div>
+          <div class="progress-bar"><div class="progress-fill" style="width: 30%"></div></div>
+          <div class="progress-text">30%</div>
+          <a href="#" class="btn-sm">이어보기</a>
+        </div>
+      </div>
+      <div class="learn-card fade-in fade-in--d2">
+        <div class="learn-card__thumb"></div>
+        <div class="learn-card__body">
+          <div class="learn-card__title">도전! 나의 손해 2</div>
+          <div class="progress-bar"><div class="progress-fill" style="width: 65%"></div></div>
+          <div class="progress-text">65%</div>
+          <a href="#" class="btn-sm">이어보기</a>
+        </div>
+      </div>
+      <div class="learn-card fade-in fade-in--d3">
+        <div class="learn-card__thumb"></div>
+        <div class="learn-card__body">
+          <div class="learn-card__title">청렴판단력 키우기</div>
+          <div class="progress-bar"><div class="progress-fill" style="width: 10%"></div></div>
+          <div class="progress-text">10%</div>
+          <a href="#" class="btn-sm">이어보기</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- S05: CHANNELS + BOOKS                       -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="observatory-section channels-section" id="channels">
+  <div class="section-inner">
+    <div class="channels-grid">
+      <!-- Channels -->
+      <div class="fade-in fade-in--d1">
+        <div class="channel-header">
+          <h3 class="korean-text" style="font-size: 28px;">구독중인 채널</h3>
+          <a href="#" class="view-all">전체보기 &gt;</a>
+        </div>
+        <span class="channel-header__sub">내가 팔로우하는 학습 채널</span>
+
+        <div class="channel-item">
+          <span class="channel-badge">우정</span>
+          <div class="channel-info">
+            <span class="channel-name">우정인재개발원</span>
+            <span class="channel-count">50,032명</span>
+          </div>
+          <a href="#" class="btn-sm">구독중</a>
+        </div>
+        <div class="channel-item">
+          <span class="channel-badge">교육</span>
+          <div class="channel-info">
+            <span class="channel-name">교육큐레이션</span>
+            <span class="channel-count">52,149명</span>
+          </div>
+          <a href="#" class="btn-sm">구독중</a>
+        </div>
+        <div class="channel-item">
+          <span class="channel-badge">보이</span>
+          <div class="channel-info">
+            <span class="channel-name">보이스피싱 예방</span>
+            <span class="channel-count">49,533명</span>
+          </div>
+          <a href="#" class="btn-sm">구독중</a>
+        </div>
+      </div>
+
+      <!-- Books -->
+      <div class="fade-in fade-in--d2">
+        <div class="channel-header">
+          <h3 class="korean-text" style="font-size: 28px;">지금, 이 책!</h3>
+          <a href="#" class="view-all">전체보기 &gt;</a>
+        </div>
+        <span class="channel-header__sub">이달의 추천 도서</span>
+
+        <div class="book-grid">
+          <div class="book-item">
+            <div class="book-cover"></div>
+            <span class="book-title">가짜 노동</span>
+            <span class="book-author">데니스 뇌르마르크</span>
+          </div>
+          <div class="book-item">
+            <div class="book-cover"></div>
+            <span class="book-title">공부하고 있다는 착각</span>
+            <span class="book-author">대니얼 T. 윌링햄</span>
+          </div>
+          <div class="book-item">
+            <div class="book-cover"></div>
+            <span class="book-title">기본의 디자인</span>
+            <span class="book-author">아키타 미치오</span>
+          </div>
+          <div class="book-item">
+            <div class="book-cover"></div>
+            <span class="book-title">도파민네이션</span>
+            <span class="book-author">애나 렘키</span>
+          </div>
+          <div class="book-item">
+            <div class="book-cover"></div>
+            <span class="book-title">쇼펜하우어</span>
+            <span class="book-author">강용수</span>
+          </div>
+          <div class="book-item">
+            <div class="book-cover"></div>
+            <span class="book-title">마흔에 읽는 쇼펜하우어</span>
+            <span class="book-author">강용수</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- S06: CONTACT                                -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="observatory-section contact-section" id="contact">
+  <div class="section-inner">
+    <h2 class="korean-text fade-in">교육관련 안내</h2>
+    <p class="section-subtitle fade-in fade-in--d1" style="text-align: center;">천문대 안내 데스크</p>
+    <div class="contact-grid fade-in fade-in--d2">
+      <div class="contact-card">
+        <span class="contact-icon">&#x1F4DE;</span>
+        <span class="contact-label">이러닝 문의</span>
+        <span class="contact-tel">041-560-5350</span>
+      </div>
+      <div class="contact-card">
+        <span class="contact-icon">&#x1F5A5;</span>
+        <span class="contact-label">집합교육(선발)</span>
+        <span class="contact-tel">041-560-5264</span>
+      </div>
+      <div class="contact-card">
+        <span class="contact-icon">&#x1F4CB;</span>
+        <span class="contact-label">집합교육(계획)</span>
+        <span class="contact-tel">041-560-5311</span>
+      </div>
+      <div class="contact-card">
+        <span class="contact-icon">&#x1F4C4;</span>
+        <span class="contact-label">직무인증평가</span>
+        <span class="contact-tel">041-560-5312</span>
+      </div>
+      <div class="contact-card">
+        <span class="contact-icon">&#x1F4DA;</span>
+        <span class="contact-label">지금, 이 책!</span>
+        <span class="contact-tel">041-560-5151</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- S07: FOOTER                                 -->
+<!-- ═══════════════════════════════════════════ -->
+<footer class="obs-footer observatory-section--auto">
+  <div class="obs-footer__top">
+    <span class="footer-logo">&#x2726; 우정인재개발원</span>
+    <div class="footer-links">
+      <a href="#"><strong>개인정보처리 방침</strong></a>
+      <a href="#">영상정보처리기기 운영관리 방침</a>
+      <a href="#">이메일주소 무단수집거부</a>
+      <a href="#">이용약관</a>
+      <a href="#">찾아오시는길</a>
+      <a href="#">고객지원센터</a>
+    </div>
+    <a href="#" class="footer-site-link">관련사이트 바로가기 &#x25BE;</a>
+  </div>
+  <div class="obs-footer__info">
+    <small>(31068) 충청남도 천안시 동남구 양지말1길 (유량동) 우정인재개발원</small>
+    <small>전화번호: 041-560-5350 | 팩스번호: 0505-005-1062 | 이메일: cyber123@korea.kr</small>
+  </div>
+  <div class="obs-footer__copy">
+    <span>COPYRIGHT(C) 2016 KOREA POST(OFFICE OF POSTAL SERVICE). ALL RIGHTS RESERVED.</span>
+    <button class="scroll-top-btn" id="scrollTopBtn" aria-label="맨 위로">&#x2191;</button>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- JavaScript                                  -->
+<!-- ═══════════════════════════════════════════ -->
+<script>
+(function() {
+  'use strict';
+
+  // ── Nav scroll effect ──
+  var nav = document.getElementById('obsNav');
+  var scrollThreshold = 60;
+
+  function handleNavScroll() {
+    if (window.scrollY > scrollThreshold) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  }
+  window.addEventListener('scroll', handleNavScroll, { passive: true });
+
+  // ── Hamburger menu ──
+  var hamburger = document.getElementById('hamburgerBtn');
+  var gnbMenu = document.getElementById('gnbMenu');
+
+  hamburger.addEventListener('click', function() {
+    gnbMenu.classList.toggle('open');
+  });
+
+  // ── Tab switching for CLASSROOM ──
+  var tabBtns = document.querySelectorAll('.tab-btn');
+  var tabMap = {
+    'all': 'panel-all',
+    'policy': 'panel-policy',
+    'common': 'panel-common'
+  };
+
+  tabBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      // Deactivate all tabs
+      tabBtns.forEach(function(b) { b.classList.remove('active'); });
+      // Activate clicked tab
+      btn.classList.add('active');
+
+      // Hide all panels
+      var panels = document.querySelectorAll('.tab-panel');
+      panels.forEach(function(p) { p.classList.remove('active'); });
+
+      // Show target panel
+      var targetId = tabMap[btn.dataset.tab];
+      var targetPanel = document.getElementById(targetId);
+      if (targetPanel) {
+        targetPanel.classList.add('active');
+      }
+    });
+  });
+
+  // ── Scroll arrows for card rows ──
+  var arrowBtns = document.querySelectorAll('.scroll-arrow-btn');
+  arrowBtns.forEach(function(arrow) {
+    arrow.addEventListener('click', function() {
+      var container = arrow.closest('.card-scroll-container');
+      var scrollEl = container.querySelector('.card-scroll');
+      var scrollAmount = 240;
+      if (arrow.dataset.dir === 'left') {
+        scrollEl.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      } else {
+        scrollEl.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // ── Scroll to top ──
+  var scrollTopBtn = document.getElementById('scrollTopBtn');
+  scrollTopBtn.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // ── Intersection Observer for fade-in ──
+  var fadeEls = document.querySelectorAll('.fade-in');
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = 'running';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    fadeEls.forEach(function(el) {
+      el.style.animationPlayState = 'paused';
+      observer.observe(el);
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

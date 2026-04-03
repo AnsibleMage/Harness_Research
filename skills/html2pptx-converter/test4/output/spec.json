@@ -1,0 +1,1844 @@
+{
+  "presentation": {
+    "layout": "CUSTOM",
+    "width_pt": 1235,
+    "height_pt": 1446,
+    "title": "TestCorp Portal - Layout Test"
+  },
+  "design": {
+    "mode": "wireframe",
+    "wireframe_palette": {
+      "border": "#000000",
+      "accent_bg": "#808080",
+      "section_bg": "#E0E0E0",
+      "card_bg": "#FFFFFF",
+      "text": "#000000",
+      "text_on_accent": "#FFFFFF"
+    },
+    "original_palette": {
+      "primary": "#2B6CB0",
+      "secondary": "#1E3A5F",
+      "accent": "#E53E3E",
+      "background": "#F5F5F5",
+      "text_primary": "#1F2937",
+      "text_secondary": "#718096"
+    },
+    "color_mapping": [
+      { "original": "#1E3A5F", "wireframe": "#808080", "usage": "header background" },
+      { "original": "#2B6CB0", "wireframe": "#808080", "usage": "hero background, stat numbers, sidebar accent" },
+      { "original": "#E53E3E", "wireframe": "#808080", "usage": "primary CTA, corner TL, notice tag, badge" },
+      { "original": "#3182CE", "wireframe": "#808080", "usage": "corner TR" },
+      { "original": "#38A169", "wireframe": "#808080", "usage": "corner BL, rounded rect shape" },
+      { "original": "#D69E2E", "wireframe": "#808080", "usage": "corner BR, bordered shape, full border line" },
+      { "original": "#805AD5", "wireframe": "#808080", "usage": "center marker, box shadow shape" },
+      { "original": "#2D3748", "wireframe": "#808080", "usage": "board header background" },
+      { "original": "#1A202C", "wireframe": "#808080", "usage": "footer background" },
+      { "original": "#FFFFFF", "wireframe": "#FFFFFF", "usage": "text on dark, card backgrounds" },
+      { "original": "#F5F5F5", "wireframe": "#E0E0E0", "usage": "body background" },
+      { "original": "#F7FAFC", "wireframe": "#E0E0E0", "usage": "table header background" },
+      { "original": "#EBF8FF", "wireframe": "#E0E0E0", "usage": "quick link background" },
+      { "original": "#E2E8F0", "wireframe": "#E0E0E0", "usage": "borders" },
+      { "original": "#CBD5E0", "wireframe": "#000000", "usage": "nav link text" },
+      { "original": "#BEE3F8", "wireframe": "#000000", "usage": "subtitle text" },
+      { "original": "#1F2937", "wireframe": "#000000", "usage": "body text" },
+      { "original": "#4A5568", "wireframe": "#000000", "usage": "table header text, sidebar text" },
+      { "original": "#718096", "wireframe": "#000000", "usage": "stat labels, shape labels" },
+      { "original": "#A0AEC0", "wireframe": "#000000", "usage": "footer text, date text" },
+      { "original": "#FED7D7", "wireframe": "#E0E0E0", "usage": "notice tag bg" },
+      { "original": "#C6F6D5", "wireframe": "#E0E0E0", "usage": "event tag bg" },
+      { "original": "#BEE3F8", "wireframe": "#E0E0E0", "usage": "update tag bg" },
+      { "original": "#FEFCBF", "wireframe": "#E0E0E0", "usage": "faq tag bg" },
+      { "original": "#FFF5F5", "wireframe": "#E0E0E0", "usage": "top border line bg" },
+      { "original": "#F0FFF4", "wireframe": "#E0E0E0", "usage": "bottom border line bg" },
+      { "original": "#FFFFF0", "wireframe": "#E0E0E0", "usage": "full border line bg" }
+    ],
+    "fonts": {
+      "heading": "Arial",
+      "body": "Arial"
+    }
+  },
+  "description_panel": {
+    "title": "화면 구성 설명",
+    "width_pt": 275,
+    "position": "right",
+    "entries": [
+      {
+        "number": 1,
+        "title": "코너 마커",
+        "description": "슬라이드 네 꼭짓점 및 정중앙에 배치된 좌표 검증용 오버레이 마커. TL(빨강), TR(파랑), BL(초록), BR(금색), CENTER(보라) 5개 마커로 PPTX 변환 시 좌표 매핑 정확도를 검증한다."
+      },
+      {
+        "number": 2,
+        "title": "헤더 네비게이션",
+        "description": "좌측 'TestCorp Portal' 브랜드 로고와 우측 네비게이션 메뉴(Home, Services, Board, About, Contact) 5개 링크로 구성. 어두운 네이비 배경 위에 밝은 텍스트 배치, 하단 파란색 구분선으로 본문과 시각적 분리."
+      },
+      {
+        "number": 3,
+        "title": "히어로 섹션",
+        "description": "서비스 소개 배너. 'Welcome to TestCorp Portal' 대형 제목, html2pptx 변환 테스트 안내 부제목, CTA 버튼 2개(Get Started 채움형, Learn More 테두리형)를 파란 배경 위 중앙 정렬로 배치."
+      },
+      {
+        "number": 4,
+        "title": "통계 요약 바",
+        "description": "핵심 서비스 지표 4개를 수평 균등 배치. 1,247 Active Users, 358 Projects, 99.9% Uptime, 24/7 Support. 큰 파란 숫자와 작은 회색 라벨의 대비로 정보 위계 표현."
+      },
+      {
+        "number": 5,
+        "title": "게시판 (Notice Board)",
+        "description": "공지사항 테이블. 'Notice Board' 제목 + '5 New' 뱃지. 5열(No, Category, Title, Date, Views) × 5행 구성. Notice(빨강), Event(초록), Update(파랑), FAQ(노랑) 카테고리별 컬러 태그로 시각 구분."
+      },
+      {
+        "number": 6,
+        "title": "사이드바",
+        "description": "Recent Updates 카드(최근 업데이트 4건 리스트)와 Quick Links 카드(Docs, Support, Reports, Settings 2×2 그리드) 2개 카드로 구성. 흰 배경, 둥근 모서리, 연한 테두리 카드 스타일."
+      },
+      {
+        "number": 7,
+        "title": "도형 & 라인 테스트",
+        "description": "도형 5종(Rectangle, Rounded Rect, Circle, Border Only, Box Shadow)과 라인 4종(Top Border, Left Border, Bottom Border, Full Border)으로 PPTX 렌더링 정확도를 검증하는 전용 테스트 영역."
+      },
+      {
+        "number": 8,
+        "title": "푸터",
+        "description": "4단 그리드 레이아웃. 컬럼1: TestCorp 소개, 컬럼2: Company(About Us, Careers, Press, Blog), 컬럼3: Resources(Documentation, API Reference, Status Page, Changelog), 컬럼4: Legal(Privacy Policy, Terms of Service, Cookie Policy, GDPR). 하단 바: 저작권 텍스트 + 소셜 링크(GitHub, Twitter, LinkedIn)."
+      }
+    ]
+  },
+  "slides": [
+    {
+      "slide_index": 0,
+      "slide_type": "wireframe",
+      "source_section": "full page wireframe",
+      "background": {
+        "type": "solid",
+        "value": "#E0E0E0"
+      },
+      "sections": [
+        {
+          "id": "corner_markers",
+          "name": "Corner Markers",
+          "badge_number": 1,
+          "overlay": true,
+          "elements": [
+            {
+              "type": "rectangle",
+              "id": "corner_tl",
+              "x_pt": 0,
+              "y_pt": 0,
+              "width_pt": 30,
+              "height_pt": 30,
+              "fill": "#808080",
+              "border": { "color": "#000000", "width_pt": 0 },
+              "corner_radius_pt": { "top_left": 0, "top_right": 0, "bottom_left": 0, "bottom_right": 6 },
+              "text": {
+                "content": "TL",
+                "font_size_pt": 7.5,
+                "font_family": "Arial",
+                "font_weight": "bold",
+                "color": "#FFFFFF",
+                "align": "center",
+                "vertical_align": "middle"
+              }
+            },
+            {
+              "type": "rectangle",
+              "id": "corner_tr",
+              "x_pt": 930,
+              "y_pt": 0,
+              "width_pt": 30,
+              "height_pt": 30,
+              "fill": "#808080",
+              "border": { "color": "#000000", "width_pt": 0 },
+              "corner_radius_pt": { "top_left": 0, "top_right": 0, "bottom_left": 6, "bottom_right": 0 },
+              "text": {
+                "content": "TR",
+                "font_size_pt": 7.5,
+                "font_family": "Arial",
+                "font_weight": "bold",
+                "color": "#FFFFFF",
+                "align": "center",
+                "vertical_align": "middle"
+              }
+            },
+            {
+              "type": "rectangle",
+              "id": "corner_bl",
+              "x_pt": 0,
+              "y_pt": 1416,
+              "width_pt": 30,
+              "height_pt": 30,
+              "fill": "#808080",
+              "border": { "color": "#000000", "width_pt": 0 },
+              "corner_radius_pt": { "top_left": 0, "top_right": 6, "bottom_left": 0, "bottom_right": 0 },
+              "text": {
+                "content": "BL",
+                "font_size_pt": 7.5,
+                "font_family": "Arial",
+                "font_weight": "bold",
+                "color": "#FFFFFF",
+                "align": "center",
+                "vertical_align": "middle"
+              }
+            },
+            {
+              "type": "rectangle",
+              "id": "corner_br",
+              "x_pt": 930,
+              "y_pt": 1416,
+              "width_pt": 30,
+              "height_pt": 30,
+              "fill": "#808080",
+              "border": { "color": "#000000", "width_pt": 0 },
+              "corner_radius_pt": { "top_left": 6, "top_right": 0, "bottom_left": 0, "bottom_right": 0 },
+              "text": {
+                "content": "BR",
+                "font_size_pt": 7.5,
+                "font_family": "Arial",
+                "font_weight": "bold",
+                "color": "#FFFFFF",
+                "align": "center",
+                "vertical_align": "middle"
+              }
+            },
+            {
+              "type": "ellipse",
+              "id": "corner_center",
+              "x_pt": 450,
+              "y_pt": 693,
+              "width_pt": 45,
+              "height_pt": 45,
+              "fill": "#808080",
+              "border": { "color": "#000000", "width_pt": 0 },
+              "text": {
+                "content": "CENTER",
+                "font_size_pt": 6.75,
+                "font_family": "Arial",
+                "font_weight": "bold",
+                "color": "#FFFFFF",
+                "align": "center",
+                "vertical_align": "middle"
+              }
+            }
+          ]
+        },
+        {
+          "id": "header_nav",
+          "name": "Header Navigation",
+          "badge_number": 2,
+          "overlay": false,
+          "elements": [
+            {
+              "type": "rectangle",
+              "id": "header_bg",
+              "x_pt": 0,
+              "y_pt": 0,
+              "width_pt": 960,
+              "height_pt": 48,
+              "fill": "#808080",
+              "border": { "color": "#000000", "width_pt": 0 }
+            },
+            {
+              "type": "line",
+              "id": "header_bottom_border",
+              "x_pt": 0,
+              "y_pt": 48,
+              "width_pt": 960,
+              "height_pt": 2.25,
+              "fill": "#808080",
+              "border": { "color": "#000000", "width_pt": 0 }
+            },
+            {
+              "type": "text_box",
+              "id": "logo_text",
+              "x_pt": 30,
+              "y_pt": 10,
+              "width_pt": 180,
+              "height_pt": 28,
+              "text": {
+                "content": "TestCorp Portal",
+                "font_size_pt": 16.5,
+                "font_family": "Arial",
+                "font_weight": "bold",
+                "color": "#FFFFFF",
+                "align": "left",
+                "vertical_align": "middle"
+              }
+            },
+            {
+              "type": "text_box",
+              "id": "nav_home",
+              "x_pt": 540,
+              "y_pt": 10,
+              "width_pt": 55,
+              "height_pt": 28,
+              "text": {
+                "content": "Home",
+                "font_size_pt": 11.25,
+                "font_family": "Arial",
+                "font_weight": "500",
+                "color": "#FFFFFF",
+                "align": "center",
+                "vertical_align": "middle"
+              }
+            },
+            {
+              "type": "text_box",
+              "id": "nav_services",
+              "x_pt": 619,
+              "y_pt": 10,
+              "width_pt": 68,
+              "height_pt": 28,
+              "text": {
+                "content": "Services",
+                "font_size_pt": 11.25,
+                "font_family": "Arial",
+                "font_weight": "500",
+                "color": "#FFFFFF",
+                "align": "center",
+                "vertical_align": "middle"
+              }
+            },
+            {
+              "type": "text_box",
+              "id": "nav_board",
+              "x_pt": 711,
+              "y_pt": 10,
+              "width_pt": 55,
+              "height_pt": 28,
+              "text": {
+                "content": "Board",
+                "font_size_pt": 11.25,
+                "font_family": "Arial",
+                "font_weight": "500",
+                "color": "#FFFFFF",
+                "align": "center",
+                "vertical_align": "middle"
+              }
+            },
+            {
+              "type": "text_box",
+              "id": "nav_about",
+              "x_pt": 790,
+              "y_pt": 10,
+              "width_pt": 55,
+              "height_pt": 28,
+              "text": {
+                "content": "About",
+                "font_size_pt": 11.25,
+                "font_family": "Arial",
+                "font_weight": "500",
+                "color": "#FFFFFF",
+                "align": "center",
+                "vertical_align": "middle"
+              }
+            },
+            {
+              "type": "text_box",
+              "id": "nav_contact",
+              "x_pt": 869,
+              "y_pt": 10,
+              "width_pt": 68,
+              "height_pt": 28,
+              "text": {
+                "content": "Contact",
+                "font_size_pt": 11.25,
+                "font_family": "Arial",
+                "font_weight": "500",
+                "color": "#FFFFFF",
+                "align": "center",
+                "vertical_align": "middle"
+              }
+            },
+            {
+              "type": "line",
+              "id": "nav_active_underline",
+              "x_pt": 540,
+              "y_pt": 40,
+              "width_pt": 55,
+              "height_pt": 1.5,
+              "fill": "#808080",
+              "border": { "color": "#000000", "width_pt": 0 }
+            }
+          ]
+        },
+        {
+          "id": "hero_section",
+          "name": "Hero Section",
+          "badge_number": 3,
+          "overlay": false,
+          "elements": [
+            {
+              "type": "rectangle",
+              "id": "hero_bg",
+              "x_pt": 0,
+              "y_pt": 50,
+              "width_pt": 960,
+              "height_pt": 195,
+              "fill": "#808080",
+              "border": { "color": "#000000", "width_pt": 0 }
+            },
+            {
+              "type": "text_box",
+              "id": "hero_title",
+              "x_pt": 60,
+              "y_pt": 85,
+              "width_pt": 840,
+              "height_pt": 42,
+              "text": {
+                "content": "Welcome to TestCorp Portal",
+                "font_size_pt": 31.5,
+                "font_family": "Arial",
+                "font_weight": "800",
+                "color": "#FFFFFF",
+                "align": "center",
+                "vertical_align": "middle"
+              }
+            },
+            {
+              "type": "text_box",
+              "id": "hero_subtitle",
+              "x_pt": 180,
+              "y_pt": 132,
+              "width_pt": 600,
+              "height_pt": 54,
+              "text": {
+                "content": "This is a layout verification page for html2pptx conversion testing. It includes header navigation, hero content, board section, shape tests, and footer structure.",
+                "font_size_pt": 13.5,
+                "font_family": "Arial",
+                "font_weight": "normal",
+                "color": "#FFFFFF",
+                "align": "center",
+                "vertical_align": "top",
+                "line_spacing": 1.6
+              }
+            },
+            {
+              "type": "rectangle",
+              "id": "btn_get_started",
+              "x_pt": 340,
+              "y_pt": 198,
+              "width_pt": 120,
+              "height_pt": 34,
+              "fill": "#808080",
+              "border": { "color": "#000000", "width_pt": 1.5 },
+              "corner_radius_pt": 6,
+              "text": {
+                "content": "Get Started",
+                "font_size_pt": 12,
+                "font_family": "Arial",
+                "font_weight": "700",
+                "color": "#FFFFFF",
+                "align": "center",
+                "vertical_align": "middle"
+              }
+            },
+            {
+              "type": "rectangle",
+              "id": "btn_learn_more",
+              "x_pt": 472,
+              "y_pt": 198,
+              "width_pt": 120,
+              "height_pt": 34,
+              "fill": "#808080",
+              "border": { "color": "#FFFFFF", "width_pt": 1.5 },
+              "corner_radius_pt": 6,
+              "text": {
+                "content": "Learn More",
+                "font_size_pt": 12,
+                "font_family": "Arial",
+                "font_weight": "600",
+                "color": "#FFFFFF",
+                "align": "center",
+                "vertical_align": "middle"
+              }
+            }
+          ]
+        },
+        {
+          "id": "stats_bar",
+          "name": "Stats Bar",
+          "badge_number": 4,
+          "overlay": false,
+          "elements": [
+            {
+              "type": "rectangle",
+              "id": "stats_bg",
+              "x_pt": 0,
+              "y_pt": 245,
+              "width_pt": 960,
+              "height_pt": 72,
+              "fill": "#FFFFFF",
+              "border": { "color": "#000000", "width_pt": 0 }
+            },
+            {
+              "type": "line",
+              "id": "stats_bottom_border",
+              "x_pt": 0,
+              "y_pt": 316,
+              "width_pt": 960,
+              "height_pt": 0.75,
+              "fill": "#000000",
+              "border": { "color": "#000000", "width_pt": 0.75 }
+            },
+            {
+              "type": "text_box",
+              "id": "stat_1_number",
+              "x_pt": 100,
+              "y_pt": 255,
+              "width_pt": 140,
+              "height_pt": 30,
+              "text": {
+                "content": "1,247",
+                "font_size_pt": 24,
+                "font_family": "Arial",
+                "font_weight": "800",
+                "color": "#000000",
+                "align": "center",
+                "vertical_align": "middle"
+              }
+            },
+            {
+              "type": "text_box",
+              "id": "stat_1_label",
+              "x_pt": 100,
+              "y_pt": 286,
+              "width_pt": 140,
+              "height_pt": 18,
+              "text": {
+                "content": "ACTIVE USERS",
+                "font_size_pt": 9.75,
+                "font_family": "Arial",
+                "font_weight": "normal",
+                "color": "#000000",
+                "align": "center",
+                "vertical_align": "top"
+              }
+            },
+            {
+              "type": "text_box",
+              "id": "stat_2_number",
+              "x_pt": 310,
+              "y_pt": 255,
+              "width_pt": 140,
+              "height_pt": 30,
+              "text": {
+                "content": "358",
+                "font_size_pt": 24,
+                "font_family": "Arial",
+                "font_weight": "800",
+                "color": "#000000",
+                "align": "center",
+                "vertical_align": "middle"
+              }
+            },
+            {
+              "type": "text_box",
+              "id": "stat_2_label",
+              "x_pt": 310,
+              "y_pt": 286,
+              "width_pt": 140,
+              "height_pt": 18,
+              "text": {
+                "content": "PROJECTS",
+                "font_size_pt": 9.75,
+                "font_family": "Arial",
+                "font_weight": "normal",
+                "color": "#000000",
+                "align": "center",
+                "vertical_align": "top"
+              }
+            },
+            {
+              "type": "text_box",
+              "id": "stat_3_number",
+              "x_pt": 520,
+              "y_pt": 255,
+              "width_pt": 140,
+              "height_pt": 30,
+              "text": {
+                "content": "99.9%",
+                "font_size_pt": 24,
+                "font_family": "Arial",
+                "font_weight": "800",
+                "color": "#000000",
+                "align": "center",
+                "vertical_align": "middle"
+              }
+            },
+            {
+              "type": "text_box",
+              "id": "stat_3_label",
+              "x_pt": 520,
+              "y_pt": 286,
+              "width_pt": 140,
+              "height_pt": 18,
+              "text": {
+                "content": "UPTIME",
+                "font_size_pt": 9.75,
+                "font_family": "Arial",
+                "font_weight": "normal",
+                "color": "#000000",
+                "align": "center",
+                "vertical_align": "top"
+              }
+            },
+            {
+              "type": "text_box",
+              "id": "stat_4_number",
+              "x_pt": 730,
+              "y_pt": 255,
+              "width_pt": 140,
+              "height_pt": 30,
+              "text": {
+                "content": "24/7",
+                "font_size_pt": 24,
+                "font_family": "Arial",
+                "font_weight": "800",
+                "color": "#000000",
+                "align": "center",
+                "vertical_align": "middle"
+              }
+            },
+            {
+              "type": "text_box",
+              "id": "stat_4_label",
+              "x_pt": 730,
+              "y_pt": 286,
+              "width_pt": 140,
+              "height_pt": 18,
+              "text": {
+                "content": "SUPPORT",
+                "font_size_pt": 9.75,
+                "font_family": "Arial",
+                "font_weight": "normal",
+                "color": "#000000",
+                "align": "center",
+                "vertical_align": "top"
+              }
+            }
+          ]
+        },
+        {
+          "id": "board_main",
+          "name": "Board Main (Notice Board)",
+          "badge_number": 5,
+          "overlay": false,
+          "elements": [
+            {
+              "type": "rectangle",
+              "id": "board_container",
+              "x_pt": 30,
+              "y_pt": 353,
+              "width_pt": 590,
+              "height_pt": 340,
+              "fill": "#FFFFFF",
+              "border": { "color": "#000000", "width_pt": 0.75 },
+              "corner_radius_pt": 9
+            },
+            {
+              "type": "rectangle",
+              "id": "board_header_bg",
+              "x_pt": 30,
+              "y_pt": 353,
+              "width_pt": 590,
+              "height_pt": 38,
+              "fill": "#808080",
+              "border": { "color": "#000000", "width_pt": 0 },
+              "corner_radius_pt": { "top_left": 9, "top_right": 9, "bottom_left": 0, "bottom_right": 0 }
+            },
+            {
+              "type": "text_box",
+              "id": "board_title",
+              "x_pt": 48,
+              "y_pt": 358,
+              "width_pt": 200,
+              "height_pt": 28,
+              "text": {
+                "content": "Notice Board",
+                "font_size_pt": 13.5,
+                "font_family": "Arial",
+                "font_weight": "700",
+                "color": "#FFFFFF",
+                "align": "left",
+                "vertical_align": "middle"
+              }
+            },
+            {
+              "type": "rectangle",
+              "id": "board_badge",
+              "x_pt": 548,
+              "y_pt": 361,
+              "width_pt": 56,
+              "height_pt": 22,
+              "fill": "#808080",
+              "border": { "color": "#000000", "width_pt": 0 },
+              "corner_radius_pt": 15,
+              "text": {
+                "content": "5 New",
+                "font_size_pt": 9,
+                "font_family": "Arial",
+                "font_weight": "600",
+                "color": "#FFFFFF",
+                "align": "center",
+                "vertical_align": "middle"
+              }
+            },
+            {
+              "type": "rectangle",
+              "id": "board_thead_bg",
+              "x_pt": 30,
+              "y_pt": 391,
+              "width_pt": 590,
+              "height_pt": 28,
+              "fill": "#E0E0E0",
+              "border": { "color": "#000000", "width_pt": 0 }
+            },
+            {
+              "type": "text_box",
+              "id": "th_no",
+              "x_pt": 42,
+              "y_pt": 393,
+              "width_pt": 50,
+              "height_pt": 24,
+              "text": {
+                "content": "No.",
+                "font_size_pt": 9.75,
+                "font_family": "Arial",
+                "font_weight": "600",
+                "color": "#000000",
+                "align": "left",
+                "vertical_align": "middle"
+              }
+            },
+            {
+              "type": "text_box",
+              "id": "th_category",
+              "x_pt": 100,
+              "y_pt": 393,
+              "width_pt": 75,
+              "height_pt": 24,
+              "text": {
+                "content": "Category",
+                "font_size_pt": 9.75,
+                "font_family": "Arial",
+                "font_weight": "600",
+                "color": "#000000",
+                "align": "left",
+                "vertical_align": "middle"
+              }
+            },
+            {
+              "type": "text_box",
+              "id": "th_title",
+              "x_pt": 183,
+              "y_pt": 393,
+              "width_pt": 250,
+              "height_pt": 24,
+              "text": {
+                "content": "Title",
+                "font_size_pt": 9.75,
+                "font_family": "Arial",
+                "font_weight": "600",
+                "color": "#000000",
+                "align": "left",
+                "vertical_align": "middle"
+              }
+            },
+            {
+              "type": "text_box",
+              "id": "th_date",
+              "x_pt": 441,
+              "y_pt": 393,
+              "width_pt": 75,
+              "height_pt": 24,
+              "text": {
+                "content": "Date",
+                "font_size_pt": 9.75,
+                "font_family": "Arial",
+                "font_weight": "600",
+                "color": "#000000",
+                "align": "left",
+                "vertical_align": "middle"
+              }
+            },
+            {
+              "type": "text_box",
+              "id": "th_views",
+              "x_pt": 524,
+              "y_pt": 393,
+              "width_pt": 56,
+              "height_pt": 24,
+              "text": {
+                "content": "Views",
+                "font_size_pt": 9.75,
+                "font_family": "Arial",
+                "font_weight": "600",
+                "color": "#000000",
+                "align": "left",
+                "vertical_align": "middle"
+              }
+            },
+            {
+              "type": "line",
+              "id": "thead_border",
+              "x_pt": 30,
+              "y_pt": 419,
+              "width_pt": 590,
+              "height_pt": 1.5,
+              "fill": "#000000",
+              "border": { "color": "#000000", "width_pt": 1.5 }
+            },
+            {
+              "type": "text_box",
+              "id": "row1_no",
+              "x_pt": 42,
+              "y_pt": 424,
+              "width_pt": 50,
+              "height_pt": 48,
+              "text": { "content": "125", "font_size_pt": 10.5, "font_family": "Arial", "color": "#000000", "align": "left", "vertical_align": "middle" }
+            },
+            {
+              "type": "rectangle",
+              "id": "row1_tag",
+              "x_pt": 100,
+              "y_pt": 436,
+              "width_pt": 55,
+              "height_pt": 20,
+              "fill": "#E0E0E0",
+              "border": { "color": "#000000", "width_pt": 0 },
+              "corner_radius_pt": 9,
+              "text": { "content": "Notice", "font_size_pt": 9, "font_family": "Arial", "font_weight": "600", "color": "#000000", "align": "center", "vertical_align": "middle" }
+            },
+            {
+              "type": "text_box",
+              "id": "row1_title",
+              "x_pt": 183,
+              "y_pt": 424,
+              "width_pt": 250,
+              "height_pt": 48,
+              "text": { "content": "System maintenance scheduled for March 15th", "font_size_pt": 10.5, "font_family": "Arial", "color": "#000000", "align": "left", "vertical_align": "middle" }
+            },
+            {
+              "type": "text_box",
+              "id": "row1_date",
+              "x_pt": 441,
+              "y_pt": 424,
+              "width_pt": 75,
+              "height_pt": 48,
+              "text": { "content": "2026-03-10", "font_size_pt": 10.5, "font_family": "Arial", "color": "#000000", "align": "left", "vertical_align": "middle" }
+            },
+            {
+              "type": "text_box",
+              "id": "row1_views",
+              "x_pt": 524,
+              "y_pt": 424,
+              "width_pt": 56,
+              "height_pt": 48,
+              "text": { "content": "342", "font_size_pt": 10.5, "font_family": "Arial", "color": "#000000", "align": "left", "vertical_align": "middle" }
+            },
+            {
+              "type": "line",
+              "id": "row1_border",
+              "x_pt": 30,
+              "y_pt": 472,
+              "width_pt": 590,
+              "height_pt": 0.75,
+              "fill": "#E0E0E0",
+              "border": { "color": "#000000", "width_pt": 0 }
+            },
+            {
+              "type": "text_box",
+              "id": "row2_no",
+              "x_pt": 42,
+              "y_pt": 475,
+              "width_pt": 50,
+              "height_pt": 48,
+              "text": { "content": "124", "font_size_pt": 10.5, "font_family": "Arial", "color": "#000000", "align": "left", "vertical_align": "middle" }
+            },
+            {
+              "type": "rectangle",
+              "id": "row2_tag",
+              "x_pt": 100,
+              "y_pt": 487,
+              "width_pt": 55,
+              "height_pt": 20,
+              "fill": "#E0E0E0",
+              "border": { "color": "#000000", "width_pt": 0 },
+              "corner_radius_pt": 9,
+              "text": { "content": "Event", "font_size_pt": 9, "font_family": "Arial", "font_weight": "600", "color": "#000000", "align": "center", "vertical_align": "middle" }
+            },
+            {
+              "type": "text_box",
+              "id": "row2_title",
+              "x_pt": 183,
+              "y_pt": 475,
+              "width_pt": 250,
+              "height_pt": 48,
+              "text": { "content": "Annual developer conference registration open", "font_size_pt": 10.5, "font_family": "Arial", "color": "#000000", "align": "left", "vertical_align": "middle" }
+            },
+            {
+              "type": "text_box",
+              "id": "row2_date",
+              "x_pt": 441,
+              "y_pt": 475,
+              "width_pt": 75,
+              "height_pt": 48,
+              "text": { "content": "2026-03-08", "font_size_pt": 10.5, "font_family": "Arial", "color": "#000000", "align": "left", "vertical_align": "middle" }
+            },
+            {
+              "type": "text_box",
+              "id": "row2_views",
+              "x_pt": 524,
+              "y_pt": 475,
+              "width_pt": 56,
+              "height_pt": 48,
+              "text": { "content": "567", "font_size_pt": 10.5, "font_family": "Arial", "color": "#000000", "align": "left", "vertical_align": "middle" }
+            },
+            {
+              "type": "line",
+              "id": "row2_border",
+              "x_pt": 30,
+              "y_pt": 523,
+              "width_pt": 590,
+              "height_pt": 0.75,
+              "fill": "#E0E0E0",
+              "border": { "color": "#000000", "width_pt": 0 }
+            },
+            {
+              "type": "text_box",
+              "id": "row3_no",
+              "x_pt": 42,
+              "y_pt": 526,
+              "width_pt": 50,
+              "height_pt": 48,
+              "text": { "content": "123", "font_size_pt": 10.5, "font_family": "Arial", "color": "#000000", "align": "left", "vertical_align": "middle" }
+            },
+            {
+              "type": "rectangle",
+              "id": "row3_tag",
+              "x_pt": 100,
+              "y_pt": 538,
+              "width_pt": 55,
+              "height_pt": 20,
+              "fill": "#E0E0E0",
+              "border": { "color": "#000000", "width_pt": 0 },
+              "corner_radius_pt": 9,
+              "text": { "content": "Update", "font_size_pt": 9, "font_family": "Arial", "font_weight": "600", "color": "#000000", "align": "center", "vertical_align": "middle" }
+            },
+            {
+              "type": "text_box",
+              "id": "row3_title",
+              "x_pt": 183,
+              "y_pt": 526,
+              "width_pt": 250,
+              "height_pt": 48,
+              "text": { "content": "Platform version 3.2 release notes", "font_size_pt": 10.5, "font_family": "Arial", "color": "#000000", "align": "left", "vertical_align": "middle" }
+            },
+            {
+              "type": "text_box",
+              "id": "row3_date",
+              "x_pt": 441,
+              "y_pt": 526,
+              "width_pt": 75,
+              "height_pt": 48,
+              "text": { "content": "2026-03-05", "font_size_pt": 10.5, "font_family": "Arial", "color": "#000000", "align": "left", "vertical_align": "middle" }
+            },
+            {
+              "type": "text_box",
+              "id": "row3_views",
+              "x_pt": 524,
+              "y_pt": 526,
+              "width_pt": 56,
+              "height_pt": 48,
+              "text": { "content": "891", "font_size_pt": 10.5, "font_family": "Arial", "color": "#000000", "align": "left", "vertical_align": "middle" }
+            },
+            {
+              "type": "line",
+              "id": "row3_border",
+              "x_pt": 30,
+              "y_pt": 574,
+              "width_pt": 590,
+              "height_pt": 0.75,
+              "fill": "#E0E0E0",
+              "border": { "color": "#000000", "width_pt": 0 }
+            },
+            {
+              "type": "text_box",
+              "id": "row4_no",
+              "x_pt": 42,
+              "y_pt": 577,
+              "width_pt": 50,
+              "height_pt": 48,
+              "text": { "content": "122", "font_size_pt": 10.5, "font_family": "Arial", "color": "#000000", "align": "left", "vertical_align": "middle" }
+            },
+            {
+              "type": "rectangle",
+              "id": "row4_tag",
+              "x_pt": 100,
+              "y_pt": 589,
+              "width_pt": 55,
+              "height_pt": 20,
+              "fill": "#E0E0E0",
+              "border": { "color": "#000000", "width_pt": 0 },
+              "corner_radius_pt": 9,
+              "text": { "content": "FAQ", "font_size_pt": 9, "font_family": "Arial", "font_weight": "600", "color": "#000000", "align": "center", "vertical_align": "middle" }
+            },
+            {
+              "type": "text_box",
+              "id": "row4_title",
+              "x_pt": 183,
+              "y_pt": 577,
+              "width_pt": 250,
+              "height_pt": 48,
+              "text": { "content": "How to reset your account password", "font_size_pt": 10.5, "font_family": "Arial", "color": "#000000", "align": "left", "vertical_align": "middle" }
+            },
+            {
+              "type": "text_box",
+              "id": "row4_date",
+              "x_pt": 441,
+              "y_pt": 577,
+              "width_pt": 75,
+              "height_pt": 48,
+              "text": { "content": "2026-03-03", "font_size_pt": 10.5, "font_family": "Arial", "color": "#000000", "align": "left", "vertical_align": "middle" }
+            },
+            {
+              "type": "text_box",
+              "id": "row4_views",
+              "x_pt": 524,
+              "y_pt": 577,
+              "width_pt": 56,
+              "height_pt": 48,
+              "text": { "content": "1,204", "font_size_pt": 10.5, "font_family": "Arial", "color": "#000000", "align": "left", "vertical_align": "middle" }
+            },
+            {
+              "type": "line",
+              "id": "row4_border",
+              "x_pt": 30,
+              "y_pt": 625,
+              "width_pt": 590,
+              "height_pt": 0.75,
+              "fill": "#E0E0E0",
+              "border": { "color": "#000000", "width_pt": 0 }
+            },
+            {
+              "type": "text_box",
+              "id": "row5_no",
+              "x_pt": 42,
+              "y_pt": 628,
+              "width_pt": 50,
+              "height_pt": 48,
+              "text": { "content": "121", "font_size_pt": 10.5, "font_family": "Arial", "color": "#000000", "align": "left", "vertical_align": "middle" }
+            },
+            {
+              "type": "rectangle",
+              "id": "row5_tag",
+              "x_pt": 100,
+              "y_pt": 640,
+              "width_pt": 55,
+              "height_pt": 20,
+              "fill": "#E0E0E0",
+              "border": { "color": "#000000", "width_pt": 0 },
+              "corner_radius_pt": 9,
+              "text": { "content": "Notice", "font_size_pt": 9, "font_family": "Arial", "font_weight": "600", "color": "#000000", "align": "center", "vertical_align": "middle" }
+            },
+            {
+              "type": "text_box",
+              "id": "row5_title",
+              "x_pt": 183,
+              "y_pt": 628,
+              "width_pt": 250,
+              "height_pt": 48,
+              "text": { "content": "New privacy policy effective April 1st", "font_size_pt": 10.5, "font_family": "Arial", "color": "#000000", "align": "left", "vertical_align": "middle" }
+            },
+            {
+              "type": "text_box",
+              "id": "row5_date",
+              "x_pt": 441,
+              "y_pt": 628,
+              "width_pt": 75,
+              "height_pt": 48,
+              "text": { "content": "2026-03-01", "font_size_pt": 10.5, "font_family": "Arial", "color": "#000000", "align": "left", "vertical_align": "middle" }
+            },
+            {
+              "type": "text_box",
+              "id": "row5_views",
+              "x_pt": 524,
+              "y_pt": 628,
+              "width_pt": 56,
+              "height_pt": 48,
+              "text": { "content": "456", "font_size_pt": 10.5, "font_family": "Arial", "color": "#000000", "align": "left", "vertical_align": "middle" }
+            }
+          ]
+        },
+        {
+          "id": "sidebar",
+          "name": "Sidebar (Recent Updates + Quick Links)",
+          "badge_number": 6,
+          "overlay": false,
+          "elements": [
+            {
+              "type": "rectangle",
+              "id": "sidebar_recent_card",
+              "x_pt": 644,
+              "y_pt": 353,
+              "width_pt": 286,
+              "height_pt": 210,
+              "fill": "#FFFFFF",
+              "border": { "color": "#000000", "width_pt": 0.75 },
+              "corner_radius_pt": 9
+            },
+            {
+              "type": "text_box",
+              "id": "recent_title",
+              "x_pt": 662,
+              "y_pt": 371,
+              "width_pt": 250,
+              "height_pt": 20,
+              "text": {
+                "content": "Recent Updates",
+                "font_size_pt": 12,
+                "font_family": "Arial",
+                "font_weight": "700",
+                "color": "#000000",
+                "align": "left",
+                "vertical_align": "middle"
+              }
+            },
+            {
+              "type": "line",
+              "id": "recent_title_underline",
+              "x_pt": 662,
+              "y_pt": 398,
+              "width_pt": 250,
+              "height_pt": 1.5,
+              "fill": "#808080",
+              "border": { "color": "#000000", "width_pt": 0 }
+            },
+            {
+              "type": "text_box",
+              "id": "recent_item1_title",
+              "x_pt": 662,
+              "y_pt": 406,
+              "width_pt": 180,
+              "height_pt": 30,
+              "text": { "content": "API v2.5 released", "font_size_pt": 10.5, "font_family": "Arial", "color": "#000000", "align": "left", "vertical_align": "middle" }
+            },
+            {
+              "type": "text_box",
+              "id": "recent_item1_date",
+              "x_pt": 870,
+              "y_pt": 406,
+              "width_pt": 48,
+              "height_pt": 30,
+              "text": { "content": "03-10", "font_size_pt": 9, "font_family": "Arial", "color": "#000000", "align": "right", "vertical_align": "middle" }
+            },
+            {
+              "type": "line",
+              "id": "recent_item1_border",
+              "x_pt": 662,
+              "y_pt": 436,
+              "width_pt": 250,
+              "height_pt": 0.75,
+              "fill": "#E0E0E0",
+              "border": { "color": "#000000", "width_pt": 0 }
+            },
+            {
+              "type": "text_box",
+              "id": "recent_item2_title",
+              "x_pt": 662,
+              "y_pt": 440,
+              "width_pt": 180,
+              "height_pt": 30,
+              "text": { "content": "Dashboard redesign", "font_size_pt": 10.5, "font_family": "Arial", "color": "#000000", "align": "left", "vertical_align": "middle" }
+            },
+            {
+              "type": "text_box",
+              "id": "recent_item2_date",
+              "x_pt": 870,
+              "y_pt": 440,
+              "width_pt": 48,
+              "height_pt": 30,
+              "text": { "content": "03-08", "font_size_pt": 9, "font_family": "Arial", "color": "#000000", "align": "right", "vertical_align": "middle" }
+            },
+            {
+              "type": "line",
+              "id": "recent_item2_border",
+              "x_pt": 662,
+              "y_pt": 470,
+              "width_pt": 250,
+              "height_pt": 0.75,
+              "fill": "#E0E0E0",
+              "border": { "color": "#000000", "width_pt": 0 }
+            },
+            {
+              "type": "text_box",
+              "id": "recent_item3_title",
+              "x_pt": 662,
+              "y_pt": 474,
+              "width_pt": 180,
+              "height_pt": 30,
+              "text": { "content": "Mobile app update", "font_size_pt": 10.5, "font_family": "Arial", "color": "#000000", "align": "left", "vertical_align": "middle" }
+            },
+            {
+              "type": "text_box",
+              "id": "recent_item3_date",
+              "x_pt": 870,
+              "y_pt": 474,
+              "width_pt": 48,
+              "height_pt": 30,
+              "text": { "content": "03-05", "font_size_pt": 9, "font_family": "Arial", "color": "#000000", "align": "right", "vertical_align": "middle" }
+            },
+            {
+              "type": "line",
+              "id": "recent_item3_border",
+              "x_pt": 662,
+              "y_pt": 504,
+              "width_pt": 250,
+              "height_pt": 0.75,
+              "fill": "#E0E0E0",
+              "border": { "color": "#000000", "width_pt": 0 }
+            },
+            {
+              "type": "text_box",
+              "id": "recent_item4_title",
+              "x_pt": 662,
+              "y_pt": 508,
+              "width_pt": 180,
+              "height_pt": 30,
+              "text": { "content": "Security patch applied", "font_size_pt": 10.5, "font_family": "Arial", "color": "#000000", "align": "left", "vertical_align": "middle" }
+            },
+            {
+              "type": "text_box",
+              "id": "recent_item4_date",
+              "x_pt": 870,
+              "y_pt": 508,
+              "width_pt": 48,
+              "height_pt": 30,
+              "text": { "content": "03-01", "font_size_pt": 9, "font_family": "Arial", "color": "#000000", "align": "right", "vertical_align": "middle" }
+            },
+            {
+              "type": "rectangle",
+              "id": "sidebar_quick_card",
+              "x_pt": 644,
+              "y_pt": 581,
+              "width_pt": 286,
+              "height_pt": 195,
+              "fill": "#FFFFFF",
+              "border": { "color": "#000000", "width_pt": 0.75 },
+              "corner_radius_pt": 9
+            },
+            {
+              "type": "text_box",
+              "id": "quick_title",
+              "x_pt": 662,
+              "y_pt": 599,
+              "width_pt": 250,
+              "height_pt": 20,
+              "text": {
+                "content": "Quick Links",
+                "font_size_pt": 12,
+                "font_family": "Arial",
+                "font_weight": "700",
+                "color": "#000000",
+                "align": "left",
+                "vertical_align": "middle"
+              }
+            },
+            {
+              "type": "line",
+              "id": "quick_title_underline",
+              "x_pt": 662,
+              "y_pt": 626,
+              "width_pt": 250,
+              "height_pt": 1.5,
+              "fill": "#808080",
+              "border": { "color": "#000000", "width_pt": 0 }
+            },
+            {
+              "type": "rectangle",
+              "id": "quick_docs",
+              "x_pt": 662,
+              "y_pt": 636,
+              "width_pt": 119,
+              "height_pt": 56,
+              "fill": "#E0E0E0",
+              "border": { "color": "#000000", "width_pt": 0.75 },
+              "corner_radius_pt": 6,
+              "text": {
+                "content": "Docs",
+                "font_size_pt": 9.75,
+                "font_family": "Arial",
+                "font_weight": "600",
+                "color": "#000000",
+                "align": "center",
+                "vertical_align": "bottom"
+              }
+            },
+            {
+              "type": "rectangle",
+              "id": "quick_support",
+              "x_pt": 793,
+              "y_pt": 636,
+              "width_pt": 119,
+              "height_pt": 56,
+              "fill": "#E0E0E0",
+              "border": { "color": "#000000", "width_pt": 0.75 },
+              "corner_radius_pt": 6,
+              "text": {
+                "content": "Support",
+                "font_size_pt": 9.75,
+                "font_family": "Arial",
+                "font_weight": "600",
+                "color": "#000000",
+                "align": "center",
+                "vertical_align": "bottom"
+              }
+            },
+            {
+              "type": "rectangle",
+              "id": "quick_reports",
+              "x_pt": 662,
+              "y_pt": 701,
+              "width_pt": 119,
+              "height_pt": 56,
+              "fill": "#E0E0E0",
+              "border": { "color": "#000000", "width_pt": 0.75 },
+              "corner_radius_pt": 6,
+              "text": {
+                "content": "Reports",
+                "font_size_pt": 9.75,
+                "font_family": "Arial",
+                "font_weight": "600",
+                "color": "#000000",
+                "align": "center",
+                "vertical_align": "bottom"
+              }
+            },
+            {
+              "type": "rectangle",
+              "id": "quick_settings",
+              "x_pt": 793,
+              "y_pt": 701,
+              "width_pt": 119,
+              "height_pt": 56,
+              "fill": "#E0E0E0",
+              "border": { "color": "#000000", "width_pt": 0.75 },
+              "corner_radius_pt": 6,
+              "text": {
+                "content": "Settings",
+                "font_size_pt": 9.75,
+                "font_family": "Arial",
+                "font_weight": "600",
+                "color": "#000000",
+                "align": "center",
+                "vertical_align": "bottom"
+              }
+            }
+          ]
+        },
+        {
+          "id": "shape_line_test",
+          "name": "Shape & Line Test Area",
+          "badge_number": 7,
+          "overlay": false,
+          "elements": [
+            {
+              "type": "rectangle",
+              "id": "shape_test_container",
+              "x_pt": 30,
+              "y_pt": 810,
+              "width_pt": 900,
+              "height_pt": 290,
+              "fill": "#FFFFFF",
+              "border": { "color": "#000000", "width_pt": 0.75 },
+              "corner_radius_pt": 9
+            },
+            {
+              "type": "text_box",
+              "id": "shape_test_title",
+              "x_pt": 54,
+              "y_pt": 834,
+              "width_pt": 400,
+              "height_pt": 24,
+              "text": {
+                "content": "Shape & Line Rendering Test",
+                "font_size_pt": 15,
+                "font_family": "Arial",
+                "font_weight": "700",
+                "color": "#000000",
+                "align": "left",
+                "vertical_align": "middle"
+              }
+            },
+            {
+              "type": "line",
+              "id": "shape_test_divider",
+              "x_pt": 54,
+              "y_pt": 864,
+              "width_pt": 852,
+              "height_pt": 1.5,
+              "fill": "#E0E0E0",
+              "border": { "color": "#000000", "width_pt": 0 }
+            },
+            {
+              "type": "rectangle",
+              "id": "shape_rect",
+              "x_pt": 84,
+              "y_pt": 884,
+              "width_pt": 75,
+              "height_pt": 45,
+              "fill": "#808080",
+              "border": { "color": "#000000", "width_pt": 0 },
+              "corner_radius_pt": 3
+            },
+            {
+              "type": "text_box",
+              "id": "shape_rect_label",
+              "x_pt": 59,
+              "y_pt": 934,
+              "width_pt": 125,
+              "height_pt": 28,
+              "text": { "content": "Rectangle\n(4px radius)", "font_size_pt": 8.25, "font_family": "Arial", "color": "#000000", "align": "center", "vertical_align": "top" }
+            },
+            {
+              "type": "rectangle",
+              "id": "shape_rounded",
+              "x_pt": 264,
+              "y_pt": 884,
+              "width_pt": 75,
+              "height_pt": 45,
+              "fill": "#808080",
+              "border": { "color": "#000000", "width_pt": 0 },
+              "corner_radius_pt": 12
+            },
+            {
+              "type": "text_box",
+              "id": "shape_rounded_label",
+              "x_pt": 239,
+              "y_pt": 934,
+              "width_pt": 125,
+              "height_pt": 28,
+              "text": { "content": "Rounded Rect\n(16px radius)", "font_size_pt": 8.25, "font_family": "Arial", "color": "#000000", "align": "center", "vertical_align": "top" }
+            },
+            {
+              "type": "ellipse",
+              "id": "shape_circle",
+              "x_pt": 430,
+              "y_pt": 880,
+              "width_pt": 52.5,
+              "height_pt": 52.5,
+              "fill": "#808080",
+              "border": { "color": "#000000", "width_pt": 0 }
+            },
+            {
+              "type": "text_box",
+              "id": "shape_circle_label",
+              "x_pt": 419,
+              "y_pt": 934,
+              "width_pt": 125,
+              "height_pt": 28,
+              "text": { "content": "Circle\n(50% radius)", "font_size_pt": 8.25, "font_family": "Arial", "color": "#000000", "align": "center", "vertical_align": "top" }
+            },
+            {
+              "type": "rectangle",
+              "id": "shape_bordered",
+              "x_pt": 624,
+              "y_pt": 884,
+              "width_pt": 75,
+              "height_pt": 45,
+              "fill": "#FFFFFF",
+              "border": { "color": "#000000", "width_pt": 2.25 },
+              "corner_radius_pt": 6
+            },
+            {
+              "type": "text_box",
+              "id": "shape_bordered_label",
+              "x_pt": 599,
+              "y_pt": 934,
+              "width_pt": 125,
+              "height_pt": 28,
+              "text": { "content": "Border Only\n(3px solid)", "font_size_pt": 8.25, "font_family": "Arial", "color": "#000000", "align": "center", "vertical_align": "top" }
+            },
+            {
+              "type": "rectangle",
+              "id": "shape_shadow",
+              "x_pt": 804,
+              "y_pt": 884,
+              "width_pt": 75,
+              "height_pt": 45,
+              "fill": "#808080",
+              "border": { "color": "#000000", "width_pt": 0 },
+              "corner_radius_pt": 6,
+              "shadow": {
+                "offset_x_pt": 3,
+                "offset_y_pt": 3,
+                "blur_pt": 9,
+                "color": "#000000",
+                "opacity": 0.3
+              }
+            },
+            {
+              "type": "text_box",
+              "id": "shape_shadow_label",
+              "x_pt": 779,
+              "y_pt": 934,
+              "width_pt": 125,
+              "height_pt": 28,
+              "text": { "content": "Box Shadow\n(4px offset)", "font_size_pt": 8.25, "font_family": "Arial", "color": "#000000", "align": "center", "vertical_align": "top" }
+            },
+            {
+              "type": "rectangle",
+              "id": "line_top",
+              "x_pt": 75,
+              "y_pt": 985,
+              "width_pt": 90,
+              "height_pt": 30,
+              "fill": "#E0E0E0",
+              "border": { "color": "#000000", "width_pt": 0 },
+              "partial_border": { "top": { "color": "#000000", "width_pt": 3 } }
+            },
+            {
+              "type": "text_box",
+              "id": "line_top_label",
+              "x_pt": 50,
+              "y_pt": 1020,
+              "width_pt": 140,
+              "height_pt": 28,
+              "text": { "content": "Top Border\n(4px red)", "font_size_pt": 8.25, "font_family": "Arial", "color": "#000000", "align": "center", "vertical_align": "top" }
+            },
+            {
+              "type": "rectangle",
+              "id": "line_left",
+              "x_pt": 285,
+              "y_pt": 985,
+              "width_pt": 90,
+              "height_pt": 30,
+              "fill": "#E0E0E0",
+              "border": { "color": "#000000", "width_pt": 0 },
+              "partial_border": { "left": { "color": "#000000", "width_pt": 3 } }
+            },
+            {
+              "type": "text_box",
+              "id": "line_left_label",
+              "x_pt": 260,
+              "y_pt": 1020,
+              "width_pt": 140,
+              "height_pt": 28,
+              "text": { "content": "Left Border\n(4px blue)", "font_size_pt": 8.25, "font_family": "Arial", "color": "#000000", "align": "center", "vertical_align": "top" }
+            },
+            {
+              "type": "rectangle",
+              "id": "line_bottom",
+              "x_pt": 495,
+              "y_pt": 985,
+              "width_pt": 90,
+              "height_pt": 30,
+              "fill": "#E0E0E0",
+              "border": { "color": "#000000", "width_pt": 0 },
+              "partial_border": { "bottom": { "color": "#000000", "width_pt": 3 } }
+            },
+            {
+              "type": "text_box",
+              "id": "line_bottom_label",
+              "x_pt": 470,
+              "y_pt": 1020,
+              "width_pt": 140,
+              "height_pt": 28,
+              "text": { "content": "Bottom Border\n(4px green)", "font_size_pt": 8.25, "font_family": "Arial", "color": "#000000", "align": "center", "vertical_align": "top" }
+            },
+            {
+              "type": "rectangle",
+              "id": "line_full",
+              "x_pt": 705,
+              "y_pt": 985,
+              "width_pt": 90,
+              "height_pt": 30,
+              "fill": "#E0E0E0",
+              "border": { "color": "#000000", "width_pt": 1.5 },
+              "corner_radius_pt": 4.5
+            },
+            {
+              "type": "text_box",
+              "id": "line_full_label",
+              "x_pt": 680,
+              "y_pt": 1020,
+              "width_pt": 140,
+              "height_pt": 28,
+              "text": { "content": "Full Border\n(2px gold)", "font_size_pt": 8.25, "font_family": "Arial", "color": "#000000", "align": "center", "vertical_align": "top" }
+            }
+          ]
+        },
+        {
+          "id": "footer",
+          "name": "Footer",
+          "badge_number": 8,
+          "overlay": false,
+          "elements": [
+            {
+              "type": "rectangle",
+              "id": "footer_bg",
+              "x_pt": 0,
+              "y_pt": 1140,
+              "width_pt": 960,
+              "height_pt": 306,
+              "fill": "#808080",
+              "border": { "color": "#000000", "width_pt": 0 }
+            },
+            {
+              "type": "text_box",
+              "id": "footer_col1_title",
+              "x_pt": 45,
+              "y_pt": 1176,
+              "width_pt": 330,
+              "height_pt": 20,
+              "text": {
+                "content": "TestCorp Portal",
+                "font_size_pt": 12,
+                "font_family": "Arial",
+                "font_weight": "700",
+                "color": "#FFFFFF",
+                "align": "left",
+                "vertical_align": "middle"
+              }
+            },
+            {
+              "type": "text_box",
+              "id": "footer_col1_desc",
+              "x_pt": 45,
+              "y_pt": 1204,
+              "width_pt": 330,
+              "height_pt": 85,
+              "text": {
+                "content": "A comprehensive testing page designed to verify html2pptx conversion accuracy. This page includes navigation, hero sections, data tables, shape rendering, line borders, and footer layouts.",
+                "font_size_pt": 10.5,
+                "font_family": "Arial",
+                "color": "#FFFFFF",
+                "align": "left",
+                "vertical_align": "top",
+                "line_spacing": 1.7
+              }
+            },
+            {
+              "type": "text_box",
+              "id": "footer_col2_title",
+              "x_pt": 420,
+              "y_pt": 1176,
+              "width_pt": 140,
+              "height_pt": 20,
+              "text": {
+                "content": "Company",
+                "font_size_pt": 12,
+                "font_family": "Arial",
+                "font_weight": "700",
+                "color": "#FFFFFF",
+                "align": "left",
+                "vertical_align": "middle"
+              }
+            },
+            {
+              "type": "text_box",
+              "id": "footer_col2_links",
+              "x_pt": 420,
+              "y_pt": 1204,
+              "width_pt": 140,
+              "height_pt": 100,
+              "text": {
+                "content": "About Us\nCareers\nPress\nBlog",
+                "font_size_pt": 10.5,
+                "font_family": "Arial",
+                "color": "#FFFFFF",
+                "align": "left",
+                "vertical_align": "top",
+                "line_spacing": 1.8
+              }
+            },
+            {
+              "type": "text_box",
+              "id": "footer_col3_title",
+              "x_pt": 590,
+              "y_pt": 1176,
+              "width_pt": 150,
+              "height_pt": 20,
+              "text": {
+                "content": "Resources",
+                "font_size_pt": 12,
+                "font_family": "Arial",
+                "font_weight": "700",
+                "color": "#FFFFFF",
+                "align": "left",
+                "vertical_align": "middle"
+              }
+            },
+            {
+              "type": "text_box",
+              "id": "footer_col3_links",
+              "x_pt": 590,
+              "y_pt": 1204,
+              "width_pt": 150,
+              "height_pt": 100,
+              "text": {
+                "content": "Documentation\nAPI Reference\nStatus Page\nChangelog",
+                "font_size_pt": 10.5,
+                "font_family": "Arial",
+                "color": "#FFFFFF",
+                "align": "left",
+                "vertical_align": "top",
+                "line_spacing": 1.8
+              }
+            },
+            {
+              "type": "text_box",
+              "id": "footer_col4_title",
+              "x_pt": 770,
+              "y_pt": 1176,
+              "width_pt": 150,
+              "height_pt": 20,
+              "text": {
+                "content": "Legal",
+                "font_size_pt": 12,
+                "font_family": "Arial",
+                "font_weight": "700",
+                "color": "#FFFFFF",
+                "align": "left",
+                "vertical_align": "middle"
+              }
+            },
+            {
+              "type": "text_box",
+              "id": "footer_col4_links",
+              "x_pt": 770,
+              "y_pt": 1204,
+              "width_pt": 150,
+              "height_pt": 100,
+              "text": {
+                "content": "Privacy Policy\nTerms of Service\nCookie Policy\nGDPR",
+                "font_size_pt": 10.5,
+                "font_family": "Arial",
+                "color": "#FFFFFF",
+                "align": "left",
+                "vertical_align": "top",
+                "line_spacing": 1.8
+              }
+            },
+            {
+              "type": "line",
+              "id": "footer_divider",
+              "x_pt": 45,
+              "y_pt": 1380,
+              "width_pt": 870,
+              "height_pt": 0.75,
+              "fill": "#E0E0E0",
+              "border": { "color": "#000000", "width_pt": 0 }
+            },
+            {
+              "type": "text_box",
+              "id": "footer_copyright",
+              "x_pt": 45,
+              "y_pt": 1398,
+              "width_pt": 350,
+              "height_pt": 18,
+              "text": {
+                "content": "\u00a9 2026 TestCorp. All rights reserved.",
+                "font_size_pt": 9.75,
+                "font_family": "Arial",
+                "color": "#FFFFFF",
+                "align": "left",
+                "vertical_align": "middle"
+              }
+            },
+            {
+              "type": "text_box",
+              "id": "footer_social",
+              "x_pt": 750,
+              "y_pt": 1398,
+              "width_pt": 180,
+              "height_pt": 18,
+              "text": {
+                "content": "GitHub    Twitter    LinkedIn",
+                "font_size_pt": 9.75,
+                "font_family": "Arial",
+                "color": "#FFFFFF",
+                "align": "right",
+                "vertical_align": "middle"
+              }
+            }
+          ]
+        }
+      ],
+      "badges": [
+        {
+          "number": 1,
+          "label": "Corner Markers",
+          "x_pt": 50,
+          "y_pt": 50,
+          "size_pt": 24,
+          "fill": "#000000",
+          "text_color": "#FFFFFF"
+        },
+        {
+          "number": 2,
+          "label": "Header Navigation",
+          "x_pt": 24,
+          "y_pt": 12,
+          "size_pt": 24,
+          "fill": "#000000",
+          "text_color": "#FFFFFF"
+        },
+        {
+          "number": 3,
+          "label": "Hero Section",
+          "x_pt": 24,
+          "y_pt": 62,
+          "size_pt": 24,
+          "fill": "#000000",
+          "text_color": "#FFFFFF"
+        },
+        {
+          "number": 4,
+          "label": "Stats Bar",
+          "x_pt": 24,
+          "y_pt": 257,
+          "size_pt": 24,
+          "fill": "#000000",
+          "text_color": "#FFFFFF"
+        },
+        {
+          "number": 5,
+          "label": "Board Main",
+          "x_pt": 24,
+          "y_pt": 365,
+          "size_pt": 24,
+          "fill": "#000000",
+          "text_color": "#FFFFFF"
+        },
+        {
+          "number": 6,
+          "label": "Sidebar",
+          "x_pt": 638,
+          "y_pt": 365,
+          "size_pt": 24,
+          "fill": "#000000",
+          "text_color": "#FFFFFF"
+        },
+        {
+          "number": 7,
+          "label": "Shape & Line Test",
+          "x_pt": 24,
+          "y_pt": 822,
+          "size_pt": 24,
+          "fill": "#000000",
+          "text_color": "#FFFFFF"
+        },
+        {
+          "number": 8,
+          "label": "Footer",
+          "x_pt": 24,
+          "y_pt": 1152,
+          "size_pt": 24,
+          "fill": "#000000",
+          "text_color": "#FFFFFF"
+        }
+      ]
+    }
+  ]
+}

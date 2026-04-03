@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design System — 카름스테이 (visitjeju.net)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fafafa;
+    --surface: #ffffff;
+    --text: #1a1a1a;
+    --text-secondary: #666;
+    --border: #e5e5e5;
+    --accent: #f05423;
+    --accent-hover: #f8de08;
+    --nav-bg: #ffffff;
+    --code-bg: #f3f4f6;
+  }
+  [data-theme="dark"] {
+    --bg: #111111;
+    --surface: #1e1e1e;
+    --text: #e5e5e5;
+    --text-secondary: #999;
+    --border: #333;
+    --nav-bg: #1a1a1a;
+    --code-bg: #2a2a2a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; width: 240px; height: 100vh;
+    background: var(--nav-bg); border-right: 1px solid var(--border);
+    padding: 24px 16px; overflow-y: auto; z-index: 100;
+  }
+  nav .logo { font-size: 14px; font-weight: 700; color: var(--accent); margin-bottom: 8px; }
+  nav .site-name { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+  nav .site-url { font-size: 11px; color: var(--text-secondary); word-break: break-all; margin-bottom: 20px; display: block; }
+  nav a {
+    display: block; padding: 8px 12px; border-radius: 6px;
+    color: var(--text-secondary); text-decoration: none; font-size: 13px; font-weight: 500;
+    transition: all 0.15s;
+  }
+  nav a:hover { background: var(--bg); color: var(--text); }
+  nav .theme-toggle {
+    margin-top: 20px; padding: 8px 12px; border-radius: 6px;
+    background: var(--bg); border: 1px solid var(--border);
+    color: var(--text); cursor: pointer; font-size: 12px; width: 100%;
+    transition: all 0.15s;
+  }
+  /* MAIN */
+  main { margin-left: 240px; padding: 40px 48px 80px; max-width: 1100px; }
+  .header { margin-bottom: 48px; padding-bottom: 24px; border-bottom: 2px solid var(--border); }
+  .header h1 { font-size: 32px; font-weight: 700; margin-bottom: 4px; }
+  .header .meta { font-size: 13px; color: var(--text-secondary); }
+  section { margin-bottom: 56px; }
+  section > h2 {
+    font-size: 22px; font-weight: 700; margin-bottom: 24px;
+    padding-bottom: 8px; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 8px;
+  }
+  section > h2 .badge {
+    font-size: 11px; font-weight: 600; background: var(--accent);
+    color: #fff; padding: 2px 8px; border-radius: 10px;
+  }
+  h3 { font-size: 15px; font-weight: 600; margin-bottom: 12px; color: var(--text-secondary); }
+  /* CARDS */
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 24px; margin-bottom: 16px;
+  }
+  /* SWATCHES */
+  .swatch-grid { display: flex; flex-wrap: wrap; gap: 16px; }
+  .swatch {
+    display: flex; flex-direction: column; align-items: center; gap: 6px; cursor: pointer;
+  }
+  .swatch-box {
+    width: 64px; height: 64px; border-radius: 10px;
+    border: 1px solid var(--border); transition: transform 0.15s;
+  }
+  .swatch:hover .swatch-box { transform: scale(1.08); }
+  .swatch-label { font-size: 11px; font-weight: 600; font-family: monospace; }
+  .swatch-sub { font-size: 10px; color: var(--text-secondary); }
+  .swatch-confidence { font-size: 9px; padding: 1px 5px; border-radius: 4px; background: var(--code-bg); }
+  /* HOVER PAIR */
+  .hover-pair {
+    display: flex; align-items: center; gap: 8px; margin-bottom: 8px;
+  }
+  .hover-pair .arrow { color: var(--text-secondary); font-size: 12px; }
+  .hover-mini { width: 32px; height: 32px; border-radius: 6px; border: 1px solid var(--border); }
+  /* TYPO */
+  .type-row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 16px 0; border-bottom: 1px solid var(--border);
+  }
+  .type-row:last-child { border-bottom: none; }
+  .type-preview { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .type-meta { flex-shrink: 0; text-align: right; margin-left: 24px; }
+  .type-meta span { display: block; font-size: 11px; color: var(--text-secondary); font-family: monospace; }
+  .type-context {
+    font-size: 10px; font-weight: 600; text-transform: uppercase;
+    padding: 1px 6px; border-radius: 3px; background: var(--code-bg);
+    color: var(--text-secondary); margin-right: 8px;
+  }
+  /* SPACING */
+  .spacing-row {
+    display: flex; align-items: center; gap: 16px; margin-bottom: 8px;
+  }
+  .spacing-bar {
+    height: 28px; background: rgba(240, 84, 35, 0.12); border-radius: 4px;
+    border-left: 3px solid var(--accent); min-width: 4px;
+  }
+  .spacing-label { font-size: 12px; font-family: monospace; color: var(--text-secondary); white-space: nowrap; }
+  .spacing-count { font-size: 10px; color: var(--text-secondary); }
+  /* RADIUS */
+  .radius-grid { display: flex; gap: 24px; flex-wrap: wrap; }
+  .radius-item { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .radius-box {
+    width: 80px; height: 80px; background: rgba(240, 84, 35, 0.08);
+    border: 2px solid var(--accent);
+  }
+  .radius-label { font-size: 12px; font-family: monospace; }
+  /* SHADOW */
+  .shadow-grid { display: flex; gap: 24px; flex-wrap: wrap; }
+  .shadow-item { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .shadow-box {
+    width: 120px; height: 80px; background: var(--surface);
+    border-radius: 10px; border: 1px solid var(--border);
+  }
+  .shadow-label { font-size: 11px; font-family: monospace; color: var(--text-secondary); max-width: 150px; text-align: center; }
+  /* BUTTONS */
+  .btn-demo {
+    display: inline-block; padding: 0 30px; height: 48px; line-height: 48px;
+    font-weight: 600; cursor: pointer; transition: all 0.2s ease;
+    text-align: center; text-decoration: none;
+  }
+  .btn-row { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; margin-bottom: 16px; }
+  .btn-states { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
+  .btn-state-tag {
+    font-size: 10px; padding: 2px 8px; border-radius: 4px;
+    font-family: monospace; background: var(--code-bg); color: var(--text-secondary);
+  }
+  /* LINKS */
+  .link-demo {
+    display: inline-block; padding: 8px 0; transition: all 0.2s ease;
+    cursor: pointer; margin-right: 24px; margin-bottom: 8px;
+  }
+  /* BORDERS */
+  .border-item {
+    display: flex; align-items: center; gap: 16px; padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .border-preview {
+    width: 80px; height: 48px; background: var(--surface);
+  }
+  .border-meta { font-size: 11px; font-family: monospace; color: var(--text-secondary); }
+  /* CSS EXPORT */
+  .css-export {
+    background: var(--code-bg); border-radius: 8px; padding: 20px;
+    font-family: monospace; font-size: 12px; line-height: 1.8;
+    white-space: pre-wrap; max-height: 400px; overflow-y: auto;
+    position: relative;
+  }
+  .css-export .copy-all {
+    position: absolute; top: 8px; right: 8px;
+    padding: 4px 12px; border-radius: 4px; border: 1px solid var(--border);
+    background: var(--surface); cursor: pointer; font-size: 11px;
+    transition: all 0.15s;
+  }
+  .css-export .copy-all:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+  /* COLLAPSIBLE */
+  details { margin-bottom: 12px; }
+  details summary {
+    cursor: pointer; font-weight: 600; font-size: 14px;
+    padding: 8px 0; user-select: none;
+  }
+  /* TOAST */
+  .toast {
+    position: fixed; bottom: 24px; right: 24px; padding: 10px 20px;
+    background: #333; color: #fff; border-radius: 8px; font-size: 13px;
+    opacity: 0; transform: translateY(10px);
+    transition: all 0.3s ease; pointer-events: none; z-index: 999;
+  }
+  .toast.show { opacity: 1; transform: translateY(0); }
+  /* COPY HINT */
+  [data-copy] { cursor: pointer; position: relative; }
+  [data-copy]:hover::after {
+    content: 'Click to copy';
+    position: absolute; top: -20px; left: 50%; transform: translateX(-50%);
+    font-size: 9px; background: #333; color: #fff; padding: 2px 6px;
+    border-radius: 3px; white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">DESIGN SYSTEM</div>
+  <div class="site-name">카름스테이</div>
+  <span class="site-url">visitjeju.net/kareumstay</span>
+  <a href="#colors">1. Colors</a>
+  <a href="#typography">2. Typography</a>
+  <a href="#spacing">3. Spacing</a>
+  <a href="#borders">4. Borders & Radius</a>
+  <a href="#shadows">5. Shadows</a>
+  <a href="#components">6. Components</a>
+  <a href="#css-export">7. CSS Variables</a>
+  <button class="theme-toggle" onclick="toggleTheme()">Toggle Dark Mode</button>
+</nav>
+
+<!-- MAIN -->
+<main>
+
+<div class="header">
+  <h1>카름스테이 Design System</h1>
+  <div class="meta">
+    Source: <strong>https://visitjeju.net/kareumstay/</strong><br>
+    Extracted: 2026-03-21 · Engine: Dembrandt + Claude Code
+  </div>
+</div>
+
+<!-- 1. COLORS -->
+<section id="colors">
+  <h2>1. Colors <span class="badge">11 colors</span></h2>
+
+  <h3>Core Palette</h3>
+  <div class="card">
+    <div class="swatch-grid">
+      <div class="swatch" onclick="copyText('#ffffff')">
+        <div class="swatch-box" style="background:#ffffff"></div>
+        <span class="swatch-label">#ffffff</span>
+        <span class="swatch-sub">count: 86</span>
+        <span class="swatch-confidence">high</span>
+      </div>
+      <div class="swatch" onclick="copyText('#545556')">
+        <div class="swatch-box" style="background:#545556"></div>
+        <span class="swatch-label">#545556</span>
+        <span class="swatch-sub">count: 66</span>
+        <span class="swatch-confidence">high</span>
+      </div>
+      <div class="swatch" onclick="copyText('#858586')">
+        <div class="swatch-box" style="background:#858586"></div>
+        <span class="swatch-label">#858586</span>
+        <span class="swatch-sub">count: 65</span>
+        <span class="swatch-confidence">high</span>
+      </div>
+      <div class="swatch" onclick="copyText('#f1574d')">
+        <div class="swatch-box" style="background:#f1574d"></div>
+        <span class="swatch-label">#f1574d</span>
+        <span class="swatch-sub">count: 50</span>
+        <span class="swatch-confidence">high</span>
+      </div>
+      <div class="swatch" onclick="copyText('#b6b6b7')">
+        <div class="swatch-box" style="background:#b6b6b7"></div>
+        <span class="swatch-label">#b6b6b7</span>
+        <span class="swatch-sub">count: 31</span>
+        <span class="swatch-confidence">high</span>
+      </div>
+      <div class="swatch" onclick="copyText('#f05423')">
+        <div class="swatch-box" style="background:#f05423"></div>
+        <span class="swatch-label">#f05423</span>
+        <span class="swatch-sub">count: 23 · accent</span>
+        <span class="swatch-confidence">high</span>
+      </div>
+    </div>
+  </div>
+
+  <h3>CSS Variables</h3>
+  <div class="card">
+    <div class="swatch-grid">
+      <div class="swatch" onclick="copyText('#007aff')">
+        <div class="swatch-box" style="background:#007aff"></div>
+        <span class="swatch-label">--swiper-theme-color</span>
+        <span class="swatch-sub">#007aff</span>
+      </div>
+    </div>
+  </div>
+
+  <h3>Hover / Focus States</h3>
+  <div class="card">
+    <div class="swatch-grid">
+      <div class="swatch" onclick="copyText('#715049')">
+        <div class="swatch-box" style="background:#715049"></div>
+        <span class="swatch-label">#715049</span>
+        <span class="swatch-sub">hover/focus</span>
+      </div>
+      <div class="swatch" onclick="copyText('#666667')">
+        <div class="swatch-box" style="background:#666667"></div>
+        <span class="swatch-label">#666667</span>
+        <span class="swatch-sub">hover/focus</span>
+      </div>
+      <div class="swatch" onclick="copyText('#705049')">
+        <div class="swatch-box" style="background:#705049"></div>
+        <span class="swatch-label">#705049</span>
+        <span class="swatch-sub">hover/focus</span>
+      </div>
+      <div class="swatch" onclick="copyText('#6b6b6c')">
+        <div class="swatch-box" style="background:#6b6b6c"></div>
+        <span class="swatch-label">#6b6b6c</span>
+        <span class="swatch-sub">hover/focus</span>
+      </div>
+      <div class="swatch" onclick="copyText('#666666')">
+        <div class="swatch-box" style="background:#666666"></div>
+        <span class="swatch-label">#666666</span>
+        <span class="swatch-sub">hover/focus</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. TYPOGRAPHY -->
+<section id="typography">
+  <h2>2. Typography <span class="badge">24 styles</span></h2>
+
+  <h3>Font Families</h3>
+  <div class="card">
+    <div style="margin-bottom:16px">
+      <span class="type-context">Display</span>
+      <strong style="font-family:Poppins,sans-serif; font-size:20px">Poppins</strong>
+      <span style="font-size:12px; color:var(--text-secondary)"> — Headings (hero)</span>
+    </div>
+    <div>
+      <span class="type-context">Body</span>
+      <strong style="font-size:20px">Pretendard</strong>
+      <span style="font-size:12px; color:var(--text-secondary)"> — Body, buttons, links, captions</span>
+    </div>
+  </div>
+
+  <h3>Type Scale</h3>
+  <div class="card">
+    <div class="type-row">
+      <div class="type-preview" style="font-family:Poppins,sans-serif; font-size:56px; font-weight:700; line-height:0.9; letter-spacing:-3px">카름스테이</div>
+      <div class="type-meta">
+        <span>Poppins 158px</span>
+        <span>700 · lh 0.70</span>
+        <span>ls -5px</span>
+        <span class="type-context">heading</span>
+      </div>
+    </div>
+    <div class="type-row">
+      <div class="type-preview" style="font-size:40px; font-weight:600; line-height:1.28">제주의 머무름</div>
+      <div class="type-meta">
+        <span>40px / 2.50rem</span>
+        <span>600 · lh 1.28</span>
+        <span class="type-context">heading</span>
+      </div>
+    </div>
+    <div class="type-row">
+      <div class="type-preview" style="font-size:36px; font-weight:600; line-height:1.0">카름스테이에서</div>
+      <div class="type-meta">
+        <span>36px / 2.25rem</span>
+        <span>600 · lh 1.00</span>
+        <span class="type-context">heading</span>
+      </div>
+    </div>
+    <div class="type-row">
+      <div class="type-preview" style="font-size:28px; font-weight:600; line-height:1.28">특별한 숙소 경험</div>
+      <div class="type-meta">
+        <span>28px / 1.75rem</span>
+        <span>600 · lh 1.28</span>
+        <span class="type-context">heading</span>
+      </div>
+    </div>
+    <div class="type-row">
+      <div class="type-preview" style="font-size:24px; font-weight:700; line-height:1.0">프리미엄 스테이</div>
+      <div class="type-meta">
+        <span>24px / 1.50rem</span>
+        <span>700 · lh 1.00</span>
+        <span class="type-context">heading</span>
+      </div>
+    </div>
+    <div class="type-row">
+      <div class="type-preview" style="font-size:24px; font-weight:600; line-height:1.28">숙소 탐색하기</div>
+      <div class="type-meta">
+        <span>24px / 1.50rem</span>
+        <span>600 · lh 1.28</span>
+        <span class="type-context">link</span>
+      </div>
+    </div>
+    <div class="type-row">
+      <div class="type-preview" style="font-size:20px; font-weight:700; line-height:1.8">제주도 여행 가이드</div>
+      <div class="type-meta">
+        <span>20px / 1.25rem</span>
+        <span>700 · lh 1.80</span>
+        <span class="type-context">heading</span>
+      </div>
+    </div>
+    <div class="type-row">
+      <div class="type-preview" style="font-size:20px; font-weight:600; line-height:1.8">예약하기</div>
+      <div class="type-meta">
+        <span>20px / 1.25rem</span>
+        <span>600 · lh 1.80</span>
+        <span class="type-context">button</span>
+      </div>
+    </div>
+    <div class="type-row">
+      <div class="type-preview" style="font-size:18px; font-weight:500; line-height:1.0">안내 사항</div>
+      <div class="type-meta">
+        <span>18px / 1.13rem</span>
+        <span>500 · lh 1.00</span>
+        <span class="type-context">heading</span>
+      </div>
+    </div>
+    <div class="type-row">
+      <div class="type-preview" style="font-size:18px; font-weight:600; line-height:2.67">자세히 보기</div>
+      <div class="type-meta">
+        <span>18px / 1.13rem</span>
+        <span>600 · lh 2.67</span>
+        <span class="type-context">button</span>
+      </div>
+    </div>
+    <div class="type-row">
+      <div class="type-preview" style="font-size:16px; font-weight:500; line-height:1.38">제주의 자연과 함께하는 특별한 경험을 만나보세요.</div>
+      <div class="type-meta">
+        <span>16px / 1.00rem</span>
+        <span>500 · lh 1.38</span>
+        <span class="type-context">link</span>
+      </div>
+    </div>
+    <div class="type-row">
+      <div class="type-preview" style="font-size:16px; font-weight:400; line-height:1.7">제주도의 아름다운 자연 속에서 편안한 휴식을 즐기세요.</div>
+      <div class="type-meta">
+        <span>16px / 1.00rem</span>
+        <span>400 · lh 1.70</span>
+        <span class="type-context">body</span>
+      </div>
+    </div>
+    <div class="type-row">
+      <div class="type-preview" style="font-size:15px; font-weight:400; line-height:1.2">이용약관 및 개인정보처리방침</div>
+      <div class="type-meta">
+        <span>15px / 0.94rem</span>
+        <span>400 · lh 1.20</span>
+        <span class="type-context">caption</span>
+      </div>
+    </div>
+    <div class="type-row">
+      <div class="type-preview" style="font-size:10px; font-weight:700; line-height:1.28">NEW · OPEN</div>
+      <div class="type-meta">
+        <span>10px / 0.63rem</span>
+        <span>700 · lh 1.28</span>
+        <span class="type-context">caption</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. SPACING -->
+<section id="spacing">
+  <h2>3. Spacing <span class="badge">8px base</span></h2>
+  <div class="card">
+    <div class="spacing-row"><div class="spacing-bar" style="width:10px"></div><span class="spacing-label" data-copy="10px" onclick="copyText('10px')">10px</span><span class="spacing-count">×12</span></div>
+    <div class="spacing-row"><div class="spacing-bar" style="width:15px"></div><span class="spacing-label" data-copy="15px" onclick="copyText('15px')">15px</span><span class="spacing-count">×6</span></div>
+    <div class="spacing-row"><div class="spacing-bar" style="width:18px"></div><span class="spacing-label" data-copy="18px" onclick="copyText('18px')">18px</span><span class="spacing-count">×5</span></div>
+    <div class="spacing-row"><div class="spacing-bar" style="width:20px"></div><span class="spacing-label" data-copy="20px" onclick="copyText('20px')">20px</span><span class="spacing-count">×85</span></div>
+    <div class="spacing-row"><div class="spacing-bar" style="width:25px"></div><span class="spacing-label" data-copy="25px" onclick="copyText('25px')">25px</span><span class="spacing-count">×32</span></div>
+    <div class="spacing-row"><div class="spacing-bar" style="width:28px"></div><span class="spacing-label" data-copy="28px" onclick="copyText('28px')">28px</span><span class="spacing-count">×5</span></div>
+    <div class="spacing-row"><div class="spacing-bar" style="width:30px"></div><span class="spacing-label" data-copy="30px" onclick="copyText('30px')">30px</span><span class="spacing-count">×59</span></div>
+    <div class="spacing-row"><div class="spacing-bar" style="width:40px"></div><span class="spacing-label" data-copy="40px" onclick="copyText('40px')">40px</span><span class="spacing-count">×15</span></div>
+    <div class="spacing-row"><div class="spacing-bar" style="width:50px"></div><span class="spacing-label" data-copy="50px" onclick="copyText('50px')">50px</span><span class="spacing-count">×15</span></div>
+    <div class="spacing-row"><div class="spacing-bar" style="width:80px"></div><span class="spacing-label" data-copy="80px" onclick="copyText('80px')">80px</span><span class="spacing-count">×16</span></div>
+    <div class="spacing-row"><div class="spacing-bar" style="width:100px"></div><span class="spacing-label" data-copy="100px" onclick="copyText('100px')">100px</span><span class="spacing-count">×17</span></div>
+    <div class="spacing-row"><div class="spacing-bar" style="width:150px"></div><span class="spacing-label" data-copy="150px" onclick="copyText('150px')">150px</span><span class="spacing-count">×2</span></div>
+  </div>
+</section>
+
+<!-- 4. BORDERS & RADIUS -->
+<section id="borders">
+  <h2>4. Borders & Radius</h2>
+
+  <h3>Border Radius</h3>
+  <div class="card">
+    <div class="radius-grid">
+      <div class="radius-item">
+        <div class="radius-box" style="border-radius:10px"></div>
+        <span class="radius-label" data-copy="10px" onclick="copyText('border-radius: 10px')">10px</span>
+        <span class="swatch-sub">div, img · ×103</span>
+      </div>
+      <div class="radius-item">
+        <div class="radius-box" style="border-radius:50%"></div>
+        <span class="radius-label" data-copy="50%" onclick="copyText('border-radius: 50%')">50%</span>
+        <span class="swatch-sub">img · ×7</span>
+      </div>
+    </div>
+  </div>
+
+  <h3>Border Styles</h3>
+  <div class="card">
+    <div class="border-item">
+      <div class="border-preview" style="border-bottom:1px solid #000"></div>
+      <div class="border-meta">
+        <div>bottom 1px solid #000</div>
+        <div>div, dl, li · ×13 · high</div>
+      </div>
+    </div>
+    <div class="border-item">
+      <div class="border-preview" style="border-right:1px solid #000; border-bottom:2px solid #000"></div>
+      <div class="border-meta">
+        <div>right 1px + bottom 2px solid #000</div>
+        <div>div · ×8 · medium</div>
+      </div>
+    </div>
+    <div class="border-item">
+      <div class="border-preview" style="border:10px solid #f8de08; border-radius:4px"></div>
+      <div class="border-meta">
+        <div>10px solid <span style="color:#f8de08;font-weight:700">#f8de08</span></div>
+        <div>div · ×8 · medium</div>
+      </div>
+    </div>
+    <div class="border-item">
+      <div class="border-preview" style="border:1px solid #f05423"></div>
+      <div class="border-meta">
+        <div>1px solid <span style="color:#f05423;font-weight:700">#f05423</span></div>
+        <div>button · ×5 · medium</div>
+      </div>
+    </div>
+    <div class="border-item">
+      <div class="border-preview" style="border:1px solid #b6b6b7"></div>
+      <div class="border-meta">
+        <div>1px solid <span style="color:#b6b6b7;font-weight:700">#b6b6b7</span></div>
+        <div>button · ×3</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. SHADOWS -->
+<section id="shadows">
+  <h2>5. Shadows <span class="badge">2</span></h2>
+  <div class="card">
+    <div class="shadow-grid">
+      <div class="shadow-item">
+        <div class="shadow-box" style="box-shadow:rgba(0,0,0,0.5) 4px -20px 18px 0px" onclick="copyText('box-shadow: rgba(0,0,0,0.5) 4px -20px 18px 0px')"></div>
+        <span class="shadow-label">rgba(0,0,0,0.5) 4px -20px 18px 0px</span>
+        <span class="swatch-confidence">high · ×8</span>
+      </div>
+      <div class="shadow-item">
+        <div class="shadow-box" style="box-shadow:rgba(0,0,0,0.05) 0px 4px 0px 0px" onclick="copyText('box-shadow: rgba(0,0,0,0.05) 0px 4px 0px 0px')"></div>
+        <span class="shadow-label">rgba(0,0,0,0.05) 0px 4px 0px 0px</span>
+        <span class="swatch-confidence">medium · ×4</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. COMPONENTS -->
+<section id="components">
+  <h2>6. Components</h2>
+
+  <h3>Buttons</h3>
+  <div class="card">
+    <p style="font-size:12px; color:var(--text-secondary); margin-bottom:16px">Hover over buttons to see interaction states</p>
+
+    <div style="margin-bottom:24px">
+      <div style="font-size:12px; font-weight:600; margin-bottom:8px">Primary Button (.abtn0)</div>
+      <div class="btn-row">
+        <button class="btn-demo btn-primary" style="
+          background:rgb(255,255,255); color:rgb(240,84,35);
+          border:1px solid rgb(240,84,35); border-radius:0px;
+          font-size:18px; font-weight:600; font-family:Pretendard,sans-serif;
+        ">예약하기</button>
+        <span style="font-size:11px; color:var(--text-secondary)">→ hover: bg #f8de08, color #fff</span>
+      </div>
+      <div class="btn-states">
+        <span class="btn-state-tag">default: bg #fff, color #f05423, border #f05423</span>
+        <span class="btn-state-tag">hover: bg #f8de08, color #fff</span>
+        <span class="btn-state-tag">active: bg #007fff, color #fff</span>
+        <span class="btn-state-tag">focus: bg #ededed, color #2b2b2b</span>
+      </div>
+    </div>
+
+    <div>
+      <div style="font-size:12px; font-weight:600; margin-bottom:8px">Secondary Button (.abtn3)</div>
+      <div class="btn-row">
+        <button class="btn-demo btn-secondary" style="
+          background:rgb(255,255,255); color:rgb(133,133,134);
+          border:1px solid rgb(182,182,183); border-radius:0px;
+          font-size:16px; font-weight:600; font-family:Pretendard,sans-serif;
+        ">더 보기</button>
+        <span style="font-size:11px; color:var(--text-secondary)">→ hover: bg #f8de08, color #fff</span>
+      </div>
+      <div class="btn-states">
+        <span class="btn-state-tag">default: bg #fff, color #858586, border #b6b6b7</span>
+        <span class="btn-state-tag">hover: bg #f8de08, color #fff, border #f05423</span>
+        <span class="btn-state-tag">active: bg #007fff, color #fff</span>
+        <span class="btn-state-tag">focus: bg #ededed, color #2b2b2b</span>
+      </div>
+    </div>
+  </div>
+
+  <h3>Links</h3>
+  <div class="card">
+    <div style="display:flex; flex-wrap:wrap; gap:24px">
+      <div>
+        <span class="link-demo" style="color:rgb(74,79,85); font-weight:600; text-decoration:none">Navigation Link</span>
+        <div class="btn-states"><span class="btn-state-tag">#4a4f55 → hover: #000</span></div>
+      </div>
+      <div>
+        <span class="link-demo" style="color:rgb(240,84,35); font-weight:600; text-decoration:none">Accent Link</span>
+        <div class="btn-states"><span class="btn-state-tag">#f05423 → hover: #000</span></div>
+      </div>
+      <div>
+        <span class="link-demo" style="color:rgb(133,133,134); font-weight:600; text-decoration:none">Muted Link</span>
+        <div class="btn-states"><span class="btn-state-tag">#858586 → hover: #000</span></div>
+      </div>
+      <div>
+        <span class="link-demo" style="color:rgb(197,160,94); font-weight:600; text-decoration:none">Gold Link</span>
+        <div class="btn-states"><span class="btn-state-tag">#c5a05e → hover: #000</span></div>
+      </div>
+      <div>
+        <span class="link-demo" style="color:rgb(206,206,207); font-weight:400; text-decoration:underline">Underline Link</span>
+        <div class="btn-states"><span class="btn-state-tag">#cececf underline → hover: #000 none</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. CSS VARIABLES EXPORT -->
+<section id="css-export">
+  <h2>7. CSS Variables Export</h2>
+  <div class="card">
+    <details open>
+      <summary>:root { ... } — Click to copy all</summary>
+      <div class="css-export" id="cssExport">
+<button class="copy-all" onclick="copyText(document.getElementById('cssCode').textContent)">Copy All</button>
+<code id="cssCode">:root {
+  /* Colors — Core */
+  --color-white: #ffffff;
+  --color-gray-dark: #545556;
+  --color-gray-mid: #858586;
+  --color-red: #f1574d;
+  --color-gray-light: #b6b6b7;
+  --color-accent: #f05423;
+  --color-swiper: #007aff;
+
+  /* Colors — Hover/Focus */
+  --color-hover-brown: #715049;
+  --color-hover-gray-1: #666667;
+  --color-hover-gray-2: #6b6b6c;
+  --color-hover-gray-3: #666666;
+
+  /* Typography */
+  --font-display: 'Poppins', sans-serif;
+  --font-body: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Font Sizes */
+  --text-hero: 158px;
+  --text-h1: 40px;
+  --text-h2: 36px;
+  --text-h3: 28px;
+  --text-h4: 24px;
+  --text-lg: 20px;
+  --text-md: 18px;
+  --text-base: 16px;
+  --text-sm: 15px;
+  --text-xs: 10px;
+
+  /* Font Weights */
+  --weight-bold: 700;
+  --weight-semibold: 600;
+  --weight-medium: 500;
+  --weight-regular: 400;
+
+  /* Spacing */
+  --space-xs: 10px;
+  --space-sm: 15px;
+  --space-md: 20px;
+  --space-lg: 30px;
+  --space-xl: 40px;
+  --space-2xl: 50px;
+  --space-3xl: 80px;
+  --space-4xl: 100px;
+
+  /* Border Radius */
+  --radius-md: 10px;
+  --radius-full: 50%;
+
+  /* Shadows */
+  --shadow-heavy: rgba(0,0,0,0.5) 4px -20px 18px 0px;
+  --shadow-subtle: rgba(0,0,0,0.05) 0px 4px 0px 0px;
+
+  /* Borders */
+  --border-accent: 1px solid #f05423;
+  --border-muted: 1px solid #b6b6b7;
+  --border-highlight: 10px solid #f8de08;
+
+  /* Components — Button Primary */
+  --btn-primary-bg: #ffffff;
+  --btn-primary-color: #f05423;
+  --btn-primary-border: 1px solid #f05423;
+  --btn-primary-hover-bg: #f8de08;
+  --btn-primary-hover-color: #ffffff;
+
+  /* Components — Button Secondary */
+  --btn-secondary-bg: #ffffff;
+  --btn-secondary-color: #858586;
+  --btn-secondary-border: 1px solid #b6b6b7;
+  --btn-secondary-hover-bg: #f8de08;
+  --btn-secondary-hover-color: #ffffff;
+}</code>
+      </div>
+    </details>
+  </div>
+</section>
+
+<footer style="text-align:center; padding:40px 0; color:var(--text-secondary); font-size:12px; border-top:1px solid var(--border)">
+  Extracted by <strong>Dembrandt</strong> + <strong>Claude Code</strong> · design-extractor skill
+</footer>
+
+</main>
+
+<!-- TOAST -->
+<div class="toast" id="toast">Copied!</div>
+
+<script>
+// Theme toggle
+function toggleTheme() {
+  const html = document.documentElement;
+  html.dataset.theme = html.dataset.theme === 'dark' ? '' : 'dark';
+}
+
+// Copy to clipboard
+function copyText(text) {
+  navigator.clipboard.writeText(text).then(() => {
+    const toast = document.getElementById('toast');
+    toast.textContent = `Copied: ${text.length > 40 ? text.slice(0, 40) + '...' : text}`;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 1500);
+  });
+}
+
+// Button hover interactions
+document.querySelectorAll('.btn-primary').forEach(btn => {
+  btn.addEventListener('mouseenter', () => {
+    btn.style.background = 'rgb(248,222,8)';
+    btn.style.color = 'rgb(255,255,255)';
+  });
+  btn.addEventListener('mouseleave', () => {
+    btn.style.background = 'rgb(255,255,255)';
+    btn.style.color = 'rgb(240,84,35)';
+  });
+});
+document.querySelectorAll('.btn-secondary').forEach(btn => {
+  btn.addEventListener('mouseenter', () => {
+    btn.style.background = 'rgb(248,222,8)';
+    btn.style.color = 'rgb(255,255,255)';
+    btn.style.borderColor = 'rgb(240,84,35)';
+  });
+  btn.addEventListener('mouseleave', () => {
+    btn.style.background = 'rgb(255,255,255)';
+    btn.style.color = 'rgb(133,133,134)';
+    btn.style.borderColor = 'rgb(182,182,183)';
+  });
+});
+</script>
+
+</body>
+</html>

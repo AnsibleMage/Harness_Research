@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlowSync — 일의 흐름을 바꾸다</title>
+    <style>
+        /*
+        ═══════════════════════════════════════════════
+        창의성 해제 파라미터 (Creativity Release Parameters)
+        ─────────────────────────────────────────────
+        대칭 파괴(Symmetry Break): 75/100
+        색상 긴장(Color Tension): 80/100 — 보색 대비 + 예상 밖 악센트
+        구조 비선형성(Layout Non-linearity): 70/100
+        타이포 대비(Typographic Contrast): 85/100
+        여백 리듬 불규칙성(Whitespace Rhythm Irregularity): 65/100
+        감정 밀도(Emotional Density): 80/100
+        시각 서사(Visual Narrative): 90/100 — 스크롤이 이야기가 됨
+        ═══════════════════════════════════════════════
+        */
+
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --ink: #0a0a0f;
+            --cream: #f7f4ef;
+            --ember: #e8430a;
+            --moss: #2d5a3d;
+            --slate: #4a4a5a;
+            --gold: #c4952a;
+            --ghost: rgba(10, 10, 15, 0.04);
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            color: var(--ink);
+            background: var(--cream);
+            overflow-x: hidden;
+        }
+
+        /* ── 네비게이션: 최소화, 비대칭 ── */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 28px 6vw;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            background: transparent;
+            mix-blend-mode: difference;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            color: white;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+        }
+
+        .nav-right a {
+            text-decoration: none;
+            color: white;
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .nav-enter {
+            color: white;
+            font-size: 13px;
+            font-weight: 700;
+            text-decoration: none;
+            padding: 8px 0;
+            border-bottom: 2px solid white;
+        }
+
+        /* ── 히어로: 비대칭 + 타이포 극단적 대비 ── */
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            position: relative;
+        }
+
+        .hero-left {
+            background: var(--ink);
+            padding: 18vh 6vw 10vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .hero-tagline {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--ember);
+            margin-bottom: 32px;
+            font-weight: 700;
+        }
+
+        .hero-title {
+            font-size: clamp(40px, 5.5vw, 72px);
+            font-weight: 900;
+            line-height: 1.05;
+            color: white;
+            letter-spacing: -2px;
+            margin-bottom: 40px;
+        }
+
+        .hero-title em {
+            font-style: normal;
+            color: var(--ember);
+        }
+
+        .hero-sub {
+            font-size: 16px;
+            color: #888;
+            line-height: 1.8;
+            max-width: 380px;
+            font-weight: 300;
+        }
+
+        .hero-right {
+            background: var(--ember);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-graphic {
+            width: 280px;
+            height: 280px;
+            border: 3px solid white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-graphic::before {
+            content: '';
+            width: 200px;
+            height: 200px;
+            border: 2px solid rgba(255,255,255,0.4);
+            border-radius: 50%;
+            position: absolute;
+            animation: breathe 4s ease-in-out infinite;
+        }
+
+        .hero-graphic::after {
+            content: '→';
+            font-size: 64px;
+            color: white;
+            font-weight: 300;
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); opacity: 0.4; }
+            50% { transform: scale(1.15); opacity: 0.8; }
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 40px;
+            left: 6vw;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #555;
+            writing-mode: vertical-rl;
+        }
+
+        /* ── 철학 섹션: 여백 극대화 ── */
+        .philosophy {
+            padding: 16vh 6vw;
+            max-width: 900px;
+        }
+
+        .philosophy .section-num {
+            font-size: 12px;
+            color: var(--ember);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .philosophy h2 {
+            font-size: clamp(28px, 3.5vw, 48px);
+            font-weight: 900;
+            line-height: 1.3;
+            letter-spacing: -1px;
+            margin-bottom: 32px;
+        }
+
+        .philosophy p {
+            font-size: 17px;
+            line-height: 2;
+            color: var(--slate);
+            max-width: 640px;
+            font-weight: 300;
+        }
+
+        /* ── Features: 비정형 그리드 ── */
+        .capabilities {
+            padding: 4vh 6vw 16vh;
+        }
+
+        .capabilities .section-num {
+            font-size: 12px;
+            color: var(--ember);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 60px;
+            font-weight: 700;
+        }
+
+        .cap-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 2px;
+        }
+
+        .cap-item {
+            padding: 48px 40px;
+            background: white;
+            position: relative;
+            transition: background 0.4s;
+        }
+
+        .cap-item:hover {
+            background: var(--ink);
+            color: white;
+        }
+
+        .cap-item:hover .cap-desc { color: #aaa; }
+        .cap-item:hover .cap-num { color: var(--ember); }
+
+        .cap-item:nth-child(1) { grid-column: span 2; }
+
+        .cap-num {
+            font-size: 64px;
+            font-weight: 900;
+            color: var(--ghost);
+            line-height: 1;
+            margin-bottom: 24px;
+            transition: color 0.4s;
+        }
+
+        .cap-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .cap-desc {
+            font-size: 14px;
+            color: var(--slate);
+            line-height: 1.8;
+            font-weight: 300;
+            transition: color 0.4s;
+        }
+
+        /* ── 숫자 섹션: 비대칭 강조 ── */
+        .evidence {
+            background: var(--ink);
+            padding: 14vh 6vw;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .evidence-label {
+            font-size: 12px;
+            color: var(--ember);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .evidence-title {
+            font-size: clamp(24px, 3vw, 40px);
+            color: white;
+            font-weight: 900;
+            letter-spacing: -1px;
+            margin-top: 20px;
+            line-height: 1.3;
+        }
+
+        .evidence-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 48px;
+        }
+
+        .ev-stat {
+            border-left: 2px solid var(--ember);
+            padding-left: 24px;
+        }
+
+        .ev-num {
+            font-size: 56px;
+            font-weight: 900;
+            color: white;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .ev-unit {
+            font-size: 14px;
+            color: #666;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        /* ── 고객 목소리: 한 명만, 크게 ── */
+        .voice {
+            padding: 16vh 6vw;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .voice-quote {
+            font-size: clamp(22px, 2.8vw, 36px);
+            font-weight: 300;
+            line-height: 1.6;
+            letter-spacing: -0.5px;
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .voice-quote::before {
+            content: '';
+            width: 4px;
+            height: 100%;
+            background: var(--ember);
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .voice-meta {
+            padding-left: 40px;
+        }
+
+        .voice-name {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .voice-role {
+            font-size: 13px;
+            color: var(--slate);
+            font-weight: 300;
+        }
+
+        .voice-right {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .voice-mini {
+            padding: 32px;
+            background: white;
+            border-radius: 2px;
+        }
+
+        .voice-mini-quote {
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--slate);
+            font-weight: 300;
+            margin-bottom: 16px;
+        }
+
+        .voice-mini-author {
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .voice-mini-role {
+            font-size: 12px;
+            color: #888;
+        }
+
+        /* ── Pricing: 수평 스트립 ── */
+        .pricing {
+            padding: 14vh 6vw;
+            background: white;
+        }
+
+        .pricing .section-num {
+            font-size: 12px;
+            color: var(--ember);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 60px;
+            font-weight: 700;
+        }
+
+        .price-strip {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border: 1px solid #e0ddd8;
+        }
+
+        .price-tier {
+            padding: 48px 40px;
+            border-right: 1px solid #e0ddd8;
+            position: relative;
+        }
+
+        .price-tier:last-child { border-right: none; }
+
+        .price-tier.featured {
+            background: var(--ink);
+            color: white;
+        }
+
+        .price-tier.featured .price-features li { color: #aaa; }
+        .price-tier.featured .price-features li::before { color: var(--ember); }
+
+        .tier-name {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+
+        .tier-price {
+            font-size: 40px;
+            font-weight: 900;
+            letter-spacing: -2px;
+            margin-bottom: 8px;
+        }
+
+        .tier-period {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 32px;
+            font-weight: 300;
+        }
+
+        .price-features {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .price-features li {
+            font-size: 14px;
+            color: var(--slate);
+            padding: 8px 0;
+            font-weight: 300;
+        }
+
+        .price-features li::before {
+            content: "— ";
+            color: var(--ember);
+            font-weight: 700;
+        }
+
+        .tier-btn {
+            display: inline-block;
+            padding: 14px 32px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 2px solid currentColor;
+            background: transparent;
+            color: inherit;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .price-tier.featured .tier-btn {
+            background: var(--ember);
+            border-color: var(--ember);
+            color: white;
+        }
+
+        .tier-btn:hover {
+            background: var(--ink);
+            border-color: var(--ink);
+            color: white;
+        }
+
+        /* ── CTA: 극단적 단순 ── */
+        .final-cta {
+            padding: 20vh 6vw;
+            background: var(--ember);
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: clamp(32px, 5vw, 64px);
+            font-weight: 900;
+            color: white;
+            letter-spacing: -2px;
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+
+        .final-cta p {
+            font-size: 15px;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 48px;
+            font-weight: 300;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 18px 48px;
+            background: white;
+            color: var(--ink);
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* ── Footer: 미니멀 ── */
+        footer {
+            background: var(--ink);
+            padding: 60px 6vw;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer .logo {
+            font-size: 16px;
+            color: white;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .footer-links a {
+            color: #666;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 300;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover { color: white; }
+
+        .footer-copy {
+            color: #444;
+            font-size: 12px;
+        }
+
+        /* ── 반응형 ── */
+        @media (max-width: 768px) {
+            .hero { grid-template-columns: 1fr; }
+            .hero-right { min-height: 50vh; }
+            .cap-grid { grid-template-columns: 1fr; }
+            .cap-item:nth-child(1) { grid-column: span 1; }
+            .evidence { grid-template-columns: 1fr; }
+            .evidence-stats { grid-template-columns: 1fr; }
+            .voice { grid-template-columns: 1fr; }
+            .price-strip { grid-template-columns: 1fr; }
+            .price-tier { border-right: none; border-bottom: 1px solid #e0ddd8; }
+            footer { flex-direction: column; gap: 24px; text-align: center; }
+            .footer-links { flex-wrap: wrap; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Nav: mix-blend-mode로 배경에 녹아듬 -->
+    <nav>
+        <div class="logo">FlowSync</div>
+        <div class="nav-right">
+            <a href="#capabilities">기능</a>
+            <a href="#pricing">요금</a>
+            <a class="nav-enter" href="#">시작하기</a>
+        </div>
+    </nav>
+
+    <!-- Hero: 5:5 비대칭 분할, 타이포 극단 대비 -->
+    <section class="hero">
+        <div class="hero-left">
+            <div class="hero-tagline">Workflow Automation Platform</div>
+            <h1 class="hero-title">반복을 지우고,<br><em>흐름</em>만 남기다</h1>
+            <p class="hero-sub">당신의 팀이 매일 반복하는 127가지 작업. FlowSync가 그 시간을 돌려드립니다.</p>
+            <span class="hero-scroll">scroll</span>
+        </div>
+        <div class="hero-right">
+            <div class="hero-graphic"></div>
+        </div>
+    </section>
+
+    <!-- 철학: 왜 존재하는가를 먼저 -->
+    <section class="philosophy">
+        <div class="section-num">01 — Philosophy</div>
+        <h2>도구가 아니라, 시간을 설계합니다</h2>
+        <p>자동화 도구는 많습니다. 하지만 대부분은 복잡성을 옮길 뿐, 없애지 못합니다. FlowSync는 다릅니다. 업무의 본질을 이해하고, 흐름 자체를 재설계합니다. 당신이 진짜 해야 할 일에만 집중할 수 있도록.</p>
+    </section>
+
+    <!-- Capabilities: 비정형 그리드 -->
+    <section class="capabilities" id="capabilities">
+        <div class="section-num">02 — Capabilities</div>
+        <div class="cap-grid">
+            <div class="cap-item">
+                <div class="cap-num">01</div>
+                <div class="cap-title">지능형 워크플로우</div>
+                <div class="cap-desc">코드 없이 드래그 앤 드롭. 하지만 단순한 자동화가 아닙니다. AI가 패턴을 학습하고, 워크플로우를 스스로 최적화합니다.</div>
+            </div>
+            <div class="cap-item">
+                <div class="cap-num">02</div>
+                <div class="cap-title">실시간 맥락 분석</div>
+                <div class="cap-desc">숫자가 아닌 맥락을 읽습니다. 팀의 업무 흐름에서 병목, 낭비, 기회를 포착합니다.</div>
+            </div>
+            <div class="cap-item">
+                <div class="cap-num">03</div>
+                <div class="cap-title">500+ 생태계</div>
+                <div class="cap-desc">Slack, Notion, Google, GitHub. 기존 도구를 바꿀 필요 없이, 사이의 빈 공간을 채웁니다.</div>
+            </div>
+            <div class="cap-item">
+                <div class="cap-num">04</div>
+                <div class="cap-title">예측적 보안</div>
+                <div class="cap-desc">SOC 2 Type II. 엔드투엔드 암호화. 이상 패턴 탐지가 위협보다 먼저 움직입니다.</div>
+            </div>
+            <div class="cap-item">
+                <div class="cap-num">05</div>
+                <div class="cap-title">시차 없는 협업</div>
+                <div class="cap-desc">서울, 샌프란시스코, 베를린. 시간대가 다를 뿐, 팀의 흐름은 하나입니다.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Evidence: 비대칭 숫자 -->
+    <section class="evidence">
+        <div>
+            <div class="evidence-label">03 — Evidence</div>
+            <div class="evidence-title">숫자가<br>증명합니다</div>
+        </div>
+        <div class="evidence-stats">
+            <div class="ev-stat">
+                <div class="ev-num">73%</div>
+                <div class="ev-unit">반복 업무 시간<br>평균 감소율</div>
+            </div>
+            <div class="ev-stat">
+                <div class="ev-num">12분</div>
+                <div class="ev-unit">첫 워크플로우<br>완성 평균 시간</div>
+            </div>
+            <div class="ev-stat">
+                <div class="ev-num">99.97%</div>
+                <div class="ev-unit">지난 12개월<br>서비스 가동률</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Voice: 한 명의 목소리를 크게 -->
+    <section class="voice">
+        <div>
+            <div class="voice-quote">
+                "자동화 도구를 5개 써봤습니다. FlowSync만이 우리 팀의 실제 업무 흐름을 이해했습니다. 도입 3주 만에 주간 미팅이 절반으로 줄었어요."
+            </div>
+            <div class="voice-meta" style="margin-top: 32px;">
+                <div class="voice-name">김서연</div>
+                <div class="voice-role">테크스타트업 COO · 팀 규모 42명</div>
+            </div>
+        </div>
+        <div class="voice-right">
+            <div class="voice-mini">
+                <div class="voice-mini-quote">"비개발자도 30분이면 첫 자동화를 만듭니다. 온보딩이 필요 없는 유일한 도구예요."</div>
+                <div class="voice-mini-author">이준혁</div>
+                <div class="voice-mini-role">미디어 기업 CTO</div>
+            </div>
+            <div class="voice-mini">
+                <div class="voice-mini-quote">"매출 리포트 자동화 하나로 매주 8시간을 아끼고 있습니다."</div>
+                <div class="voice-mini-author">박지민</div>
+                <div class="voice-mini-role">이커머스 PM</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing: 수평 스트립 -->
+    <section class="pricing" id="pricing">
+        <div class="section-num">05 — Pricing</div>
+        <div class="price-strip">
+            <div class="price-tier">
+                <div class="tier-name">Starter</div>
+                <div class="tier-price">₩0</div>
+                <div class="tier-period">영구 무료</div>
+                <ul class="price-features">
+                    <li>워크플로우 5개</li>
+                    <li>기본 연동</li>
+                    <li>이메일 지원</li>
+                    <li>1GB 저장공간</li>
+                </ul>
+                <button class="tier-btn">시작하기</button>
+            </div>
+            <div class="price-tier featured">
+                <div class="tier-name">Pro</div>
+                <div class="tier-price">₩29,000</div>
+                <div class="tier-period">월 · 팀당</div>
+                <ul class="price-features">
+                    <li>무제한 워크플로우</li>
+                    <li>500+ 연동</li>
+                    <li>AI 어시스턴트</li>
+                    <li>우선 기술 지원</li>
+                    <li>50GB 저장공간</li>
+                </ul>
+                <button class="tier-btn">14일 무료 체험</button>
+            </div>
+            <div class="price-tier">
+                <div class="tier-name">Enterprise</div>
+                <div class="tier-price">맞춤</div>
+                <div class="tier-period">규모별 협의</div>
+                <ul class="price-features">
+                    <li>Pro 전체 기능</li>
+                    <li>전담 매니저</li>
+                    <li>SSO · SAML · SCIM</li>
+                    <li>SLA 99.99% 보장</li>
+                    <li>무제한 저장공간</li>
+                </ul>
+                <button class="tier-btn">상담 요청</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA: 극단적 단순 -->
+    <section class="final-cta">
+        <h2>반복을 끝내는 데<br>14일이면 충분합니다</h2>
+        <p>신용카드 없이 시작하세요</p>
+        <a class="cta-btn" href="#">무료 체험 시작</a>
+    </section>
+
+    <!-- Footer: 미니멀 -->
+    <footer>
+        <div class="logo">FlowSync</div>
+        <div class="footer-links">
+            <a href="#">기능</a>
+            <a href="#">요금</a>
+            <a href="#">블로그</a>
+            <a href="#">API 문서</a>
+            <a href="#">채용</a>
+            <a href="#">개인정보</a>
+        </div>
+        <div class="footer-copy">© 2026</div>
+    </footer>
+
+</body>
+</html>

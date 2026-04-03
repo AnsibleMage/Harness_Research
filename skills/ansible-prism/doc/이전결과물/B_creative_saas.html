@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>새로e아름 — 우정인재개발원</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.min.css">
+  <style>
+    /*
+    FRAMEWORK: v2.1 | MODE: wireframe_only (no DS) | OL: 8
+    WORLD: "따뜻한 종이 위의 정돈된 지성"
+    PALETTE: paper #f5f0e8 · ink #1c1917 · clay #a3856a · signal #c05621 · mist #d4cdc4
+    TYPO: Outfit (display) + Pretendard (body) · floor: 14px
+    PATTERNS: SB-06(sidebar), LN-05(journey), VN-05(repeating motif)
+    */
+
+    :root {
+      --paper: #f5f0e8;
+      --ink: #1c1917;
+      --clay: #a3856a;
+      --signal: #c05621;
+      --mist: #d4cdc4;
+      --white: #fffcf7;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Pretendard', -apple-system, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.7;
+      word-break: keep-all;
+    }
+
+    /* ── 반복 모티프: 얇은 수평선이 전체 페이지를 관통 (VN-05) ── */
+    .motif {
+      width: 100%;
+      height: 1px;
+      background: var(--mist);
+    }
+
+    /* ── 유틸 + 네비 ── */
+    .util {
+      display: flex;
+      justify-content: flex-end;
+      gap: 24px;
+      padding: 8px 6vw;
+      background: var(--ink);
+    }
+
+    .util a {
+      color: var(--mist);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .util a:hover { color: var(--white); }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 6vw;
+      background: var(--white);
+      border-bottom: 1px solid var(--mist);
+    }
+
+    .nav-logo {
+      font-family: 'Outfit', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--ink);
+      letter-spacing: -0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--clay);
+      font-size: 15px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--ink); }
+
+    .nav-user {
+      font-size: 15px;
+      color: var(--clay);
+    }
+
+    .nav-user strong { color: var(--ink); }
+
+    /* ── S02: 히어로 — AI 큐레이터 + 전자도서관 ──
+         세계관: 도서관 입구에 서 있는 느낌. 왼쪽이 검색대, 오른쪽이 서가 안내.
+    */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 80dvh;
+    }
+
+    .hero-ask {
+      background: var(--ink);
+      padding: 12vh 6vw 8vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--clay);
+      margin-bottom: 40px;
+    }
+
+    .hero-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(36px, 4.5vw, 56px);
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--white);
+      letter-spacing: -1.5px;
+      margin-bottom: 24px;
+    }
+
+    .hero-title em {
+      font-style: normal;
+      color: var(--signal);
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      color: var(--mist);
+      line-height: 1.8;
+      max-width: 400px;
+      margin-bottom: 40px;
+    }
+
+    .hero-search {
+      display: flex;
+      max-width: 420px;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .hero-search input {
+      flex: 1;
+      padding: 16px 20px;
+      background: transparent;
+      border: none;
+      color: var(--white);
+      font-family: 'Pretendard', sans-serif;
+      font-size: 15px;
+      outline: none;
+    }
+
+    .hero-search input::placeholder { color: var(--clay); }
+
+    .hero-search button {
+      padding: 16px 28px;
+      background: var(--signal);
+      border: none;
+      color: var(--white);
+      font-family: 'Pretendard', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .hero-search button:hover { background: var(--clay); }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .hero-tags span {
+      font-size: 14px;
+      color: var(--mist);
+      padding: 6px 14px;
+      border: 1px solid rgba(255,255,255,0.08);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .hero-tags span:hover { border-color: var(--signal); color: var(--signal); }
+
+    .hero-library {
+      background: var(--white);
+      padding: 12vh 6vw 8vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+
+    .hero-library-label {
+      font-size: 14px;
+      color: var(--clay);
+      margin-bottom: 24px;
+    }
+
+    .hero-library h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(28px, 3vw, 40px);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+    }
+
+    .hero-library p {
+      font-size: 16px;
+      color: var(--clay);
+      line-height: 1.8;
+      margin-bottom: 36px;
+      max-width: 380px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 14px 32px;
+      border: 2px solid var(--ink);
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 16px;
+      transition: all 0.3s;
+    }
+
+    .btn-primary:hover {
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .hero-deco {
+      position: absolute;
+      bottom: 6vh;
+      right: 6vw;
+      font-family: 'Outfit', sans-serif;
+      font-size: 100px;
+      font-weight: 800;
+      color: rgba(28,25,23,0.03);
+      line-height: 0.8;
+      letter-spacing: -4px;
+    }
+
+    /* ── S03: 학습 현황 ──
+         SB-06: 사이드바 고정 (포인트가 sticky, 교육이 스크롤)
+    */
+    .status {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 6vw;
+      gap: 60px;
+    }
+
+    .status-side {
+      position: sticky;
+      top: 100px;
+      align-self: start;
+      text-align: center;
+      padding: 40px 0;
+    }
+
+    .point-num {
+      font-family: 'Outfit', sans-serif;
+      font-size: 72px;
+      font-weight: 800;
+      color: var(--signal);
+      line-height: 1;
+    }
+
+    .point-label {
+      font-size: 15px;
+      color: var(--clay);
+      margin-top: 8px;
+      font-weight: 500;
+    }
+
+    .point-name {
+      font-size: 14px;
+      color: var(--mist);
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--mist);
+    }
+
+    .status-main { display: flex; flex-direction: column; gap: 40px; }
+
+    .group-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      padding-left: 16px;
+      border-left: 3px solid var(--clay);
+    }
+
+    .pill-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .pill {
+      font-size: 15px;
+      padding: 10px 20px;
+      background: var(--white);
+      border: 1px solid var(--mist);
+      color: var(--ink);
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .pill:hover { border-color: var(--clay); background: var(--paper); }
+
+    /* ── S05: 이어서 학습하기 ── */
+    .continue {
+      background: var(--white);
+      padding: 80px 6vw;
+    }
+
+    .continue-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 32px;
+    }
+
+    .section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .section-link {
+      font-size: 15px;
+      color: var(--clay);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .section-link:hover { color: var(--signal); }
+
+    .learn-list { border-top: 2px solid var(--ink); }
+
+    .learn-row {
+      display: grid;
+      grid-template-columns: 1fr 200px 100px;
+      align-items: center;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--mist);
+      gap: 40px;
+      transition: background 0.2s;
+    }
+
+    .learn-row:hover { background: var(--paper); margin: 0 -20px; padding: 24px 20px; }
+
+    .learn-row strong {
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    .progress-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .progress-bar {
+      flex: 1;
+      height: 4px;
+      background: var(--mist);
+    }
+
+    .progress-fill { height: 100%; background: var(--clay); }
+
+    .progress-pct {
+      font-family: 'Outfit', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      min-width: 50px;
+    }
+
+    .learn-btn {
+      padding: 10px 24px;
+      border: 1px solid var(--ink);
+      background: transparent;
+      color: var(--ink);
+      font-family: 'Pretendard', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: center;
+    }
+
+    .learn-btn:hover { background: var(--ink); color: var(--white); }
+
+    /* ── S04: CLASSROOM ──
+         질문으로 시작 + 카드들은 높이가 다른 masonry
+    */
+    .classroom {
+      padding: 100px 6vw;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .classroom-question {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+
+    .classroom-slogans {
+      font-size: 16px;
+      color: var(--clay);
+      margin-bottom: 32px;
+    }
+
+    .classroom-tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid var(--mist);
+      margin-bottom: 40px;
+    }
+
+    .classroom-tabs a {
+      padding: 12px 24px;
+      text-decoration: none;
+      font-size: 15px;
+      color: var(--clay);
+      font-weight: 500;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+    }
+
+    .classroom-tabs a:first-child {
+      color: var(--ink);
+      border-bottom-color: var(--ink);
+      font-weight: 700;
+    }
+
+    .classroom-tabs a:hover { color: var(--ink); }
+
+    .card-masonry {
+      columns: 3;
+      column-gap: 24px;
+    }
+
+    .course-card {
+      break-inside: avoid;
+      margin-bottom: 24px;
+      background: var(--white);
+      border: 1px solid var(--mist);
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+
+    .course-card:hover { border-color: var(--clay); }
+
+    .course-card:nth-child(1) .card-thumb { height: 180px; }
+    .course-card:nth-child(2) .card-thumb { height: 120px; }
+    .course-card:nth-child(3) .card-thumb { height: 160px; }
+    .course-card:nth-child(4) .card-thumb { height: 100px; }
+    .course-card:nth-child(5) .card-thumb { height: 150px; }
+
+    .card-thumb {
+      background: var(--paper);
+      position: relative;
+    }
+
+    .card-tags {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      display: flex;
+      gap: 6px;
+    }
+
+    .card-tag {
+      font-size: 14px;
+      font-weight: 600;
+      padding: 4px 10px;
+      background: var(--white);
+      color: var(--ink);
+    }
+
+    .card-heart {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      font-size: 14px;
+      color: var(--clay);
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .card-body strong {
+      display: block;
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+
+    .card-body small {
+      font-size: 14px;
+      color: var(--clay);
+    }
+
+    /* ── S06: 채널 + 도서 ── */
+    .community {
+      background: var(--white);
+      padding: 80px 6vw;
+    }
+
+    .community-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 60px;
+    }
+
+    .channel-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--mist);
+    }
+
+    .ch-badge {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--ink);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .ch-info strong { display: block; font-size: 15px; font-weight: 600; }
+    .ch-info small { font-size: 14px; color: var(--clay); }
+
+    .books-quote {
+      font-size: 17px;
+      font-style: italic;
+      color: var(--clay);
+      padding: 20px 0;
+      border-bottom: 1px solid var(--mist);
+      margin-bottom: 24px;
+      line-height: 1.7;
+    }
+
+    .book-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 20px;
+    }
+
+    .book-item { text-align: center; }
+
+    .book-cover {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: var(--paper);
+      border: 1px solid var(--mist);
+      margin-bottom: 10px;
+    }
+
+    .book-item strong { display: block; font-size: 14px; font-weight: 600; line-height: 1.3; }
+    .book-item small { font-size: 14px; color: var(--clay); }
+
+    /* ── S07: 교육안내 ── */
+    .contact {
+      padding: 60px 6vw;
+      background: var(--ink);
+    }
+
+    .contact-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-title {
+      font-size: 16px;
+      color: var(--mist);
+      margin-bottom: 36px;
+      font-weight: 500;
+    }
+
+    .contact-grid {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+    }
+
+    .contact-item {
+      text-align: center;
+    }
+
+    .contact-item strong {
+      display: block;
+      font-family: 'Outfit', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .contact-item span {
+      font-size: 14px;
+      color: var(--clay);
+    }
+
+    /* ── Footer ── */
+    footer {
+      padding: 40px 6vw 24px;
+      background: var(--ink);
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .footer-inner { max-width: 1100px; margin: 0 auto; }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .footer-logo {
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--clay);
+    }
+
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-links a { font-size: 14px; color: var(--clay); text-decoration: none; }
+    .footer-links a:first-child { font-weight: 700; color: var(--mist); }
+    .footer-links a:hover { color: var(--white); }
+
+    .footer-info { font-size: 14px; color: rgba(255,255,255,0.25); line-height: 1.8; margin-bottom: 12px; }
+    .footer-copy { font-size: 14px; color: rgba(255,255,255,0.12); }
+
+    /* ── Reveal ── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: all 0.6s cubic-bezier(0.16,1,0.3,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-ask, .hero-library { padding: 60px 6vw; }
+      .hero-title { font-size: 32px; }
+      .status { grid-template-columns: 1fr; padding: 60px 6vw; }
+      .status-side { position: static; text-align: left; display: flex; gap: 20px; align-items: center; padding: 0; }
+      .card-masonry { columns: 1; }
+      .community-inner { grid-template-columns: 1fr; }
+      .book-grid { grid-template-columns: repeat(3, 1fr); }
+      .contact-grid { flex-wrap: wrap; gap: 24px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Utility -->
+  <div class="util">
+    <a href="#">플랫폼(관리자)</a>
+    <a href="#">학사행정시스템</a>
+  </div>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="nav-logo">새로e아름</div>
+    <div class="nav-links">
+      <a href="#">나의공간</a>
+      <a href="#">콘텐츠</a>
+      <a href="#">채널</a>
+      <a href="#">직무인증</a>
+      <a href="#">고객지원센터</a>
+    </div>
+    <div class="nav-user"><strong>홍길동</strong>님 환영합니다</div>
+  </nav>
+
+  <div class="motif"></div>
+
+  <!-- S02: Hero -->
+  <section class="hero">
+    <div class="hero-ask">
+      <div class="hero-label">AX Education Curator</div>
+      <h1 class="hero-title">무엇이든<br><em>물어보세요</em></h1>
+      <p class="hero-sub">구체적으로 질문하시면 더 정확한 답변이 나옵니다</p>
+      <div class="hero-search">
+        <input type="text" placeholder="교육 과정, 수료증, 수강 방법...">
+        <button>검색</button>
+      </div>
+      <div class="hero-tags">
+        <span>교육 신청은 어떻게 해?</span>
+        <span>수료증은 어디서 받는지 알 수 있어?</span>
+        <span>온라인 교육 수강 방법은?</span>
+      </div>
+    </div>
+    <div class="hero-library">
+      <div class="hero-library-label">새로e아름 › 콘텐츠 › 전자도서관</div>
+      <h2>우정인재개발원<br>전자도서관</h2>
+      <p>슬기로운 독서생활! 전자도서관에 접속해 보세요</p>
+      <a href="#" class="btn-primary">사람은 책을 만들고 책은 사람을 만든다</a>
+      <div class="hero-deco">BOOK</div>
+    </div>
+  </section>
+
+  <div class="motif"></div>
+
+  <!-- S03: 학습 현황 (SB-06 사이드바 고정) -->
+  <section class="status reveal">
+    <div class="status-side">
+      <div class="point-num">5</div>
+      <div class="point-label">아름포인트</div>
+      <div class="point-name">홍길동님의 현황</div>
+    </div>
+    <div class="status-main">
+      <div>
+        <div class="group-title">필수교육 이수현황</div>
+        <div class="pill-grid">
+          <span class="pill">공직가치 5/10</span>
+          <span class="pill">적극행정 5/10</span>
+          <span class="pill">성인지 5/10</span>
+          <span class="pill">정보화 5/10</span>
+          <span class="pill">정보보안 5/10</span>
+          <span class="pill">개인정보 5/10</span>
+        </div>
+      </div>
+      <div>
+        <div class="group-title">법정교육 이수현황</div>
+        <div class="pill-grid">
+          <span class="pill">성폭력예방 5/10</span>
+          <span class="pill">감염병예방 5/10</span>
+          <span class="pill">자살예방 5/10</span>
+          <span class="pill">안보 5/10</span>
+          <span class="pill">장애인식개선 5/10</span>
+          <span class="pill">아동학대예방 5/10</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="motif"></div>
+
+  <!-- S05: 이어서 학습하기 -->
+  <section class="continue reveal">
+    <div class="continue-inner">
+      <div class="section-header">
+        <h2 class="section-title">이어서 학습하기</h2>
+        <a href="#" class="section-link">전체보기 →</a>
+      </div>
+      <div class="learn-list">
+        <div class="learn-row">
+          <strong>우편취급 위반관련 법규</strong>
+          <div class="progress-wrap"><div class="progress-bar"><div class="progress-fill" style="width:30%"></div></div><span class="progress-pct">30%</span></div>
+          <button class="learn-btn">이어보기</button>
+        </div>
+        <div class="learn-row">
+          <strong>도전! 나의 손해 2</strong>
+          <div class="progress-wrap"><div class="progress-bar"><div class="progress-fill" style="width:65%"></div></div><span class="progress-pct">65%</span></div>
+          <button class="learn-btn">이어보기</button>
+        </div>
+        <div class="learn-row">
+          <strong>청렴판단력 키우기</strong>
+          <div class="progress-wrap"><div class="progress-bar"><div class="progress-fill" style="width:10%"></div></div><span class="progress-pct">10%</span></div>
+          <button class="learn-btn">이어보기</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S04: CLASSROOM -->
+  <section class="classroom reveal">
+    <div class="section-header">
+      <h2 class="classroom-question">당신의 다음 교육은?</h2>
+      <a href="#" class="section-link">전체보기 →</a>
+    </div>
+    <div class="classroom-slogans">이것이 필수다. 당신에게 딱이다.</div>
+    <div class="classroom-tabs">
+      <a href="#">전체</a><a href="#">국정철학</a><a href="#">직무공통</a>
+    </div>
+    <div class="card-masonry">
+      <div class="course-card">
+        <div class="card-thumb"><div class="card-tags"><span class="card-tag">60분</span><span class="card-tag">국정철학</span></div><span class="card-heart">♡ 42</span></div>
+        <div class="card-body"><strong>개인정보 보호교육</strong><small>수강 1,234명 · 댓글 56</small></div>
+      </div>
+      <div class="course-card">
+        <div class="card-thumb"><div class="card-tags"><span class="card-tag">60분</span><span class="card-tag">직무공통</span></div><span class="card-heart">♡ 38</span></div>
+        <div class="card-body"><strong>개인정보보호교육(이용자)</strong><small>수강 987명 · 댓글 23</small></div>
+      </div>
+      <div class="course-card">
+        <div class="card-thumb"><div class="card-tags"><span class="card-tag">60분</span><span class="card-tag">직무공통</span></div><span class="card-heart">♡ 55</span></div>
+        <div class="card-body"><strong>정보보안기본교육</strong><small>수강 2,100명 · 댓글 89</small></div>
+      </div>
+      <div class="course-card">
+        <div class="card-thumb"><div class="card-tags"><span class="card-tag">60분</span><span class="card-tag">국정철학</span></div><span class="card-heart">♡ 27</span></div>
+        <div class="card-body"><strong>이해충돌방지법</strong><small>수강 756명 · 댓글 12</small></div>
+      </div>
+      <div class="course-card">
+        <div class="card-thumb"><div class="card-tags"><span class="card-tag">60분</span><span class="card-tag">직무공통</span></div><span class="card-heart">♡ 91</span></div>
+        <div class="card-body"><strong>엑셀실무테크닉</strong><small>수강 3,456명 · 댓글 201</small></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="motif"></div>
+
+  <!-- S06: 채널 + 도서 -->
+  <section class="community reveal">
+    <div class="community-inner">
+      <div>
+        <div class="section-header" style="margin-bottom:20px">
+          <h2 class="section-title">구독중인 채널</h2>
+          <a href="#" class="section-link">전체보기 →</a>
+        </div>
+        <div class="channel-item">
+          <div class="ch-badge">우정</div>
+          <div class="ch-info"><strong>우정인재개발원</strong><small>50,032명</small></div>
+        </div>
+        <div class="channel-item">
+          <div class="ch-badge" style="background:var(--clay)">교육</div>
+          <div class="ch-info"><strong>교육큐레이션</strong><small>52,149명</small></div>
+        </div>
+        <div class="channel-item">
+          <div class="ch-badge" style="background:var(--signal)">보이</div>
+          <div class="ch-info"><strong>보이스피싱 예방</strong><small>49,533명</small></div>
+        </div>
+      </div>
+      <div>
+        <div class="section-header" style="margin-bottom:8px">
+          <h2 class="section-title">지금, 이 책!</h2>
+          <a href="#" class="section-link">전체보기 →</a>
+        </div>
+        <div class="books-quote">"읽는 것은 생각하는 것이고, 생각하는 것은 살아가는 것이다."</div>
+        <div class="book-grid">
+          <div class="book-item"><div class="book-cover"></div><strong>가짜 노동</strong><small>데니스 뇌르마르크</small></div>
+          <div class="book-item"><div class="book-cover"></div><strong>공부하고 있다는 착각</strong><small>대니얼 T. 윌링햄</small></div>
+          <div class="book-item"><div class="book-cover"></div><strong>기본의 디자인</strong><small>아키타 미치오</small></div>
+          <div class="book-item"><div class="book-cover"></div><strong>도파민네이션</strong><small>애나 렘키</small></div>
+          <div class="book-item"><div class="book-cover"></div><strong>쇼펜하우어</strong><small>강용수</small></div>
+          <div class="book-item"><div class="book-cover"></div><strong>마흔에 읽는 쇼펜하우어</strong><small>강용수</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S07: 교육안내 -->
+  <section class="contact">
+    <div class="contact-inner">
+      <div class="contact-title">교육관련 안내</div>
+      <div class="contact-grid">
+        <div class="contact-item"><strong>041-560-5350</strong><span>이러닝 문의</span></div>
+        <div class="contact-item"><strong>041-560-5264</strong><span>집합교육(선발)</span></div>
+        <div class="contact-item"><strong>041-560-5311</strong><span>집합교육(계획)</span></div>
+        <div class="contact-item"><strong>041-560-5312</strong><span>직무인증평가</span></div>
+        <div class="contact-item"><strong>041-560-5151</strong><span>지금, 이 책!</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S08: Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-logo">우정인재개발원</div>
+        <div class="footer-links">
+          <a href="#">개인정보처리 방침</a><a href="#">영상정보처리기기 운영관리 방침</a><a href="#">이메일주소 무단수집거부</a><a href="#">이용약관</a><a href="#">찾아오시는길</a><a href="#">고객지원센터</a>
+        </div>
+      </div>
+      <div class="footer-info">(31068) 충청남도 천안시 동남구 양지말1길 (유량동) 우정인재개발원<br>전화번호: 041-560-5350 | 팩스번호: 0505-005-1062 | 이메일: cyber123@korea.kr</div>
+      <div class="footer-copy">COPYRIGHT(C) 2016 KOREA POST(OFFICE OF POSTAL SERVICE). ALL RIGHTS RESERVED.</div>
+    </div>
+  </footer>
+
+  <script>
+  (function(){
+    var r=document.querySelectorAll('.reveal');
+    if(!r.length)return;
+    new IntersectionObserver(function(e){
+      e.forEach(function(i){if(i.isIntersecting)i.target.classList.add('visible');});
+    },{threshold:0.08}).observe&&r.forEach(function(el){
+      new IntersectionObserver(function(e){e.forEach(function(i){if(i.isIntersecting)i.target.classList.add('visible');});},{threshold:0.08}).observe(el);
+    });
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,723 @@
+{
+  "presentation": {
+    "layout": "LAYOUT_16x9",
+    "width_pt": 720,
+    "height_pt": 405,
+    "title": "TestCorp Portal"
+  },
+  "design": {
+    "mode": "full_design",
+    "color_palette": {
+      "primary": "#2B6CB0",
+      "secondary": "#1E3A5F",
+      "accent": "#E53E3E",
+      "background": "#F5F5F5",
+      "text_primary": "#1F2937",
+      "text_secondary": "#718096"
+    },
+    "fonts": {
+      "heading": "Arial",
+      "body": "Arial"
+    }
+  },
+  "slides": [
+    {
+      "slide_index": 0,
+      "slide_type": "title",
+      "source_section": "Corner markers (.corner-marker) + Header nav (.header) + Hero section (.hero)",
+      "elements": [
+        {
+          "type": "shape",
+          "content": "TL",
+          "style": {
+            "background": "#E53E3E",
+            "border_radius": "0 0 6pt 0",
+            "position": { "x_pt": 0, "y_pt": 0, "width_pt": 30, "height_pt": 30 }
+          }
+        },
+        {
+          "type": "shape",
+          "content": "TR",
+          "style": {
+            "background": "#3182CE",
+            "border_radius": "0 0 0 6pt",
+            "position": { "x_pt": 690, "y_pt": 0, "width_pt": 30, "height_pt": 30 }
+          }
+        },
+        {
+          "type": "shape",
+          "content": "BL",
+          "style": {
+            "background": "#38A169",
+            "border_radius": "0 6pt 0 0",
+            "position": { "x_pt": 0, "y_pt": 375, "width_pt": 30, "height_pt": 30 }
+          }
+        },
+        {
+          "type": "shape",
+          "content": "BR",
+          "style": {
+            "background": "#D69E2E",
+            "border_radius": "6pt 0 0 0",
+            "position": { "x_pt": 690, "y_pt": 375, "width_pt": 30, "height_pt": 30 }
+          }
+        },
+        {
+          "type": "shape",
+          "content": "CENTER",
+          "style": {
+            "background": "#805AD5",
+            "border_radius": "50%",
+            "position": { "x_pt": 338, "y_pt": 180, "width_pt": 45, "height_pt": 45 }
+          }
+        },
+        {
+          "type": "shape",
+          "content": "",
+          "style": {
+            "background": "#1E3A5F",
+            "border_bottom": "2pt solid #2B6CB0",
+            "position": { "x_pt": 0, "y_pt": 0, "width_pt": 720, "height_pt": 48 }
+          }
+        },
+        {
+          "type": "text",
+          "content": "TestCorp Portal",
+          "style": {
+            "font_size_pt": 16,
+            "font_weight": "bold",
+            "color": "#FFFFFF",
+            "align": "left",
+            "position": { "x_pt": 30, "y_pt": 12, "width_pt": 200, "height_pt": 24 }
+          }
+        },
+        {
+          "type": "text",
+          "content": "Home   Services   Board   About   Contact",
+          "style": {
+            "font_size_pt": 11,
+            "font_weight": "normal",
+            "color": "#CBD5E0",
+            "align": "right",
+            "position": { "x_pt": 400, "y_pt": 14, "width_pt": 290, "height_pt": 20 }
+          }
+        },
+        {
+          "type": "heading",
+          "content": "Welcome to TestCorp Portal",
+          "style": {
+            "font_size_pt": 32,
+            "font_weight": "bold",
+            "color": "#FFFFFF",
+            "align": "center",
+            "position": { "x_pt": 60, "y_pt": 100, "width_pt": 600, "height_pt": 50 }
+          }
+        },
+        {
+          "type": "text",
+          "content": "This is a layout verification page for html2pptx conversion testing. It includes header navigation, hero content, board section, shape tests, and footer structure.",
+          "style": {
+            "font_size_pt": 13,
+            "font_weight": "normal",
+            "color": "#BEE3F8",
+            "align": "center",
+            "position": { "x_pt": 100, "y_pt": 160, "width_pt": 520, "height_pt": 55 }
+          }
+        },
+        {
+          "type": "shape",
+          "content": "Get Started",
+          "style": {
+            "background": "#E53E3E",
+            "border_radius": "6pt",
+            "font_size_pt": 12,
+            "font_weight": "bold",
+            "color": "#FFFFFF",
+            "position": { "x_pt": 240, "y_pt": 230, "width_pt": 105, "height_pt": 32 }
+          }
+        },
+        {
+          "type": "shape",
+          "content": "Learn More",
+          "style": {
+            "background": "transparent",
+            "border": "2pt solid #FFFFFF",
+            "border_radius": "6pt",
+            "font_size_pt": 12,
+            "font_weight": "normal",
+            "color": "#FFFFFF",
+            "position": { "x_pt": 365, "y_pt": 230, "width_pt": 105, "height_pt": 32 }
+          }
+        }
+      ],
+      "background": {
+        "type": "solid",
+        "value": "#2B6CB0"
+      }
+    },
+    {
+      "slide_index": 1,
+      "slide_type": "two_column",
+      "source_section": "Stats bar (.stats-bar) + Content section (.content-section) with Board (.board-main) + Sidebar (.sidebar)",
+      "elements": [
+        {
+          "type": "text",
+          "content": "1,247",
+          "style": {
+            "font_size_pt": 20,
+            "font_weight": "bold",
+            "color": "#2B6CB0",
+            "align": "center",
+            "position": { "x_pt": 20, "y_pt": 8, "width_pt": 155, "height_pt": 22 }
+          }
+        },
+        {
+          "type": "text",
+          "content": "ACTIVE USERS",
+          "style": {
+            "font_size_pt": 8,
+            "font_weight": "normal",
+            "color": "#718096",
+            "align": "center",
+            "position": { "x_pt": 20, "y_pt": 30, "width_pt": 155, "height_pt": 12 }
+          }
+        },
+        {
+          "type": "text",
+          "content": "358",
+          "style": {
+            "font_size_pt": 20,
+            "font_weight": "bold",
+            "color": "#2B6CB0",
+            "align": "center",
+            "position": { "x_pt": 190, "y_pt": 8, "width_pt": 155, "height_pt": 22 }
+          }
+        },
+        {
+          "type": "text",
+          "content": "PROJECTS",
+          "style": {
+            "font_size_pt": 8,
+            "font_weight": "normal",
+            "color": "#718096",
+            "align": "center",
+            "position": { "x_pt": 190, "y_pt": 30, "width_pt": 155, "height_pt": 12 }
+          }
+        },
+        {
+          "type": "text",
+          "content": "99.9%",
+          "style": {
+            "font_size_pt": 20,
+            "font_weight": "bold",
+            "color": "#2B6CB0",
+            "align": "center",
+            "position": { "x_pt": 360, "y_pt": 8, "width_pt": 155, "height_pt": 22 }
+          }
+        },
+        {
+          "type": "text",
+          "content": "UPTIME",
+          "style": {
+            "font_size_pt": 8,
+            "font_weight": "normal",
+            "color": "#718096",
+            "align": "center",
+            "position": { "x_pt": 360, "y_pt": 30, "width_pt": 155, "height_pt": 12 }
+          }
+        },
+        {
+          "type": "text",
+          "content": "24/7",
+          "style": {
+            "font_size_pt": 20,
+            "font_weight": "bold",
+            "color": "#2B6CB0",
+            "align": "center",
+            "position": { "x_pt": 530, "y_pt": 8, "width_pt": 155, "height_pt": 22 }
+          }
+        },
+        {
+          "type": "text",
+          "content": "SUPPORT",
+          "style": {
+            "font_size_pt": 8,
+            "font_weight": "normal",
+            "color": "#718096",
+            "align": "center",
+            "position": { "x_pt": 530, "y_pt": 30, "width_pt": 155, "height_pt": 12 }
+          }
+        },
+        {
+          "type": "shape",
+          "content": "",
+          "style": {
+            "background": "#2D3748",
+            "position": { "x_pt": 15, "y_pt": 52, "width_pt": 470, "height_pt": 26 }
+          }
+        },
+        {
+          "type": "text",
+          "content": "Notice Board",
+          "style": {
+            "font_size_pt": 13,
+            "font_weight": "bold",
+            "color": "#FFFFFF",
+            "align": "left",
+            "position": { "x_pt": 25, "y_pt": 54, "width_pt": 200, "height_pt": 22 }
+          }
+        },
+        {
+          "type": "shape",
+          "content": "5 New",
+          "style": {
+            "background": "#E53E3E",
+            "border_radius": "10pt",
+            "font_size_pt": 9,
+            "color": "#FFFFFF",
+            "position": { "x_pt": 435, "y_pt": 56, "width_pt": 42, "height_pt": 18 }
+          }
+        },
+        {
+          "type": "text",
+          "content": "No.    Category    Title                                                      Date           Views",
+          "style": {
+            "font_size_pt": 9,
+            "font_weight": "bold",
+            "color": "#4A5568",
+            "align": "left",
+            "position": { "x_pt": 15, "y_pt": 82, "width_pt": 470, "height_pt": 14 }
+          }
+        },
+        {
+          "type": "text",
+          "content": "125    Notice    System maintenance scheduled for March 15th    2026-03-10    342",
+          "style": {
+            "font_size_pt": 9,
+            "font_weight": "normal",
+            "color": "#2D3748",
+            "align": "left",
+            "position": { "x_pt": 15, "y_pt": 98, "width_pt": 470, "height_pt": 14 }
+          }
+        },
+        {
+          "type": "text",
+          "content": "124    Event    Annual developer conference registration open    2026-03-08    567",
+          "style": {
+            "font_size_pt": 9,
+            "font_weight": "normal",
+            "color": "#2D3748",
+            "align": "left",
+            "position": { "x_pt": 15, "y_pt": 114, "width_pt": 470, "height_pt": 14 }
+          }
+        },
+        {
+          "type": "text",
+          "content": "123    Update    Platform version 3.2 release notes    2026-03-05    891",
+          "style": {
+            "font_size_pt": 9,
+            "font_weight": "normal",
+            "color": "#2D3748",
+            "align": "left",
+            "position": { "x_pt": 15, "y_pt": 130, "width_pt": 470, "height_pt": 14 }
+          }
+        },
+        {
+          "type": "text",
+          "content": "122    FAQ    How to reset your account password    2026-03-03    1,204",
+          "style": {
+            "font_size_pt": 9,
+            "font_weight": "normal",
+            "color": "#2D3748",
+            "align": "left",
+            "position": { "x_pt": 15, "y_pt": 146, "width_pt": 470, "height_pt": 14 }
+          }
+        },
+        {
+          "type": "text",
+          "content": "121    Notice    New privacy policy effective April 1st    2026-03-01    456",
+          "style": {
+            "font_size_pt": 9,
+            "font_weight": "normal",
+            "color": "#2D3748",
+            "align": "left",
+            "position": { "x_pt": 15, "y_pt": 162, "width_pt": 470, "height_pt": 14 }
+          }
+        },
+        {
+          "type": "heading",
+          "content": "Recent Updates",
+          "style": {
+            "font_size_pt": 12,
+            "font_weight": "bold",
+            "color": "#2D3748",
+            "align": "left",
+            "position": { "x_pt": 500, "y_pt": 52, "width_pt": 205, "height_pt": 18 }
+          }
+        },
+        {
+          "type": "list",
+          "content": "API v2.5 released  03-10\nDashboard redesign  03-08\nMobile app update  03-05\nSecurity patch applied  03-01",
+          "style": {
+            "font_size_pt": 10,
+            "font_weight": "normal",
+            "color": "#4A5568",
+            "align": "left",
+            "position": { "x_pt": 500, "y_pt": 75, "width_pt": 205, "height_pt": 90 }
+          }
+        },
+        {
+          "type": "heading",
+          "content": "Quick Links",
+          "style": {
+            "font_size_pt": 12,
+            "font_weight": "bold",
+            "color": "#2D3748",
+            "align": "left",
+            "position": { "x_pt": 500, "y_pt": 175, "width_pt": 205, "height_pt": 18 }
+          }
+        },
+        {
+          "type": "text",
+          "content": "Docs    Support    Reports    Settings",
+          "style": {
+            "font_size_pt": 10,
+            "font_weight": "normal",
+            "color": "#2B6CB0",
+            "align": "left",
+            "position": { "x_pt": 500, "y_pt": 198, "width_pt": 205, "height_pt": 50 }
+          }
+        }
+      ],
+      "background": {
+        "type": "solid",
+        "value": "#FFFFFF"
+      }
+    },
+    {
+      "slide_index": 2,
+      "slide_type": "content",
+      "source_section": "Shape & Line Rendering Test section (.shape-test)",
+      "elements": [
+        {
+          "type": "heading",
+          "content": "Shape & Line Rendering Test",
+          "style": {
+            "font_size_pt": 15,
+            "font_weight": "bold",
+            "color": "#2D3748",
+            "align": "left",
+            "position": { "x_pt": 30, "y_pt": 15, "width_pt": 660, "height_pt": 25 }
+          }
+        },
+        {
+          "type": "shape",
+          "content": "",
+          "style": {
+            "background": "#2B6CB0",
+            "border_radius": "3pt",
+            "position": { "x_pt": 40, "y_pt": 60, "width_pt": 75, "height_pt": 45 }
+          }
+        },
+        {
+          "type": "text",
+          "content": "Rectangle\n(4px radius)",
+          "style": {
+            "font_size_pt": 8,
+            "color": "#718096",
+            "align": "center",
+            "position": { "x_pt": 30, "y_pt": 110, "width_pt": 95, "height_pt": 25 }
+          }
+        },
+        {
+          "type": "shape",
+          "content": "",
+          "style": {
+            "background": "#38A169",
+            "border_radius": "12pt",
+            "position": { "x_pt": 175, "y_pt": 60, "width_pt": 75, "height_pt": 45 }
+          }
+        },
+        {
+          "type": "text",
+          "content": "Rounded Rect\n(16px radius)",
+          "style": {
+            "font_size_pt": 8,
+            "color": "#718096",
+            "align": "center",
+            "position": { "x_pt": 165, "y_pt": 110, "width_pt": 95, "height_pt": 25 }
+          }
+        },
+        {
+          "type": "shape",
+          "content": "",
+          "style": {
+            "background": "#E53E3E",
+            "border_radius": "50%",
+            "position": { "x_pt": 313, "y_pt": 55, "width_pt": 53, "height_pt": 53 }
+          }
+        },
+        {
+          "type": "text",
+          "content": "Circle\n(50% radius)",
+          "style": {
+            "font_size_pt": 8,
+            "color": "#718096",
+            "align": "center",
+            "position": { "x_pt": 300, "y_pt": 110, "width_pt": 80, "height_pt": 25 }
+          }
+        },
+        {
+          "type": "shape",
+          "content": "",
+          "style": {
+            "background": "#FFFFFF",
+            "border": "2pt solid #D69E2E",
+            "border_radius": "6pt",
+            "position": { "x_pt": 430, "y_pt": 60, "width_pt": 75, "height_pt": 45 }
+          }
+        },
+        {
+          "type": "text",
+          "content": "Border Only\n(3px solid)",
+          "style": {
+            "font_size_pt": 8,
+            "color": "#718096",
+            "align": "center",
+            "position": { "x_pt": 420, "y_pt": 110, "width_pt": 95, "height_pt": 25 }
+          }
+        },
+        {
+          "type": "shape",
+          "content": "",
+          "style": {
+            "background": "#805AD5",
+            "border_radius": "6pt",
+            "box_shadow": "3pt 3pt 9pt rgba(0,0,0,0.3)",
+            "position": { "x_pt": 565, "y_pt": 60, "width_pt": 75, "height_pt": 45 }
+          }
+        },
+        {
+          "type": "text",
+          "content": "Box Shadow\n(4px offset)",
+          "style": {
+            "font_size_pt": 8,
+            "color": "#718096",
+            "align": "center",
+            "position": { "x_pt": 555, "y_pt": 110, "width_pt": 95, "height_pt": 25 }
+          }
+        },
+        {
+          "type": "shape",
+          "content": "",
+          "style": {
+            "background": "#FFF5F5",
+            "border_top": "3pt solid #E53E3E",
+            "position": { "x_pt": 40, "y_pt": 175, "width_pt": 90, "height_pt": 30 }
+          }
+        },
+        {
+          "type": "text",
+          "content": "Top Border\n(4px red)",
+          "style": {
+            "font_size_pt": 8,
+            "color": "#718096",
+            "align": "center",
+            "position": { "x_pt": 35, "y_pt": 210, "width_pt": 100, "height_pt": 25 }
+          }
+        },
+        {
+          "type": "shape",
+          "content": "",
+          "style": {
+            "background": "#EBF8FF",
+            "border_left": "3pt solid #2B6CB0",
+            "position": { "x_pt": 195, "y_pt": 175, "width_pt": 90, "height_pt": 30 }
+          }
+        },
+        {
+          "type": "text",
+          "content": "Left Border\n(4px blue)",
+          "style": {
+            "font_size_pt": 8,
+            "color": "#718096",
+            "align": "center",
+            "position": { "x_pt": 190, "y_pt": 210, "width_pt": 100, "height_pt": 25 }
+          }
+        },
+        {
+          "type": "shape",
+          "content": "",
+          "style": {
+            "background": "#F0FFF4",
+            "border_bottom": "3pt solid #38A169",
+            "position": { "x_pt": 350, "y_pt": 175, "width_pt": 90, "height_pt": 30 }
+          }
+        },
+        {
+          "type": "text",
+          "content": "Bottom Border\n(4px green)",
+          "style": {
+            "font_size_pt": 8,
+            "color": "#718096",
+            "align": "center",
+            "position": { "x_pt": 345, "y_pt": 210, "width_pt": 100, "height_pt": 25 }
+          }
+        },
+        {
+          "type": "shape",
+          "content": "",
+          "style": {
+            "background": "#FFFFF0",
+            "border": "2pt solid #D69E2E",
+            "border_radius": "4pt",
+            "position": { "x_pt": 505, "y_pt": 175, "width_pt": 90, "height_pt": 30 }
+          }
+        },
+        {
+          "type": "text",
+          "content": "Full Border\n(2px gold)",
+          "style": {
+            "font_size_pt": 8,
+            "color": "#718096",
+            "align": "center",
+            "position": { "x_pt": 500, "y_pt": 210, "width_pt": 100, "height_pt": 25 }
+          }
+        }
+      ],
+      "background": {
+        "type": "solid",
+        "value": "#FFFFFF"
+      }
+    },
+    {
+      "slide_index": 3,
+      "slide_type": "section_header",
+      "source_section": "Footer section (.footer) — multi-column layout with links and copyright",
+      "elements": [
+        {
+          "type": "heading",
+          "content": "TestCorp Portal",
+          "style": {
+            "font_size_pt": 12,
+            "font_weight": "bold",
+            "color": "#FFFFFF",
+            "align": "left",
+            "position": { "x_pt": 30, "y_pt": 30, "width_pt": 300, "height_pt": 20 }
+          }
+        },
+        {
+          "type": "text",
+          "content": "A comprehensive testing page designed to verify html2pptx conversion accuracy. This page includes navigation, hero sections, data tables, shape rendering, line borders, and footer layouts.",
+          "style": {
+            "font_size_pt": 10,
+            "font_weight": "normal",
+            "color": "#A0AEC0",
+            "align": "left",
+            "position": { "x_pt": 30, "y_pt": 55, "width_pt": 300, "height_pt": 80 }
+          }
+        },
+        {
+          "type": "heading",
+          "content": "Company",
+          "style": {
+            "font_size_pt": 12,
+            "font_weight": "bold",
+            "color": "#FFFFFF",
+            "align": "left",
+            "position": { "x_pt": 370, "y_pt": 30, "width_pt": 100, "height_pt": 20 }
+          }
+        },
+        {
+          "type": "list",
+          "content": "About Us\nCareers\nPress\nBlog",
+          "style": {
+            "font_size_pt": 10,
+            "font_weight": "normal",
+            "color": "#A0AEC0",
+            "align": "left",
+            "position": { "x_pt": 370, "y_pt": 55, "width_pt": 100, "height_pt": 80 }
+          }
+        },
+        {
+          "type": "heading",
+          "content": "Resources",
+          "style": {
+            "font_size_pt": 12,
+            "font_weight": "bold",
+            "color": "#FFFFFF",
+            "align": "left",
+            "position": { "x_pt": 490, "y_pt": 30, "width_pt": 100, "height_pt": 20 }
+          }
+        },
+        {
+          "type": "list",
+          "content": "Documentation\nAPI Reference\nStatus Page\nChangelog",
+          "style": {
+            "font_size_pt": 10,
+            "font_weight": "normal",
+            "color": "#A0AEC0",
+            "align": "left",
+            "position": { "x_pt": 490, "y_pt": 55, "width_pt": 100, "height_pt": 80 }
+          }
+        },
+        {
+          "type": "heading",
+          "content": "Legal",
+          "style": {
+            "font_size_pt": 12,
+            "font_weight": "bold",
+            "color": "#FFFFFF",
+            "align": "left",
+            "position": { "x_pt": 610, "y_pt": 30, "width_pt": 90, "height_pt": 20 }
+          }
+        },
+        {
+          "type": "list",
+          "content": "Privacy Policy\nTerms of Service\nCookie Policy\nGDPR",
+          "style": {
+            "font_size_pt": 10,
+            "font_weight": "normal",
+            "color": "#A0AEC0",
+            "align": "left",
+            "position": { "x_pt": 610, "y_pt": 55, "width_pt": 90, "height_pt": 80 }
+          }
+        },
+        {
+          "type": "shape",
+          "content": "",
+          "style": {
+            "background": "#2D3748",
+            "position": { "x_pt": 30, "y_pt": 160, "width_pt": 660, "height_pt": 1 }
+          }
+        },
+        {
+          "type": "text",
+          "content": "\u00a9 2026 TestCorp. All rights reserved.",
+          "style": {
+            "font_size_pt": 10,
+            "font_weight": "normal",
+            "color": "#A0AEC0",
+            "align": "left",
+            "position": { "x_pt": 30, "y_pt": 170, "width_pt": 350, "height_pt": 20 }
+          }
+        },
+        {
+          "type": "text",
+          "content": "GitHub   Twitter   LinkedIn",
+          "style": {
+            "font_size_pt": 10,
+            "font_weight": "normal",
+            "color": "#718096",
+            "align": "right",
+            "position": { "x_pt": 500, "y_pt": 170, "width_pt": 190, "height_pt": 20 }
+          }
+        }
+      ],
+      "background": {
+        "type": "solid",
+        "value": "#1A202C"
+      }
+    }
+  ]
+}

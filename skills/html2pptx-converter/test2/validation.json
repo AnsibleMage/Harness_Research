@@ -1,0 +1,111 @@
+{
+  "validated_at": "2026-03-12T00:00:00Z",
+  "mode": "wireframe",
+  "source_html": "test2/test_layout.html",
+  "output_pptx": "test2/presentation.pptx",
+  "thumbnail": "test2/thumbnails.jpg",
+  "comparison": "test2/comparison.jpg",
+  "overall_quality": "pass",
+  "sections": [
+    {
+      "id": 1,
+      "name": "Header Nav",
+      "status": "pass",
+      "checks": {
+        "background_color": "pass",
+        "logo_text_visible": "pass",
+        "nav_links_visible": "pass",
+        "layout_position": "pass"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Hero Section",
+      "status": "pass",
+      "checks": {
+        "background_color": "pass",
+        "title_text_visible": "pass",
+        "subtitle_visible": "pass",
+        "cta_buttons": "pass",
+        "center_alignment": "pass"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Stats Bar",
+      "status": "pass",
+      "checks": {
+        "background_color": "pass",
+        "four_stats_visible": "pass",
+        "number_formatting": "pass",
+        "label_text": "pass"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Board + Sidebar",
+      "status": "pass",
+      "checks": {
+        "two_column_layout": "pass",
+        "board_header_bar": "pass",
+        "table_rows_visible": "pass",
+        "sidebar_cards": "pass",
+        "quick_links_grid": "pass"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Shape & Line Test",
+      "status": "pass",
+      "checks": {
+        "five_shapes_visible": "pass",
+        "rectangle_shape": "pass",
+        "rounded_rect": "pass",
+        "circle_shape": "pass",
+        "border_only_shape": "pass",
+        "box_shadow_shape": "pass",
+        "four_line_types": "pass",
+        "labels_visible": "pass"
+      }
+    },
+    {
+      "id": 6,
+      "name": "Footer",
+      "status": "pass",
+      "checks": {
+        "background_color": "pass",
+        "four_column_layout": "pass",
+        "link_lists_visible": "pass",
+        "bottom_bar": "pass",
+        "copyright_text": "pass"
+      }
+    },
+    {
+      "id": 7,
+      "name": "Corner Markers",
+      "status": "pass",
+      "checks": {
+        "tl_marker": "pass",
+        "tr_marker": "pass",
+        "bl_marker": "pass",
+        "br_marker": "pass",
+        "center_marker": "pass",
+        "marker_labels": "pass"
+      }
+    }
+  ],
+  "wireframe_compliance": {
+    "four_color_palette": "pass",
+    "colors_used": ["#000000", "#808080", "#E0E0E0", "#FFFFFF"],
+    "number_badges": "pass",
+    "description_panel": "pass",
+    "custom_layout": "pass"
+  },
+  "html_validation": {
+    "errors": 0,
+    "warnings": 1,
+    "warning_details": "Non-standard body dimensions (995pt x 720pt) - expected for CUSTOM wireframe layout"
+  },
+  "issues": [],
+  "needs_fix": false
+}

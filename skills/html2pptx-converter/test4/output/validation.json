@@ -1,0 +1,19 @@
+{
+  "execution": {
+    "success": true,
+    "pptx_path": "C:\\Users\\name\\.claude\\skills\\html2pptx-converter\\test4\\output\\presentation.pptx",
+    "pptx_size_bytes": 184980,
+    "thumbnail_path": "C:\\Users\\name\\.claude\\skills\\html2pptx-converter\\test4\\output\\thumbnails.jpg",
+    "comparison_path": "C:\\Users\\name\\.claude\\skills\\html2pptx-converter\\test4\\output\\comparison.jpg",
+    "no_reference_image": false,
+    "slides_converted": 1,
+    "conversion_time_ms": 1093
+  },
+  "validation": {
+    "slides_count": 1,
+    "inspected_slides": [0],
+    "issues": [],
+    "overall_quality": "pass",
+    "quality_notes": "All 8 sections rendered correctly in wireframe mode. Header navigation with 5 menu items and Home underline visible. Hero section with title, subtitle, and 2 CTA buttons properly centered. Stats bar shows all 4 metrics (1247, 358, 99.9%, 24/7) with labels. Notice Board table has 5 rows with category tags, titles, dates, and view counts. Sidebar contains Recent Updates (4 items with dates) and Quick Links (2x2 grid). Shape test area shows all 5 shape types (rectangle, rounded rect, circle, border only, box shadow) and 4 line border types. Footer has 4-column layout with copyright line and social links. Description panel on right side displays Korean section descriptions. Corner markers (TL, TR, BL, BR, CENTER) and number badges (1-8) all present. Wireframe palette correctly uses only #000000, #808080, #E0E0E0, #FFFFFF. No text cutoff, no empty areas, no content missing, no overlap issues detected."
+  }
+}
