@@ -1,5 +1,5 @@
 # 하네스 엘리먼트 추출 리포트
-**대상 파일**: Report_01_Anthropic_Harness_Analysis.md, Report_02_OpenAI_Codex_Harness_Analysis.md
+**대상 파일**: 07_Report_anthropic_harness_analysis.md, 08_Report_openai_codex_harness_analysis.md
 **날짜**: 2026-04-03
 
 ---

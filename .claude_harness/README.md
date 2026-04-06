@@ -97,6 +97,6 @@ claude --enable-agent-teams
 
 ## 관련 문서
 
-- `Harness_Utilization_Plan.md` — 전체 하네스 활용 계획
-- `07_Claude_Code_Agent_System_Analysis.md` — Agent Teams/Subagents/Skills 분석
-- `FINAL_GLOBAL_CLAUDE_MD.md` — CLAUDE.md v1.0 (이전 버전)
+- `23_Harness_Utilization_Plan.md` — 전체 하네스 활용 계획
+- `22_Claude_Code_Agent_System_Analysis.md` — Agent Teams/Subagents/Skills 분석
+- `16_Final_Global_CLAUDE_MD.md` — CLAUDE.md v1.0 (이전 버전)

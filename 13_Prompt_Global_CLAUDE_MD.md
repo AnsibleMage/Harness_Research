@@ -8,12 +8,12 @@
 ## 배경
 
 이 프로젝트 폴더에는 다음 6개의 분석 리포트가 있습니다:
-- Report_01_anthropic_harness_analysis.md (Anthropic Claude 하네스)
-- Report_02_openai_codex_harness_analysis.md (OpenAI Codex 하네스)
-- Report_03_google_gemini_harness_analysis.md (Google Gemini ADK 하네스)
-- Report_04_xai_grok_harness_analysis.md (xAI Grok 하네스)
-- Report_05_additional_harness_frameworks_analysis.md (LangChain, Microsoft, Meta, CrewAI, NLAHs)
-- Report_06_claude_code_claudemd_analysis.md (Claude Code CLAUDE.md 공식 문서 심층 분석)
+- 07_Report_anthropic_harness_analysis.md (Anthropic Claude 하네스)
+- 08_Report_openai_codex_harness_analysis.md (OpenAI Codex 하네스)
+- 09_Report_google_gemini_harness_analysis.md (Google Gemini ADK 하네스)
+- 10_Report_xai_grok_harness_analysis.md (xAI Grok 하네스)
+- 11_Report_additional_harness_frameworks_analysis.md (LangChain, Microsoft, Meta, CrewAI, NLAHs)
+- 12_Report_claude_code_claudemd_analysis.md (Claude Code CLAUDE.md 공식 문서 심층 분석)
 
 그리고 원본 소스 문서 6개:
 - 01_anthropic_harness.md ~ 05_additional_harness_frameworks.md
